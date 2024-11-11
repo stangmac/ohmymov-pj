@@ -90,6 +90,12 @@ input.search:active, input.search:focus {
     border-color: var(--bg--sub);
 }
 
+.form-input {
+    display: inline-block;
+    vertical-align: middle;
+
+}
+
 
 
 /*= section 1== */
@@ -100,3 +106,5 @@ input.search:active, input.search:focus {
 .box-banner {
     padding-top: 8%;
 }
+
+
