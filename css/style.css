@@ -26,6 +26,26 @@ body{
     background-color: var(--main-color);
 }
 
+.s-button {
+    border-radius: 0px;
+    border-color: var(--main-color);
+    background-color: var(--bg-main-color);
+    color: var(--colour-white);
+    padding: 5px 25px;
+}
+
+.s-button:hover {
+    color: var(--bg--main);
+    background-color: var(--main-color);
+}
+
+.white-font{
+    color: var(--colour-white);
+}
+
+.main-font{
+    color: var(--main-color);
+}
 
 
 /*= navbar== */
@@ -72,11 +92,11 @@ input.search:active, input.search:focus {
 
 
 
-
 /*= section 1== */
 
-.box-banner .p { 
-    color: var(--main-color);
-    font-size: var(--title-size);
-
+.sec-1 {
+    padding-top: 150px;
+}
+.box-banner {
+    padding-top: 8%;
 }
