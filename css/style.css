@@ -1,0 +1,82 @@
+:root {
+    /* font-size */
+   /* --body-font:   "Signika Negative", sans-serif; */
+   --h1-size:40px;
+   --h2-size:36px;
+   --title-size:26px;
+   --body-size:22px;
+   --caption-size:16px;
+
+   /* colour */
+
+   --main-color:#9bee98;
+   --bg--main:#191919;
+   --bg--sub:#3b3b3b;
+   --bg--detail:#b7b7b7;
+   --colour-white:white;
+
+}
+
+body{
+    background-color: var(--bg--main);
+}
+
+.o-button {
+    border-radius: 12px;
+    background-color: var(--main-color);
+}
+
+
+
+/*= navbar== */
+
+.navbar.navbar-expand-lg {
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.nav {
+    font-size: var(--title-size);
+    display: block;
+    padding: 20px;
+    color: var(--main-color);
+    text-decoration: none;
+    transition: color 0.3s;
+    font-weight: bold;
+}
+
+a.nav-link {
+    color: var(--colour-white);
+}
+
+a.nav-link:hover {
+    color: var(--main-color);
+}
+
+a.nav-link:active {
+    color: var(--bg-main-color);
+}
+
+input.search {
+    border-radius: 12px;
+    border-color: var(--bg--sub);
+    color: var(--bg--detail);
+    background-color: var(--bg--sub);
+    width:350px;
+}
+
+input.search:active, input.search:focus {
+    background-color: var(--bg--sub);
+    border-color: var(--bg--sub);
+}
+
+
+
+
+/*= section 1== */
+
+.box-banner .p { 
+    color: var(--main-color);
+    font-size: var(--title-size);
+
+}
