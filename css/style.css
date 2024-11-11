@@ -4,7 +4,7 @@
    --h1-size:40px;
    --h2-size:36px;
    --title-size:26px;
-   --body-size:22px;
+   --body-size:18px;
    --caption-size:16px;
 
    /* colour */
@@ -51,6 +51,14 @@ body{
     color: var(--bg--main);
 }
 
+.h1-font {
+    font-size: var(--h1-size);
+}
+
+.h2-font {
+    font-size: var(--h2-size);
+}
+
 .title-font {
     font-size: var(--title-size);
 }
@@ -60,10 +68,29 @@ body{
     font-weight: bold;
 }
 
+.body-font {
+    font-size: var(--body-size);
+}
+
+.body-font-bold {
+    font-size: var(--body-size);
+    font-weight: bold;
+}
+
 .caption-font {
     font-size: var(--caption-size);
 }
 
+/*= img== */
+
+img.poster {
+    height: 170px;
+    margin-top: 12px;
+}
+
+img.app {
+    height: 24px;
+}
 
 /*= navbar== */
 
@@ -118,11 +145,12 @@ input.search:active, input.search:focus {
 /*= section 1== banner */
 
 .sec-1 {
-    padding-top: 110px;
+    padding-top: 100px;
     margin-bottom: 50px;
 }
 .box-banner {
-    padding-top: 8%;
+    padding-top: 5%;
+    padding-left: 80px;
 }
 
 .line-text {
@@ -147,7 +175,23 @@ input.search:active, input.search:focus {
     background-color: var(--colour-white);
 }
 
+.sec-2 .container {
+    margin-left: calc(100% - 96%);
+
+}
+
+
+
 .box-new {
     border-radius: 20px;
     background-color: var(--bg--main);
+}
+
+.inside-box {
+    padding: 10px;
+}
+
+.app-logo img {
+    margin-top: 23px;
+    padding-right: 10px;
 }
