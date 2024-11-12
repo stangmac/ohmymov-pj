@@ -177,10 +177,8 @@ input.search:active, input.search:focus {
 
 .sec-2 .container {
     margin-left: calc(100% - 96%);
-
+    padding: 0%;
 }
-
-
 
 .box-new {
     border-radius: 20px;
@@ -194,4 +192,20 @@ input.search:active, input.search:focus {
 .app-logo img {
     margin-top: 23px;
     padding-right: 10px;
+}
+
+
+.bookmark-icon {
+    position: absolute;
+    top: 18px;
+    right: 15px;
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1); /* Makes the white outline visible */
+    cursor: pointer;
+    transition: filter 0.3s;
+}
+
+.bookmark-icon.active {
+    filter: brightness(0) saturate(100%) sepia(100%) hue-rotate(80deg) brightness(1.2) contrast(1); /* Green color */
 }
