@@ -2,8 +2,8 @@
     /* font-size */
    /* --body-font:   "Signika Negative", sans-serif; */
    --h1-size:40px;
-   --h2-size:36px;
-   --title-size:26px;
+   --h2-size:30px;
+   --title-size:22px;
    --body-size:18px;
    --caption-size:16px;
 
@@ -19,24 +19,6 @@
 
 body{
     background-color: var(--bg--main);
-}
-
-.o-button {
-    border-radius: 12px;
-    background-color: var(--main-color);
-}
-
-.s-button {
-    border-radius: 0px;
-    border-color: var(--main-color);
-    background-color: var(--bg-main-color);
-    color: var(--colour-white);
-    padding: 5px 25px;
-}
-
-.s-button:hover {
-    color: var(--bg--main);
-    background-color: var(--main-color);
 }
 
 .white-font{
@@ -79,6 +61,37 @@ body{
 
 .caption-font {
     font-size: var(--caption-size);
+}
+
+.o-button {
+    border-radius: 12px;
+    background-color: var(--main-color);
+}
+
+.s-button, .sg-button {
+    border-radius: 0px;
+    border-color: var(--main-color);
+    background-color: var(--bg-main-color);
+    color: var(--colour-white);
+    padding: 5px 25px;
+}
+
+.s-button:hover, .sg-button:hover {
+    color: var(--bg--main);
+    background-color: var(--main-color);
+}
+
+.sg-button,.sg-button-1 {
+    min-width: 80%;
+    padding: 5px 25px;
+}
+
+.sg-button-1 {
+    border-color: var(--bg-main-color);
+    background-color: var(--main-color);
+    border-radius: 0px;
+    color: var(--bg-main-color);
+    padding: 5px 25px;
 }
 
 /*= img== */
@@ -175,9 +188,8 @@ input.search:active, input.search:focus {
     background-color: var(--colour-white);
 }
 
-.sec-2 .container {
+.sec-2 .container-left {
     margin-left: calc(100% - 96%);
-    padding: 0%;
 }
 
 .box-new {
@@ -197,8 +209,8 @@ input.search:active, input.search:focus {
 
 .bookmark-icon {
     position: absolute;
-    top: 18px;
-    right: 15px;
+    top: 20px;
+    right: 40px;
     width: 24px;
     height: 24px;
     filter: brightness(0) invert(1); /* Makes the white outline visible */
@@ -209,3 +221,6 @@ input.search:active, input.search:focus {
 .bookmark-icon.active {
     filter: brightness(0) saturate(100%) sepia(100%) hue-rotate(80deg) brightness(1.2) contrast(1); /* Green color */
 }
+
+/*= section 3== genre */
+
