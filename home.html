@@ -40,12 +40,42 @@
                 <div class="col-6 d-flex justify-content-end">
                     <form class="form-input d-inline-flex justify-content-end">
                         <input class="form-control mr-2 search col-sm" type="search" placeholder="Search for movies" aria-label="Search">
-                        <button class="btn o-button ml-1" type="submit">Sign In</button>
+                        <button class="btn o-button ml-1" type="button"  id="show-signin">Sign In</button>
                     </form>
                 </div>                
             </div>
         </nav>
     </header>
+
+    <!----------start modal login--------------->
+    <div class="popup-signin-p" id="signinModal">
+        <div class="close-btn">&times; </div>
+            <div class="form">
+                <h2 class="title signin">Sign In</h2>
+                <div class="form-element">
+                    <label for="email">Email</label>
+                    <input type="email" id="email-signin" class="form-control" placeholder="Enter your email">
+                </div>
+                <div class="form-element">
+                    <label for="password">Password</label>
+                    <input type="password" id="password-signin" class="form-control" placeholder="Enter your password">
+                </div>
+                <div class="form-element">
+                    <input type="checkbox" id="remember-me">
+                    <label for="remember-me">Remember Me</label>
+                </div>
+                <div class="form-element">
+                    <button class="btn signin text-center">Sign In</button>
+                </div>
+                <div class="form-element">
+                   <a href="#" class="create">Forgot password</a>
+                </div>
+                <div class="form-element">
+                    <p class="create-account">Don’t have an account?<a href="#" class="create"> Create one</a></p>
+                 </div>
+            </div>
+    </div>
+    <!----------end modal login--------------->
       
      <!----- Section 1 - title ----->
 
@@ -152,7 +182,7 @@
         </div>
     </section>
 
-    <!----- Section 2 - new ----->
+    <!-- --- Section 2 - new ----->
 
     <!-- <section class="sec-2 pt-4 pb-4">
         <div class="container-fluid container-left">
@@ -325,7 +355,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="omm.js"></script>
+    <script src="/js/omm.js"></script>
 </body>
 
 </html>
