@@ -189,9 +189,6 @@ input.search:active, input.search:focus {
     background-color: var(--colour-white);
 }
 
-.sec-2 .container-left {
-    margin-left: calc(100% - 96%);
-}
 
 .box-new {
     border-radius: 20px;
@@ -211,7 +208,7 @@ input.search:active, input.search:focus {
 .bookmark-icon {
     position: absolute;
     top: 20px;
-    right: 40px;
+    right: 35px;
     width: 24px;
     height: 24px;
     filter: brightness(0) invert(1); /* Makes the white outline visible */
@@ -234,7 +231,7 @@ input.search:active, input.search:focus {
     width: 665px;
     padding: 20px 30px;
     background-color: var(--bg--sub);
-    border-radius: 20px;
+    border-radius: 30px;
     z-index: 1000;
     display: flex;
     justify-content: center;
