@@ -4,8 +4,9 @@
    --h1-size:40px;
    --h2-size:30px;
    --title-size:22px;
-   --body-size:18px;
-   --caption-size:16px;
+   --body-size:16px;
+   --caption-size:14px;
+   --detail-size:12px;
 
    /* colour */
 
@@ -96,13 +97,18 @@ body{
 
 /*= img== */
 
-img.poster {
+img.poster-new {
     height: 170px;
     margin-top: 12px;
 }
 
 img.app {
     height: 24px;
+}
+
+img.poster-top {
+    height: 220px;
+    border-radius: 15px;
 }
 
 /*= navbar== */
@@ -154,7 +160,6 @@ input.search:active, input.search:focus {
 }
 
 
-
 /*= section 1== banner */
 
 .sec-1 {
@@ -173,13 +178,7 @@ input.search:active, input.search:focus {
     font-size: 24px;
 }
 
-/* .line-text::before {
-    content: "";
-    flex: 1;
-    height: 1px;
-    color: var(--main-color);
-    margin-right: 10px;
-} */
+
 
 /*= section 2== new */
 
@@ -223,4 +222,106 @@ input.search:active, input.search:focus {
 }
 
 /*= section 3== genre */
+
+.sec-4 { 
+    margin: 0px 50px;
+}
+
+.bookmark-icon-top {
+    position: absolute; 
+    top: 17px;
+    right: 10px; 
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    z-index: 10; 
+    width: 24px;
+    height: 24px;
+}
+
+
+.title-item {
+    display: flex;
+    align-items: flex-end; 
+    gap: 15px; 
+    width: auto; 
+    margin-top: 25px;
+    margin-right: 25px;
+}
+
+.title-item-number {
+    font-size: 80px;
+    font-weight: 630;
+    color: var(--bg--detail); 
+    letter-spacing: -5px;
+    line-height: 100%;
+    flex-shrink: 0; 
+    margin: 0; 
+    padding: 0;
+}
+
+.title-item-link {
+    display: block;
+    text-decoration: none;
+    position: relative;
+    width: auto; 
+}
+
+figure {
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.poster-top {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px; /* Rounded corners */
+}
+
+.imdb-rate {
+    position: absolute;
+    top: 17px;
+    left: 15px;
+    width: 33px;
+    height: 33px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--main-color);
+    color: var(--main-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: var(--detail-size);
+    text-align: center;
+}
+
+.poster-title-box {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.55) 30%,
+        rgba(0, 0, 0, 0.92) 100%
+    );
+    padding: 50px 10px 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-sizing: border-box;
+}
+
+.top-title {
+    position: absolute;
+    bottom: 10px;
+    width: calc(100% - 20px);
+    padding: 3px 10px;
+}
+
+.entry-title {
+    font-size: var(--body-size);
+    color: var(--colour-white);
+    line-height: 1.4;
+}
 
