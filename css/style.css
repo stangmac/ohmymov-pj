@@ -14,7 +14,7 @@
    --bg--main:#191919;
    --bg--sub:#3b3b3b;
    --bg--detail:#b7b7b7;
-   --colour-white:white;
+   --colour-white:rgba(255,255,255);
 
 }
 
@@ -246,20 +246,200 @@ input.search:active, input.search:focus {
 }
 
 
+
+/* ----------start modal login--------------- */
+
+.popup-signin-p{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(1.25);
+    width: 665px;
+    padding: 20px 30px;
+    background-color: var(--bg--main);
+    border-radius: 30px;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    transition: top 0ms ease-in-out 200ms,
+                opacity 200ms ease-in-out 0ms, 
+                transform 20ms ease-in-out 0ms,;
+}
+.popup-signin-p.active{
+    top: 50%;
+    opacity: 1;
+    transform: translate(-50%,-50%) scale(1);
+    transition: top 0ms ease-in-out 0ms,
+                opacity 200ms ease-in-out 0ms, 
+                transform 20ms ease-in-out 0ms,;
+}
+.popup-signin-p .close-btn{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    color:var(var(--bg--detail));
+    text-align: center;
+    line-height: 20px;
+    font-size: 32px; /* Increase the size */
+    color: white; /* Set the color to white */
+    background: none; /* Remove the background color */
+    border: none; /* Remove any border */
+}
+.popup-signin-p .title {
+    text-align: center;
+    color:var(--colour-white) ;
+    margin:10px 0px 20px ;
+    font-size: var(--h2-size);
+}
+.popup-signin-p .form .form-element{
+    margin: 0px 0px;
+
+}
+.popup-signin-p .form .form-element label {
+    font-size: var(--body-size);
+    color: var(--colour-white);
+    
+}
+.popup-signin-p .form .form-element input[type="email"],
+.popup-signin-p .form .form-element input[type="password"] {
+
+
+    width: 350px !important;
+    padding: 8px;
+    outline: none;
+    border: 1px solid var(--bg--sub);
+    border-radius: 10px;
+    background-color: var(--bg--sub);
+    color: var(--colour-white);
+}
+.popup-signin-p .form-element input::placeholder {
+    color: var(--bg--detail); 
+    font-size: var(--caption-size);
+
+}
+.popup-signin-p .form .form-element [type="checkbox"]{
+    margin-right: 10px;
+    color: var(--colour-white);
+
+}
+#signinModal > div.form > div:nth-child(6) > label{
+    color: var(--colour-white);
+    font-size: var(--caption-size);
+}
+
+.popup-signin-p .form .form-element .btn.signin{
+    display: block;
+    margin-top: 10px;
+    width: 50%;
+    margin: 0 auto;
+    border: 1px solid var(--main-color);
+    font-size: var(--body-size);
+    background-color: var(--bg--main);
+    color: var(--colour-white);
+    cursor: pointer;
+    border-radius: 0px;
+    margin-bottom: 10px;
+}
+.line-account{
+    height: 0.1px; /* Set the height of the line */
+    background-color: var(--colour-white);
+    opacity: 0.2;
+    margin: 10px 0; /* Optional: Add margin for spacing */
+ 
+}
+.popup-signin-p .form .form-element .create-account {
+    font-size: 12px;
+    color: var(--colour-white);
+    text-decoration: none;
+    font-weight: 600;
+    display: inline;
+    text-align: center;
+    margin-top: 0px;
+
+}
+
+.popup-signin-p .form .form-element .create {
+    font-size: 12px;
+    color: var(--main-color);
+    font-weight: 600;
+    display: inline;
+    margin-left: 5px; 
+}
+.popup-signin-p .form .form-element .btn:hover {
+    display: block;
+    margin-top: 10px;
+    width: 50%;
+    margin: 0 auto;
+    border: 1px solid var(--main-color);
+    font-size: var(--body-size);
+    background-color: var(--main-color);
+    color: var(--bg--main);
+    cursor: pointer;
+    border-radius: 0px;
+    margin-bottom: 10px;
+}
+.popup-signin-p .social-signin {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.popup-signin-p .social-btn {
+    width: 40px;
+    height: 40px;
+    background-color: #333;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+}
+
+.popup-signin-p .social-btn svg {
+    width: 30px;
+    height: 30px;
+    fill: var(--main-color);
+}
+.popup-signin-p .or-text {
+    text-align: center;
+    color:var(--colour-white);
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.271); /* ทำให้พื้นหลังโปร่งใส */
+    backdrop-filter: blur(5px); /* ทำให้พื้นหลังเบลอ */
+    z-index: 999; /* เลเยอร์นี้จะอยู่ด้านหลัง modal */
+    display: none; /* เริ่มต้นเลเยอร์นี้จะซ่อน */
+}
+/* ----------End modal login--------------- */
+
+
 .bookmark-icon {
     position: absolute;
     top: 20px;
     right: 40px;
     width: 24px;
     height: 24px;
-    filter: brightness(0) invert(1); /* Makes the white outline visible */
+    color: #8b0000; /* สีเริ่มต้นของไอคอน */
     cursor: pointer;
-    transition: filter 0.3s;
+    
+    transition: color 0.3s ease; /* ใช้ transition สำหรับการเปลี่ยนสี */
+}
+.bookmark-icon.active {
+    color: #4CAF50; /* สีเขียวเมื่อ active */
 }
 
-.bookmark-icon.active {
-    filter: brightness(0) saturate(100%) sepia(100%) hue-rotate(80deg) brightness(1.2) contrast(1); /* Green color */
-}
+
 
 /*= section 3== genre */
 
