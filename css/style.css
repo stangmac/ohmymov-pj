@@ -67,6 +67,7 @@ body{
 .o-button {
     border-radius: 12px;
     background-color: var(--main-color);
+    font-size: var(--body-size);
 }
 
 .s-button, .sg-button {
@@ -77,22 +78,45 @@ body{
     padding: 5px 25px;
 }
 
-.s-button:hover, .sg-button:hover {
+.s-button:hover, .sg-button:hover, .o-button-1:hover {
     color: var(--bg--main);
     background-color: var(--main-color);
 }
 
-.sg-button,.sg-button-1 {
+
+/* square-button-for-genre */
+.sg-button,.sg-button-1 {  
     min-width: 80%;
     padding: 5px 25px;
 }
 
-.sg-button-1 {
+.sg-button-1, .sg-button-2 {
     border-color: var(--bg-main-color);
     background-color: var(--main-color);
     border-radius: 0px;
     color: var(--bg-main-color);
     padding: 5px 25px;
+}
+
+.o-button-1 {
+    border-radius: 50px;
+    border-color: var(--main-color);
+    background-color: var(--bg--main);
+    color: var(--colour-white);
+    min-width: 180px;
+    font-size: var(--caption-size);
+    text-align: center;
+    padding: 4px 0px;
+}
+
+.o-button-1:hover .watchlist {
+    filter: drop-shadow(0 0 2px var(--bg--main)) brightness(0) saturate(100%);
+}
+
+.sg-button-2 {
+    font-size: var(--detail-size);
+    right: 10px;
+    min-width: 150px ;
 }
 
 /*= img== */
@@ -110,6 +134,23 @@ img.poster-top {
     height: 220px;
     border-radius: 15px;
 }
+
+img.poster-genre {
+    min-width: 170px;
+    height: 250px;
+    border-radius: 15px;
+}
+
+img.watchlist {
+    height: 20px;
+    margin-bottom: 1px;
+}
+
+img.more {
+    height: 15px;
+    margin-bottom: 2px;
+}
+
 
 /*= navbar== */
 
@@ -201,7 +242,6 @@ input.search:active, input.search:focus {
 }
 
 .app-logo img {
-    margin-top: 23px;
     padding-right: 10px;
 }
 
@@ -325,3 +365,18 @@ figure {
     line-height: 1.4;
 }
 
+/*= section 5== genre movie */
+
+.genre-big {
+    margin-top: 25px;
+}
+
+.genre-movie-item {
+    margin-top: 25px;
+    margin-left: 20px                         ;
+}
+
+.app-logo img {
+    height: 25px;
+    padding-right: 12px;
+}
