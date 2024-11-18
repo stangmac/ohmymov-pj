@@ -34,6 +34,10 @@ body{
     color: var(--bg--main);
 }
 
+.grey-font {
+    color: var(--bg--detail);
+}
+
 .h1-font {
     font-size: var(--h1-size);
 }
@@ -559,4 +563,16 @@ figure {
 .app-logo img {
     height: 25px;
     padding-right: 12px;
+}
+
+/*= footer== */
+
+
+
+.a-footer {
+    color: var(--main-color);;
+}
+
+.a-footer:hover {
+    color: var(--main-color);;
 }
