@@ -82,7 +82,7 @@ body{
     padding: 5px 25px;
 }
 
-.s-button:hover, .sg-button:hover, .o-button-1:hover {
+.s-button:hover, .sg-button:hover, .o-button-1:hover, .o-button-2:hover {
     color: var(--bg--main);
     background-color: var(--main-color);
 }
@@ -102,7 +102,7 @@ body{
     padding: 5px 25px;
 }
 
-.o-button-1 {
+.o-button-1, .o-button-2 {
     border-radius: 50px;
     border-color: var(--main-color);
     background-color: var(--bg--main);
@@ -121,6 +121,12 @@ body{
     font-size: var(--detail-size);
     right: 10px;
     min-width: 150px ;
+}
+
+.o-button-2 {
+    min-width: auto;
+    padding: 5px 20px;
+    margin-right: 5px;
 }
 
 /*= img== */
@@ -155,6 +161,16 @@ img.more {
     margin-bottom: 2px;
 }
 
+img.poster-detail {
+    height: 250px;
+    margin-top: 20px;
+    border-radius: 15px;
+}
+
+img.app-2 {
+    height: 65px;
+    margin-bottom: 10px;
+}
 
 /*= navbar== */
 
@@ -208,9 +224,10 @@ input.search:active, input.search:focus {
 /*= section 1== banner */
 
 .sec-1 {
-    padding-top: 100px;
+    padding-top: 80px;
     margin-bottom: 50px;
 }
+
 .box-banner {
     padding-top: 5%;
     padding-left: 80px;
@@ -248,7 +265,6 @@ input.search:active, input.search:focus {
 .app-logo img {
     padding-right: 10px;
 }
-
 
 
 /* ----------start modal login--------------- */
@@ -439,11 +455,10 @@ input.search:active, input.search:focus {
     
     transition: color 0.3s ease; /* ใช้ transition สำหรับการเปลี่ยนสี */
 }
+
 .bookmark-icon.active {
     color: #4CAF50; /* สีเขียวเมื่อ active */
 }
-
-
 
 /*= section 3== genre */
 
@@ -565,9 +580,23 @@ figure {
     padding-right: 12px;
 }
 
+
+/*= section movie */
+
+.movie-detail {
+    margin: 90px 0px 60px 50px;
+}
+
+.custom-line {
+    border: none;            
+    border-top: 1px solid var(--colour-white); 
+    margin-left: 0; 
+}           
+
+
+
+
 /*= footer== */
-
-
 
 .a-footer {
     color: var(--main-color);;
