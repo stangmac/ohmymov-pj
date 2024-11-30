@@ -26,46 +26,26 @@
 // });
 // var click_disabled = false;
 
-// ตัวแปรสำหรับป้องกันการคลิกซ้ำ
-var click_disabled = false;
+// Select the button
+var btn = document.querySelector(".btn-bookmark");
+var t = new TimelineMax({ paused: true }); // Initialize animation timeline
 
-// ฟังก์ชันในการสลับไอคอนของ Bookmark
-function toggleBookmark() {
-    if (click_disabled) {
-        return; // หากถูกปิดการคลิก จะไม่ทำการใดๆ
-    }
+// Define animation for the second icon
+t.to(".btn-bookmark .icon-container.second-icon", 0.8, {
+  transform: "rotateX(0deg)",
+  ease: Bounce.easeOut
+});
 
-    // สลับสถานะของการแอนิเมชัน bookmark
-    $('.btn-bookmark .icon-container.first-icon').toggleClass('second-icon');  // สลับไอคอนแรกกับไอคอนที่สอง
-
-    // ตั้งค่า aria-label ให้ถูกต้อง
-    var label = $('.btn-bookmark').attr('aria-label') == 'Favourite' ? 'Unfavourite' : 'Favourite';
-    $('.btn-bookmark').attr('aria-label', label);
-
-    // ปิดการคลิกชั่วคราว
-    click_disabled = true;
-
-    // รีเซ็ตสถานะการคลิกหลังจากเวลาที่กำหนด
-    setTimeout(function() {
-        click_disabled = false;
-    }, 400);  // ใช้เวลาให้ตรงกับแอนิเมชัน
+// Function to handle bookmark click
+function bookmark() {
+  t.reversed(!t.reversed()); // Reverse animation state
+  if (t.reversed()) {
+    t.reverse();
+  } else {
+    t.play();
+  }
 }
 
-// เพิ่ม event listener สำหรับการคลิก
-$('.btn-bookmark').click(toggleBookmark);
-function toggleBookmark() {
-    const button = document.querySelector('.btn-bookmark');
-    const firstIcon = button.querySelector('.first-icon');
-    const secondIcon = button.querySelector('.second-icon');
-  
-    if (firstIcon.style.transform === 'rotateX(-90deg)') {
-      firstIcon.style.transform = 'rotateX(0deg)';
-      secondIcon.style.transform = 'rotateX(90deg)';
-    } else {
-      firstIcon.style.transform = 'rotateX(-90deg)';
-      secondIcon.style.transform = 'rotateX(0deg)';
-    }
-  }
 
 
 // Select elements

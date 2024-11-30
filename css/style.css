@@ -529,7 +529,7 @@ input.search:active, input.search:focus {
     height: 50px;
     border: none;
     outline: none;
-    z-index: 1000;
+    z-index: 100;
     top: 5px;
     right: 20px;
     cursor: pointer;
