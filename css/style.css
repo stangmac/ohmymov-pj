@@ -172,6 +172,12 @@ img.app-2 {
     margin-bottom: 10px;
 }
 
+img.poster-detail-box {
+    height: 150px;
+    border-radius: 15px;
+    margin-top: 15px;
+}
+
 /*= navbar== */
 
 .navbar.navbar-expand-lg {
@@ -679,8 +685,29 @@ figure {
     border: none;            
     border-top: 1px solid var(--colour-white); 
     margin-left: 0; 
-}           
+}   
 
+.vdo {
+    margin-right: 30px;
+}
+
+.cast-box {
+    font-size: var(--body-size);
+    background-color: var(--main-color);
+    color: var(--bg--main);
+    border-radius: 10px;
+    width: 180px;
+    padding: 15px 18px;
+    margin-right: 23px;
+}
+
+.detail-box {
+    border-radius: 12px;
+    border: 1px solid var(--main-color);
+    padding: 20px;
+    margin: 20px 35px 0px 5px;
+
+}
 
 
 
