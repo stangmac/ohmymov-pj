@@ -185,9 +185,10 @@ img.poster-detail-box {
 
 /*= navbar== */
 
+
 .navbar.navbar-expand-lg {
     position: relative;
-    transition: background-color 0.3s ease;
+    background-color: var(--bg--main);
 }
 
 .nav {
