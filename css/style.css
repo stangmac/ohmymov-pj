@@ -129,6 +129,11 @@ body{
     margin-right: 5px;
 }
 
+.o-button-2.history {
+    min-width: 150px;
+    margin-top: 15px;
+}
+
 /*= img== */
 
 img.poster-new {
@@ -173,7 +178,7 @@ img.app-2 {
 }
 
 img.poster-detail-box {
-    height: 150px;
+    height: 175px;
     border-radius: 15px;
     margin-top: 15px;
 }
