@@ -183,6 +183,12 @@ img.poster-detail-box {
     margin-top: 15px;
 }
 
+img.user-pic {
+    max-width: 160px;
+    border-radius: 50%;
+    background-color: var(--bg--detail);
+}
+
 /*= navbar== */
 
 
@@ -715,6 +721,16 @@ figure {
 
 }
 
+/*= user== */
+
+.user-box {
+    margin-top: 90px;
+    border-radius: 20px;
+    background-color: var(--bg--main);
+    border: 1px solid var(--main-color);
+    color: var(--colour-white);
+    padding: 40px 0px;
+}
 
 
 /*= footer== */
