@@ -618,7 +618,6 @@ figure {
 }
 
 .poster-top {
-    width: 100%;
     height: auto;
     display: block;
     border-radius: 10px; /* Rounded corners */
@@ -731,6 +730,46 @@ figure {
     color: var(--colour-white);
     padding: 40px 0px;
 }
+
+.user-info {
+    margin: 30px 80px 0px;
+}
+
+.history-box {
+    margin: 30px 50px 0px;
+}
+
+.history-topic {
+    margin: 20px 0;
+    position: relative;
+}
+
+.topic-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.circle-button {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: var(--main-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin-right: 10px;
+}
+
+.star {
+    font-size: 12px;
+    color: var(--bg--main);
+}
+
+
 
 
 /*= footer== */
