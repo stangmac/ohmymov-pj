@@ -287,7 +287,6 @@ input.search:active, input.search:focus {
 
 
 /* ----------start modal sign in--------------- */
-/* Overlay */
 #overlay {
     position: fixed;
     top: 0;
@@ -304,16 +303,16 @@ input.search:active, input.search:focus {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(1.25);
-    width: 90%;
-    max-width: 500px;
-    padding: 20px 30px;
+    transform: translate(-50%, -50%) scale(1.1);
+    width: 100%;
+    max-width: 800px;  /* Max width for better scaling */
+    padding: 25px 35px;
     background-color: var(--bg--main);
-    border-radius: 20px;
-    z-index: 1000;
+    border-radius: 15px;
+    z-index: 10000;
     opacity: 0;
     display: none;
-    transition: opacity 0.2s, transform 0.2s;
+    transition: opacity 0.3s, transform 0.3s;
 }
 
 .popup-sign-p.active {
@@ -324,27 +323,30 @@ input.search:active, input.search:focus {
 
 .close-btn-sign {
     position: absolute;
-    top: 12px;
-    right: 12px;
+    top: 10px;
+    right: 10px;
     cursor: pointer;
-    color:var(var(--bg--detail));
-    text-align: center;
-    line-height: 20px;
+    color: white;
     font-size: 32px;
-    color: white; 
-    background: none; 
-    border: none; 
+    background: none;
+    border: none;
+    transition: color 0.3s ease;
 }
+
+.close-btn-sign:hover {
+    color: var(--main-color);  /* Hover effect */
+}
+
 .social-sign {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
+    gap: 15px;
+    margin-bottom: 25px;
 }
 
 .social-btn {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     background-color: #333;
     border-radius: 50%;
     display: flex;
@@ -352,6 +354,11 @@ input.search:active, input.search:focus {
     align-items: center;
     cursor: pointer;
     border: none;
+    transition: background-color 0.3s ease;
+}
+
+.social-btn:hover {
+    background-color: var(--main-color);  /* Hover effect */
 }
 
 .social-btn svg {
@@ -359,115 +366,120 @@ input.search:active, input.search:focus {
     height: 24px;
     fill: var(--main-color);
 }
-.title-sign{
+.social-btn:hover svg {
+    width: 24px;
+    height: 24px;
+    fill: var(--bg--main);
+}
+
+.title-sign {
     text-align: center;
     font-size: var(--h2-size);
     color: var(--colour-white);
-    margin-top: 10px ;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 25px;
 }
-.or-text{
+
+.or-text {
     color: var(--colour-white);
     text-align: center;
+    margin-bottom: 25px;
 }
+
 .form-element-sign {
-    margin: 10px 0px;
+    margin: 5px 0;
     width: 100%;
-    margin: 10px 40px 10px 40px;
-
-
 
 }
+
 .form-element-sign input[type="email"],
-.form-element-sign  input[type="password"],.form-element-sign input[type="text"],.form-element-sign input[type="date"] {
-    width: 350px !important;
-    padding: 8px;
+.form-element-sign input[type="password"],
+.form-element-sign input[type="text"],
+.form-element-sign input[type="date"],
+.form-element-sign select {
+    width: 100%;/* Ensure responsiveness */
+    padding: 12px;
     outline: none;
     border: 1px solid var(--bg--sub);
     border-radius: 10px;
     background-color: var(--bg--sub);
     display: flex;
-    flex-direction: column;
-
+    font-size: var(--caption-size);  /* Spacing between inputs */
 }
-.form-element-sign label{
-    margin-bottom: 5px;
-    color: var(--colour-white);
-    font-size: var(--caption-size);
-
-
-}
-.form-element-sign input[type="date"] {
+.form-element-sign input[type="date"]{
     color: var(--bg--detail);
     font-size: var(--caption-size);
 }
-.form-element-sign  input::placeholder {
-    color: var(--bg--detail); 
-    font-size: var(--caption-size);
 
+.form-element-sign label {
+    margin-bottom: 5px;
+    color: var(--colour-white);
+    font-size: var(--caption-size);
 }
-.form-element-sign  [type="checkbox"]{
+
+.form-element-sign input::placeholder {
+    color: var(--bg--detail);
+}
+
+.form-element-sign option, option:disabled {
+    color: var(--bg--detail);
+    font-size: var(--caption-size);
+}
+
+.form-element-sign[type="checkbox"] {
     margin-right: 10px;
     color: var(--colour-white);
 }
-.form-element-sign label[for="remember-me"]{
+
+.form-element-sign label[for="remember-me"] {
     color: var(--colour-white);
 }
+
+#signup-gender {
+    color: var(--bg--detail);
+    font-size: var(--caption-size);
+}
+
 .btn-sign {
-    display: flex;
-    justify-content: center;
-    margin: 0px auto;
-    margin-top: 20px;
+    display: block;
+    margin: 20px auto;
     width: 50%;
-    height: 100%;
+    height: 50px;
     border: 1px solid var(--main-color);
     font-size: var(--body-size);
     background-color: var(--bg--main);
     color: var(--colour-white);
     cursor: pointer;
-    border-radius: 0px;
-    margin-bottom: 20px;
-    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
 }
+
 .btn-sign:hover {
     background-color: var(--main-color);
     color: var(--bg--main);
 }
-.forgetpassword {
 
+.forgetpassword {
     font-size: 12px;
     color: var(--main-color);
     font-weight: 600;
-    margin-left: 5px; 
+    margin-left: 5px;
 }
+
 .forgetpassword:hover {
-    font-size: 12px;
     color: var(--main-color);
-    font-weight: 600;
-    margin-left: 5px; 
+    text-decoration: underline;
 }
-.line-account{
+
+.line-account {
     height: 0.1px;
     background-color: var(--colour-white);
     opacity: 0.2;
-    margin: 10px 0; 
- 
+    margin: 15px 0;
 }
-.create {
-    display: inline;
-    font-size: 12px;
-    color: var(--main-color);
-    font-weight: 600;
-    margin-left: 5px; 
-}
-.create:hover {
-    display: inline;
-    font-size: 12px;
-    color: var(--main-color);
-    font-weight: 600;
-    margin-left: 5px; 
-}
-.create-account{
+
+.create-account {
     font-size: 12px;
     color: var(--colour-white);
     text-decoration: none;
@@ -476,11 +488,52 @@ input.search:active, input.search:focus {
     text-align: center;
     margin-top: 10px;
 }
+
+.create-account a {
+    color: var(--main-color);
+    text-decoration: none;
+}
+
+.create-account a:hover {
+    text-decoration: underline;
+}
+
 .hidden {
     display: none;
 }
+
 .active {
     display: block;
+}
+
+
+.input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.date-input {
+    width: 100%;
+    max-width: 350px;
+    padding: 12px 35px 12px 12px; /* Add extra padding on the right for the icon */
+    outline: none;
+    border: 1px solid var(--bg--sub);
+    border-radius: 10px;
+    background-color: var(--bg--sub);
+    font-size: var(--caption-size);
+    display: flex;
+}
+
+.date-input::-webkit-calendar-picker-indicator {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.date-input:focus::-webkit-calendar-picker-indicator {
+    color: var(--main-color); /* Optional: Change color when focused */
 }
 
 /* ----------End modal sign in--------------- */
