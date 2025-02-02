@@ -189,6 +189,10 @@ img.user-pic {
     background-color: var(--bg--detail);
 }
 
+img.movie-detail-poster {
+    height: 235px;
+}
+
 /*= navbar== */
 
 
