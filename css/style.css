@@ -2,7 +2,8 @@
     /* font-size */
    /* --body-font:   "Signika Negative", sans-serif; */
    --h1-size:40px;
-   --h2-size:30px;
+   --h2-size:28px;
+   --h3-size:25px;
    --title-size:22px;
    --body-size:16px;
    --caption-size:14px;
@@ -46,6 +47,11 @@ body{
     font-size: var(--h2-size);
 }
 
+.h3-font {
+    font-size: var(--h3-size);
+    font-weight: bold;
+}
+
 .title-font {
     font-size: var(--title-size);
 }
@@ -72,6 +78,7 @@ body{
     border-radius: 12px;
     background-color: var(--main-color);
     font-size: var(--body-size);
+    min-width: 80px;
 }
 
 .s-button, .sg-button {
@@ -191,6 +198,16 @@ img.user-pic {
 
 img.movie-detail-poster {
     height: 235px;
+}
+
+img.app2 {
+    height: 30px;
+}
+
+img.poster-search {
+    min-width: 170px;
+    height: 270px;
+    border-radius: 15px;
 }
 
 /*= navbar== */
@@ -644,7 +661,7 @@ input.search:active, input.search:focus {
 .title-item {
     display: flex;
     align-items: flex-end; 
-    gap: 15px; 
+    gap: 20px; 
     width: auto; 
     margin-top: 25px;
     margin-right: 25px;
@@ -797,7 +814,7 @@ figure {
 }
 
 .history-topic {
-    margin: 20px 0;
+    margin: 25px 0px;
     position: relative;
 }
 
@@ -822,7 +839,7 @@ figure {
 }
 
 .star {
-    font-size: 12px;
+    font-size: 13px;
     color: var(--bg--main);
 }
 
