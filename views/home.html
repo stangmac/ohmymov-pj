@@ -392,79 +392,10 @@
         <div class="row">
             <h2 class="h2-font white-font">Top 10 in Thailand today</h2>
         </div>
-        <div class="row">
-            <div class="title-item">
-                <div class="title-item-number">1</div>
-                <a href="/" class="title-item-link">
-                    <figure>
-                        <img class="poster-top" src="/images/poster/teeyod2.jpg" alt="ธี่หยด 2 (2024)">
-                    </figure>
-                    <div class="imdb-rate">7.2</div>
-                    <div class="poster-title-box">
-                        <div class="top-title">
-                            <span class="entry-title">ธี่หยด 2 (2024)</span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="title-item">
-                <div class="title-item-number">2</div>
-                <a href="/" class="title-item-link">
-                    <figure>
-                        <img class="poster-top" src="/images/poster/teeyod2.jpg" alt="ธี่หยด 2 (2024)">
-                    </figure>
-                    <div class="imdb-rate">7.2</div>
-                    <div class="poster-title-box">
-                        <div class="top-title">
-                            <span class="entry-title">ธี่หยด 2 (2024)</span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="title-item">
-                <div class="title-item-number">3</div>
-                <a href="/" class="title-item-link">
-                    <figure>
-                        <img class="poster-top" src="/images/poster/teeyod2.jpg" alt="ธี่หยด 2 (2024)">
-                    </figure>
-                    <div class="imdb-rate">7.2</div>
-                    <div class="poster-title-box">
-                        <div class="top-title">
-                            <span class="entry-title">ธี่หยด 2 (2024)</span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="title-item">
-                <div class="title-item-number">4</div>
-                <a href="/" class="title-item-link">
-                    <figure>
-                        <img class="poster-top" src="/images/poster/teeyod2.jpg" alt="ธี่หยด 2 (2024)">
-                    </figure>
-                    <div class="imdb-rate">7.2</div>
-                    <div class="poster-title-box">
-                        <div class="top-title">
-                            <span class="entry-title">ธี่หยด 2 (2024)</span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="title-item">
-                <div class="title-item-number">5</div>
-                <a href="/" class="title-item-link">
-                    <figure>
-                        <img class="poster-top" src="/images/poster/teeyod2.jpg" alt="ธี่หยด 2 (2024)">
-                    </figure>
-                    <div class="imdb-rate">7.2</div>
-                    <div class="poster-title-box">
-                        <div class="top-title">
-                            <span class="entry-title">ธี่หยด 2 (2024)</span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
+        <div class="row movie-container">
+            <!-- Movies will be dynamically inserted here -->
         </div>
+        <button id="scroll-button">&#8250;</button>
     </section>
     
 <!----- Section 5 movie each genre ----->
@@ -907,6 +838,66 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
     <script src="/js/omm.js"></script>
+
+    <script>
+        const movies = [
+            { number: 1, img: '/images/poster/teeyod2.jpg', title: 'ธี่หยด 2 (2024)', rating: 7.2 },
+            { number: 2, img: '/images/poster/teeyod2.jpg', title: 'ธี่หยด 2 (2024)', rating: 7.2 },
+            { number: 3, img: '/images/poster/teeyod2.jpg', title: 'ธี่หยด 2 (2024)', rating: 7.2 },
+            { number: 4, img: '/images/poster/teeyod2.jpg', title: 'ธี่หยด 2 (2024)', rating: 7.2 },
+            { number: 5, img: '/images/poster/teeyod2.jpg', title: 'ธี่หยด 2 (2024)', rating: 7.2 },
+            { number: 6, img: '/images/poster/teeyod2.jpg', title: 'ธี่หยด 2 (2024)', rating: 7.2 },
+            { number: 7, img: '/images/poster/teeyod2.jpg', title: 'ธี่หยด 2 (2024)', rating: 7.2 },
+            { number: 8, img: '/images/poster/teeyod2.jpg', title: 'ธี่หยด 2 (2024)', rating: 7.2 },
+            { number: 9, img: '/images/poster/teeyod2.jpg', title: 'ธี่หยด 2 (2024)', rating: 7.2 },
+            { number: 10, img: '/images/poster/teeyod2.jpg', title: 'ธี่หยด 2 (2024)', rating: 7.2 }
+        ];
+
+        let startIndex = 0;
+        const displayCount = 5;
+
+        function renderMovies() {
+            const container = document.querySelector('.sec-4 .row:nth-child(2)');
+            container.innerHTML = ''; // Clear existing content
+
+            for (let i = startIndex; i < startIndex + displayCount; i++) {
+                if (i >= movies.length) break;
+                const movie = movies[i];
+                const movieElement = document.createElement("div");
+                movieElement.classList.add("title-item");
+                movieElement.innerHTML = `
+                    <div class="title-item-number">${movie.number}</div>
+                    <a href="/" class="title-item-link">
+                        <figure>
+                            <img class="poster-top" src="${movie.img}" alt="${movie.title}">
+                        </figure>
+                        <div class="imdb-rate">${movie.rating}</div>
+                        <div class="poster-title-box">
+                            <div class="top-title">
+                                <span class="entry-title">${movie.title}</span>
+                            </div>
+                        </div>
+                    </a>
+                `;
+                container.appendChild(movieElement);
+            }
+        }
+
+        function scrollMovies() {
+            if (startIndex + displayCount < movies.length) {
+                startIndex++;  // Move forward
+            } else {
+                startIndex = 0; // Loop back to start if at end
+            }
+            renderMovies();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderMovies();
+            document.getElementById('scroll-button').addEventListener('click', scrollMovies);
+        });
+
+    </script>
 </body>
 
 
