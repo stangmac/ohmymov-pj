@@ -50,108 +50,19 @@
     </header>
 
 <!----------start modal sign in--------------->
+<form  method="POST">
+    <div class="popup-sign-p hidden" id="signinModal">
+        <button class="close-btn-sign" id="closeSignIn">&times;</button>
+        <h2 class="title-sign">Sign In</h2>
+<% if (typeof errors !== 'undefined' && errors.length > 0) { %>
+    <% for (let i = 0; i < errors.length; i++) { %>
+        <p class="alert">
+            <%= errors[i] %>
+        </p>
+    <% } %>
+<% } %>
 
-<div class="popup-sign-p hidden" id="signinModal">
-    <button class="close-btn-sign" id="closeSignIn">&times;</button>
-    <h2 class="title-sign">Sign In</h2>
-    <div class="social-sign">
-        <button class="social-btn google"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50">
-            <path d="M 25.996094 48 C 13.3125 48 2.992188 37.683594 2.992188 25 C 2.992188 12.316406 13.3125 2 25.996094 2 C 31.742188 2 37.242188 4.128906 41.488281 7.996094 L 42.261719 8.703125 L 34.675781 16.289063 L 33.972656 15.6875 C 31.746094 13.78125 28.914063 12.730469 25.996094 12.730469 C 19.230469 12.730469 13.722656 18.234375 13.722656 25 C 13.722656 31.765625 19.230469 37.269531 25.996094 37.269531 C 30.875 37.269531 34.730469 34.777344 36.546875 30.53125 L 24.996094 30.53125 L 24.996094 20.175781 L 47.546875 20.207031 L 47.714844 21 C 48.890625 26.582031 47.949219 34.792969 43.183594 40.667969 C 39.238281 45.53125 33.457031 48 25.996094 48 Z"></path>
-            </svg></button>
-        <button class="social-btn facebook"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 24 24">
-            <path d="M17.525,9H14V7c0-1.032,0.084-1.682,1.563-1.682h1.868v-3.18C16.522,2.044,15.608,1.998,14.693,2C11.98,2,10,3.657,10,6.699V9H7v4l3-0.001V22h4v-9.003l3.066-0.001L17.525,9z"></path>
-            </svg></button>
-        <button class="social-btn apple"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 30 30">
-            <path d="M25.565,9.785c-0.123,0.077-3.051,1.702-3.051,5.305c0.138,4.109,3.695,5.55,3.756,5.55 c-0.061,0.077-0.537,1.963-1.947,3.94C23.204,26.283,21.962,28,20.076,28c-1.794,0-2.438-1.135-4.508-1.135 c-2.223,0-2.852,1.135-4.554,1.135c-1.886,0-3.22-1.809-4.4-3.496c-1.533-2.208-2.836-5.673-2.882-9 c-0.031-1.763,0.307-3.496,1.165-4.968c1.211-2.055,3.373-3.45,5.734-3.496c1.809-0.061,3.419,1.242,4.523,1.242 c1.058,0,3.036-1.242,5.274-1.242C21.394,7.041,23.97,7.332,25.565,9.785z M15.001,6.688c-0.322-1.61,0.567-3.22,1.395-4.247 c1.058-1.242,2.729-2.085,4.17-2.085c0.092,1.61-0.491,3.189-1.533,4.339C18.098,5.937,16.488,6.872,15.001,6.688z"></path>
-        </svg></button>
-    </div>
-    <p class="or-text">or</p>
-    <div class="container">
-        <div class="form m-5">
-            <div class="form-element-sign">
-                <label for="login-email">Email or Username</label>
-                <input type="email" id="login-email" placeholder="Email or Username">
-            </div>
-            <div class="form-element-sign">
-                <label for="login-password">Password</label>
-                <input type="password" id="login-password" placeholder="Password">
-                <a href="#" class="forgetpassword">Forgot password?</a>
-            </div>
-            <div class="form-element-sign">
-                <input type="checkbox" id="remember-me">
-                <label for="remember-me">Remember me</label>
-            </div>
-            <button class="btn-sign">Sign In</button>
-       
-            <div class="line-account"></div>
-            <p class="create-account">Don’t have an account?<a href="#" id="Create-one" class="create"> Create one</a></p>
-        </div>
-    </div>
-   
-</div>
-
-<!----------End modal sign in--------------->
-  <!-- Sign Up Modal -->
- 
-  <div class="popup-sign-p hidden" id="signupModal">
-    <button class="close-btn-sign" id="closeSignUp">&times;</button>
-    <div class="container">
-        <h2 class="title-sign">Create an account</h2>
-        <div class="form">
-            <div class="row">
-                <div class="col-6">
-                    <div class="form-element-sign">
-                        <label for="signup-email">Email</label>
-                        <input type="email" id="signup-email" placeholder="Enter your email">
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="form-element-sign">
-                        <label for="signup-username">Username</label>
-                        <input type="text" id="signup-username" placeholder="Enter your username">
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="form-element-sign">
-                        <label for="signup-dob">Date of Birth</label>
-                        <div class="input-wrapper">
-                            <input type="date" id="signup-dob" class="date-input">
-                        </div>
-                    </div>
-                </div>
                 
-                <div class="col-6">
-                    <div class="form-element-sign">
-                        <label for="signup-gender">Gender</label>
-                        <select id="signup-gender">
-                            <option value="" disabled selected>Gender</option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="form-element-sign">
-                        <label for="signup-password">Password</label>
-                        <input type="password" id="signup-password" placeholder="Enter your password">
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="form-element-sign">
-                        <label for="confirm-password">Confirm Password</label>
-                        <input type="password" id="confirm-password" placeholder="Confirm your password">
-                    </div>
-                </div>
-                
-                <div class="form-element-sign">
-                    <input type="checkbox" id="agree-terms">
-                    <label for="agree-terms">I agree to the <a href="#" class="create">Terms of Service</a> and <a href="#" class="create">Privacy Policy</a></label>
-                </div>
-                <button class="btn-sign">Sign Up</button>
-            </div>
-        </div>
-        <p class="or-text">or</p>
         <div class="social-sign">
             <button class="social-btn google"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50">
                 <path d="M 25.996094 48 C 13.3125 48 2.992188 37.683594 2.992188 25 C 2.992188 12.316406 13.3125 2 25.996094 2 C 31.742188 2 37.242188 4.128906 41.488281 7.996094 L 42.261719 8.703125 L 34.675781 16.289063 L 33.972656 15.6875 C 31.746094 13.78125 28.914063 12.730469 25.996094 12.730469 C 19.230469 12.730469 13.722656 18.234375 13.722656 25 C 13.722656 31.765625 19.230469 37.269531 25.996094 37.269531 C 30.875 37.269531 34.730469 34.777344 36.546875 30.53125 L 24.996094 30.53125 L 24.996094 20.175781 L 47.546875 20.207031 L 47.714844 21 C 48.890625 26.582031 47.949219 34.792969 43.183594 40.667969 C 39.238281 45.53125 33.457031 48 25.996094 48 Z"></path>
@@ -163,8 +74,110 @@
                 <path d="M25.565,9.785c-0.123,0.077-3.051,1.702-3.051,5.305c0.138,4.109,3.695,5.55,3.756,5.55 c-0.061,0.077-0.537,1.963-1.947,3.94C23.204,26.283,21.962,28,20.076,28c-1.794,0-2.438-1.135-4.508-1.135 c-2.223,0-2.852,1.135-4.554,1.135c-1.886,0-3.22-1.809-4.4-3.496c-1.533-2.208-2.836-5.673-2.882-9 c-0.031-1.763,0.307-3.496,1.165-4.968c1.211-2.055,3.373-3.45,5.734-3.496c1.809-0.061,3.419,1.242,4.523,1.242 c1.058,0,3.036-1.242,5.274-1.242C21.394,7.041,23.97,7.332,25.565,9.785z M15.001,6.688c-0.322-1.61,0.567-3.22,1.395-4.247 c1.058-1.242,2.729-2.085,4.17-2.085c0.092,1.61-0.491,3.189-1.533,4.339C18.098,5.937,16.488,6.872,15.001,6.688z"></path>
             </svg></button>
         </div>
-       </div>
-</div>
+        <p class="or-text">or</p>
+        <div class="container">
+            <div class="form m-5">
+                <div class="form-element-sign">
+                    <label for="login-email">Email or Username</label>
+                    <input type="email" id="login-email" placeholder="Email or Username">
+                </div>
+                <div class="form-element-sign">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" placeholder="Password">
+                    <a href="#" class="forgetpassword">Forgot password?</a>
+                </div>
+                <div class="form-element-sign">
+                    <input type="checkbox" id="remember-me">
+                    <label for="remember-me">Remember me</label>
+                </div>
+                <button class="btn-sign">Sign In</button>
+           
+                <div class="line-account"></div>
+                <p class="create-account">Don’t have an account?<a href="#" id="Create-one" class="create"> Create one</a></p>
+            </div>
+        </div>
+       
+    </div>
+</form>
+
+
+<!----------End modal sign in--------------->
+  <!-- Sign Up Modal -->
+<form action="/" method="POST">
+    <div class="popup-sign-p hidden" id="signupModal">
+        <button class="close-btn-sign" id="closeSignUp">&times;</button>
+        <div class="container">
+            <h2 class="title-sign">Create an account</h2>
+            <div class="form">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-element-sign">
+                            <label for="signup-email">Email</label>
+                            <input type="email" id="signup-email" placeholder="Enter your email">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-element-sign">
+                            <label for="signup-username">Username</label>
+                            <input type="text" id="signup-username" placeholder="Enter your username">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-element-sign">
+                            <label for="signup-dob">Date of Birth</label>
+                            <div class="input-wrapper">
+                                <input type="date" id="signup-dob" class="date-input">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-6">
+                        <div class="form-element-sign">
+                            <label for="signup-gender">Gender</label>
+                            <select id="signup-gender">
+                                <option value="" disabled selected>Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-element-sign">
+                            <label for="signup-password">Password</label>
+                            <input type="password" id="signup-password" placeholder="Enter your password">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-element-sign">
+                            <label for="confirm-password">Confirm Password</label>
+                            <input type="password" id="confirm-password" placeholder="Confirm your password">
+                        </div>
+                    </div>
+                    
+                    <div class="form-element-sign">
+                        <input type="checkbox" id="agree-terms">
+                        <label for="agree-terms">I agree to the <a href="#" class="create">Terms of Service</a> and <a href="#" class="create">Privacy Policy</a></label>
+                    </div>
+                    <button class="btn-sign">Sign Up</button>
+                </div>
+            </div>
+            <p class="or-text">or</p>
+            <div class="social-sign">
+                <button class="social-btn google"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50">
+                    <path d="M 25.996094 48 C 13.3125 48 2.992188 37.683594 2.992188 25 C 2.992188 12.316406 13.3125 2 25.996094 2 C 31.742188 2 37.242188 4.128906 41.488281 7.996094 L 42.261719 8.703125 L 34.675781 16.289063 L 33.972656 15.6875 C 31.746094 13.78125 28.914063 12.730469 25.996094 12.730469 C 19.230469 12.730469 13.722656 18.234375 13.722656 25 C 13.722656 31.765625 19.230469 37.269531 25.996094 37.269531 C 30.875 37.269531 34.730469 34.777344 36.546875 30.53125 L 24.996094 30.53125 L 24.996094 20.175781 L 47.546875 20.207031 L 47.714844 21 C 48.890625 26.582031 47.949219 34.792969 43.183594 40.667969 C 39.238281 45.53125 33.457031 48 25.996094 48 Z"></path>
+                    </svg></button>
+                <button class="social-btn facebook"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 24 24">
+                    <path d="M17.525,9H14V7c0-1.032,0.084-1.682,1.563-1.682h1.868v-3.18C16.522,2.044,15.608,1.998,14.693,2C11.98,2,10,3.657,10,6.699V9H7v4l3-0.001V22h4v-9.003l3.066-0.001L17.525,9z"></path>
+                    </svg></button>
+                <button class="social-btn apple"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 30 30">
+                    <path d="M25.565,9.785c-0.123,0.077-3.051,1.702-3.051,5.305c0.138,4.109,3.695,5.55,3.756,5.55 c-0.061,0.077-0.537,1.963-1.947,3.94C23.204,26.283,21.962,28,20.076,28c-1.794,0-2.438-1.135-4.508-1.135 c-2.223,0-2.852,1.135-4.554,1.135c-1.886,0-3.22-1.809-4.4-3.496c-1.533-2.208-2.836-5.673-2.882-9 c-0.031-1.763,0.307-3.496,1.165-4.968c1.211-2.055,3.373-3.45,5.734-3.496c1.809-0.061,3.419,1.242,4.523,1.242 c1.058,0,3.036-1.242,5.274-1.242C21.394,7.041,23.97,7.332,25.565,9.785z M15.001,6.688c-0.322-1.61,0.567-3.22,1.395-4.247 c1.058-1.242,2.729-2.085,4.17-2.085c0.092,1.61-0.491,3.189-1.533,4.339C18.098,5.937,16.488,6.872,15.001,6.688z"></path>
+                </svg></button>
+            </div>
+           </div>
+    </div>
+</form>
+  
 
 
 

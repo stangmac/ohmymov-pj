@@ -93,5 +93,28 @@ document.getElementById('Create-one').addEventListener('click', (e) => {
 // Close modals when clicking outside
 overlay.addEventListener('click', closeAll);
 
+document.getElementById("signinForm").addEventListener("submit", function(event) {
+  event.preventDefault(); // ป้องกันการโหลดหน้าใหม่
 
+  const formData = new FormData(this);
+  const errorMessages = document.getElementById("errorMessages");
+
+  fetch("/popup-sign-p", {
+      method: "POST",
+      body: formData
+  })
+  .then(response => response.json())
+  .then(data => {
+      if (data.success) {
+          window.location.reload(); // หรือเปลี่ยนไปยังหน้าหลัก
+      } else {
+          // แสดง error message
+          errorMessages.innerHTML = data.errors.map(err => `<p class="alert alert-danger">${err}</p>`).join("");
+          
+          // เปิด modal sign-in ค้างไว้
+          document.getElementById("signinModal").classList.remove("hidden");
+      }
+  })
+  .catch(error => console.error("Error:", error));
+});
 
