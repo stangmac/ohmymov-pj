@@ -572,16 +572,26 @@ input.search:active, input.search:focus {
 
 #scroll-button {
     position: absolute;
-    right: 8px;
+    right: 0px;
     top: 58%;
     transform: translateY(-50%);
-    background-color: var(--bg--detail);
-    padding: 1px 18px 5px;
+    background-color: rgba(183, 183, 183, 0.253);
+    padding: 3px 20px 5px;
     cursor: pointer;
     font-size: var(--h2-size);
     border-radius: 50%;
+    border: none;
+    color: var(--bg--detail);
 }
 
+#scroll-button:hover {
+    background-color: rgba(183, 183, 183, 0.719);
+    color: var(--bg--main);
+}
+
+.movie-container {
+    margin: 0px 0px 10px 0px;
+}
   
 
 /* .fave{
