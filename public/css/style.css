@@ -560,20 +560,40 @@ input.search:active, input.search:focus {
 
 .sec-4 { 
     margin: 0px 50px;
+    position: relative;
 }
 
-.bookmark-icon-top {
-    position: absolute; 
-    z-index: 10; 
-    position: absolute;
-    top: 20px;
-    right: 12px;
-    width: 24px;
-    height: 24px;
-    color: #8b0000; /* สีเริ่มต้นของไอคอน */
-    cursor: pointer;
-    transition: color 0.3s ease;
+.genre-movie-item.row {
+    display: flex;
+    gap: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
 }
+
+#scroll-button {
+    position: absolute;
+    right: 0px;
+    top: 58%;
+    transform: translateY(-50%);
+    background-color: rgba(183, 183, 183, 0.253);
+    padding: 3px 20px 5px;
+    cursor: pointer;
+    font-size: var(--h2-size);
+    border-radius: 50%;
+    border: none;
+    color: var(--bg--detail);
+}
+
+#scroll-button:hover {
+    background-color: rgba(183, 183, 183, 0.719);
+    color: var(--bg--main);
+}
+
+.movie-container {
+    margin: 0px 0px 10px 0px;
+}
+  
+
 /* .fave{
     background: none;
     border: 0;
