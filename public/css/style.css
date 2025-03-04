@@ -291,7 +291,7 @@ input.search:active, input.search:focus {
 
 
 /* ----------start modal sign in--------------- */
-#overlay {
+/* #overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -301,45 +301,24 @@ input.search:active, input.search:focus {
     backdrop-filter: blur(5px);
     display: none;
     z-index: 999;
-}
+} */
 
 .popup-sign-p {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(1.1);
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     max-width: 800px;  /* Max width for better scaling */
     padding: 25px 35px;
     background-color: var(--bg--main);
     border-radius: 15px;
-    z-index: 10000;
-    opacity: 0;
-    display: none;
-    transition: opacity 0.3s, transform 0.3s;
 }
 
-.popup-sign-p.active {
-    display: block;
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-}
-
-.close-btn-sign {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-    color: white;
-    font-size: 32px;
-    background: none;
-    border: none;
-    transition: color 0.3s ease;
-}
-
-.close-btn-sign:hover {
-    color: var(--main-color);  /* Hover effect */
-}
 
 .social-sign {
     display: flex;
@@ -396,7 +375,7 @@ input.search:active, input.search:focus {
 
 }
 
-.form-element-sign input[type="email"],
+.form-element-sign input[type="username"],
 .form-element-sign input[type="password"],
 .form-element-sign input[type="text"],
 .form-element-sign input[type="date"],
@@ -502,13 +481,6 @@ input.search:active, input.search:focus {
     text-decoration: underline;
 }
 
-.hidden {
-    display: none;
-}
-
-.active {
-    display: block;
-}
 
 
 .input-wrapper {

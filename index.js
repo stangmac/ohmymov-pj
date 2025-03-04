@@ -12,6 +12,8 @@ const indexController = require('./controllers/indexController')
 const storeUserController = require('./controllers/storeUserController')
 const loginController = require('./controllers/loginController')
 const registerController = require('./controllers/registerController')
+const moviedetailController = require('./controllers/movie-detailController')
+const userprofileController = require('./controllers/user-profileController')
 
 app.use(express.static('public'))
 app.use(express.static('asset'))
@@ -22,10 +24,11 @@ app.use(expressSession({secret: "node secret"}))
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
-app.get('/', indexController)
+app.get('/home', indexController)
 app.get('/login', loginController)
 app.get('/register', registerController)
-app.post('/', storeUserController)
+app.get('/movie-detail', moviedetailController)
+app.get('/user-profile', userprofileController)
 
 app.listen(4000,() => {
     console.log('Server is running on port 4000')
