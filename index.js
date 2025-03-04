@@ -15,6 +15,7 @@ const registerController = require('./controllers/registerController')
 const moviedetailController = require('./controllers/movie-detailController')
 const userprofileController = require('./controllers/user-profileController')
 const homenewController = require('./controllers/homenewController')
+const resultsearchController = require('./controllers/resultsearchController')
 
 app.use(express.static('public'))
 app.use(express.static('asset'))
@@ -31,6 +32,8 @@ app.get('/register', registerController)
 app.get('/movie-detail', moviedetailController)
 app.get('/user-profile', userprofileController)
 app.get('/home-new', homenewController)
+app.get('/result-search', resultsearchController)
+
 
 app.listen(4000,() => {
     console.log('Server is running on port 4000')

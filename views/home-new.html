@@ -36,17 +36,19 @@
                             <a class="nav-link" href="#">Blog</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/search-result.html">Suggestion</a>
+                            <a class="nav-link" href="/search-result">Suggestion</a>
                             </li> 
                         </ul>
                 </div>
                 <div class="col-5 d-flex justify-content-end pr-2">
                     <div class="search-container">
                         <div class="search-box">
-                            <img src="/asset/images/icon/search-icon.png" alt="Search" class="search-icon">
+                            <img src="/images/icon/search-icon.png" alt="Search" class="search-icon">
                             <input type="text" class="search-input" placeholder="Search for a movie..." onkeyup="searchMovies()" onfocus="showResults()">
                         </div>
-                        <div class="search-results" id="searchResults"></div>
+                        <a href="/result-search">
+                            <div class="search-results" id="searchResults"></div>
+                        </a>
                     </div>
                 
                     
@@ -786,10 +788,10 @@
 
         // Search Movies Script
         const searchMoviesList = [
-            { title: "Maleficent", year: 2014, image: "asset/images/poster/maleficent.jpg" },
-            { title: "Maleficent: Mistress of Evil", year: 2019, image: "asset/images/poster/maleficent2.jpg" },
-            { title: "The Lion King", year: 2019, image: "asset/images/poster/lionking.jpg" },
-            { title: "Beauty and the Beast", year: 2017, image: "asset/images/poster/beautyandthebeast.jpg" }
+            { title: "Maleficent", year: 2014, image: "/images/poster/maleficent.jpg" },
+            { title: "Maleficent: Mistress of Evil", year: 2019, image: "/images/poster/maleficent2.jpg" },
+            { title: "The Lion King", year: 2019, image: "/images/poster/lionking.jpg" },
+            { title: "Beauty and the Beast", year: 2017, image: "/images/poster/beautyandthebeast.jpg" }
         ];
 
         function searchMovies() {
