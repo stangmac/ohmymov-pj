@@ -2,7 +2,8 @@
     /* font-size */
    /* --body-font:   "Signika Negative", sans-serif; */
    --h1-size:40px;
-   --h2-size:30px;
+   --h2-size:28px;
+   --h3-size:25px;
    --title-size:22px;
    --body-size:16px;
    --caption-size:14px;
@@ -44,6 +45,11 @@ body{
 
 .h2-font {
     font-size: var(--h2-size);
+}
+
+.h3-font {
+    font-size: var(--h3-size);
+    font-weight: bold;
 }
 
 .title-font {
@@ -145,6 +151,10 @@ img.app {
     height: 24px;
 }
 
+img.app2 {
+    height: 30px;
+}
+
 img.poster-top {
     height: 220px;
     border-radius: 15px;
@@ -153,6 +163,12 @@ img.poster-top {
 img.poster-genre {
     min-width: 170px;
     height: 250px;
+    border-radius: 15px;
+}
+
+img.poster-search {
+    min-width: 170px;
+    height: 270px;
     border-radius: 15px;
 }
 
@@ -789,7 +805,7 @@ figure {
 }
 
 .history-topic {
-    margin: 20px 0;
+    margin: 25px 0px;
     position: relative;
 }
 
@@ -814,7 +830,7 @@ figure {
 }
 
 .star {
-    font-size: 12px;
+    font-size: 13px;
     color: var(--bg--main);
 }
 

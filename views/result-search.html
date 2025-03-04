@@ -43,12 +43,13 @@
                 <div class="col-5 d-flex justify-content-end pr-2">
                     <div class="search-container">
                         <div class="search-box">
-                            <img src="/asset/images/icon/search-icon.png" alt="Search" class="search-icon"> <!-- Search Image -->
+                            <img src="/images/icon/search-icon.png" alt="Search" class="search-icon">
                             <input type="text" class="search-input" placeholder="Search for a movie..." onkeyup="searchMovies()" onfocus="showResults()">
                         </div>
-                        <div class="search-results" id="searchResults"></div>
+                        <a href="/result-search">
+                            <div class="search-results" id="searchResults"></div>
+                        </a>
                     </div>
-                    
                 </div>
                 <div class="col-1 d-flex justify-content-end">
                     <button class="btn o-button ml-1" type="button" id="show-signin">Sign In</button>
@@ -153,7 +154,7 @@
     </div>
 
 
-    <script>
+    <!-- <script>
         const movies = [
             { title: "Maleficent", year: 2014, image: "asset/images/poster/maleficent.jpg" },
             { title: "Maleficent: Mistress of Evil", year: 2019, image: "asset/images/poster/maleficent2.jpg" },
@@ -240,7 +241,7 @@
         });
     </script>
 
-    
+     -->
 
 
     
