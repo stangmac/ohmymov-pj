@@ -1,2 +1,2 @@
 module.exports = (req, res) => {
-    res.render('register')}
+    res.render('user-profile')}
