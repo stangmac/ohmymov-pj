@@ -97,3 +97,12 @@
 .see-all:hover {
     color: var(--colour-white);
 }
+
+.all-mov {
+    color: var(--bg-main);
+}
+
+.all-mov:hover {
+    color: var(--bg-main);
+    border-color: var(--bg-main);
+}

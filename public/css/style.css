@@ -23,6 +23,10 @@ body{
     background-color: var(--bg--main);
 }
 
+a:hover {
+   all: none;
+}
+
 .white-font{
     color: var(--colour-white);
 }
@@ -263,7 +267,7 @@ input.search:active, input.search:focus {
 
 .sec-1 {
     padding-top: 80px;
-    margin-bottom: 50px;
+    margin-bottom: 45px;
 }
 
 .box-banner {

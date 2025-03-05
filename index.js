@@ -16,6 +16,7 @@ const moviedetailController = require('./controllers/movie-detailController')
 const userprofileController = require('./controllers/user-profileController')
 const homenewController = require('./controllers/homenewController')
 const resultsearchController = require('./controllers/resultsearchController')
+const allcontentController = require('./controllers/allcontentController')
 
 app.use(express.static('public'))
 app.use(express.static('asset'))
@@ -33,6 +34,7 @@ app.get('/movie-detail', moviedetailController)
 app.get('/user-profile', userprofileController)
 app.get('/home-new', homenewController)
 app.get('/result-search', resultsearchController)
+app.get('/all-content', allcontentController)
 
 
 app.listen(4000,() => {
