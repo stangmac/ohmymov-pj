@@ -5,10 +5,6 @@ const bcrypt = require('bcrypt')
 
 //create keep database
 const UserSchema = new Schema({
-    email: {
-        type: String,
-        required: [true, 'Please enter a valid email address']
-    },
     username: {
         type: String,
         required: [true, 'Please enter a valid username']
@@ -24,31 +20,22 @@ const UserSchema = new Schema({
     password: {
         type: String,
         required: [true, 'Please enter a valid password']
-    },
-    confirm_password: {
-        type: String,
-        required: [true, 'Please enter a valid confirm password']
     }
 })
 
 //hash password
 UserSchema.pre('save', function(next) {
-    const user =this
+    const user = this;
 
+    // Hash the password only
     bcrypt.hash(user.password, 10).then(hash => {
-        user.password = hash
-        next()
+        user.password = hash;
+        next();
     }).catch(error => {
-        console.error(error)
-    }),
-    bcrypt.hash(user.confirm_password, 10).then(hash => {
-        user.confirm_password = hash
-        next()
-    }).catch(error => {
-        console.error(error)
-    })
+        console.error(error);
+    });
+});
 
-    })
 
 
     const User = mongoose.model('User', UserSchema)

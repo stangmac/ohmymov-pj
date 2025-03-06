@@ -5,13 +5,13 @@ const expressSession = require('express-session')
 const flash = require('connect-flash')
 
 //connection MongoDb
-mongoose.connect('mongodb+srv://admin:720272297234@cluster0.tah8c.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',{useNewUrlParser:true})
+mongoose.connect('mongodb+srv://admin:720272297234@cluster0.tah8c.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
 
 // Controller
 const indexController = require('./controllers/indexController')
-const storeUserController = require('./controllers/storeUserController')
 const loginController = require('./controllers/loginController')
 const registerController = require('./controllers/registerController')
+const storeUserController = require('./controllers/storeUserController')
 const moviedetailController = require('./controllers/movie-detailController')
 const userprofileController = require('./controllers/user-profileController')
 const homenewController = require('./controllers/homenewController')
@@ -30,11 +30,13 @@ app.set('view engine', 'html');
 app.get('/home', indexController)
 app.get('/login', loginController)
 app.get('/register', registerController)
+app.post('/user/register', storeUserController)
 app.get('/movie-detail', moviedetailController)
 app.get('/user-profile', userprofileController)
 app.get('/home-new', homenewController)
 app.get('/result-search', resultsearchController)
 app.get('/all-content', allcontentController)
+app.get('/', indexController)
 
 
 app.listen(4000,() => {
