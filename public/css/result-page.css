@@ -5,10 +5,11 @@
 }
 
 .search-container {
-    width: 400px;
+    width: 600px;
     border-radius: 12px;
-    padding: 10px 0px;
+    padding: 8px 0px;
     position: relative;
+    margin-right: 20px;
 }
 
 .search-box {
@@ -106,3 +107,111 @@
     color: var(--bg-main);
     border-color: var(--bg-main);
 }
+
+/* Menu Right */
+.img-icon {
+    display: inline-block !important;
+    visibility: visible !important;
+    width: 20px;
+    margin-right: 5px;
+}
+
+.icon-green { 
+    margin-right: 10px;
+    margin-left: 10px;
+    width: 20px;
+}
+
+ul.menu-right {
+    margin: 0px;
+}
+
+.menu-right .dropbtn {
+    display: flex;
+    color: var(--colour-white);
+}
+
+.dropbtn span {
+    max-width: 100px;
+    line-height: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+
+/* Dropdown in Nav-Bar */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.nav-item {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Dropdown icon hover effect */
+.nav-item.dropdown .img-icon.icon-pink {
+    filter: drop-shadow(0px 100px 0 var(--font-dark));
+    transform: translateY(-100px);
+}
+
+.nav-item.dropdown:hover .img-icon.icon-pink {
+    filter: drop-shadow(0px 100px 0 var(--main-colur));
+    transform: translateY(-100px);
+}
+
+/* Dropdown Button */
+.dropbtn {
+    border: none;
+    outline: none;
+    background-color: inherit;
+}
+
+/* Dropdown Content */
+.dropdown-content {
+    border-radius: 10px;
+    display: none;
+    position: absolute;
+    background-color: var(--bg--main);
+    box-shadow: 0px 8px 16px 0px var(--grey);
+    z-index: 1;
+    min-width: 200px;
+    right: 0px;
+}
+
+ul.dropdown-content {
+    padding: 0px;
+}
+
+.dropdown-content a {
+    color: var(--colour-white);
+    font-size: var(--body-size);
+    float: none;
+    padding: 12px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    margin-left: 5px;
+}
+
+/* ✅ Make Dropdown Items Green When Hover */
+.dropdown-content a:hover {
+    background-color: var(--main-color); 
+    color: var(--bg--main) !important; 
+    border-radius: 5px; 
+}
+
+/* Make Dropdown Icons Change to White on Hover */
+.dropdown-content a:hover img {
+    filter: brightness(0) ;
+}
+
+/* Show Dropdown When Hovering */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
