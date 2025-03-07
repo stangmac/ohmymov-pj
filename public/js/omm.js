@@ -125,7 +125,7 @@ document.getElementById("Create-one").addEventListener("click", function() {
   window.location.href = "/register"; 
 });
 document.getElementById("logo").addEventListener("click", function() {
-  window.location.href = "/home"; 
+  window.location.href = "/"; 
 });
 let elements = document.getElementsByClassName("detailmovie");
 for (let i = 0; i < elements.length; i++) {
