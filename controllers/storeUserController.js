@@ -47,51 +47,56 @@
 // };
 
 const express = require('express');
-const router = express.Router();
-const User = require('../models/User');
+const { body, validationResult } = require('express-validator');
 const bcrypt = require('bcrypt');
+const User = require('../models/User');
 
-router.post('/register', async (req, res) => {
+const router = express.Router();
+
+router.post('/register', [
+    body('username').notEmpty().withMessage('Username is required'),
+    body('dateOfBirth').notEmpty().withMessage('Date of Birth is required'),
+    body('gender').notEmpty().withMessage('Gender is required'),
+    body('password').isLength({ min: 6 }).withMessage('Password must be at least 6 characters long'),
+    body('confirm_password')
+        .notEmpty().withMessage('Confirm Password is required')  // ✅ ตรวจสอบว่าห้ามเว้นว่าง
+        .custom((value, { req }) => {
+            if (value !== req.body.password) {
+                throw new Error('Passwords do not match');
+            }
+            return true;
+        })
+], async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.render('register', {
+            error: errors.mapped(), 
+            username: req.body.username,
+            dateOfBirth: req.body.dateOfBirth,
+            gender: req.body.gender,
+            password: req.body.password,
+            confirmPassword: req.body.confirm_password
+        });
+    }
+
+
     try {
-        console.log("Received signup request:", req.body);
-
-        const { username, dateOfBirth, gender, password, confirm_password } = req.body;
-
-        // Check if all fields are present
-        if (!username || !dateOfBirth || !gender || !password || !confirm_password) {
-            console.log("Missing fields");
-            return res.status(400).send("All fields are required");
-        }
-
-        // Check if passwords match
-        if (password !== confirm_password) {
-            console.log("Passwords do not match");
-            return res.status(400).send("Passwords do not match");
-        }
-
-        // Hash password
-        const hashedPassword = await bcrypt.hash(password, 10);
-
-        // Create new user
+        const hashedPassword = await bcrypt.hash(req.body.password, 10);
         const newUser = new User({
-            username,
-            date: dateOfBirth,  // Store it in the 'date' field as per your model
-            gender,
+            username: req.body.username,
+            date: req.body.dateOfBirth,
+            gender: req.body.gender,
             password: hashedPassword
         });
 
-        // Save to database
         await newUser.save();
-        console.log("User successfully registered!");
-
-        // Redirect user after successful registration
-        res.redirect('/home-new');  // Change '/login' to the desired page
+        res.redirect('/home-new');
     } catch (err) {
-        console.error("Error saving user:", err.message);
         res.status(500).send("Error saving user: " + err.message);
     }
 });
 
 module.exports = router;
+
 
    
