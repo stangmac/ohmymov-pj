@@ -1,15 +1,102 @@
-const User = require('../models/User')
-module.exports = (req, res) => {
-    User.create(req.body).then(()=> {
-        console.log("User registered successfully!")
-        res.redirect('/')
-    }).catch((error) => {
-        // console.log(error.errors)
-    if (error){
-        const validationError = Object.keys(error.errors).map(key => error.errors[key].message)
-        req.flash('validationError', validationError)
-        res.redirect('/')
-    }
-    })
+// const User = require('../models/User')
+// module.exports = (req, res) => {
+//     User.create(req.body).then(()=> {
+//         console.log("User registered successfully!")
+//         res.redirect('/')
+//     }).catch((error) => {
+//         // console.log(error.errors)
+//     if (error){
+//         const validationError = Object.keys(error.errors).map(key => error.errors[key].message)
+//         req.flash('validationError', validationError)
+       
+//         return res.redirect('/register')
+//     }
+//     })
 
-}
+// }
+
+// const User = require('../models/User')
+
+// module.exports = (req, res) => {
+//     // Check if the password and confirm password match
+//     if (req.body.password !== req.body.confirm_password) {
+//         req.flash('validationError', { confirm_password: 'Passwords do not match' });
+//         req.flash('data', req.body);
+//         return res.redirect('/register');
+//     }
+
+//     // Proceed with creating the user if passwords match
+//     User.create(req.body)
+//         .then(() => {
+//             console.log("User registered successfully!");
+//             res.redirect('/');
+//         })
+//         .catch((error) => {
+//             if (error) {
+//                 const validationErrors = {};
+//                 if (error.errors) {
+//                     for (const field in error.errors) {
+//                         validationErrors[field] = error.errors[field].message;
+//                     }
+//                 }
+//                 req.flash('validationError', validationErrors);
+//                 req.flash('data', req.body);
+//                 return res.redirect('/register');
+//             }
+//         });
+// };
+
+const express = require('express');
+const { body, validationResult } = require('express-validator');
+const bcrypt = require('bcrypt');
+const User = require('../models/User');
+
+const router = express.Router();
+
+router.post('/register', [
+    body('username').notEmpty().withMessage('Username is required'),
+    body('dateOfBirth').notEmpty().withMessage('Date of Birth is required'),
+    body('gender').notEmpty().withMessage('Gender is required'),
+    body('password').isLength({ min: 6 }).withMessage('Password must be at least 6 characters long'),
+    body('confirm_password')
+        .notEmpty().withMessage('Confirm Password is required')  // ✅ ตรวจสอบว่าห้ามเว้นว่าง
+        .custom((value, { req }) => {
+            if (value !== req.body.password) {
+                throw new Error('Passwords do not match');
+            }
+            return true;
+        })
+], async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.render('register', {
+            error: errors.mapped(), 
+            username: req.body.username,
+            dateOfBirth: req.body.dateOfBirth,
+            gender: req.body.gender,
+            password: req.body.password,
+            confirmPassword: req.body.confirm_password
+        });
+    }
+
+
+    try {
+        const hashedPassword = await bcrypt.hash(req.body.password, 10);
+        const newUser = new User({
+            username: req.body.username,
+            date: req.body.dateOfBirth,
+            gender: req.body.gender,
+            password: hashedPassword
+        });
+
+        await newUser.save();
+        res.redirect('/home-new');
+    } catch (err) {
+        res.status(500).send("Error saving user: " + err.message);
+    }
+});
+
+module.exports = router;
+
+
+   

@@ -125,7 +125,7 @@ document.getElementById("Create-one").addEventListener("click", function() {
   window.location.href = "/register"; 
 });
 document.getElementById("logo").addEventListener("click", function() {
-  window.location.href = "/home"; 
+  window.location.href = "/"; 
 });
 let elements = document.getElementsByClassName("detailmovie");
 for (let i = 0; i < elements.length; i++) {
@@ -135,6 +135,28 @@ for (let i = 0; i < elements.length; i++) {
 }
 
 
+document.addEventListener("DOMContentLoaded", function () {
+  function togglePassword(inputId, iconElement) {
+      let input = document.getElementById(inputId);
+      let icon = iconElement.querySelector("svg");
+
+      if (input.type === "password") {
+          input.type = "text";
+          icon.innerHTML = `
+              <path d="M17.94 17.94A10 10 0 0 1 12 20c-7 0-11-8-11-8a19.4 19.4 0 0 1 4.22-5.86M9.88 9.88A3 3 0 0 1 12 9c1.66 0 3 1.34 3 3 0 .37-.07.72-.18 1.05M3 3l18 18"/>
+          `;
+      } else {
+          input.type = "password";
+          icon.innerHTML = `
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11-8-11-8z"/>
+              <circle cx="12" cy="12" r="3"/>
+          `;
+      }
+  }
+
+  // ทำให้ฟังก์ชันใช้งานได้ทุกที่
+  window.togglePassword = togglePassword;
+});
 // const topMovies = [
 //   { number: 1, img: '/images/poster/teeyod2.jpg', title: 'ธี่หยด 2 (2024)', rating: 7.2 },
 //   { number: 2, img: '/images/poster/teeyod2.jpg', title: 'ธี่หยด 2 (2024)', rating: 7.2 },
