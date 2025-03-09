@@ -1,4 +1,5 @@
 module.exports = (req, res) => {
+    let email = "";
     let username = "";
     let dateBirth = "";
     let gender = "";
@@ -8,6 +9,7 @@ module.exports = (req, res) => {
     let data = req.flash('data')[0];
 
     if (typeof data !== "undefined") {
+        email = data.email || "";
         username = data.username || "";
         dateBirth = data.dateOfBirth || "";
         gender = data.gender || "";
@@ -16,7 +18,8 @@ module.exports = (req, res) => {
     }
 
     res.render('register', {
-        error: req.flash('validationError')[0] || {}, // ป้องกัน undefined error
+        error: req.flash('validationError')[0] || {},
+        email: email,
         username: username,
         dateOfBirth: dateBirth,
         gender: gender,
@@ -24,4 +27,3 @@ module.exports = (req, res) => {
         confirmPassword: confirmPassword
     });
 };
-

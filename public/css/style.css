@@ -377,7 +377,7 @@ input.search:active, input.search:focus {
 
 .title-sign {
     text-align: center;
-    font-size: var(--h2-size);
+    font-size: var(--h1-size);
     color: var(--colour-white);
     margin-top: 10px;
     margin-bottom: 25px;
@@ -395,6 +395,7 @@ input.search:active, input.search:focus {
 
 }
 
+.form-element-sign input[type="email"],
 .form-element-sign input[type="username"],
 .form-element-sign input[type="password"],
 .form-element-sign input[type="text"],
@@ -543,24 +544,35 @@ margin-bottom: 10px; /* Spacing between inputs */
 
 
 
-.input-wrapper {
-    position: relative;
+.input-wrapper input {
     width: 100%;
+    padding: 12px 15px;
+    padding-right: 40px; /* เผื่อที่สำหรับไอคอน */
+    border: 1px solid #ccc;
+    border-radius: 8px; /* ✅ เพิ่มความโค้งมน */
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
 }
 
+/* เมื่อโฟกัสที่ช่องรหัสผ่าน */
+
+
+/* ไอคอน Toggle Password */
 .toggle-password {
     position: absolute;
     right: 15px;
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
-    color: var(--bg--detail);
+    color:var(--bg--detail);
     font-size: 18px;
     transition: 0.3s;
 }
 
+/* เปลี่ยนสีไอคอนเมื่อ hover */
 .toggle-password:hover {
-    color: var(--main-color); /* เปลี่ยนสีเมื่อ hover */
+    color: var(--main-color);
 }
 .alert-danger {
     color: var(--main-color); /* เปลี่ยนสีข้อความเป็นสีแดง */
@@ -572,7 +584,93 @@ margin-bottom: 10px; /* Spacing between inputs */
 }
 
 
+.privacy {
+    color: var(--main-color);
+}
+.privacy:hover {
+    color: var(--main-color);
+}
+/*start reset password */
+.container .resetpassword {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    padding: 25px 35px;
+    background-color: var(--bg--main);
+    border-radius: 15px;
+ 
+}
+.container .resetpassword h1 {
+    color: var(--colour-white);
+    font-size: var(--h1-size);
+}
+.container .resetpassword form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
 
+.container .resetpassword label {
+    color: var(--colour-white);
+    font-size: var(--body-size);
+    font-weight: normal;
+    margin-bottom: 10px;
+
+}
+
+.container .resetpassword input {
+    width: 100%;
+    padding: 12px;
+    outline: none;
+    border: 1px solid var(--bg--sub);
+    border-radius: 10px;
+    background-color: var(--bg--sub);
+    font-size: var(--body-size);
+    color: var(--bg--detail);
+    margin-bottom: 30px;
+}
+
+.container .resetpassword input::placeholder {
+    color: var(--bg--detail);
+}
+
+.alert-danger {
+    color: var(--main-color);
+    background: none;
+    border: none;
+    padding: 0;
+    font-weight: normal;
+    margin-top: 0px;
+}
+
+.container .resetpassword button {
+    display: block;
+    width: 50%;
+    height: 50px;
+    border: 1px solid var(--main-color);
+    font-size: var(--title-size);
+    background-color: var(--bg--main);
+    color: var(--colour-white);
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container .resetpassword button:hover {
+    background-color: var(--main-color);
+    color: var(--bg--main);
+}
+/* End reset password */
 
 
 /* ----------End modal sign in--------------- */
