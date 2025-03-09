@@ -90,7 +90,7 @@ router.post('/register', [
         });
 
         await newUser.save();
-        res.redirect('/home-new');
+        res.redirect('/login');
     } catch (err) {
         res.status(500).send("Error saving user: " + err.message);
     }
