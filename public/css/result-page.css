@@ -5,11 +5,10 @@
 }
 
 .search-container {
-    width: 600px;
+    width: 800px;
     border-radius: 12px;
     padding: 8px 0px;
     position: relative;
-    margin-right: 20px;
 }
 
 .search-box {
@@ -124,6 +123,7 @@
 
 ul.menu-right {
     margin: 0px;
+    padding-left: 0px;
 }
 
 .menu-right .dropbtn {
@@ -179,7 +179,7 @@ ul.menu-right {
     background-color: var(--bg--main);
     box-shadow: 0px 8px 16px 0px var(--grey);
     z-index: 1;
-    min-width: 200px;
+    min-width: 180px;
     right: 0px;
 }
 
@@ -205,8 +205,8 @@ ul.dropdown-content {
     border-radius: 5px; 
 }
 
-/* Make Dropdown Icons Change to White on Hover */
-.dropdown-content a:hover img {
+/* Make Dropdown Icons Change to Black on Hover */
+.dropdown-content a:hover img, .btn.o-button-2.history:hover .watchlist {
     filter: brightness(0) ;
 }
 
