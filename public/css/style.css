@@ -204,7 +204,7 @@ img.poster-detail-box {
 }
 
 img.user-pic {
-    max-width: 160px;
+    max-width: 150px;
     border-radius: 50%;
     background-color: var(--bg--detail);
 }
