@@ -4,25 +4,24 @@ const bcrypt = require('bcrypt');
 const UserSchema = new mongoose.Schema({ 
     email: {
         type: String,
-        required: [true, 'Please enter a valid email'],
-        unique: true,
-        match: [/^\S+@\S+\.\S+$/, 'Please enter a valid email']
+        required: true,
+        unique: true
     },
     username: {
         type: String,
-        required: [true, 'Please enter a valid username']
+        required: true
     },
     date: {
         type: Date,
-        required: [true, 'Please enter a valid Birth date']
+        required: true
     },
     gender: {
         type: String,
-        required: [true, 'Please enter a valid gender']
+        required: true
     },
     password: {
         type: String,
-        required: [true, 'Please enter a valid password']
+        required: true
     },
     lastLogin: {  
         type: Date,
@@ -36,7 +35,7 @@ const UserSchema = new mongoose.Schema({
         type: Date,  
         default: null  
     }
-});
+}, { collection: 'user' }); // ✅ ระบุ collection 'user' ที่มีอยู่แล้ว
 
 const User = mongoose.model('User', UserSchema);
 module.exports = User;

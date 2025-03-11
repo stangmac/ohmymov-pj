@@ -1,13 +1,18 @@
 require('dotenv').config();
 
+const { requireLogin } = require('./middleware/auth'); 
+
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 const expressSession = require('express-session')
 const flash = require('connect-flash')
+const router = express.Router();
+
 
 // เชื่อมต่อกับ MongoDB Atlas
-const dbUrl = 'mongodb+srv://admin:720272297234@cluster0.tah8c.mongodb.net/';
+const dbUrl = 'mongodb+srv://admin:720272297234@cluster0.tah8c.mongodb.net/ohmymov';
+
 
     
 mongoose.connect(dbUrl)
@@ -31,6 +36,9 @@ const loginUserController = require('./controllers/loginUserController')
 const forgotPasswordController = require('./controllers/forgotPasswordController');
 const verifyOTPController = require('./controllers/verifyOTPController');
 const resetPasswordController = require('./controllers/resetPasswordController');
+
+
+
 app.use(express.static('public'))
 app.use(express.static('asset'))
 app.use(express.json())
@@ -56,7 +64,7 @@ app.use((req, res, next) => {
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
-app.get('/home', indexController)
+app.get('/', indexController)
 app.get('/login', loginController)
 app.post('/login', loginUserController)  
 app.get('/register', registerController)
@@ -70,7 +78,7 @@ app.get('/', indexController)
 app.get('/logout', (req, res) => {
     req.session.destroy(() => {
         res.locals.loggedIN = null; // ✅ รีเซ็ตค่า
-        res.redirect('/home');
+        res.redirect('/');
     });
 });
 
@@ -80,6 +88,21 @@ app.get('/verify-otp', (req, res) => res.render('verify-otp', { email: "", error
 app.post('/verify-otp', verifyOTPController);
 app.get('/reset-password', (req, res) => res.render('reset-password', { email: "", error: null }));
 app.post('/reset-password', resetPasswordController);
+
+
+
+
+
+
+
+
+app.get('/check-login', (req, res) => {
+    res.json({ loggedIn: !!req.session.user });
+});
+
+
+
+
 
 
 

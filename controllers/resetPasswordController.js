@@ -2,7 +2,13 @@ const bcrypt = require('bcrypt');
 const User = require('../models/User');
 
 module.exports = async (req, res) => {
+    console.log(req.body); // ตรวจสอบค่าที่ส่งมาจริง ๆ 
+
     const { email, password, confirmPassword } = req.body;
+
+    if (!password || !confirmPassword) {
+        return res.render('reset-password', { email, error: "Password fields cannot be empty!" });
+    }
 
     if (password !== confirmPassword) {
         return res.render('reset-password', { email, error: "Passwords do not match!" });
