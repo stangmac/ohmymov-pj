@@ -54,7 +54,7 @@
                         <input type="text" name="username" id="login-username" placeholder="Username" value="<%= typeof username !== 'undefined' ? username : '' %>">
 
                         <% if (error && error.username) { %>
-                            <small class="text-danger"><%= error.username.msg %></small>
+                            <small class="alert alert-danger"><%= error.username.msg %></small>
                         <% } %>
                     </div>
 
@@ -67,7 +67,7 @@
                             </span>
                         </div>
                         <% if (error && error.password) { %>
-                            <small class="text-danger"><%= error.password.msg %></small>
+                            <small class="alert alert-danger"><%= error.password.msg %></small>
                         <% } %>
                     </div>
                     
