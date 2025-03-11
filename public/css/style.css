@@ -411,9 +411,10 @@ input.search:active, input.search:focus {
     display: flex;
     font-size: var(--body-size); 
 margin-bottom: 10px; /* Spacing between inputs */
+color: var(--colour-white);
 }
 .form-element-sign input[type="date"]{
-    color: var(--bg--detail);
+    color: var(--colour-white);
     font-size: var(--body-size); 
     width: 100%;
 }
@@ -522,7 +523,7 @@ margin-bottom: 10px; /* Spacing between inputs */
     border-radius: 10px;
     background-color: var(--bg--sub);
     font-size: var(--caption-size);
-    color: var(--bg--detail);/* ให้ตัวอักษรสีขาว */
+    color: var(--colour-white);/* ให้ตัวอักษรสีขาว */
 }
 
 /* ซ่อนปุ่มเลือกปฏิทินเดิม */
