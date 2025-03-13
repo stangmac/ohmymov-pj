@@ -1,29 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <!-- Required meta tags -->
-       <meta charset="utf-8">
-       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-       <!-- Bootstrap CSS -->
-       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> 
-       <link rel="stylesheet" href="/css/style.css">
-       <link rel="stylesheet" href="/css/result-page.css">
-       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=bookmark" />
-   
-       <title>Avenge: Infinity War</title>
-   </head>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/result-page.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=bookmark" />
+
+    <title>Movie Detail</title>
+</head>
+
 <body>
-    <!-----------------------------------------------------------HEADER--------------------------------------------------------->
+    <!----------------------------------------------------------- HEADER --------------------------------------------------------->
     <div id="overlay"></div>
     <header class="fixed-top">
         <nav class="navbar navbar-expand-lg">
             <a class="navbar-brand" href="/">
                 <img src="/images/logo2.png" width="150px" height="33px">
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
-          
+
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="col-6">
                     <ul class="navbar-nav">
@@ -35,19 +38,20 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/search-result">Suggestion</a>
-                            </li> 
-                        </ul>
+                        </li>
+                    </ul>
                 </div>
                 <div class="col-4 d-flex justify-content-end pr-2 ml-3">
                     <div class="search-container">
                         <div class="search-box">
                             <img src="/images/icon/search-icon.png" alt="Search" class="search-icon">
-                            <input type="text" class="search-input" placeholder="Search for a movie..." onkeyup="searchMovies()" onfocus="showResults()">
+                            <input type="text" class="search-input" placeholder="Search for a movie..."
+                                onkeyup="searchMovies()" onfocus="showResults()">
                         </div>
                         <a href="/result-search">
                             <div class="search-results" id="searchResults"></div>
                         </a>
-                    </div> 
+                    </div>
                 </div>
                 <div class="col-1 d-flex ">
                     <ul class="menu-right">
@@ -73,33 +77,46 @@
                             </ul>
                         </li>
                     </ul>
-                </div>             
+                </div>
             </div>
         </nav>
     </header>
 
 
-    <!----- Section 1 - header ----->
 
+    <!----- Section 1 - header ----->
     <div class="movie-detail">
         <div class="detail-header">
             <div class="row">
                 <div class="col-7 pt-4">
                     <div class="row">
-                        <div class="h2-font white-font">Avenger: Infinity war</div>
+                        <div class="h2-font white-font">
+                            <%= movie.title %>
+                        </div>
                     </div>
                     <div class="row mt-2">
-                        <div class="body-font white-font mr-3">2018</div>
+                        <div class="body-font white-font mr-3">
+                            <%= movie.year ? movie.year : 'N/A' %>
+                        </div>
                         <div class="body-font white-font mr-3">·</div>
-                        <div class="body-font white-font mr-3">2h 29m</div>
+                        <div class="body-font white-font mr-3">
+                            <%= movie.duration_minute !==undefined ? movie.duration_minute : 'N/A' %> mins
+                        </div>
                         <div class="body-font white-font mr-3">·</div>
-                        <div class="body-font main-font">Action/Fantasy</div>
+                        <div class="body-font main-font">
+                            <%= Array.isArray(movie.genres) && movie.genres.length> 0 ? movie.genres.join(", ") : 'N/A'
+                                %>
+                        </div>
                     </div>
                     <div class="row mt-3">
                         <img class="app" src="/images/logo-imdb.png">
-                        <div class="body-font white-font ml-2">8.4 (1.2 M)</div>
+                        <div class="body-font white-font ml-2">
+                            <%= movie.rating_imdb ? movie.rating_imdb + ' / 10' : 'N/A' %>
+                        </div>
                         <img class="app ml-4" src="/images/logo-rotten.png">
-                        <div class="body-font white-font ml-3">95 %</div>
+                        <div class="body-font white-font ml-3">
+                            <%= movie.rating_rotten ? movie.rating_rotten : 'N/A' %> %
+                        </div>
                     </div>
                     <div class="row mt-5">
                         <div class="tag">
@@ -111,252 +128,220 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-5">
-                    <video controls width="500">
-                        <source src="video.mp4" type="video/mp4">
-                    </video> 
+                <div class="col-5 pr-2">
+                    <% if (movie.teaser_url && movie.teaser_url.includes("youtube.com/watch?v=")) { %>
+                    <iframe width=" 500" height="280"
+                        src="<%= movie.teaser_url.replace('watch?v=', 'embed/') + '?autoplay=1&rel=0' %>"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                        </iframe>
+                        <% } else { %>
+                            <p class="body-font white-font text-right">No video available</p>
+                            <% } %>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-8">
-                <div class="title-movies mt-4">
-                    <div class="row">
-                        <div class="title-font-bold main-font">Synopsis</div>
-                    </div>
-                    <div class="row mt-4">
-                        <div class="body-font white-font">As the Avengers and their allies have continued to protect the world from threats too large for any one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy, his goal is to collect all six Infinity Stones, artifacts of unimaginable power, 
-                        and use them to inflict his twisted will on all of reality. Everything the Avengers have fought for has led up to this moment - the fate of Earth and existence itself has never been more uncertain.</div>
-                    </div>
-                    <div class="line mt-4">
-                        <hr class="custom-line">
-                    </div> 
+    </div>
+
+
+
+
+    <div class="row">
+        <div class="col-8">
+            <div class="title-movies mt-4">
+                <div class="row">
+                    <div class="title-font-bold main-font">Synopsis</div>
                 </div>
                 <div class="row mt-4">
-                    <div class="title-font-bold main-font">Where to watch</div>
-                </div>
-                <div class="row mt-4">
-                    <a href="https://www.hotstar.com/th/onboarding?gclid=Cj0KCQiApNW6BhD5ARIsACmEbkWmXkTWZmFNoHa6_LO9geVISbJFzCe3bdUSp9EUrJRMzPJLX3R-4rcaAv_JEALw_wcB&ref=%2Fth%3Fgad_source%3D1%26gclid%3DCj0KCQiApNW6BhD5ARIsACmEbkWmXkTWZmFNoHa6_LO9geVISbJFzCe3bdUSp9EUrJRMzPJLX3R-4rcaAv_JEALw_wcB" target="_blank">
-                        <img class="app-2" src="/images/logo-disney.png" alt="Disney logo">
-                    </a>
-                </div>
-                <div class="line mt-4">
-                    <hr class="custom-line">
-                </div>
-                <div class="row mt-4">
-                    <div class="title-font-bold main-font">Posters</div>
-                </div>
-                <div class="row mt-4">
-                    <div class="col">
-                        <img class="movie-detail-poster" src="/images/poster/movie-detail/avengers-infinity-war.jpg">
-                    </div>
-                    <div class="col">
-                        <img class="movie-detail-poster" src="/images/poster/movie-detail/avengers-infinity-war.jpg">
+                    <div class="body-font white-font">
+                        <%= movie.synopsis ? movie.synopsis : 'No synopsis available.' %>
                     </div>
                 </div>
                 <div class="line mt-4">
                     <hr class="custom-line">
                 </div>
-                <div class="row mt-4">
-                    <div class="title-font-bold main-font">Cast</div>
-                </div>
-                <div class="row mt-4 pl-2">
-                    <div class="cast-box d-flex flex-column align-items-center">
-                        <div class="body-font-bold">Robert Downey Jr.</div>
-                        <div>Tony Stark</div>
-                    </div>
-                    <div class="cast-box d-flex flex-column align-items-center">
-                        <div class="body-font-bold">Scarlett Johansson</div>
-                        <div>Natasha Romanoff</div>
-                    </div>
-                    <div class="cast-box d-flex flex-column align-items-center">
-                        <div class="body-font-bold">Chris Hemsworth</div>
-                        <div>Thor</div>
-                    </div>
-                    <div class="cast-box d-flex flex-column align-items-center">
-                        <div class="body-font-bold">Chris Evans</div>
-                        <div>Captain America</div>
-                    </div>
-                </div>
-                <div class="line mt-4">
-                    <hr class="custom-line">
-                </div>
-                <div class="row mt-4">
-                    <div class="title-font-bold main-font">Similar Titles</div>
-                </div>
-                <div class="row mt-1">
-                    <div class="col">
-                        <div class="genre-movie-item">
-                            <div class="row">
-                                <a href="/">
-                                    <img class="poster-genre" src="/images/poster/thefallguy.jpg">
-                                </a>
-                            </div>
-                            <div class="row mt-3">
-                                <span class="entry-title">The Fall Guy</span>
-                            </div>
-                            <div class="row">
-                                <span class="entry-title">(2024)</span>
-                            </div>
-                            <div class="row mt-3">
-                                <img class="app" src="/images/logo-imdb.png">
-                                <div class="caption-font white-font ml-2">6.6 / 10</div>
-                                <img class="app ml-4" src="/images/logo-rotten.png">
-                                <div class="caption-font white-font ml-2">95 %</div>
-                            </div>
-                            <div class="row app-logo mt-3">
-                                <img class="app" src="/images/logo-apple-tv.png">
-                                <img class="app" src="/images/logo-playstore.png">
-                            </div>
-                            <div class="row mt-4">
-                                <button class="btn o-button-1" type="button">
-                                    <img class="watchlist" src="/images/icon/bookmark2.png">
-                                    WATCHLIST
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="genre-movie-item">
-                            <div class="row">
-                                <a href="/">
-                                    <img class="poster-genre" src="/images/poster/thefallguy.jpg">
-                                </a>
-                            </div>
-                            <div class="row mt-3">
-                                <span class="entry-title">The Fall Guy</span>
-                            </div>
-                            <div class="row">
-                                <span class="entry-title">(2024)</span>
-                            </div>
-                            <div class="row mt-3">
-                                <img class="app" src="/images/logo-imdb.png">
-                                <div class="caption-font white-font ml-2">6.6 / 10</div>
-                                <img class="app ml-4" src="/images/logo-rotten.png">
-                                <div class="caption-font white-font ml-2">95 %</div>
-                            </div>
-                            <div class="row app-logo mt-3">
-                                <img class="app" src="/images/logo-apple-tv.png">
-                                <img class="app" src="/images/logo-playstore.png">
-                            </div>
-                            <div class="row mt-4">
-                                <button class="btn o-button-1" type="button">
-                                    <img class="watchlist" src="/images/icon/bookmark2.png">
-                                    WISHLIST
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="genre-movie-item">
-                            <div class="row">
-                                <a href="/">
-                                    <img class="poster-genre" src="/images/poster/thefallguy.jpg">
-                                </a>
-                            </div>
-                            <div class="row mt-3">
-                                <span class="entry-title">The Fall Guy</span>
-                            </div>
-                            <div class="row">
-                                <span class="entry-title">(2024)</span>
-                            </div>
-                            <div class="row mt-3">
-                                <img class="app" src="/images/logo-imdb.png">
-                                <div class="caption-font white-font ml-2">6.6 / 10</div>
-                                <img class="app ml-4" src="/images/logo-rotten.png">
-                                <div class="caption-font white-font ml-2">95 %</div>
-                            </div>
-                            <div class="row app-logo mt-3">
-                                <img class="app" src="/images/logo-apple-tv.png">
-                                <img class="app" src="/images/logo-playstore.png">
-                            </div>
-                            <div class="row mt-4">
-                                <button class="btn o-button-1" type="button">
-                                    <img class="watchlist" src="/images/icon/bookmark2.png">
-                                    WISHLIST
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="genre-movie-item">
-                            <div class="row">
-                                <a href="/">
-                                    <img class="poster-genre" src="/images/poster/thefallguy.jpg">
-                                </a>
-                            </div>
-                            <div class="row mt-3">
-                                <span class="entry-title">The Fall Guy</span>
-                            </div>
-                            <div class="row">
-                                <span class="entry-title">(2024)</span>
-                            </div>
-                            <div class="row mt-3">
-                                <img class="app" src="/images/logo-imdb.png">
-                                <div class="caption-font white-font ml-2">6.6 / 10</div>
-                                <img class="app ml-4" src="/images/logo-rotten.png">
-                                <div class="caption-font white-font ml-2">95 %</div>
-                            </div>
-                            <div class="row app-logo mt-3">
-                                <img class="app" src="/images/logo-apple-tv.png">
-                                <img class="app" src="/images/logo-playstore.png">
-                            </div>
-                            <div class="row mt-4">
-                                <button class="btn o-button-1" type="button">
-                                    <img class="watchlist" src="/images/icon/bookmark2.png">
-                                    WISHLIST
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>     
             </div>
-            <div class="col-4">
-                <div class="detail-box">
-                    <div class="caption-font main-font">2018</div>
-                    <div class="body-font-bold white-font">Avenger: Infinity war</div>
-                    <div></div>
-                    <a href="/" class="d-flex justify-content-center">
-                        <img class="poster-detail-box" src="/images/poster/avengers.png">
-                    </a>
-                    <div class="d-flex justify-content-center mt-2">
-                        <div class="row ml-3 mr-2">
-                            <button class="btn o-button-2 history" type="button">
-                                <img class="watchlist" src="/images/icon/like.png">
-                                35 k
-                            </button>
-                            <button class="btn o-button-2 history" type="button">
-                                <img class="watchlist" src="/images/icon/bookmark.png">
+            <div class="row mt-4">
+                <div class="title-font-bold main-font">Where to watch</div>
+            </div>
+            <div class="row mt-4">
+                <% if (movie.watch && movie.watch.length> 0) { %>
+                    <% movie.watch.forEach(platform=> { %>
+                        <a href="#" target="_blank">
+                            <img class="app-2" src="/images/logo-<%= platform.toLowerCase().replace(/\s+/g, '-') %>.png"
+                                alt="<%= platform %> logo">
+                        </a>
+                        <% }); %>
+                            <% } else { %>
+                                <p class="body-font white-font">No streaming platform available.</p>
+                                <% } %>
+            </div>
+            <div class="line mt-4">
+                <hr class="custom-line">
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="row mt-4">
+        <div class="title-font-bold main-font">Posters</div>
+    </div>
+    <div class="row mt-4">
+        <% if (movie.poster_url && movie.poster_url.length> 0) { %>
+            <% movie.poster_url.forEach(poster=> { %>
+                <div class="col">
+                    <img class="movie-detail-poster" src="<%= poster %>" alt="Movie Poster">
+                </div>
+                <% }); %>
+                    <% } else { %>
+                        <p class="body-font white-font">No posters available.</p>
+                        <% } %>
+    </div>
+    <div class="line mt-4">
+        <hr class="custom-line">
+    </div>
+
+
+
+
+
+    <div class="row mt-4">
+        <div class="title-font-bold main-font">Cast</div>
+    </div>
+    <div class="row mt-4 pl-2">
+        <% if (movie.cast && movie.cast.length> 0) { %>
+            <% movie.cast.forEach(actor=> { %>
+                <div class="cast-box d-flex flex-column align-items-center">
+                    <div class="body-font-bold">
+                        <%= actor.national_name %>
+                    </div>
+                    <div>
+                        <%= actor.character %>
+                    </div>
+                </div>
+                <% }); %>
+                    <% } else { %>
+                        <p class="body-font white-font">No cast information available.</p>
+                        <% } %>
+    </div>
+    <div class="line mt-4">
+        <hr class="custom-line">
+    </div>
+
+
+
+
+    <div class="row mt-4">
+        <div class="title-font-bold main-font">Similar Titles</div>
+    </div>
+    <div class="row mt-1">
+        <% if (similarMovies && similarMovies.length> 0) { %>
+            <% similarMovies.forEach(similar=> { %>
+                <div class="col">
+                    <div class="genre-movie-item">
+                        <div class="row">
+                            <a href="/movie-detail?id=<%= similar._id %>">
+                                <img class="poster-genre"
+                                    src="<%= Array.isArray(similar.poster_url) && similar.poster_url.length > 0 ? similar.poster_url[0] : '/images/default-poster.jpg' %>"
+                                    alt="<%= similar.title %>">
+                            </a>
+                        </div>
+                        <div class="row mt-3">
+                            <span class="entry-title">
+                                <%= similar.title %>
+                            </span>
+                        </div>
+                        <div class="row">
+                            <span class="entry-title">(<%= similar.year %>)</span>
+                        </div>
+                        <div class="row mt-3">
+                            <img class="app" src="/images/logo-imdb.png">
+                            <div class="caption-font white-font ml-2">
+                                <%= similar.rating_imdb ? similar.rating_imdb + ' / 10' : 'N/A' %>
+                            </div>
+                            <img class="app ml-4" src="/images/logo-rotten.png">
+                            <div class="caption-font white-font ml-2">
+                                <%= similar.rating_rotten ? similar.rating_rotten : 'N/A' %>
+                            </div>
+                        </div>
+                        <div class="row app-logo mt-3">
+                            <% if (similar.watch && similar.watch.length> 0) { %>
+                                <% similar.watch.forEach(platform=> { %>
+                                    <img class="app"
+                                        src="/images/logo-<%= platform.toLowerCase().replace(/\s+/g, '-') %>.png"
+                                        alt="<%= platform %>">
+                                    <% }); %>
+                                        <% } %>
+                        </div>
+                        <div class="row mt-4">
+                            <button class="btn o-button-1" type="button">
+                                <img class="watchlist" src="/images/icon/bookmark2.png">
                                 WISHLIST
                             </button>
                         </div>
-                        <div class="row">
-                            <button class="btn o-button-2 history" type="button">
-                                <img class="watchlist" src="/images/icon/dislike.png">
-                                850
-                            </button>
-                            <button class="btn o-button-2 history" type="button">
-                                <img class="watchlist" src="/images/icon/seen.png">
-                                SEEN
-                            </button>
-                        </div>
                     </div>
-                    
-
                 </div>
+                <% }); %>
+                    <% } else { %>
+                        <p class="body-font white-font">No similar titles available.</p>
+                        <% } %>
+    </div>
 
 
+
+
+    <div class="col-4">
+        <div class="detail-box">
+            <div class="caption-font main-font">
+                <%= movie.year ? movie.year : 'N/A' %>
+            </div>
+            <div class="body-font-bold white-font">
+                <%= movie.title %>
+            </div>
+            <div></div>
+            <a href="/" class="d-flex justify-content-center">
+                <img class="poster-detail-box"
+                    src="<%= Array.isArray(movie.poster_url) && movie.poster_url.length > 0 ? movie.poster_url[0] : '/images/default-poster.jpg' %>"
+                    alt="<%= movie.title %>">
+            </a>
+            <div class="d-flex justify-content-center mt-2">
+                <div class="row ml-3 mr-2">
+                    <button class="btn o-button-2 history" type="button">
+                        <img class="watchlist" src="/images/icon/like.png">
+                        <%= movie.like ? movie.like + ' K' : '0' %>
+                    </button>
+                    <button class="btn o-button-2 history" type="button">
+                        <img class="watchlist" src="/images/icon/bookmark.png">
+                        WISHLIST
+                    </button>
+                </div>
+                <div class="row">
+                    <button class="btn o-button-2 history" type="button">
+                        <img class="watchlist" src="/images/icon/dislike.png">
+                        <%= movie.dislike ? movie.dislike : '0' %>
+                    </button>
+                    <button class="btn o-button-2 history" type="button">
+                        <img class="watchlist" src="/images/icon/seen.png">
+                        SEEN
+                    </button>
+                </div>
             </div>
         </div>
-        
+    </div>
 
-        
+    </div>
+
+
+
 
 
 
     </div>
 
 
-    
+
 </body>
+
 </html>
