@@ -1,21 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/result-page.css">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=bookmark" />
-
-    <title>Avenge: Infinity War</title>
-</head>
-
+    <head>
+        <!-- Required meta tags -->
+       <meta charset="utf-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+       <!-- Bootstrap CSS -->
+       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> 
+       <link rel="stylesheet" href="/css/style.css">
+       <link rel="stylesheet" href="/css/result-page.css">
+       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=bookmark" />
+   
+       <title>Avenge: Infinity War</title>
+   </head>
 <body>
     <!-----------------------------------------------------------HEADER--------------------------------------------------------->
     <div id="overlay"></div>
@@ -24,54 +20,52 @@
             <a class="navbar-brand" href="/">
                 <img src="/images/logo2.png" width="150px" height="33px">
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
             </button>
-
+          
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <div class="col-5">
+                <div class="col-6">
                     <ul class="navbar-nav">
                         <li class="nav-item active">
-                            <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Blog</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/search-result">Suggestion</a>
-                        </li>
-                    </ul>
+                            </li> 
+                        </ul>
                 </div>
-                <div class="col-5 d-flex justify-content-end pr-2">
+                <div class="col-4 d-flex justify-content-end pr-2 ml-3">
                     <div class="search-container">
                         <div class="search-box">
                             <img src="/images/icon/search-icon.png" alt="Search" class="search-icon">
-                            <input type="text" class="search-input" placeholder="Search for a movie..."
-                                onkeyup="searchMovies()" onfocus="showResults()">
+                            <input type="text" class="search-input" placeholder="Search for a movie..." onkeyup="searchMovies()" onfocus="showResults()">
                         </div>
                         <a href="/result-search">
                             <div class="search-results" id="searchResults"></div>
                         </a>
-                    </div>
+                    </div> 
                 </div>
-                <div class="col-2 d-flex justify-content-end">
+                <div class="col-1 d-flex ">
                     <ul class="menu-right">
                         <li class="nav-item dropdown">
                             <button class="nav-link dropbtn">
                                 <img src="/images/icon/user-fill.png" class="icon-green" />
-                                <span class="main-font ">Watcharawalee S.</span>
+                                <span class="main-font "><%= loggedIN %></span>
                                 <img src="/images/icon/drop-more.png" class="icon-green" />
                             </button>
                             <ul class="dropdown-content">
                                 <li class="nav-item">
                                     <a class="nav-link" href="/user-profile">
-                                        <img src="/images/icon/user-profile.png" class="img-icon" />
-                                        Profile
+                                        <img src="/images/icon/edit-profile.png" class="img-icon" />
+                                        Edit Profile
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/home">
+                                    <a class="nav-link" href="/">
                                         <img src="/images/icon/sign-out.png" class="img-icon" />
                                         Sign out
                                     </a>
@@ -79,7 +73,7 @@
                             </ul>
                         </li>
                     </ul>
-                </div>
+                </div>             
             </div>
         </nav>
     </header>
@@ -94,7 +88,7 @@
             </div>
             <!-- Content Column -->
             <div class="col-md-9">
-                <div class="h2-font main-font">Bugslittlebunny</div>
+                <div class="h2-font main-font"><%= loggedIN %></div>
                 <div class="row mt-2">
                     <div class="col-auto">
                         <span class="title-font-bold white-font">Birthday : </span>
@@ -119,7 +113,7 @@
     <!----- Section - Info ----->
 
     <div class="user-info">
-        <div class="title-font-bold main-font">History</div>
+        <div class="title-font-bold main-font">Activity</div>
         <div class="history-box">
             <div class="history-topic">
                 <div class="topic-header">
@@ -191,7 +185,7 @@
                     </div>
                 </div>
             </div>
-            <div class="line-connector"></div>
+            <!-- <div class="line-connector"></div> -->
             <div class="history-topic">
                 <div class="topic-header">
                     <div class="circle-button">
@@ -262,18 +256,158 @@
                     </div>
                 </div>
             </div>
-            <div class="line-connector"></div>
-
+            <!-- <div class="line-connector"></div> -->
+            <div class="history-topic">
+                <div class="topic-header">
+                    <div class="circle-button">
+                        <span class="star">&#9733;</span>
+                    </div>
+                    <div class="title-font main-font">Liked movies</div>
+                </div>
+                <div class="row mx-5">
+                    <div class="title-item">
+                        <a href="/" class="title-item-link">
+                            <figure>
+                                <img class="poster-top" src="/images/poster/teeyod2.jpg" alt="ธี่หยด 2 (2024)">
+                            </figure>
+                            <div class="poster-title-box">
+                                <div class="top-title">
+                                    <span class="entry-title">ธี่หยด 2 (2024)</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="title-item">
+                        <a href="/" class="title-item-link">
+                            <figure>
+                                <img class="poster-top" src="/images/poster/teeyod2.jpg" alt="ธี่หยด 2 (2024)">
+                            </figure>
+                            <div class="poster-title-box">
+                                <div class="top-title">
+                                    <span class="entry-title">ธี่หยด 2 (2024)</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="title-item">
+                        <a href="/" class="title-item-link">
+                            <figure>
+                                <img class="poster-top" src="/images/poster/teeyod2.jpg" alt="ธี่หยด 2 (2024)">
+                            </figure>
+                            <div class="poster-title-box">
+                                <div class="top-title">
+                                    <span class="entry-title">ธี่หยด 2 (2024)</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="title-item">
+                        <a href="/" class="title-item-link">
+                            <figure>
+                                <img class="poster-top" src="/images/poster/teeyod2.jpg" alt="ธี่หยด 2 (2024)">
+                            </figure>
+                            <div class="poster-title-box">
+                                <div class="top-title">
+                                    <span class="entry-title">ธี่หยด 2 (2024)</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="title-item">
+                        <a href="/" class="title-item-link">
+                            <figure>
+                                <img class="poster-top" src="/images/poster/teeyod2.jpg" alt="ธี่หยด 2 (2024)">
+                            </figure>
+                            <div class="poster-title-box">
+                                <div class="top-title">
+                                    <span class="entry-title">ธี่หยด 2 (2024)</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="line-connector"></div> -->
+            <div class="history-topic">
+                <div class="topic-header">
+                    <div class="circle-button">
+                        <span class="star">&#9733;</span>
+                    </div>
+                    <div class="title-font main-font">Disliked movies</div>
+                </div>
+                <div class="row mx-5">
+                    <div class="title-item">
+                        <a href="/" class="title-item-link">
+                            <figure>
+                                <img class="poster-top" src="/images/poster/teeyod2.jpg" alt="ธี่หยด 2 (2024)">
+                            </figure>
+                            <div class="poster-title-box">
+                                <div class="top-title">
+                                    <span class="entry-title">ธี่หยด 2 (2024)</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="title-item">
+                        <a href="/" class="title-item-link">
+                            <figure>
+                                <img class="poster-top" src="/images/poster/teeyod2.jpg" alt="ธี่หยด 2 (2024)">
+                            </figure>
+                            <div class="poster-title-box">
+                                <div class="top-title">
+                                    <span class="entry-title">ธี่หยด 2 (2024)</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="title-item">
+                        <a href="/" class="title-item-link">
+                            <figure>
+                                <img class="poster-top" src="/images/poster/teeyod2.jpg" alt="ธี่หยด 2 (2024)">
+                            </figure>
+                            <div class="poster-title-box">
+                                <div class="top-title">
+                                    <span class="entry-title">ธี่หยด 2 (2024)</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="title-item">
+                        <a href="/" class="title-item-link">
+                            <figure>
+                                <img class="poster-top" src="/images/poster/teeyod2.jpg" alt="ธี่หยด 2 (2024)">
+                            </figure>
+                            <div class="poster-title-box">
+                                <div class="top-title">
+                                    <span class="entry-title">ธี่หยด 2 (2024)</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="title-item">
+                        <a href="/" class="title-item-link">
+                            <figure>
+                                <img class="poster-top" src="/images/poster/teeyod2.jpg" alt="ธี่หยด 2 (2024)">
+                            </figure>
+                            <div class="poster-title-box">
+                                <div class="top-title">
+                                    <span class="entry-title">ธี่หยด 2 (2024)</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+                       
         </div>
     </div>
 
 
+    
+
+    
 
 
-
-
-
-
+    
 </body>
-
 </html>
