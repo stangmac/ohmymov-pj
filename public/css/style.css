@@ -893,3 +893,142 @@ figure {
 .a-footer:hover {
     color: var(--main-color);;
 }
+
+
+
+/* ของมอส */
+
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ป้องกันขอบดำ */
+}
+
+
+
+
+
+
+/* 🔹 จัดเรียงหนังให้พอดีกับหน้าจอ */
+.movie-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    gap: 15px;
+    padding: 10px 0;
+    padding-left: 20px;  /* ✅ ปรับระยะห่างซ้าย */
+    justify-content: flex-start;
+    max-width: 90%;
+    margin: auto;
+    position: relative;
+}
+
+
+/* 🔹 รูปแบบของการ์ดหนัง */
+.movie-card {
+    flex: 0 0 auto;
+    width: 150px; /* ขนาดการ์ด */
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+    position: relative;
+}
+
+.movie-card:hover {
+    transform: scale(1.05); /* ขยายเมื่อชี้ */
+}
+
+/* 🔹 รูปโปสเตอร์ */
+.movie-poster {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* 🔹 ชื่อหนัง */
+.movie-title {
+    font-size: 14px;
+    color: white;
+    margin-top: 8px;
+}
+
+/* 🔹 อันดับ */
+/* 🔹 ปรับขนาด และตำแหน่งของ movie-rank */
+.movie-rank {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: red;
+    width: 30px;
+    height: 30px;
+    border-top-left-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2; /* ✅ ทำให้ตัวเลขอยู่ด้านหน้า */
+}
+
+
+
+/* 🔹 ปุ่ม Scroll (ซ้าย & ขวา) */
+.scroll-button {
+    position: absolute;
+    top: 50%;
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    transform: translateY(-50%);
+    padding: 10px;
+    border-radius: 50%; /* ทำให้ปุ่มเป็นวงกลม */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 🔹 ตำแหน่งของปุ่มเลื่อน */
+#scroll-left {
+    left: 10px;
+}
+
+#scroll-right {
+    right: 10px;
+}
+
+/* 🔹 เปลี่ยนสีปุ่มเมื่อ Hover */
+.scroll-button:hover {
+    background: white;
+}
+
+
+
+
+
+
+
+
+
+
+

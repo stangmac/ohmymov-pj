@@ -2,14 +2,16 @@
 <html lang="en">
 
 <head>
-     <!-- Required meta tags -->
+    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/result-page.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=bookmark" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=bookmark" />
 
     <title>Oh! My Mov</title>
 </head>
@@ -22,10 +24,11 @@
             <a class="navbar-brand" href="/">
                 <img src="/images/logo2.png" width="150px" height="33px">
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
-          
+
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="col-6">
                     <ul class="navbar-nav">
@@ -37,796 +40,307 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/search-result">Suggestion</a>
-                            </li> 
-                        </ul>
+                        </li>
+                    </ul>
                 </div>
                 <div class="col-5 d-flex justify-content-end pr-2">
                     <div class="search-container">
                         <div class="search-box">
                             <img src="/images/icon/search-icon.png" alt="Search" class="search-icon">
-                            <input type="text" class="search-input" placeholder="Search for a movie..." onkeyup="searchMovies()" onfocus="showResults()">
+                            <input type="text" class="search-input" placeholder="Search for a movie..."
+                                onkeyup="searchMovies()" onfocus="showResults()">
                         </div>
                         <a href="/result-search">
                             <div class="search-results" id="searchResults"></div>
                         </a>
-                    </div> 
+                    </div>
                 </div>
                 <div class="col-1 d-flex justify-content-end">
                     <button class="btn o-button ml-1" type="button" id="show-signin">Sign In</button>
 
-                </div>             
+                </div>
             </div>
         </nav>
     </header>
 
-<!----------start modal sign in--------------->
-<!-- <form  method="POST">
-    <div class="popup-sign-p hidden" id="signinModal">
-        <button class="close-btn-sign" id="closeSignIn">&times;</button>
-        <h2 class="title-sign">Sign In</h2>
-<% if (typeof errors !== 'undefined' && errors.length > 0) { %>
-    <% for (let i = 0; i < errors.length; i++) { %>
-        <p class="alert">
-            <%= errors[i] %>
-        </p>
-    <% } %>
-<% } %>
+<!----- Section 1 - title ----->
 
-                
-        <div class="social-sign">
-            <button class="social-btn google"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50">
-                <path d="M 25.996094 48 C 13.3125 48 2.992188 37.683594 2.992188 25 C 2.992188 12.316406 13.3125 2 25.996094 2 C 31.742188 2 37.242188 4.128906 41.488281 7.996094 L 42.261719 8.703125 L 34.675781 16.289063 L 33.972656 15.6875 C 31.746094 13.78125 28.914063 12.730469 25.996094 12.730469 C 19.230469 12.730469 13.722656 18.234375 13.722656 25 C 13.722656 31.765625 19.230469 37.269531 25.996094 37.269531 C 30.875 37.269531 34.730469 34.777344 36.546875 30.53125 L 24.996094 30.53125 L 24.996094 20.175781 L 47.546875 20.207031 L 47.714844 21 C 48.890625 26.582031 47.949219 34.792969 43.183594 40.667969 C 39.238281 45.53125 33.457031 48 25.996094 48 Z"></path>
-                </svg></button>
-            <button class="social-btn facebook"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 24 24">
-                <path d="M17.525,9H14V7c0-1.032,0.084-1.682,1.563-1.682h1.868v-3.18C16.522,2.044,15.608,1.998,14.693,2C11.98,2,10,3.657,10,6.699V9H7v4l3-0.001V22h4v-9.003l3.066-0.001L17.525,9z"></path>
-                </svg></button>
-            <button class="social-btn apple"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 30 30">
-                <path d="M25.565,9.785c-0.123,0.077-3.051,1.702-3.051,5.305c0.138,4.109,3.695,5.55,3.756,5.55 c-0.061,0.077-0.537,1.963-1.947,3.94C23.204,26.283,21.962,28,20.076,28c-1.794,0-2.438-1.135-4.508-1.135 c-2.223,0-2.852,1.135-4.554,1.135c-1.886,0-3.22-1.809-4.4-3.496c-1.533-2.208-2.836-5.673-2.882-9 c-0.031-1.763,0.307-3.496,1.165-4.968c1.211-2.055,3.373-3.45,5.734-3.496c1.809-0.061,3.419,1.242,4.523,1.242 c1.058,0,3.036-1.242,5.274-1.242C21.394,7.041,23.97,7.332,25.565,9.785z M15.001,6.688c-0.322-1.61,0.567-3.22,1.395-4.247 c1.058-1.242,2.729-2.085,4.17-2.085c0.092,1.61-0.491,3.189-1.533,4.339C18.098,5.937,16.488,6.872,15.001,6.688z"></path>
-            </svg></button>
-        </div>
-        <p class="or-text">or</p>
-        <div class="container">
-            <div class="form m-5">
-                <div class="form-element-sign">
-                    <label for="login-email">Email or Username</label>
-                    <input type="email" id="login-email" placeholder="Email or Username">
-                </div>
-                <div class="form-element-sign">
-                    <label for="login-password">Password</label>
-                    <input type="password" id="login-password" placeholder="Password">
-                    <a href="#" class="forgetpassword">Forgot password?</a>
-                </div>
-                <div class="form-element-sign">
-                    <input type="checkbox" id="remember-me">
-                    <label for="remember-me">Remember me</label>
-                </div>
-                <button class="btn-sign">Sign In</button>
-           
-                <div class="line-account"></div>
-                <p class="create-account">Don’t have an account?<a href="#" id="Create-one" class="create"> Create one</a></p>
-            </div>
-        </div>
-       
-    </div>
-</form> -->
-
-
-<!----------End modal sign in--------------->
-  <!-- Sign Up Modal -->
-<!-- <form action="/" method="POST">
-    <div class="popup-sign-p hidden" id="signupModal">
-        <button class="close-btn-sign" id="closeSignUp">&times;</button>
-        <div class="container">
-            <h2 class="title-sign">Create an account</h2>
-            <div class="form">
-                <div class="row">
-                    <div class="col-6">
-                        <div class="form-element-sign">
-                            <label for="signup-email">Email</label>
-                            <input type="email" id="signup-email" placeholder="Enter your email">
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="form-element-sign">
-                            <label for="signup-username">Username</label>
-                            <input type="text" id="signup-username" placeholder="Enter your username">
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="form-element-sign">
-                            <label for="signup-dob">Date of Birth</label>
-                            <div class="input-wrapper">
-                                <input type="date" id="signup-dob" class="date-input">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-6">
-                        <div class="form-element-sign">
-                            <label for="signup-gender">Gender</label>
-                            <select id="signup-gender">
-                                <option value="" disabled selected>Gender</option>
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="form-element-sign">
-                            <label for="signup-password">Password</label>
-                            <input type="password" id="signup-password" placeholder="Enter your password">
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="form-element-sign">
-                            <label for="confirm-password">Confirm Password</label>
-                            <input type="password" id="confirm-password" placeholder="Confirm your password">
-                        </div>
-                    </div>
-                    
-                    <div class="form-element-sign">
-                        <input type="checkbox" id="agree-terms">
-                        <label for="agree-terms">I agree to the <a href="#" class="create">Terms of Service</a> and <a href="#" class="create">Privacy Policy</a></label>
-                    </div>
-                    <button class="btn-sign">Sign Up</button>
-                </div>
-            </div>
-            <p class="or-text">or</p>
-            <div class="social-sign">
-                <button class="social-btn google"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50">
-                    <path d="M 25.996094 48 C 13.3125 48 2.992188 37.683594 2.992188 25 C 2.992188 12.316406 13.3125 2 25.996094 2 C 31.742188 2 37.242188 4.128906 41.488281 7.996094 L 42.261719 8.703125 L 34.675781 16.289063 L 33.972656 15.6875 C 31.746094 13.78125 28.914063 12.730469 25.996094 12.730469 C 19.230469 12.730469 13.722656 18.234375 13.722656 25 C 13.722656 31.765625 19.230469 37.269531 25.996094 37.269531 C 30.875 37.269531 34.730469 34.777344 36.546875 30.53125 L 24.996094 30.53125 L 24.996094 20.175781 L 47.546875 20.207031 L 47.714844 21 C 48.890625 26.582031 47.949219 34.792969 43.183594 40.667969 C 39.238281 45.53125 33.457031 48 25.996094 48 Z"></path>
-                    </svg></button>
-                <button class="social-btn facebook"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 24 24">
-                    <path d="M17.525,9H14V7c0-1.032,0.084-1.682,1.563-1.682h1.868v-3.18C16.522,2.044,15.608,1.998,14.693,2C11.98,2,10,3.657,10,6.699V9H7v4l3-0.001V22h4v-9.003l3.066-0.001L17.525,9z"></path>
-                    </svg></button>
-                <button class="social-btn apple"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 30 30">
-                    <path d="M25.565,9.785c-0.123,0.077-3.051,1.702-3.051,5.305c0.138,4.109,3.695,5.55,3.756,5.55 c-0.061,0.077-0.537,1.963-1.947,3.94C23.204,26.283,21.962,28,20.076,28c-1.794,0-2.438-1.135-4.508-1.135 c-2.223,0-2.852,1.135-4.554,1.135c-1.886,0-3.22-1.809-4.4-3.496c-1.533-2.208-2.836-5.673-2.882-9 c-0.031-1.763,0.307-3.496,1.165-4.968c1.211-2.055,3.373-3.45,5.734-3.496c1.809-0.061,3.419,1.242,4.523,1.242 c1.058,0,3.036-1.242,5.274-1.242C21.394,7.041,23.97,7.332,25.565,9.785z M15.001,6.688c-0.322-1.61,0.567-3.22,1.395-4.247 c1.058-1.242,2.729-2.085,4.17-2.085c0.092,1.61-0.491,3.189-1.533,4.339C18.098,5.937,16.488,6.872,15.001,6.688z"></path>
-                </svg></button>
-            </div>
-           </div>
-    </div>
-</form>
-   -->
-
-
-
-
-
-
-
-
-     <!----- Section 1 - title ----->
-
-    <section class="sec-1">
-        <div class="container">
-            <div class="row">
-                <div class="col-7">
-                    <div class="box-banner">
-                        <div class="row">
-                            <div class="line-text mb-3">Welcome</div>
-                        </div>
-                        <div class="row">
-                            <h1 class="h1-font white-font mb-3">Let's Create Your <br> Own Collection</h1>
-                        </div>
-                        <div class="row">
-                            <button class="btn s-button mt-3 " type="button">START</button>
-                        </div>  
-                    </div>                    
-                </div>
-                <div class="col-5">
-                    <img src="/images/poster-banner.png" height="270px">
-                </div>
-            </div>
-        </div>
-    </section>
-
-
- 
-    <!----- Section 2 - new movie ----->
-
-    <section class="sec-2 pt-4 pb-4 px-4">
-        <div class="container-fluid">
-            <div class="title-font-bold black-font mb-3">New</div>
-            <div class="row g-3">
-                <div class="col mb-2">
-                    <div class="box-new row py-2 mx-1">
-                        <!-- <div class="btn-bookmark" onclick="toggleBookmark()">
-                            <div class="icon-container first-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55 180" version="1.1">
-                                    <path class="bookmark" d="m 13.78365,52.827266 c -6.5149597,0 -11.7594881,5.245044 -11.7594881,11.760007 v 60.391147 c 0,3.50128 0.00434,3.46826 -0.039791,8.78447 l 26.4981241,-24.61688 26.004467,24.59415 c 0.08253,-5.26828 0.07559,-5.27302 0.07559,-8.76174 V 64.587273 c 0,-6.514963 -5.245047,-11.760007 -11.760007,-11.760007 z" />
-                                </svg>
-                            </div>
-                            <div class="icon-container second-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55 180" version="1.1">
-                                    <path class="bookmark" d="m 13.78365,52.827266 c -6.5149597,0 -11.7594881,5.245044 -11.7594881,11.760007 v 60.391147 c 0,3.50128 0.00434,3.46826 -0.039791,8.78447 l 26.4981241,-24.61688 26.004467,24.59415 c 0.08253,-5.26828 0.07559,-5.27302 0.07559,-8.76174 V 64.587273 c 0,-6.514963 -5.245047,-11.760007 -11.760007,-11.760007 z" />
-                                </svg>
-                            </div>
-                        </div> -->
-                        <div class="col-3 mt-2 detailmovie">
-                            <a href="/movie-detail">
-                                <img class="poster-new" src="/images/poster/badboy2024.jpg" height="210px">
-                            </a>
-                        </div>
-                        <div class="col-9">
-                            <div class="inside-box ml-5 pt-3 mb-1">
-                                <div class="row">
-                                    <div class="caption-font main-font">2024</div>
-                                </div>
-                                <div class="row">
-                                    <div class="body-font-bold white-font">Bad Boys: Ride or Die</div>   
-                                </div>
-                                <div class="row">
-                                    <div class="caption-font main-font mr-2">Action</div>  
-                                    <div class="caption-font main-font mr-2">·</div>  
-                                    <div class="caption-font main-font">Comedy</div> 
-                                </div>
-                                <div class="row app-logo mt-3">
-                                    <img class="app" src="/images/logo-netflix.png">
-                                    <img class="app" src="/images/logo-true-id.png">
-                                    <img class="app" src="/images/logo-apple-tv.png">
-                                    <img class="app" src="/images/logo-playstore.png">
-                                </div>
-                                <div class="row mt-4">
-                                    <img class="app" src="/images/logo-imdb.png">
-                                    <div class="caption-font white-font ml-2">6.6 / 10</div>
-                                    <img class="app ml-4" src="/images/logo-rotten.png">
-                                    <div class="caption-font white-font ml-2">95 %</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>  
-                </div>
-                <div class="col mb-2">
-                    <div class="box-new row py-2 mx-1">
-                        <!-- <div class="btn-bookmark" onclick="toggleBookmark()">
-                            <div class="icon-container first-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55 180" version="1.1">
-                                    <path class="bookmark" d="m 13.78365,52.827266 c -6.5149597,0 -11.7594881,5.245044 -11.7594881,11.760007 v 60.391147 c 0,3.50128 0.00434,3.46826 -0.039791,8.78447 l 26.4981241,-24.61688 26.004467,24.59415 c 0.08253,-5.26828 0.07559,-5.27302 0.07559,-8.76174 V 64.587273 c 0,-6.514963 -5.245047,-11.760007 -11.760007,-11.760007 z" />
-                                </svg>
-                            </div>
-                            <div class="icon-container second-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55 180" version="1.1">
-                                    <path class="bookmark" d="m 13.78365,52.827266 c -6.5149597,0 -11.7594881,5.245044 -11.7594881,11.760007 v 60.391147 c 0,3.50128 0.00434,3.46826 -0.039791,8.78447 l 26.4981241,-24.61688 26.004467,24.59415 c 0.08253,-5.26828 0.07559,-5.27302 0.07559,-8.76174 V 64.587273 c 0,-6.514963 -5.245047,-11.760007 -11.760007,-11.760007 z" />
-                                </svg>
-                            </div>
-                        </div> -->
-                        <div class="col-3 mt-2">
-                            <a href="/">
-                                <img class="poster-new" src="/images/poster/badboy2024.jpg" height="210px">
-                            </a>
-                        </div>
-                
-                        <div class="col-9">
-                            <div class="inside-box ml-5 pt-3 mb-1">
-                                <div class="row">
-                                    <div class="caption-font main-font">2024</div>
-                                </div>
-                                <div class="row">
-                                    <div class="body-font-bold white-font">Bad Boys: Ride or Die</div>
-                                </div>
-                                <div class="row">
-                                    <div class="caption-font main-font mr-2">Action</div>
-                                    <div class="caption-font main-font mr-2">·</div>
-                                    <div class="caption-font main-font">Comedy</div>
-                                </div>
-                                <div class="row app-logo mt-3">
-                                    <img class="app" src="/images/logo-netflix.png">
-                                    <img class="app" src="/images/logo-true-id.png">
-                                    <img class="app" src="/images/logo-apple-tv.png">
-                                    <img class="app" src="/images/logo-playstore.png">
-                                </div>
-                                <div class="row mt-4">
-                                    <img class="app" src="/images/logo-imdb.png">
-                                    <div class="caption-font white-font ml-2">6.6 / 10</div>
-                                    <img class="app ml-4" src="/images/logo-rotten.png">
-                                    <div class="caption-font white-font ml-2">95 %</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col mb-2">
-                    <div class="box-new row py-2 mx-1">
-                        <div class="col-3 mt-2">
-                            <a href="/">
-                                <img class="poster-new" src="/images/poster/badboy2024.jpg" height="210px">
-                            </a>
-                        </div>
-                        <div class="col-9">
-                            <div class="inside-box ml-5 pt-3 mb-1">
-                                <div class="row">
-                                    <div class="caption-font main-font">2024</div>
-                                </div>
-                                <div class="row">
-                                    <div class="body-font-bold white-font">Bad Boys: Ride or Die</div>   
-                                </div>
-                                <div class="row">
-                                    <div class="caption-font main-font mr-2">Action</div>  
-                                    <div class="caption-font main-font mr-2">·</div>  
-                                    <div class="caption-font main-font">Comedy</div> 
-                                </div>
-                                <div class="row app-logo mt-3">
-                                    <img class="app" src="/images/logo-netflix.png">
-                                    <img class="app" src="/images/logo-true-id.png">
-                                    <img class="app" src="/images/logo-apple-tv.png">
-                                    <img class="app" src="/images/logo-playstore.png">
-                                </div>
-                                <div class="row mt-4">
-                                    <img class="app" src="/images/logo-imdb.png">
-                                    <div class="caption-font white-font ml-2">6.6 / 10</div>
-                                    <img class="app ml-4" src="/images/logo-rotten.png">
-                                    <div class="caption-font white-font ml-2">95 %</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>  
-                </div>
-            </div>
-        </div>
-    </section>
-
-    
-
-    <!----- Section 3 - genre ----->
-
-    <section class="sec-3 mt-5 px-5">
-        <div class="row justify-content-between ">
-            <div class="col">
-                <button class="btn sg-button-1 body-font" type="button">ALL</button>
-            </div>
-            <div class="col">
-                <button class="btn sg-button body-font" type="button">Action</button>
-            </div>
-            <div class="col">
-                <button class="btn sg-button body-font" type="button">Comedy</button>
-            </div>
-            <div class="col">
-                <button class="btn sg-button body-font" type="button">Drama</button>
-            </div>
-            <div class="col">
-                <button class="btn sg-button body-font" type="button">Fantasy</button>
-            </div>
-        </div>
-        <div class="row justify-content-between mt-4">
-            <div class="col">
-                <button class="btn sg-button body-font" type="button">Horror</button>
-            </div>
-            <div class="col">
-                <button class="btn sg-button body-font" type="button">Mystery</button>
-            </div>
-            <div class="col">
-                <button class="btn sg-button body-font" type="button">Romance</button>
-            </div>
-            <div class="col">
-                <button class="btn sg-button body-font" type="button">Thriller</button>
-            </div>
-            <div class="col">
-                <button class="btn sg-button body-font" type="button">Western</button>
-            </div>
-        </div>
-    </section> 
-    
-    
-    <!----- Section 4 - top movies ----->
-
-    <section class="sec-4 mt-5">
+<section class="sec-1">
+    <div class="container">
         <div class="row">
-            <h2 class="h2-font white-font">Top 10 in Thailand today</h2>
-        </div>
-        <div class="row movie-container">
-            <!-- Movies will be dynamically inserted here -->
-        </div>
-        <button id="scroll-button">&#8250;</button>
-    </section>
-    
-<!----- Section 5 movie each genre ----->
-
-<section class="sec-5 sec-4 mt-5">
-    <div class="genre-big genre-action">
-        <div class="row">
-            <h2 class="h2-font white-font">Action</h2>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div class="genre-movie-item">
+            <div class="col-7">
+                <div class="box-banner">
                     <div class="row">
-                        <a href="/">
-                            <img class="poster-genre" src="/images/poster/thefallguy.jpg">
-                        </a>
-                    </div>
-                    <div class="row mt-3">
-                        <span class="entry-title">The Fall Guy</span>
+                        <div class="line-text mb-3">Welcome</div>
                     </div>
                     <div class="row">
-                        <span class="entry-title">(2024)</span>
+                        <h1 class="h1-font white-font mb-3">Let's Create Your <br> Own Collection</h1>
                     </div>
-                    <div class="row mt-3">
-                        <img class="app" src="/images/logo-imdb.png">
-                        <div class="caption-font white-font ml-2">6.6 / 10</div>
-                        <img class="app ml-4" src="/images/logo-rotten.png">
-                        <div class="caption-font white-font ml-2">95 %</div>
-                    </div>
-                    <div class="row app-logo mt-3">
-                        <img class="app" src="/images/logo-apple-tv.png">
-                        <img class="app" src="/images/logo-playstore.png">
-                    </div>
-                    <div class="row mt-4">
-                        <button class="btn o-button-1" type="button">
-                            <img class="watchlist" src="/images/icon/bookmark2.png">
-                            WATCHLIST
-                        </button>
+                    <div class="row">
+                        <button class="btn s-button mt-3" type="button">START</button>
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="genre-movie-item">
-                    <div class="row">
-                        <a href="/">
-                            <img class="poster-genre" src="/images/poster/thefallguy.jpg">
-                        </a>
-                    </div>
-                    <div class="row mt-3">
-                        <span class="entry-title">The Fall Guy</span>
-                    </div>
-                    <div class="row">
-                        <span class="entry-title">(2024)</span>
-                    </div>
-                    <div class="row mt-3">
-                        <img class="app" src="/images/logo-imdb.png">
-                        <div class="caption-font white-font ml-2">6.6 / 10</div>
-                        <img class="app ml-4" src="/images/logo-rotten.png">
-                        <div class="caption-font white-font ml-2">95 %</div>
-                    </div>
-                    <div class="row app-logo mt-3">
-                        <img class="app" src="/images/logo-apple-tv.png">
-                        <img class="app" src="/images/logo-playstore.png">
-                    </div>
-                    <div class="row mt-4">
-                        <button class="btn o-button-1" type="button">
-                            <img class="watchlist" src="/images/icon/bookmark2.png">
-                            WISHLIST
-                        </button>
-                    </div>
+            <div class="col-5">
+                <div class="video-container">
+                    <% if (movies.length && movies[0].teaser_urls && movies[0].teaser_urls.length) { 
+                        let teaserUrl = movies[0].teaser_urls[0];
+                        let videoIdMatch = teaserUrl.match(/(?:v=|\/embed\/|\/v\/|youtu\.be\/|\/e\/|watch\?v=)([^#\&\?]*).*/);
+                        let videoId = videoIdMatch ? videoIdMatch[1] : null;
+                    %>
+                        <% if (videoId) { %>
+                            <iframe 
+                                src="https://www.youtube.com/embed/<%= videoId %>?autoplay=1&mute=1&loop=1&playlist=<%= videoId %>"
+                                title="Movie Teaser"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        <% } else { %>
+                            <img src="<%= movies[0].poster_url && movies[0].poster_url.length ? movies[0].poster_url[0] : '/images/poster-banner.png' %>" height="270px">
+                        <% } %>
+                    <% } else { %>
+                        <img src="<%= movies.length && movies[0].poster_url && movies[0].poster_url.length ? movies[0].poster_url[0] : '/images/poster-banner.png' %>" height="270px">
+                    <% } %>
                 </div>
             </div>
-            <div class="col">
-                <div class="genre-movie-item">
-                    <div class="row">
-                        <a href="/">
-                            <img class="poster-genre" src="/images/poster/thefallguy.jpg">
-                        </a>
-                    </div>
-                    <div class="row mt-3">
-                        <span class="entry-title">The Fall Guy</span>
-                    </div>
-                    <div class="row">
-                        <span class="entry-title">(2024)</span>
-                    </div>
-                    <div class="row mt-3">
-                        <img class="app" src="/images/logo-imdb.png">
-                        <div class="caption-font white-font ml-2">6.6 / 10</div>
-                        <img class="app ml-4" src="/images/logo-rotten.png">
-                        <div class="caption-font white-font ml-2">95 %</div>
-                    </div>
-                    <div class="row app-logo mt-3">
-                        <img class="app" src="/images/logo-apple-tv.png">
-                        <img class="app" src="/images/logo-playstore.png">
-                    </div>
-                    <div class="row mt-4">
-                        <button class="btn o-button-1" type="button">
-                            <img class="watchlist" src="/images/icon/bookmark2.png">
-                            WISHLIST
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="genre-movie-item">
-                    <div class="row">
-                        <a href="/">
-                            <img class="poster-genre" src="/images/poster/thefallguy.jpg">
-                        </a>
-                    </div>
-                    <div class="row mt-3">
-                        <span class="entry-title">The Fall Guy</span>
-                    </div>
-                    <div class="row">
-                        <span class="entry-title">(2024)</span>
-                    </div>
-                    <div class="row mt-3">
-                        <img class="app" src="/images/logo-imdb.png">
-                        <div class="caption-font white-font ml-2">6.6 / 10</div>
-                        <img class="app ml-4" src="/images/logo-rotten.png">
-                        <div class="caption-font white-font ml-2">95 %</div>
-                    </div>
-                    <div class="row app-logo mt-3">
-                        <img class="app" src="/images/logo-apple-tv.png">
-                        <img class="app" src="/images/logo-playstore.png">
-                    </div>
-                    <div class="row mt-4">
-                        <button class="btn o-button-1" type="button">
-                            <img class="watchlist" src="/images/icon/bookmark2.png">
-                            WISHLIST
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="genre-movie-item">
-                    <div class="row">
-                        <a href="/">
-                            <img class="poster-genre" src="/images/poster/thefallguy.jpg">
-                        </a>
-                    </div>
-                    <div class="row mt-3">
-                        <span class="entry-title">The Fall Guy</span>
-                    </div>
-                    <div class="row">
-                        <span class="entry-title">(2024)</span>
-                    </div>
-                    <div class="row mt-3">
-                        <img class="app" src="/images/logo-imdb.png">
-                        <div class="caption-font white-font ml-2">6.6 / 10</div>
-                        <img class="app ml-4" src="/images/logo-rotten.png">
-                        <div class="caption-font white-font ml-2">95 %</div>
-                    </div>
-                    <div class="row app-logo mt-3">
-                        <img class="app" src="/images/logo-apple-tv.png">
-                        <img class="app" src="/images/logo-playstore.png">
-                    </div>
-                    <div class="row mt-4">
-                        <button class="btn o-button-1" type="button">
-                            <img class="watchlist" src="/images/icon/bookmark2.png">
-                            WISHLIST
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="genre-movie-item">
-                    <div class="row">
-                        <a href="/">
-                            <img class="poster-genre" src="/images/poster/thefallguy.jpg">
-                        </a>
-                    </div>
-                    <div class="row mt-3">
-                        <span class="entry-title">The Fall Guy</span>
-                    </div>
-                    <div class="row">
-                        <span class="entry-title">(2024)</span>
-                    </div>
-                    <div class="row mt-3">
-                        <img class="app" src="/images/logo-imdb.png">
-                        <div class="caption-font white-font ml-2">6.6 / 10</div>
-                        <img class="app ml-4" src="/images/logo-rotten.png">
-                        <div class="caption-font white-font ml-2">95 %</div>
-                    </div>
-                    <div class="row app-logo mt-3">
-                        <img class="app" src="/images/logo-apple-tv.png">
-                        <img class="app" src="/images/logo-playstore.png">
-                    </div>
-                    <div class="row mt-4">
-                        <button class="btn o-button-1" type="button">
-                            <img class="watchlist" src="/images/icon/bookmark2.png">
-                            WISHLIST
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row justify-content-end mt-5">
-            <button class="btn sg-button-2" type="button">All Of Action
-                <img class="more" src="/images/icon/more.png">
-            </button>
-        </div>
-    </div>
-    <div class="genre-big genre-comedy">
-        <div class="row">
-            <h2 class="h2-font white-font">Comedy</h2>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div class="genre-movie-item">
-                    <div class="row">
-                        <a href="/">
-                            <img class="poster-genre" src="/images/poster/if.jpg">
-                        </a>
-                    </div>
-                    <div class="row mt-3">
-                        <span class="entry-title">If</span>
-                    </div>
-                    <div class="row">
-                        <span class="entry-title">(2024)</span>
-                    </div>
-                    <div class="row mt-3">
-                        <img class="app" src="/images/logo-imdb.png">
-                        <div class="caption-font white-font ml-2">6.5 / 10</div>
-                        <img class="app ml-4" src="/images/logo-rotten.png">
-                        <div class="caption-font white-font ml-2">87 %</div>
-                    </div>
-                    <div class="row app-logo mt-3">
-                        <img class="app" src="/images/logo-apple-tv.png">
-                        <img class="app" src="/images/logo-playstore.png">
-                    </div>
-                    <div class="row mt-4">
-                        <button class="btn o-button-1" type="button">
-                            <img class="watchlist" src="/images/icon/bookmark2.png">
-                            WISHLIST
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="genre-movie-item">
-                    <div class="row">
-                        <a href="/">
-                            <img class="poster-genre" src="/images/poster/if.jpg">
-                        </a>
-                    </div>
-                    <div class="row mt-3">
-                        <span class="entry-title">If</span>
-                    </div>
-                    <div class="row">
-                        <span class="entry-title">(2024)</span>
-                    </div>
-                    <div class="row mt-3">
-                        <img class="app" src="/images/logo-imdb.png">
-                        <div class="caption-font white-font ml-2">6.5 / 10</div>
-                        <img class="app ml-4" src="/images/logo-rotten.png">
-                        <div class="caption-font white-font ml-2">87 %</div>
-                    </div>
-                    <div class="row app-logo mt-3">
-                        <img class="app" src="/images/logo-apple-tv.png">
-                        <img class="app" src="/images/logo-playstore.png">
-                    </div>
-                    <div class="row mt-4">
-                        <button class="btn o-button-1" type="button">
-                            <img class="watchlist" src="/images/icon/bookmark2.png">
-                            WISHLIST
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="genre-movie-item">
-                    <div class="row">
-                        <a href="/">
-                            <img class="poster-genre" src="/images/poster/if.jpg">
-                        </a>
-                    </div>
-                    <div class="row mt-3">
-                        <span class="entry-title">If</span>
-                    </div>
-                    <div class="row">
-                        <span class="entry-title">(2024)</span>
-                    </div>
-                    <div class="row mt-3">
-                        <img class="app" src="/images/logo-imdb.png">
-                        <div class="caption-font white-font ml-2">6.5 / 10</div>
-                        <img class="app ml-4" src="/images/logo-rotten.png">
-                        <div class="caption-font white-font ml-2">87 %</div>
-                    </div>
-                    <div class="row app-logo mt-3">
-                        <img class="app" src="/images/logo-apple-tv.png">
-                        <img class="app" src="/images/logo-playstore.png">
-                    </div>
-                    <div class="row mt-4">
-                        <button class="btn o-button-1" type="button">
-                            <img class="watchlist" src="/images/icon/bookmark2.png">
-                            WISHLIST
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="genre-movie-item">
-                    <div class="row">
-                        <a href="/">
-                            <img class="poster-genre" src="/images/poster/if.jpg">
-                        </a>
-                    </div>
-                    <div class="row mt-3">
-                        <span class="entry-title">If</span>
-                    </div>
-                    <div class="row">
-                        <span class="entry-title">(2024)</span>
-                    </div>
-                    <div class="row mt-3">
-                        <img class="app" src="/images/logo-imdb.png">
-                        <div class="caption-font white-font ml-2">6.5 / 10</div>
-                        <img class="app ml-4" src="/images/logo-rotten.png">
-                        <div class="caption-font white-font ml-2">87 %</div>
-                    </div>
-                    <div class="row app-logo mt-3">
-                        <img class="app" src="/images/logo-apple-tv.png">
-                        <img class="app" src="/images/logo-playstore.png">
-                    </div>
-                    <div class="row mt-4">
-                        <button class="btn o-button-1" type="button">
-                            <img class="watchlist" src="/images/icon/bookmark2.png">
-                            WISHLIST
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="genre-movie-item">
-                    <div class="row">
-                        <a href="/">
-                            <img class="poster-genre" src="/images/poster/if.jpg">
-                        </a>
-                    </div>
-                    <div class="row mt-3">
-                        <span class="entry-title">If</span>
-                    </div>
-                    <div class="row">
-                        <span class="entry-title">(2024)</span>
-                    </div>
-                    <div class="row mt-3">
-                        <img class="app" src="/images/logo-imdb.png">
-                        <div class="caption-font white-font ml-2">6.5 / 10</div>
-                        <img class="app ml-4" src="/images/logo-rotten.png">
-                        <div class="caption-font white-font ml-2">87 %</div>
-                    </div>
-                    <div class="row app-logo mt-3">
-                        <img class="app" src="/images/logo-apple-tv.png">
-                        <img class="app" src="/images/logo-playstore.png">
-                    </div>
-                    <div class="row mt-4">
-                        <button class="btn o-button-1" type="button">
-                            <img class="watchlist" src="/images/icon/bookmark2.png">
-                            WISHLIST
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="genre-movie-item">
-                    <div class="row">
-                        <a href="/">
-                            <img class="poster-genre" src="/images/poster/if.jpg">
-                        </a>
-                    </div>
-                    <div class="row mt-3">
-                        <span class="entry-title">If</span>
-                    </div>
-                    <div class="row">
-                        <span class="entry-title">(2024)</span>
-                    </div>
-                    <div class="row mt-3">
-                        <img class="app" src="/images/logo-imdb.png">
-                        <div class="caption-font white-font ml-2">6.5 / 10</div>
-                        <img class="app ml-4" src="/images/logo-rotten.png">
-                        <div class="caption-font white-font ml-2">87 %</div>
-                    </div>
-                    <div class="row app-logo mt-3">
-                        <img class="app" src="/images/logo-apple-tv.png">
-                        <img class="app" src="/images/logo-playstore.png">
-                    </div>
-                    <div class="row mt-4">
-                        <button class="btn o-button-1" type="button">
-                            <img class="watchlist" src="/images/icon/bookmark2.png">
-                            WISHLIST
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row justify-content-end mt-5">
-            <button class="btn sg-button-2" type="button">All Of Comedy
-                <img class="more" src="/images/icon/more.png">
-            </button>
         </div>
     </div>
 </section>
 
+<!----- Section 2 - new movie ----->
+
+<section class="sec-2 pt-4 pb-4 px-4">
+    <div class="container-fluid">
+        <div class="title-font-bold black-font mb-3">New</div>
+        <div class="row g-3">
+            <% movies.slice(0, 3).forEach(movie => { %>
+                <div class="col mb-2">
+                    <div class="box-new row py-2 mx-1">
+                        <div class="col-3 mt-2 detailmovie">
+                            <a href="/movie-detail?id=<%= movie._id %>">
+                                <img class="poster-new" src="<%= (movie.poster_url && movie.poster_url.length) ? movie.poster_url[0] : '/images/poster-default.png' %>" height="210px">
+                            </a>
+                        </div>
+                        <div class="col-9">
+                            <div class="inside-box ml-5 pt-3 mb-1">
+                                <div class="row">
+                                    <div class="caption-font main-font"><%= movie.year || 'Unknown' %></div>
+                                </div>
+                                <div class="row">
+                                    <div class="body-font-bold white-font"><%= movie.title || 'Untitled' %></div>
+                                </div>
+                                <div class="row">
+                                    <% if (movie.genres && movie.genres.length) { %>
+                                        <% movie.genres.forEach((genre, index) => { %>
+                                            <div class="caption-font main-font mr-2"><%= genre %></div>
+                                            <% if (index < movie.genres.length - 1) { %>
+                                                <div class="caption-font main-font mr-2">·</div>
+                                            <% } %>
+                                        <% }) %>
+                                    <% } %>
+                                </div>
+                                <div class="row app-logo mt-3">
+                                    <% if (Array.isArray(movie.watch) && movie.watch.length > 0) { %>
+                                        <% movie.watch.forEach(platform => { 
+                                            let platformFileName = platform
+                                                .toLowerCase()
+                                                .replace(/\s+/g, '-') // เปลี่ยน space เป็น "-"
+                                                .replace(/[^a-z0-9-]/g, '') // เอาอักขระพิเศษออก
+                                                .trim();
+                                        %>
+                                            <img class="app" src="/images/logo-<%= platformFileName %>.png" 
+                                                alt="<%= platform %>" 
+                                                onerror="this.onerror=null; this.src='/images/logo-default.png'">
+                                        <% }) %>
+                                    <% } else { %>
+                                        <div class="caption-font grey-font">No streaming platform available</div>
+                                    <% } %>
+                                </div>
+                                
+                                
+                                <div class="row mt-4">
+                                    <img class="app" src="/images/logo-imdb.png">
+                                    <div class="caption-font white-font ml-2"><%= movie.rating_imdb || 'N/A' %> / 10</div>
+                                    <img class="app ml-4" src="/images/logo-rotten.png">
+                                    <div class="caption-font white-font ml-2"><%= movie.rating_rotten || 'N/A' %></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</section>
+
+    
+<!----- Section 3 -  top movies  ----->
+
+
+<section class="sec-4 mt-5">
+    <div class="row">
+        <h2 class="h2-font white-font">Top 10 in Thailand today</h2>
+    </div>
+
+    <% if (topMovies.length) { %>
+
+        <!-- ปุ่มเลื่อนซ้าย -->
+        <button id="scroll-left" class="scroll-button">&#8249;</button>
+
+        <div class="movie-container">
+            <% topMovies.forEach((movie, index) => { %>
+                <div class="movie-card">
+                    <div class="movie-rank"><%= index + 1 %></div>
+                    <a href="/movie-detail?id=<%= movie._id %>">
+                        <figure>
+                            <img class="movie-poster" 
+                                src="<%= (movie.poster_url && movie.poster_url.length) ? movie.poster_url[0] : '/images/poster-default.png' %>" 
+                                alt="<%= movie.title || 'Movie Poster' %>">
+                        </figure>
+                    </a>
+                    <div class="movie-title"><%= movie.title %> (<%= movie.year %>)</div>
+                </div>
+            <% }) %>
+        </div>
+
+        <!-- ปุ่มเลื่อนขวา -->
+        <button id="scroll-right" class="scroll-button">&#8250;</button>
+
+    <% } else { %>
+        <div class="row">
+            <p class="caption-font white-font">No top movies available.</p>
+        </div>
+    <% } %>
+</section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const container = document.querySelector(".movie-container");
+        const scrollLeft = document.getElementById("scroll-left");
+        const scrollRight = document.getElementById("scroll-right");
+
+        if (container && scrollLeft && scrollRight) {
+            scrollLeft.addEventListener("click", function() {
+                container.scrollBy({ left: -250, behavior: "smooth" });
+            });
+
+            scrollRight.addEventListener("click", function() {
+                container.scrollBy({ left: 250, behavior: "smooth" });
+            });
+        }
+    });
+</script>
+
+<!----- Section 4 genre----->
+
+<section class="sec-3 mt-5 px-5">
+    <div class="row justify-content-between">
+        <% sortedGenres.forEach((genre, index) => { %>
+            <% if (index % 5 === 0 && index !== 0) { %> <!-- ✅ สร้าง row ใหม่ทุกๆ 5 ปุ่ม -->
+                </div><div class="row justify-content-between mt-4">
+            <% } %>
+            <div class="col">
+                <button class="btn sg-button body-font" type="button" onclick="filterGenre('<%= genre %>')">
+                    <%= genre %>
+                </button>
+            </div>
+        <% }) %>
+    </div>
+</section>
+
+<script>
+    function filterGenre(genre) {
+        alert("Filtering movies by genre: " + genre);
+        // ✅ เพิ่มฟังก์ชัน filter ได้ที่นี่
+    }
+</script>
+
+
+<!----- Section 5 movie each genre ----->
+
+<section class="sec-5 sec-4 mt-5">
+    <% sortedGenres.forEach(genre => { %>
+        <% var genreMovies = movies.filter(m => m.genres.includes(genre)).slice(0, 6); %>
+        
+        <div class="genre-big genre-<%= genre.toLowerCase().replace(/\s+/g, '-') %> mt-5">
+            <div class="row">
+                <h2 class="h2-font white-font"><%= genre %></h2>
+            </div>
+            <div class="row">
+                <% if (genreMovies.length > 0) { %>
+                    <% genreMovies.forEach(movie => { %>
+                        <div class="col">
+                            <div class="genre-movie-item">
+                                <div class="row">
+                                    <a href="/movie-detail?id=<%= movie._id %>">
+                                        <img class="poster-genre" 
+                                            src="<%= (movie.poster_url && movie.poster_url.length) ? movie.poster_url[0] : '/images/poster-default.png' %>" 
+                                            alt="<%= movie.title || 'Movie Poster' %>">
+                                    </a>
+                                </div>
+                                <div class="row mt-3">
+                                    <span class="entry-title"><%= movie.title %></span>
+                                </div>
+                                <div class="row">
+                                    <span class="entry-title">(<%= movie.year || 'Unknown' %>)</span>
+                                </div>
+                                <div class="row mt-3">
+                                    <img class="app" src="/images/logo-imdb.png">
+                                    <div class="caption-font white-font ml-2">
+                                        <%= movie.rating_imdb || 'N/A' %> / 10
+                                    </div>
+                                    <img class="app ml-4" src="/images/logo-rotten.png">
+                                    <div class="caption-font white-font ml-2">
+                                        <%= movie.rating_rotten || 'N/A' %>
+                                    </div>
+                                </div>
+                                <div class="row app-logo mt-3">
+                                    <% if (Array.isArray(movie.watch) && movie.watch.length > 0) { %>
+                                        <% movie.watch.forEach(platform => { 
+                                            let platformFileName = platform
+                                                .toLowerCase()
+                                                .replace(/\s+/g, '-') // เปลี่ยน space เป็น "-"
+                                                .replace(/[^a-z0-9-]/g, '') // เอาอักขระพิเศษออก
+                                                .trim();
+                                        %>
+                                            <img class="app" 
+                                                src="/images/logo-<%= platformFileName %>.png"
+                                                alt="<%= platform %>" 
+                                                onerror="this.onerror=null; this.src='/images/logo-default.png'">
+                                        <% }) %>
+                                    <% } else { %>
+                                        <div class="caption-font grey-font">No streaming platform available</div>
+                                    <% } %>
+                                </div>
+                                <div class="row mt-4">
+                                    <button class="btn o-button-1" type="button">
+                                        <img class="watchlist" src="/images/icon/bookmark2.png">
+                                        WATCHLIST
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    <% }) %>
+                <% } else { %>
+                    <div class="col">
+                        <p class="caption-font grey-font">No movies available in this genre.</p>
+                    </div>
+                <% } %>
+            </div>
+            <div class="row justify-content-end mt-5">
+                <button class="btn sg-button-2" type="button">All Of <%= genre %>
+                    <img class="more" src="/images/icon/more.png">
+                </button>
+            </div>
+        </div>
+    <% }) %>
+</section>
 
 
 
+<!----- Section 6 - footer ----->  
 
-<!-- footer -->
 <section class="sec-footer mt-5 mb-3">
     <footer>
         <div class="container">
@@ -836,15 +350,15 @@
                     <div class="body-font grey-font mt-3">
                         <a class="a-footer mr-3" href="/">Home</a>
                         <a class="a-footer mr-3" href="/">Blog</a>
-                        <a class="a-footer" href="/">Suggestion</a>     
+                        <a class="a-footer" href="/">Suggestion</a>
                     </div>
                 </div>
             </div>
             <div class="row mt-3">
                 <div class="col-md-12 text-center">
                     <div class="caption-font grey-font">
-					  Copyright © This website is made to support who love movies by
-                      <a href="/" class="main-font">OhMymov.com</a>
+                        Copyright © This website is made to support who love movies by
+                        <a href="/" class="main-font">OhMymov.com</a>
                     </div>
                 </div>
             </div>
@@ -852,166 +366,83 @@
     </footer>
 </section>
 
+<!-- Optional JavaScript -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
 
+<script>
+    // ✅ ฟังก์ชันค้นหาหนัง (เพิ่ม debounce)
+    function debounce(func, delay) {
+        let timer;
+        return function(...args) {
+            clearTimeout(timer);
+            timer = setTimeout(() => func.apply(this, args), delay);
+        };
+    }
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
-    <script src="/js/omm.js"></script>
+    async function searchMovies() {
+        const query = document.getElementById("search-input").value;
+        const resultsContainer = document.getElementById("searchResults");
 
-    <script>
-        // Top 10 Movies Script
-        const topMovies = [
-            { number: 1, img: '/images/poster/teeyod2.jpg', title: 'ธี่หยด 2 (2024)', rating: 7.2 },
-            { number: 2, img: '/images/poster/teeyod2.jpg', title: 'ธี่หยด 2 (2024)', rating: 7.2 },
-            { number: 3, img: '/images/poster/teeyod2.jpg', title: 'ธี่หยด 2 (2024)', rating: 7.2 },
-            { number: 4, img: '/images/poster/teeyod2.jpg', title: 'ธี่หยด 2 (2024)', rating: 7.2 },
-            { number: 5, img: '/images/poster/teeyod2.jpg', title: 'ธี่หยด 2 (2024)', rating: 7.2 },
-            { number: 6, img: '/images/poster/teeyod2.jpg', title: 'ธี่หยด 2 (2024)', rating: 7.2 },
-            { number: 7, img: '/images/poster/teeyod2.jpg', title: 'ธี่หยด 2 (2024)', rating: 7.2 },
-            { number: 8, img: '/images/poster/teeyod2.jpg', title: 'ธี่หยด 2 (2024)', rating: 7.2 },
-            { number: 9, img: '/images/poster/teeyod2.jpg', title: 'ธี่หยด 2 (2024)', rating: 7.2 },
-            { number: 10, img: '/images/poster/teeyod2.jpg', title: 'ธี่หยด 2 (2024)', rating: 7.2 }
-        ];
+        if (query.length < 2) {
+            resultsContainer.innerHTML = "";
+            return;
+        }
 
-        let startIndex = 0;
-        const displayCount = 5;
+        try {
+            const response = await fetch(`/search?query=${encodeURIComponent(query)}`);
+            const movies = await response.json();
+            console.log("🔍 API Response:", movies); // ✅ Debugging
 
-        function renderMovies() {
-            const container = document.querySelector('.movie-container');
-            container.innerHTML = ''; // Clear existing content
-
-            for (let i = startIndex; i < startIndex + displayCount; i++) {
-                if (i >= topMovies.length) break;
-                const movie = topMovies[i];
-                const movieElement = document.createElement("div");
-                movieElement.classList.add("title-item");
-                movieElement.innerHTML = `
-                    <div class="title-item-number">${movie.number}</div>
-                    <a href="/" class="title-item-link">
-                        <figure>
-                            <img class="poster-top" src="${movie.img}" alt="${movie.title}">
-                        </figure>
-                        <div class="imdb-rate">${movie.rating}</div>
-                        <div class="poster-title-box">
-                            <div class="top-title">
-                                <span class="entry-title">${movie.title}</span>
-                            </div>
-                        </div>
+            resultsContainer.innerHTML = movies.length > 0 ? 
+                movies.map(movie => `
+                    <a href="/movie-detail?id=${movie._id}" class="search-item">
+                        <img src="${movie.poster_url && movie.poster_url.length ? movie.poster_url[0] : '/images/poster-default.png'}" 
+                            alt="${movie.title || 'Movie Poster'}" 
+                            class="search-thumbnail"
+                            onerror="this.onerror=null; this.src='/images/poster-default.png'">
+                        <div class="search-title">${movie.title} (${movie.year})</div>
                     </a>
-                `;
-                container.appendChild(movieElement);
-            }
+                `).join('') : '<p class="no-results">No movies found</p>';
+        } catch (err) {
+            console.error("❌ Error fetching search results:", err);
         }
+    }
 
-        function scrollMovies() {
-            if (startIndex + displayCount < topMovies.length) {
-                startIndex++;  // Move forward
-            } else {
-                startIndex = 0; // Loop back to start if at end
-            }
-            renderMovies();
+    document.getElementById("search-input").addEventListener("input", debounce(searchMovies, 300));
+
+    function showResults() {
+        if (document.querySelector('.search-input').value.length > 0) {
+            document.getElementById('searchResults').style.display = 'block';
         }
+    }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            renderMovies();
-            document.getElementById('scroll-button').addEventListener('click', scrollMovies);
-        });
-
-        // Search Movies Script
-        const searchMoviesList = [
-            { title: "Maleficent", year: 2014, image: "/images/poster/maleficent.jpg" },
-            { title: "Maleficent: Mistress of Evil", year: 2019, image: "/images/poster/maleficent2.jpg" },
-            { title: "The Lion King", year: 2019, image: "/images/poster/lionking.jpg" },
-            { title: "Beauty and the Beast", year: 2017, image: "/images/poster/beautyandthebeast.jpg" }
-        ];
-
-        function searchMovies() {
-            let input = document.querySelector('.search-input').value.toLowerCase();
-            let resultsContainer = document.getElementById('searchResults');
-            
-            if (input.length === 0) {
-                resultsContainer.style.display = 'none';
-                return;
-            }
-
-            let filteredMovies = searchMoviesList.filter(movie => movie.title.toLowerCase().includes(input));
-
-            if (filteredMovies.length === 0) {
-                resultsContainer.innerHTML = '<div class="see-all">No results found</div>';
-            } else {
-                resultsContainer.innerHTML = filteredMovies.map((movie, index) => `
-                    <div class="result-item ${index === 0 ? 'selected' : ''}" onclick="selectMovie('${movie.title}')">
-                        <img src="${movie.image}" alt="${movie.title}">
-                        <div class="result-text">
-                            <span class="result-title">${movie.title}</span>
-                            <span class="result-year">${movie.year}</span>
-                        </div>
-                    </div>
-                `).join('') + `<div class="see-all">See all results for "${input}"</div>`;
-            }
-
-            resultsContainer.style.display = 'block';
-        }
-
-        function selectMovie(title) {
-            document.querySelector('.search-input').value = title;
+    document.addEventListener('click', function (event) {
+        let searchContainer = document.querySelector('.search-container');
+        if (!searchContainer.contains(event.target)) {
             document.getElementById('searchResults').style.display = 'none';
         }
+    });
 
-        function showResults() {
-            if (document.querySelector('.search-input').value.length > 0) {
-                document.getElementById('searchResults').style.display = 'block';
-            }
+    // ✅ ปุ่มเลื่อนซ้าย/ขวา (เพิ่มการเช็คว่ามีปุ่มก่อนใช้งาน)
+    document.addEventListener("DOMContentLoaded", function() {
+        const container = document.querySelector('.movie-container');
+        const scrollLeft = document.getElementById('scroll-left');
+        const scrollRight = document.getElementById('scroll-right');
+
+        if (scrollLeft && scrollRight && container) {
+            scrollLeft.addEventListener('click', function () {
+                container.scrollBy({ left: -300, behavior: 'smooth' });
+            });
+
+            scrollRight.addEventListener('click', function () {
+                container.scrollBy({ left: 300, behavior: 'smooth' });
+            });
         }
+    });
+</script>
 
-        document.addEventListener('click', function(event) {
-            let searchContainer = document.querySelector('.search-container');
-            if (!searchContainer.contains(event.target)) {
-                document.getElementById('searchResults').style.display = 'none';
-            }
-        });
-
-        document.addEventListener('keydown', function(event) {
-            let resultsContainer = document.getElementById('searchResults');
-            let items = document.querySelectorAll('.result-item');
-            let selected = document.querySelector('.result-item.selected');
-
-            if (!resultsContainer.style.display || resultsContainer.style.display === 'none') return;
-
-            if (event.key === 'ArrowDown') {
-                event.preventDefault();
-                if (selected) {
-                    let next = selected.nextElementSibling;
-                    if (next && next.classList.contains('result-item')) {
-                        selected.classList.remove('selected');
-                        next.classList.add('selected');
-                    }
-                } else if (items.length > 0) {
-                    items[0].classList.add('selected');
-                }
-            } else if (event.key === 'ArrowUp') {
-                event.preventDefault();
-                if (selected) {
-                    let prev = selected.previousElementSibling;
-                    if (prev && prev.classList.contains('result-item')) {
-                        selected.classList.remove('selected');
-                        prev.classList.add('selected');
-                    }
-                }
-            } else if (event.key === 'Enter' && selected) {
-                selectMovie(selected.querySelector('.result-title').innerText);
-            }
-        });
-    </script>
-
-    
 </body>
-
-
-
-
 </html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page - Movie List</title>
+</head>
+<body>
+    <h1>Movie List (Test Page)</h1>
+    <ul>
+        <% movies.forEach(movie => { %>
+            <li>
+                <h2><%= movie.title %> (<%= movie.year %>)</h2>
+                <p><strong>Genres:</strong> <%= movie.genres && movie.genres.length ? movie.genres.join(', ') : 'N/A' %></p>
+                <p><strong>Duration:</strong> <%= movie.duration_minute ? movie.duration_minute + ' minutes' : 'N/A' %></p>
+                <p><strong>IMDB Rating:</strong> <%= movie.ratingIMDB ? movie.ratingIMDB : 'N/A' %></p>
+                <p><strong>Rotten Tomatoes:</strong> <%= movie.ratingRotten ? movie.ratingRotten + '%' : 'N/A' %></p>
+                <p><strong>Synopsis:</strong> <%= movie.synopsis ? movie.synopsis : 'N/A' %></p>
+
+                <p><strong>Like:</strong> <%= movie.like ? movie.like : 0 %> 👍 | 
+                <strong>Dislike:</strong> <%= movie.dislike ? movie.dislike : 0 %> 👎</p>
+
+                <p><strong>Watch on:</strong> <%= movie.watch && movie.watch.length ? movie.watch.join(', ') : 'N/A' %></p>
+
+                <p><strong>Teaser:</strong></p>
+                <% if (movie.teaser_url) { %>
+                    <iframe width="560" height="315"
+                        src="<%= movie.teaser_url.replace('watch?v=', 'embed/') %>"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                <% } else { %>
+                    <p>N/A</p>
+                <% } %>
+
+                <p><strong>Poster:</strong></p>
+                <% if (movie.poster_url && movie.poster_url.length) { %>
+                    <img src="<%= movie.poster_url[0] %>" alt="Poster of <%= movie.title %>" width="200"/>
+                <% } else { %>
+                    <p>No poster available</p>
+                <% } %>
+
+                <p><strong>Cast:</strong></p>
+                <% if (movie.cast && movie.cast.length) { %>
+                    <ul>
+                        <% movie.cast.forEach(actor => { %>
+                            <li>
+                                <strong>Name:</strong> <%= actor.name ? actor.name : 'N/A' %>,
+                                <strong>Character:</strong> <%= actor.character ? actor.character : 'N/A' %>,
+                                <strong>Nicknames:</strong> <%= actor.nicknames && actor.nicknames.length ? actor.nicknames.join(', ') : 'N/A' %>
+                            </li>
+                        <% }) %>
+                    </ul>
+                <% } else { %>
+                    <p>No cast information available</p>
+                <% } %>
+
+                <p><strong>Crew:</strong></p>
+                <% if (movie.crew && movie.crew.length) { %>
+                    <ul>
+                        <% movie.crew.forEach(member => { %>
+                            <li>
+                                <strong>Role:</strong> <%= member.role ? member.role : 'N/A' %>,
+                                <strong>Name:</strong> <%= member.name ? member.name : 'N/A' %>
+                            </li>
+                        <% }) %>
+                    </ul>
+                <% } else { %>
+                    <p>No crew information available</p>
+                <% } %>
+
+                <hr>
+            </li>
+        <% }) %>
+    </ul>
+</body>
+</html>
