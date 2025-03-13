@@ -6,6 +6,7 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 const expressSession = require('express-session')
+const MongoStore = require('connect-mongo');
 const flash = require('connect-flash')
 const router = express.Router();
 
@@ -45,20 +46,25 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 app.use(flash())
 app.use(expressSession({
-    secret: process.env.SESSION_SECRET,
+    secret: process.env.SESSION_SECRET ,
     resave: false,
-    saveUninitialized: true,
-    cookie: { secure: false }
+    saveUninitialized: false, // ✅ เปลี่ยนเป็น `false` เพื่อป้องกัน session ที่ไม่ได้ใช้งาน
+    store: MongoStore.create({ mongoUrl: dbUrl }), // ✅ ใช้ MongoDB เก็บ session
+    cookie: { secure: false, httpOnly: true, maxAge: 1000 * 60 * 60 } // 1 ชั่วโมง
 }));
 
 app.use((req, res, next) => {
-    res.locals.loggedIN = req.session.username || null;
+    console.log("Session User:", req.session.user);
+    res.locals.loggedIN = req.session.user ? req.session.user.username : null;
+    // ใช้  username
     next();
 });
-    
 
 
-
+// Routes
+app.get('/check-login', (req, res) => {
+    res.json({ loggedIn: !!req.session.user });
+});
 
     
 app.engine('html', require('ejs').renderFile);
@@ -95,9 +101,16 @@ app.post('/reset-password', resetPasswordController);
 
 
 
-
+// API ตรวจสอบสถานะการเข้าสู่ระบบ
 app.get('/check-login', (req, res) => {
+    console.log("Session User:", req.session.user); // ตรวจสอบ session
     res.json({ loggedIn: !!req.session.user });
+});
+
+
+// Middleware สำหรับป้องกันหน้าที่ต้อง login
+app.use('/protected', requireLogin, (req, res) => {
+    res.send('This is a protected page');
 });
 
 

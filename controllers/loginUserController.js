@@ -40,10 +40,11 @@ router.post('/login', [
 
         user.lastLogin = new Date();
         await user.save();
+        req.session.user = { id: user._id, email: user.email, username: user.username };
 
-        req.session.userID = user._id;
-        req.session.username = user.username;
-        res.locals.loggedIN = user.username;
+await req.session.save();
+console.log("User logged in:", req.session.user);
+
 
         return res.redirect('/');
     } catch (error) {

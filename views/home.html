@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/result-page.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=bookmark" />
-
+    
     <title>Oh! My Mov</title>
 </head>
 
@@ -56,19 +56,19 @@
                         <button class="btn o-button" type="button" id="show-signin">Sign In</button>
                     </div>
                 <% } else { %>
-                    <div class="col-1 d-flex ">
+                    <div class="col-1 d-flex">
                         <ul class="menu-right">
                             <li class="nav-item dropdown">
                                 <button class="nav-link dropbtn">
                                     <img src="/images/icon/user-fill.png" class="icon-green" />
-                                    <span class="main-font "><%= loggedIN %></span>
+                                    <span class="main-font"><%= loggedIN %></span> <!-- แสดง username -->
                                     <img src="/images/icon/drop-more.png" class="icon-green" />
                                 </button>
                                 <ul class="dropdown-content">
                                     <li class="nav-item">
                                         <a class="nav-link" href="/user-profile">
                                             <img src="/images/icon/edit-profile.png" class="img-icon" />
-                                        Edit Profile
+                                            Edit Profile
                                         </a>
                                     </li>
                                     <li class="nav-item">
