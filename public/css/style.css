@@ -337,6 +337,7 @@ input.search:active, input.search:focus {
     padding: 25px 35px;
     background-color: var(--bg--main);
     border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* เพิ่มเงา */
 }
 
 
@@ -410,9 +411,10 @@ input.search:active, input.search:focus {
     display: flex;
     font-size: var(--body-size); 
 margin-bottom: 10px; /* Spacing between inputs */
+color: var(--colour-white);
 }
 .form-element-sign input[type="date"]{
-    color: var(--bg--detail);
+    color: var(--colour-white);
     font-size: var(--body-size); 
     width: 100%;
 }
@@ -521,7 +523,7 @@ margin-bottom: 10px; /* Spacing between inputs */
     border-radius: 10px;
     background-color: var(--bg--sub);
     font-size: var(--caption-size);
-    color: var(--bg--detail);/* ให้ตัวอักษรสีขาว */
+    color: var(--colour-white);/* ให้ตัวอักษรสีขาว */
 }
 
 /* ซ่อนปุ่มเลือกปฏิทินเดิม */
@@ -591,7 +593,7 @@ margin-bottom: 10px; /* Spacing between inputs */
     color: var(--main-color);
 }
 /*start reset password */
-.container .resetpassword {
+.resetpassword {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -601,61 +603,55 @@ margin-bottom: 10px; /* Spacing between inputs */
     justify-content: center;
     align-items: center;
     width: 100%;
-    max-width: 800px;
-    padding: 25px 35px;
+    max-width: 500px;
+    padding: 30px;
     background-color: var(--bg--main);
     border-radius: 15px;
- 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* เพิ่มเงา */
 }
-.container .resetpassword h1 {
+
+.resetpassword h1 {
     color: var(--colour-white);
-    font-size: var(--h1-size);
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 10px;
 }
-.container .resetpassword form {
+
+.resetpassword form {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 10px;
 }
 
-.container .resetpassword label {
+.resetpassword label {
     color: var(--colour-white);
-    font-size: var(--body-size);
-    font-weight: normal;
-    margin-bottom: 10px;
-
+    font-size: 16px;
+    margin-bottom: 5px;
+    text-align: left;
+    width: 100%;
 }
 
-.container .resetpassword input {
+.resetpassword input {
     width: 100%;
     padding: 12px;
-    outline: none;
     border: 1px solid var(--bg--sub);
-    border-radius: 10px;
+    border-radius: 8px;
     background-color: var(--bg--sub);
-    font-size: var(--body-size);
+    font-size: 16px;
     color: var(--bg--detail);
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
-.container .resetpassword input::placeholder {
+.resetpassword input::placeholder {
     color: var(--bg--detail);
 }
 
-.alert-danger {
-    color: var(--main-color);
-    background: none;
-    border: none;
-    padding: 0;
-    font-weight: normal;
-    margin-top: 0px;
-}
-
-.container .resetpassword button {
-    display: block;
+.resetpassword button {
     width: 50%;
-    height: 50px;
+    height: 45px;
+    font-size: 18px;
+    font-weight: light;
     border: 1px solid var(--main-color);
     font-size: var(--title-size);
     background-color: var(--bg--main);
@@ -666,10 +662,35 @@ margin-bottom: 10px; /* Spacing between inputs */
     transition: background-color 0.3s, color 0.3s;
 }
 
-.container .resetpassword button:hover {
+.resetpassword button:hover {
     background-color: var(--main-color);
-    color: var(--bg--main);
+    color: var(--colour-white);
+
 }
+
+/* ทำให้ Responsive */
+@media (max-width: 600px) {
+    .resetpassword {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .resetpassword h1 {
+        font-size: 20px;
+    }
+
+    .resetpassword input {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .resetpassword button {
+        font-size: 16px;
+        height: 40px;
+    }
+}
+
+
 /* End reset password */
 
 
@@ -991,3 +1012,142 @@ figure {
 .a-footer:hover {
     color: var(--main-color);;
 }
+
+
+
+/* ของมอส */
+
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ป้องกันขอบดำ */
+}
+
+
+
+
+
+
+/* 🔹 จัดเรียงหนังให้พอดีกับหน้าจอ */
+.movie-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    gap: 15px;
+    padding: 10px 0;
+    padding-left: 20px;  /* ✅ ปรับระยะห่างซ้าย */
+    justify-content: flex-start;
+    max-width: 90%;
+    margin: auto;
+    position: relative;
+}
+
+
+/* 🔹 รูปแบบของการ์ดหนัง */
+.movie-card {
+    flex: 0 0 auto;
+    width: 150px; /* ขนาดการ์ด */
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+    position: relative;
+}
+
+.movie-card:hover {
+    transform: scale(1.05); /* ขยายเมื่อชี้ */
+}
+
+/* 🔹 รูปโปสเตอร์ */
+.movie-poster {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* 🔹 ชื่อหนัง */
+.movie-title {
+    font-size: 14px;
+    color: white;
+    margin-top: 8px;
+}
+
+/* 🔹 อันดับ */
+/* 🔹 ปรับขนาด และตำแหน่งของ movie-rank */
+.movie-rank {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: red;
+    width: 30px;
+    height: 30px;
+    border-top-left-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2; /* ✅ ทำให้ตัวเลขอยู่ด้านหน้า */
+}
+
+
+
+/* 🔹 ปุ่ม Scroll (ซ้าย & ขวา) */
+.scroll-button {
+    position: absolute;
+    top: 50%;
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    transform: translateY(-50%);
+    padding: 10px;
+    border-radius: 50%; /* ทำให้ปุ่มเป็นวงกลม */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 🔹 ตำแหน่งของปุ่มเลื่อน */
+#scroll-left {
+    left: 10px;
+}
+
+#scroll-right {
+    right: 10px;
+}
+
+/* 🔹 เปลี่ยนสีปุ่มเมื่อ Hover */
+.scroll-button:hover {
+    background: white;
+}
+
+
+
+
+
+
+
+
+
+
+

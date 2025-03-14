@@ -46,7 +46,7 @@
     <div class="resetpassword">
         <form action="/verify-otp" method="POST">
             <input type="hidden" name="email" value="<%= email %>">
-            <h1 class="m-5">Enter OTP</h1>
+            <h1 class="resetP">Enter OTP</h1>
             <input type="text" name="otp" placeholder="Enter OTP">
             <% if (error) { %>
                 <p class="alert alert-danger"><%= error %></p>
