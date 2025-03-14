@@ -3,12 +3,13 @@ require('dotenv').config();
 const { requireLogin } = require('./middleware/auth');
 
 const express = require('express');
+const router = express.Router();
 const app = express();
 const mongoose = require('mongoose');
 const expressSession = require('express-session');
 const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
-const router = express.Router();
+
 
 // เชื่อมต่อกับ MongoDB Atlas
 const dbUrl = 'mongodb+srv://admin:720272297234@cluster0.tah8c.mongodb.net/ohmymov';
@@ -34,6 +35,9 @@ const forgotPasswordController = require('./controllers/forgotPasswordController
 const verifyOTPController = require('./controllers/verifyOTPController');
 const resetPasswordController = require('./controllers/resetPasswordController');
 const searchController = require('./controllers/searchController'); // Add searchController
+const updateProfileController = require("./controllers/updateProfileController");
+const changePasswordController = require("./controllers/changePasswordController");
+
 
 app.use(express.static('public'));
 app.use(express.static('asset'));
@@ -85,6 +89,12 @@ app.get('/verify-otp', (req, res) => res.render('verify-otp', { email: "", error
 app.post('/verify-otp', verifyOTPController);
 app.get('/reset-password', (req, res) => res.render('reset-password', { email: "", error: null }));
 app.post('/reset-password', resetPasswordController);
+// edit profile
+
+app.post('/update-profile', updateProfileController);
+app.post('/request-otp', changePasswordController.requestOtp);
+app.post('/change-password', changePasswordController.changePassword);
+
 
 // Add search routing
 app.get('/search', searchController);
