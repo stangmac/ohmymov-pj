@@ -1,14 +1,20 @@
-const Movie = require('../models/Movies');
+const UserSearch = require("../models/UserSearch");
 
 module.exports = async (req, res) => {
     try {
         const query = req.query.query;
         if (!query || query.length < 2) {
-            return res.json([]); // ถ้าคีย์เวิร์ดสั้นเกินไปให้ส่งค่า [] กลับไป
+            return res.json([]);
         }
 
         const movies = await Movie.find({ title: { $regex: query, $options: "i" } });
-        console.log("Search Results:", movies); // ✅ Debug ดูว่าผลลัพธ์เป็นอะไร
+
+        if (req.session.user) {
+            await UserSearch.create({
+                userId: req.session.user._id,
+                searchQuery: query
+            });
+        }
 
         res.json(movies);
     } catch (err) {
