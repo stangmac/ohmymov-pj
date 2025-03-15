@@ -88,7 +88,7 @@
     <div class="movie-detail">
         <div class="detail-header">
             <div class="row">
-                <div class="col-7 pt-4">
+                <div class="col-7 pt-4" style="padding-left: 30px;">
                     <div class="row">
                         <div class="h2-font white-font">
                             <%= movie.title %>
@@ -115,7 +115,7 @@
                         </div>
                         <img class="app ml-4" src="/images/logo-rotten.png">
                         <div class="body-font white-font ml-3">
-                            <%= movie.rating_rotten ? movie.rating_rotten : 'N/A' %> %
+                            <%= movie.rating_rotten ? movie.rating_rotten : 'N/A' %> 
                         </div>
                     </div>
                     <div class="row mt-5">
@@ -142,202 +142,178 @@
                 </div>
             </div>
         </div>
-    </div>
 
-
-
-
-    <div class="row">
-        <div class="col-8">
-            <div class="title-movies mt-4">
-                <div class="row">
-                    <div class="title-font-bold main-font">Synopsis</div>
+        <div class="row">
+            <div class="col-8">
+                <div class="title-movies mt-4">
+                    <div class="row">
+                        <div class="title-font-bold main-font">Synopsis</div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="body-font white-font">
+                            <%= movie.synopsis ? movie.synopsis : 'No synopsis available.' %>
+                        </div>
+                    </div>
+                    <div class="line mt-4">
+                        <hr class="custom-line">
+                    </div>
                 </div>
                 <div class="row mt-4">
-                    <div class="body-font white-font">
-                        <%= movie.synopsis ? movie.synopsis : 'No synopsis available.' %>
-                    </div>
+                    <div class="title-font-bold main-font">Where to watch</div>
+                </div>
+                <div class="row mt-4">
+                    <% if (movie.watch && movie.watch.length> 0) { %>
+                        <% movie.watch.forEach(platform=> { %>
+                            <a href="#" target="_blank">
+                                <img class="app-2" src="/images/logo-<%= platform.toLowerCase().replace(/\s+/g, '-') %>.png"
+                                    alt="<%= platform %> logo">
+                            </a>
+                            <% }); %>
+                                <% } else { %>
+                                    <p class="body-font white-font">No streaming platform available.</p>
+                                    <% } %>
                 </div>
                 <div class="line mt-4">
                     <hr class="custom-line">
                 </div>
-            </div>
-            <div class="row mt-4">
-                <div class="title-font-bold main-font">Where to watch</div>
-            </div>
-            <div class="row mt-4">
-                <% if (movie.watch && movie.watch.length> 0) { %>
-                    <% movie.watch.forEach(platform=> { %>
-                        <a href="#" target="_blank">
-                            <img class="app-2" src="/images/logo-<%= platform.toLowerCase().replace(/\s+/g, '-') %>.png"
-                                alt="<%= platform %> logo">
-                        </a>
-                        <% }); %>
-                            <% } else { %>
-                                <p class="body-font white-font">No streaming platform available.</p>
-                                <% } %>
-            </div>
-            <div class="line mt-4">
-                <hr class="custom-line">
-            </div>
-        </div>
-    </div>
-
-
-
-    <div class="row mt-4">
-        <div class="title-font-bold main-font">Posters</div>
-    </div>
-    <div class="row mt-4">
-        <% if (movie.poster_url && movie.poster_url.length> 0) { %>
-            <% movie.poster_url.forEach(poster=> { %>
-                <div class="col">
-                    <img class="movie-detail-poster" src="<%= poster %>" alt="Movie Poster">
+            
+                <div class="row mt-4">
+                    <div class="title-font-bold main-font">Posters</div>
                 </div>
-                <% }); %>
-                    <% } else { %>
-                        <p class="body-font white-font">No posters available.</p>
-                        <% } %>
-    </div>
-    <div class="line mt-4">
-        <hr class="custom-line">
-    </div>
-
-
-
-
-
-    <div class="row mt-4">
-        <div class="title-font-bold main-font">Cast</div>
-    </div>
-    <div class="row mt-4 pl-2">
-        <% if (movie.cast && movie.cast.length> 0) { %>
-            <% movie.cast.forEach(actor=> { %>
-                <div class="cast-box d-flex flex-column align-items-center">
-                    <div class="body-font-bold">
-                        <%= actor.national_name %>
-                    </div>
-                    <div>
-                        <%= actor.character %>
-                    </div>
+                <div class="row mt-4">
+                    <% if (movie.poster_url && movie.poster_url.length> 0) { %>
+                        <% movie.poster_url.forEach(poster=> { %>
+                            <div class="col">
+                                <img class="movie-detail-poster" src="<%= poster %>" alt="Movie Poster">
+                            </div>
+                            <% }); %>
+                                <% } else { %>
+                                    <p class="body-font white-font">No posters available.</p>
+                                    <% } %>
                 </div>
-                <% }); %>
-                    <% } else { %>
-                        <p class="body-font white-font">No cast information available.</p>
-                        <% } %>
-    </div>
-    <div class="line mt-4">
-        <hr class="custom-line">
-    </div>
+                <div class="line mt-4">
+                    <hr class="custom-line">
+                </div>
 
-
-
-
-    <div class="row mt-4">
-        <div class="title-font-bold main-font">Similar Titles</div>
-    </div>
-    <div class="row mt-1">
-        <% if (similarMovies && similarMovies.length> 0) { %>
-            <% similarMovies.forEach(similar=> { %>
-                <div class="col">
-                    <div class="genre-movie-item">
-                        <div class="row">
-                            <a href="/movie-detail?id=<%= similar._id %>">
-                                <img class="poster-genre"
-                                    src="<%= Array.isArray(similar.poster_url) && similar.poster_url.length > 0 ? similar.poster_url[0] : '/images/default-poster.jpg' %>"
-                                    alt="<%= similar.title %>">
-                            </a>
-                        </div>
-                        <div class="row mt-3">
-                            <span class="entry-title">
-                                <%= similar.title %>
-                            </span>
-                        </div>
-                        <div class="row">
-                            <span class="entry-title">(<%= similar.year %>)</span>
-                        </div>
-                        <div class="row mt-3">
-                            <img class="app" src="/images/logo-imdb.png">
-                            <div class="caption-font white-font ml-2">
-                                <%= similar.rating_imdb ? similar.rating_imdb + ' / 10' : 'N/A' %>
+                <div class="row mt-4">
+                    <div class="title-font-bold main-font">Cast</div>
+                </div>
+                <div class="row mt-4 pl-2 style="display: flex; align-items: stretch;"">
+                    <% if (movie.cast && movie.cast.length> 0) { %>
+                        <% movie.cast.forEach(actor=> { %>
+                            <div class="cast-box d-flex flex-column align-items-center">
+                                <div class="body-font-bold">
+                                    <%= actor.national_name %>
+                                </div>
+                                <div>
+                                    <%= actor.character %>
+                                </div>
                             </div>
-                            <img class="app ml-4" src="/images/logo-rotten.png">
-                            <div class="caption-font white-font ml-2">
-                                <%= similar.rating_rotten ? similar.rating_rotten : 'N/A' %>
+                            <% }); %>
+                                <% } else { %>
+                                    <p class="body-font white-font">No cast information available.</p>
+                                    <% } %>
+                </div>
+                <div class="line mt-4">
+                    <hr class="custom-line">
+                </div>
+
+                <div class="row mt-4">
+                    <div class="title-font-bold main-font">Similar Titles</div>
+                </div>
+                <div class="row mt-1">
+                    <% if (similarMovies && similarMovies.length> 0) { %>
+                        <% similarMovies.forEach(similar=> { %>
+                            <div class="col">
+                                <div class="genre-movie-item">
+                                    <div class="row">
+                                        <a href="/movie-detail?id=<%= similar._id %>">
+                                            <img class="poster-genre"
+                                                src="<%= Array.isArray(similar.poster_url) && similar.poster_url.length > 0 ? similar.poster_url[0] : '/images/default-poster.jpg' %>"
+                                                alt="<%= similar.title %>">
+                                        </a>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <span class="entry-title">
+                                            <%= similar.title %>
+                                        </span>
+                                    </div>
+                                    <div class="row">
+                                        <span class="entry-title">(<%= similar.year %>)</span>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <img class="app" src="/images/logo-imdb.png">
+                                        <div class="caption-font white-font ml-2">
+                                            <%= similar.rating_imdb ? similar.rating_imdb + ' / 10' : 'N/A' %>
+                                        </div>
+                                        <img class="app ml-4" src="/images/logo-rotten.png">
+                                        <div class="caption-font white-font ml-2">
+                                            <%= similar.rating_rotten ? similar.rating_rotten : 'N/A' %>
+                                        </div>
+                                    </div>
+                                    <div class="row app-logo mt-3">
+                                        <% if (similar.watch && similar.watch.length> 0) { %>
+                                            <% similar.watch.forEach(platform=> { %>
+                                                <img class="app"
+                                                    src="/images/logo-<%= platform.toLowerCase().replace(/\s+/g, '-') %>.png"
+                                                    alt="<%= platform %>">
+                                                <% }); %>
+                                                    <% } %>
+                                    </div>
+                                    <div class="row mt-4">
+                                        <button class="btn o-button-1" type="button">
+                                            <img class="watchlist" src="/images/icon/bookmark2.png">
+                                            WISHLIST
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row app-logo mt-3">
-                            <% if (similar.watch && similar.watch.length> 0) { %>
-                                <% similar.watch.forEach(platform=> { %>
-                                    <img class="app"
-                                        src="/images/logo-<%= platform.toLowerCase().replace(/\s+/g, '-') %>.png"
-                                        alt="<%= platform %>">
-                                    <% }); %>
-                                        <% } %>
-                        </div>
-                        <div class="row mt-4">
-                            <button class="btn o-button-1" type="button">
-                                <img class="watchlist" src="/images/icon/bookmark2.png">
+                            <% }); %>
+                                <% } else { %>
+                                    <p class="body-font white-font">No similar titles available.</p>
+                                    <% } %>
+                </div>
+            </div>
+
+            <div class="col-4 mt-4">
+                <div class="detail-box">
+                    <div class="caption-font main-font">
+                        <%= movie.year ? movie.year : 'N/A' %>
+                    </div>
+                    <div class="body-font-bold white-font">
+                        <%= movie.title %>
+                    </div>
+                    <div></div>
+                    <a href="/" class="d-flex justify-content-center">
+                        <img class="poster-detail-box"
+                            src="<%= Array.isArray(movie.poster_url) && movie.poster_url.length > 0 ? movie.poster_url[0] : '/images/default-poster.jpg' %>"
+                            alt="<%= movie.title %>">
+                    </a>
+                    <div class="d-flex justify-content-center mt-2">
+                        <div class="row ml-3 mr-2">
+                            <button class="btn o-button-2 history" type="button">
+                                <img class="watchlist" src="/images/icon/like.png">
+                                <%= movie.like ? movie.like + ' K' : '0' %>
+                            </button>
+                            <button class="btn o-button-2 history" type="button">
+                                <img class="watchlist" src="/images/icon/bookmark.png">
                                 WISHLIST
+                            </button>
+                        </div>
+                        <div class="row">
+                            <button class="btn o-button-2 history" type="button">
+                                <img class="watchlist" src="/images/icon/dislike.png">
+                                <%= movie.dislike ? movie.dislike : '0' %>
+                            </button>
+                            <button class="btn o-button-2 history" type="button">
+                                <img class="watchlist" src="/images/icon/seen.png">
+                                SEEN
                             </button>
                         </div>
                     </div>
                 </div>
-                <% }); %>
-                    <% } else { %>
-                        <p class="body-font white-font">No similar titles available.</p>
-                        <% } %>
-    </div>
-
-
-
-
-    <div class="col-4">
-        <div class="detail-box">
-            <div class="caption-font main-font">
-                <%= movie.year ? movie.year : 'N/A' %>
-            </div>
-            <div class="body-font-bold white-font">
-                <%= movie.title %>
-            </div>
-            <div></div>
-            <a href="/" class="d-flex justify-content-center">
-                <img class="poster-detail-box"
-                    src="<%= Array.isArray(movie.poster_url) && movie.poster_url.length > 0 ? movie.poster_url[0] : '/images/default-poster.jpg' %>"
-                    alt="<%= movie.title %>">
-            </a>
-            <div class="d-flex justify-content-center mt-2">
-                <div class="row ml-3 mr-2">
-                    <button class="btn o-button-2 history" type="button">
-                        <img class="watchlist" src="/images/icon/like.png">
-                        <%= movie.like ? movie.like + ' K' : '0' %>
-                    </button>
-                    <button class="btn o-button-2 history" type="button">
-                        <img class="watchlist" src="/images/icon/bookmark.png">
-                        WISHLIST
-                    </button>
-                </div>
-                <div class="row">
-                    <button class="btn o-button-2 history" type="button">
-                        <img class="watchlist" src="/images/icon/dislike.png">
-                        <%= movie.dislike ? movie.dislike : '0' %>
-                    </button>
-                    <button class="btn o-button-2 history" type="button">
-                        <img class="watchlist" src="/images/icon/seen.png">
-                        SEEN
-                    </button>
-                </div>
             </div>
         </div>
-    </div>
-
-    </div>
-
-
-
-
-
-
     </div>
 
 
