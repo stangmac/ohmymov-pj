@@ -883,21 +883,159 @@ figure {
 
 }
 
-/*= user== */
-
+/* Profile Box */
 .user-box {
-    margin-top: 90px;
-    border-radius: 20px;
-    background-color: var(--bg--main);
-    border: 1px solid var(--main-color);
+    margin-top: 50px;
+    padding: 25px 35px;
+    border-radius: 15px;
+    background: var(--bg--main);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Profile Card */
+.profile-card {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* จัดให้อยู่ตรงกลาง */
+    text-align: center;
+}
+
+/* Profile Header */
+.profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-header img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid var(--main-color);
+}
+
+.profile-header .user-name {
+    font-size: var(--h2-size);
+    margin-top: 10px;
     color: var(--colour-white);
-    padding: 40px 0px;
 }
 
-.user-info {
-    margin: 30px 80px 0px;
+/* Profile Info */
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* จัดให้อยู่ตรงกลางของ .user-box */
+}
+.profile-info p {
+    font-size: var(--title-size);
+    color: var(--colour-white);
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* ชิดซ้าย */
+    width: 100%; /* ให้เต็ม container */
+}
+.profile-info .label {
+    display: inline-block;
+    min-width: 120px; /* ปรับให้ label เท่ากัน */
+    font-weight: bold;
+    text-align: left;
+}
+/* Form Styling */
+#editProfileForm,
+#changePasswordForm {
+    margin-top: 50px;
+    padding: 25px 35px;
+    border-radius: 15px;
+    background: var(--bg--main);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+#editProfileForm input,
+#editProfileForm select,
+#changePasswordForm input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border-radius: 10px;
+    border: 1px solid var(--bg--sub);
+    background: var(--bg--sub);
+    color: var(--colour-white);
+    font-size: var(--body-size);
+}
+
+#editProfileForm input:disabled,
+#editProfileForm select:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#changePasswordForm h3,
+#editProfileForm h3{
+    font-size: var(--h3-size);
+    margin-bottom: 15px;
+    color: var(--colour-white);
+}
+#changePasswordForm label,
+#editProfileForm label{
+
+    font-size: 16px;
+    margin-top: 15px;
+    color: var(--colour-white);
+    text-align: left;
+    display: block; /* บังคับให้ label เป็น block element */
+    width: 100%; /* ให้กินพื้นที่เต็ม row */
+
+}
+/* Buttons */
+.s-button {
+    display: block;
+    margin: 20px 0 5px 0;
+    width: 20%;
+    height: 50px;
+    border: 1px solid var(--main-color);
+    font-size: var(--body-size);
+    background-color: var(--bg--main);
+    color: var(--colour-white);
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.s-button:hover {
+    background-color: var(--main-color);
+    color: var(--bg--main);
+}
+
+#submitPasswordBtn{
+    display: block;
+    margin: 20px auto;
+    width: 50%;
+    height: 50px;
+    border: 1px solid var(--main-color);
+    font-size: var(--body-size);
+    background-color: var(--bg--main);
+    color: var(--colour-white);
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+#submitPasswordBtn:hover {
+    background-color: var(--main-color);
+    color: var(--bg--main);
+}
+
+/* Hidden Elements */
+.hidden {
+    display: none;
+}
 .history-box {
     margin: 30px 50px 0px;
 }
@@ -931,8 +1069,6 @@ figure {
     font-size: 13px;
     color: var(--bg--main);
 }
-
-
 
 
 /*= footer== */
