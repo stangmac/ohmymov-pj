@@ -126,9 +126,9 @@
             <% movies.slice(0, 3).forEach(movie => { %>
                 <div class="col mb-2">
                     <div class="box-new row py-2 mx-1">
-                        <div class="col-3 mt-2 detailmovie">
+                        <div class="col-3 mt-1 detailmovie">
                             <a href="/movie-detail?id=<%= movie._id %>">
-                                <img class="poster-new" src="<%= (movie.poster_url && movie.poster_url.length) ? movie.poster_url[0] : '/images/poster-default.png' %>" height="210px">
+                                <img class="poster-new" src="<%= (movie.poster_url && movie.poster_url.length) ? movie.poster_url[0] : '/images/poster-default.png' %>" height="205px">
                             </a>
                         </div>
                         <div class="col-9">
@@ -199,16 +199,21 @@
 
         <div class="movie-container">
             <% topMovies.forEach((movie, index) => { %>
-                <div class="movie-card">
-                    <div class="movie-rank"><%= index + 1 %></div>
-                    <a href="/movie-detail?id=<%= movie._id %>">
+                <div class="title-item">
+                    <div class="title-item-number"><%= index + 1 %></div>
+                    <a href="/movie-detail?id=<%= movie._id %>" class="title-item-link">
                         <figure>
-                            <img class="movie-poster" 
+                            <img class="poster-top" 
                                 src="<%= (movie.poster_url && movie.poster_url.length) ? movie.poster_url[0] : '/images/poster-default.png' %>" 
                                 alt="<%= movie.title || 'Movie Poster' %>">
                         </figure>
+                        <div class="imdb-rate"><%= movie.rating_imdb || 'N/A' %></div>
+                        <div class="poster-title-box">
+                            <div class="top-title">
+                                <span class="entry-title"><%= movie.title %> (<%= movie.year %>)</span>
+                            </div>
+                        </div>
                     </a>
-                    <div class="movie-title"><%= movie.title %> (<%= movie.year %>)</div>
                 </div>
             <% }) %>
         </div>
@@ -245,8 +250,11 @@
 
 <section class="sec-3 mt-5 px-5">
     <div class="row justify-content-between">
+        <div class="col">
+            <button class="btn sg-button-1 body-font" type="button">ALL</button>
+        </div>
         <% sortedGenres.forEach((genre, index) => { %>
-            <% if (index % 5 === 0 && index !== 0) { %> <!-- ✅ สร้าง row ใหม่ทุกๆ 5 ปุ่ม -->
+            <% if ((index + 1) % 4 === 0) { %> <!-- ✅ New row starts after 4 more buttons -->
                 </div><div class="row justify-content-between mt-4">
             <% } %>
             <div class="col">
@@ -257,6 +265,7 @@
         <% }) %>
     </div>
 </section>
+
 
 <script>
     function filterGenre(genre) {
@@ -325,7 +334,7 @@
                                 <div class="row mt-4">
                                     <button class="btn o-button-1" type="button">
                                         <img class="watchlist" src="/images/icon/bookmark2.png">
-                                        WATCHLIST
+                                        WISHLIST
                                     </button>
                                 </div>
                             </div>

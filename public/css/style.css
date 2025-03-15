@@ -724,97 +724,24 @@ color: var(--colour-white);
     transition: transform 0.3s ease-in-out;
 }
 
-#scroll-button {
-    position: absolute;
-    right: 0px;
-    top: 58%;
-    transform: translateY(-50%);
-    background-color: rgba(183, 183, 183, 0.253);
-    padding: 3px 20px 5px;
-    cursor: pointer;
-    font-size: var(--h2-size);
-    border-radius: 50%;
-    border: none;
-    color: var(--bg--detail);
-}
-
-#scroll-button:hover {
-    background-color: rgba(183, 183, 183, 0.719);
-    color: var(--bg--main);
-}
-
 .movie-container {
-    margin: 0px 0px 10px 0px;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    gap: 15px;
+    padding: 10px 0;
+    padding-left: 20px;  /* ✅ ปรับระยะห่างซ้าย */
+    justify-content: flex-start;
+    max-width: 90%;
+    margin: auto;
+    position: relative;
+}
+
+
+.title-item:hover {
+    transform: scale(1.05); /* ขยายเมื่อชี้ */
 }
   
-
-/* .fave{
-    background: none;
-    border: 0;
-    padding: 0;
-    width: 70px;
-    height: 45px;
-    background: url(https://res.cloudinary.com/shanomurphy/image/upload/v1547543273/fave_ltre0q.png) no-repeat;
-    background-position: 0 0;
-    transition: background 1s steps(55);
-    outline: 0;
-    cursor: pointer;
-  }
-  
-  .fave.faved {
-    background-position: -3519px 0;
-  } */
-
-  /* ปรับปรุงการทำงานของการแอนิเมชัน */
-.btn-bookmark {
-    position: absolute; 
-    width: 50px;
-    height: 50px;
-    border: none;
-    outline: none;
-    z-index: 100;
-    top: 5px;
-    right: 20px;
-    cursor: pointer;
-    transition: transform 0.4s ease; /* เพิ่มเวลาให้แอนิเมชันนุ่มนวลขึ้น */
-}
-
-.btn-bookmark .icon-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;  /* ป้องกันการแสดงผลในขณะที่หมุน */
-    transition: transform 0.4s ease; /* ใช้เวลาเดียวกันกับการแอนิเมชัน */
-}
-
-.btn-bookmark .icon-container.second-icon {
-    transform-origin: top;
-    transform: rotateX(90deg);
-}
-
-.btn-bookmark .icon-container svg {
-    width: 100%;
-    height: 100%;
-}
-
-.btn-bookmark .icon-container .bookmark {
-    fill: #FFF;
-    stroke: #FFF;
-    stroke-width: 3px;
-}
-
-.btn-bookmark .icon-container.second-icon .bookmark {
-    fill: var(--main-color);
-    stroke: var(--main-color);
-}
-
-.btn-bookmark:active .icon-container {
-    transform: scale(0.98);
-}
-
-
 .title-item {
     display: flex;
     align-items: flex-end; 
@@ -878,7 +805,7 @@ figure {
     background: linear-gradient(
         to bottom,
         rgba(0, 0, 0, 0) 0%,
-        rgba(0, 0, 0, 0.55) 30%,
+        rgba(0, 0, 0, 0.8) 60%,
         rgba(0, 0, 0, 0.92) 100%
     );
     padding: 50px 10px 10px;
@@ -895,8 +822,9 @@ figure {
 }
 
 .entry-title {
-    font-size: var(--body-size);
+    font-size: var(--caption-size);
     color: var(--colour-white);
+    font-weight: bold;
     line-height: 1.4;
 }
 
@@ -920,7 +848,7 @@ figure {
 /*= section movie */
 
 .movie-detail {
-    margin: 90px 0px 60px 50px;
+    margin: 90px 0px 50px 50px;
 }
 
 .custom-line {
@@ -941,7 +869,11 @@ figure {
     width: 180px;
     padding: 15px 18px;
     margin-right: 23px;
+    display: inline-flex; /* Acts like flex but keeps inline flow */
+    flex-direction: column;
+    height: 100%; /* Ensures it stretches */
 }
+
 
 .detail-box {
     border-radius: 12px;
@@ -1169,57 +1101,6 @@ figure {
     width: 100%;
     height: 100%;
     object-fit: cover; /* ป้องกันขอบดำ */
-}
-
-
-
-
-
-
-/* 🔹 จัดเรียงหนังให้พอดีกับหน้าจอ */
-.movie-container {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow: hidden;
-    gap: 15px;
-    padding: 10px 0;
-    padding-left: 20px;  /* ✅ ปรับระยะห่างซ้าย */
-    justify-content: flex-start;
-    max-width: 90%;
-    margin: auto;
-    position: relative;
-}
-
-
-/* 🔹 รูปแบบของการ์ดหนัง */
-.movie-card {
-    flex: 0 0 auto;
-    width: 150px; /* ขนาดการ์ด */
-    text-align: center;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 10px;
-    border-radius: 10px;
-    transition: transform 0.3s ease-in-out;
-    position: relative;
-}
-
-.movie-card:hover {
-    transform: scale(1.05); /* ขยายเมื่อชี้ */
-}
-
-/* 🔹 รูปโปสเตอร์ */
-.movie-poster {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-}
-
-/* 🔹 ชื่อหนัง */
-.movie-title {
-    font-size: 14px;
-    color: white;
-    margin-top: 8px;
 }
 
 /* 🔹 อันดับ */
