@@ -823,9 +823,8 @@ figure {
 }
 
 .entry-title {
-    font-size: var(--caption-size);
+    font-size: var(--body-size);
     color: var(--colour-white);
-    font-weight: bold;
     line-height: 1.4;
 }
 
