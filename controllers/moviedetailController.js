@@ -34,6 +34,7 @@ module.exports = async (req, res) => {
         }
 
         console.log("🎬 Movie Data:", movie); // ✅ LOG เพื่อตรวจสอบค่าที่ส่งไปยัง EJS
+        console.log("🎬 Movie Data Sent to EJS:", movie);
 
         res.render('movie-detail', { movie , similarMovies });
 
@@ -44,3 +45,4 @@ module.exports = async (req, res) => {
         }
     }
 };
+

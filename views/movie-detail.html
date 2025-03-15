@@ -289,35 +289,41 @@
                             src="<%= Array.isArray(movie.poster_url) && movie.poster_url.length > 0 ? movie.poster_url[0] : '/images/default-poster.jpg' %>"
                             alt="<%= movie.title %>">
                     </a>
-                    <div class="d-flex justify-content-center mt-2">
-                        <div class="row ml-3 mr-2">
-                            <button class="btn o-button-2 history" type="button">
-                                <img class="watchlist" src="/images/icon/like.png">
-                                <%= movie.like ? movie.like + ' K' : '0' %>
-                            </button>
-                            <button class="btn o-button-2 history" type="button">
-                                <img class="watchlist" src="/images/icon/bookmark.png">
-                                WISHLIST
-                            </button>
-                        </div>
-                        <div class="row">
-                            <button class="btn o-button-2 history" type="button">
-                                <img class="watchlist" src="/images/icon/dislike.png">
-                                <%= movie.dislike ? movie.dislike : '0' %>
-                            </button>
-                            <button class="btn o-button-2 history" type="button">
-                                <img class="watchlist" src="/images/icon/seen.png">
-                                SEEN
-                            </button>
-                        </div>
-                    </div>
+                  <!-- Button section -->
+<div class="d-flex justify-content-center mt-2">
+    <div class="row ml-3 mr-2">
+        <button id="like-button" class="btn o-button-2 history" type="button" onclick="logUserActivity('<%= movie._id %>', 'like')">
+            <img class="watchlist" src="/images/icon/like.png">
+            <%= movie.like ? movie.like + ' K' : '0' %>
+        </button>
+        
+        <button id="wishlist-button" class="btn o-button-2 history" type="button" onclick="logUserActivity('<%= movie._id %>', 'wishlist')">
+            <img class="watchlist" src="/images/icon/bookmark.png">
+            WISHLIST
+        </button>
+    </div>
+    <div class="row">
+        <button id="dislike-button" class="btn o-button-2 history" type="button" onclick="logUserActivity('<%= movie._id %>', 'dislike')">
+            <img class="watchlist" src="/images/icon/dislike.png">
+            <%= movie.dislike ? movie.dislike : '0' %>
+        </button>
+        <button id="seen-button" class="btn o-button-2 history" type="button" onclick="logUserActivity('<%= movie._id %>', 'seen')">
+            <img class="watchlist" src="/images/icon/seen.png">
+            SEEN
+        </button>
+    </div>
+</div>
+
                 </div>
             </div>
         </div>
     </div>
 
-
-
+    <script src="/js/userActivity.js"></script>
+    <script>
+        console.log("✅ Movie ID Rendered in EJS:", "<%- movie._id %>");
+    </script>
+    
 </body>
 
 </html>
