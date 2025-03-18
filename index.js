@@ -2,15 +2,17 @@ require('dotenv').config();
 
 const { requireLogin } = require('./middleware/auth');
 
+
 const express = require('express');
 const router = express.Router();
+const { logUserActivity } = require('./controllers/userActivityController');
 const app = express();
 const mongoose = require('mongoose');
 const expressSession = require('express-session');
 const bodyParser = require("body-parser");
 const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
-const { logActivity } = require('./controllers/userActivityController');
+
 const authMiddleware = require('./middleware/auth');
 // เชื่อมต่อกับ MongoDB Atlas
 const dbUrl = 'mongodb+srv://admin:720272297234@cluster0.tah8c.mongodb.net/ohmymov';
@@ -35,9 +37,10 @@ const loginUserController = require('./controllers/loginUserController');
 const forgotPasswordController = require('./controllers/forgotPasswordController');
 const verifyOTPController = require('./controllers/verifyOTPController');
 const resetPasswordController = require('./controllers/resetPasswordController');
-const searchController = require('./controllers/searchController'); // Add searchController
+
 const updateProfileController = require("./controllers/updateProfileController");
 const changePasswordController = require("./controllers/changePasswordController");
+
 
 
 
@@ -51,9 +54,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 // Import Controller
-const { logUserActivity } = require("./controllers/userActivityController");
 
-// Route บันทึกกิจกรรมผู้ใช้
+
+
+
+
 
 
 
@@ -118,43 +123,23 @@ app.post('/update-profile', updateProfileController);
 app.post('/request-otp', changePasswordController.requestOtp);
 app.post('/change-password', changePasswordController.changePassword);
 app.post('/log-activity', authMiddleware.requireLogin, logUserActivity);
+
+
+
 // //keep data user
-// // Example route for logging when a user views movie details
-// app.post('/movie-detail/:movieId/view', authMiddleware.requireLogin, async (req, res) => {
-//     await logActivity(req, res, 'view_movie');
-//   });
-  
-//   // Example route for logging when a user watches trailer
-//   app.post('/movie-detail/:movieId/trailer', authMiddleware.requireLogin, async (req, res) => {
-//     await logActivity(req, res, 'watch_trailer');
-//   });
-  
-//   // Example route for logging when a user likes a movie
-//   app.post('/movie-detail/:movieId/like', authMiddleware.requireLogin, async (req, res) => {
-//     await logActivity(req, res, 'like');
-//   });
-  
-//   // Example route for logging when a user dislikes a movie
-//   app.post('/movie-detail/:movieId/dislike', authMiddleware.requireLogin, async (req, res) => {
-//     await logActivity(req, res, 'dislike');
-//   });
-  
-//   // Example route for logging when a user adds a movie to their wishlist
-//   app.post('/movie-detail/:movieId/wishlist', authMiddleware.requireLogin, async (req, res) => {
-//     await logActivity(req, res, 'wishlist');
-//   });
-  
-//   // Example route for logging when a user marks a movie as seen
-//   app.post('/movie-detail/:movieId/seen', authMiddleware.requireLogin, async (req, res) => {
-//     await logActivity(req, res, 'seen');
-//   });
+router.post('/log-activity', logUserActivity);
+
+module.exports = router;
   
 
+
+// Route สำหรับการเก็บพฤติกรรมการใช้งานของผู้ใช้
+app.post('/log-activity', requireLogin, logUserActivity);
 
 
 
 // Add search routing
-app.get('/search', searchController);
+
 
 // API ตรวจสอบสถานะการเข้าสู่ระบบ
 app.get('/check-login', (req, res) => {

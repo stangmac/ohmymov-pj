@@ -120,11 +120,11 @@
                     </div>
                     <div class="row mt-5">
                         <div class="tag">
-                            <button class="btn o-button-2" type="button">Synopsis</button>
-                            <button class="btn o-button-2" type="button">Where to watch</button>
-                            <button class="btn o-button-2" type="button">Posters</button>
-                            <button class="btn o-button-2" type="button">Cast</button>
-                            <button class="btn o-button-2" type="button">Similar titles</button>
+                            <button class="btn o-button-3" type="button">Synopsis</button>
+                            <button class="btn o-button-3" type="button">Where to watch</button>
+                            <button class="btn o-button-3" type="button">Posters</button>
+                            <button class="btn o-button-3" type="button">Cast</button>
+                            <button class="btn o-button-3" type="button">Similar titles</button>
                         </div>
                     </div>
                 </div>
@@ -290,30 +290,31 @@
                             alt="<%= movie.title %>">
                     </a>
                   <!-- Button section -->
-<div class="d-flex justify-content-center mt-2">
-    <div class="row ml-3 mr-2">
-        <button id="like-button" class="btn o-button-2 history" type="button" onclick="logUserActivity('<%= movie._id %>', 'like')">
-            <img class="watchlist" src="/images/icon/like.png">
-            <%= movie.like ? movie.like + ' K' : '0' %>
-        </button>
-        
-        <button id="wishlist-button" class="btn o-button-2 history" type="button" onclick="logUserActivity('<%= movie._id %>', 'wishlist')">
-            <img class="watchlist" src="/images/icon/bookmark.png">
-            WISHLIST
-        </button>
-    </div>
-    <div class="row">
-        <button id="dislike-button" class="btn o-button-2 history" type="button" onclick="logUserActivity('<%= movie._id %>', 'dislike')">
-            <img class="watchlist" src="/images/icon/dislike.png">
-            <%= movie.dislike ? movie.dislike : '0' %>
-        </button>
-        <button id="seen-button" class="btn o-button-2 history" type="button" onclick="logUserActivity('<%= movie._id %>', 'seen')">
-            <img class="watchlist" src="/images/icon/seen.png">
-            SEEN
-        </button>
-    </div>
-</div>
-
+                
+                  <div class="d-flex justify-content-center mt-2">
+                    <div class="row ml-3 mr-2">
+                        <button id="like-button" class="btn o-button-2 history" type="button" onclick="logUserActivity('<%= movie._id %>', 'like')">
+                            <img class="watchlist" src="/images/icon/like.png">
+                            <%= movie.like ? movie.like + ' K' : '0' %>
+                        </button>
+                        
+                        <button id="wishlist-button" class="btn o-button-2 history" type="button" onclick="logUserActivity('<%= movie._id %>', 'wishlist')">
+                            <img class="watchlist" src="/images/icon/bookmark.png">
+                            WISHLIST
+                        </button>
+                    </div>
+                    <div class="row">
+                        <button id="dislike-button" class="btn o-button-2 history" type="button" onclick="logUserActivity('<%= movie._id %>', 'dislike')">
+                            <img class="watchlist" src="/images/icon/dislike.png">
+                            <%= movie.dislike ? movie.dislike : '0' %>
+                        </button>
+                        <button id="seen-button" class="btn o-button-2 history" type="button" onclick="logUserActivity('<%= movie._id %>', 'seen')">
+                            <img class="watchlist" src="/images/icon/seen.png">
+                            SEEN
+                        </button>
+                    </div>
+                </div>
+                
                 </div>
             </div>
         </div>
