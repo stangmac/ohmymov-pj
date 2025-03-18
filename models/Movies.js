@@ -1,11 +1,17 @@
 const mongoose = require('mongoose');
 
 const movieSchema = new mongoose.Schema({
-    _id: { type: Number, required: true },
+    _id: { type: mongoose.Schema.Types.ObjectId, required: true }, // ✅ เปลี่ยนเป็น ObjectId
+    movie_id: { type: Number, required: true }, 
+
+    box_office: {
+        budget: { type: String, default: "Unknown" },
+        revenue: { type: String, default: "Unknown" }
+    },
 
     cast: [{
-        national_name: { type: String, required: true },
-        character: { type: String, required: true }
+        national_name: { type: String },
+        character: { type: String }
     }],
 
     crew: [{
@@ -13,23 +19,31 @@ const movieSchema = new mongoose.Schema({
         members: [{ type: String, required: true }]
     }],
 
+    dislike: { type: Number, default: 0 },
+    dubbing_languages: [{ type: String }],
     duration_minute: { type: Number, required: true }, 
-    genres: [{ type: String, required: true }], 
-
-    rating_imdb: { type: String, required: true }, 
-    rating_rotten: { type: String, required: true },
-
-    synopsis: { type: String, required: true },
-
-    teaser_url: { type: String }, // ✅ เปลี่ยนจาก Array เป็น String
+    genres: [{ type: String }], 
+    keywords: [{ type: String }],
+    language: { type: String, default: "Unknown" },
+    like: { type: Number, default: 0 },
+    popularity_score: { type: Number, default: 0 },
 
     poster_url: [{ type: String }], 
 
-    title: { type: String, required: true },
-    watch_platforms: [{ type: String, required: true }],
-    year: { type: String, required: true },
+    rating_imdb: { type: String, default: "N/A" }, 
+    rating_rotten: { type: String, default: "N/A" },
 
-    like: { type: Number, default: 0 }
+    release_date: { type: String, required: true },
+    review_count: { type: Number, default: 0 },
+    subtitle_languages: [{ type: String }],
+    
+    synopsis: { type: String, required: true },
+    teaser_url: { type: String, default: "No trailer available" },
+
+    title: { type: String, required: true },
+    watch: [{ type: String, default: "Not available" }],
+    watch_count: { type: Number, default: 0 },
+    year: { type: String, required: true }
 });
 
 module.exports = mongoose.model('Movie', movieSchema, 'movie');
