@@ -128,6 +128,7 @@
                     <div class="box-new row py-2 mx-1">
                         <div class="col-3 mt-1 detailmovie">
                             <a href="/movie-detail?id=<%= movie._id %>">
+                               
                                 <img class="poster-new" src="<%= (movie.poster_url && movie.poster_url.length) ? movie.poster_url[0] : '/images/poster-default.png' %>" height="205px">
                             </a>
                         </div>
@@ -392,59 +393,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
 
 <script>
-    // ✅ ฟังก์ชันค้นหาหนัง (เพิ่ม debounce)
-    function debounce(func, delay) {
-        let timer;
-        return function(...args) {
-            clearTimeout(timer);
-            timer = setTimeout(() => func.apply(this, args), delay);
-        };
-    }
-
-    async function searchMovies() {
-        const query = document.getElementById("search-input").value;
-        const resultsContainer = document.getElementById("searchResults");
-
-        if (query.length < 2) {
-            resultsContainer.innerHTML = "";
-            return;
-        }
-
-        try {
-            const response = await fetch(`/search?query=${encodeURIComponent(query)}`);
-            const movies = await response.json();
-            console.log("🔍 API Response:", movies); // ✅ Debugging
-
-            resultsContainer.innerHTML = movies.length > 0 ? 
-                movies.map(movie => `
-                    <a href="/movie-detail?id=${movie._id}" class="search-item">
-                        <img src="${movie.poster_url && movie.poster_url.length ? movie.poster_url[0] : '/images/poster-default.png'}" 
-                            alt="${movie.title || 'Movie Poster'}" 
-                            class="search-thumbnail"
-                            onerror="this.onerror=null; this.src='/images/poster-default.png'">
-                        <div class="search-title">${movie.title} (${movie.year})</div>
-                    </a>
-                `).join('') : '<p class="no-results">No movies found</p>';
-        } catch (err) {
-            console.error("❌ Error fetching search results:", err);
-        }
-    }
-
-    document.getElementById("search-input").addEventListener("input", debounce(searchMovies, 300));
-
-    function showResults() {
-        if (document.querySelector('.search-input').value.length > 0) {
-            document.getElementById('searchResults').style.display = 'block';
-        }
-    }
-
-    document.addEventListener('click', function (event) {
-        let searchContainer = document.querySelector('.search-container');
-        if (!searchContainer.contains(event.target)) {
-            document.getElementById('searchResults').style.display = 'none';
-        }
-    });
-
     // ✅ ปุ่มเลื่อนซ้าย/ขวา (เพิ่มการเช็คว่ามีปุ่มก่อนใช้งาน)
     document.addEventListener("DOMContentLoaded", function() {
         const container = document.querySelector('.movie-container');
@@ -465,5 +413,25 @@
 <script src="/js/omm.js"></script>
 <script src="/js/auth.js"></script>
 <script src="/js/userActivity.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const buttons = document.querySelectorAll(".o-button-1, .o-button-2");
+    
+        buttons.forEach(button => {
+            button.addEventListener("click", function () {
+                // ลบ class เดิม และเพิ่ม class ใหม่เมื่อกดปุ่ม
+                button.classList.add("active-style");
+    
+                // ใช้ setTimeout เพื่อให้ปุ่มกลับเป็นสไตล์เดิมหลังจากกด
+                setTimeout(() => {
+                    button.classList.remove("active-style");
+                }, 200);
+            });
+        });
+    });
+    
+</script>
+
 </body>
 </html>

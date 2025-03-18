@@ -1,16 +1,29 @@
-const UserActivity = require('../models/UserActivity');
+const UserActivity = require("../models/UserActivity");
 
-// Function to log user activity
-exports.logActivity = async (req, res, action) => {
-  try {
-    const userActivity = new UserActivity({
-      userId: req.user._id, // Assuming user is authenticated
-      movieId: req.params.movieId, // Movie ID from URL params
-      action: action // Action type (like view_movie, watch_trailer, etc.)
-    });
-    await userActivity.save();
-    res.status(200).send({ success: true, message: 'Activity logged successfully' });
-  } catch (error) {
-    res.status(500).send({ success: false, message: 'Error logging activity', error });
-  }
-};
+async function logUserActivity(req, res) {
+    try {
+        if (!req.session.user) {
+            console.error("Error: User not logged in");
+            return res.status(401).json({ error: "Unauthorized" });
+        }
+
+        const userId = req.session.user._id || req.session.user.id;
+        const { movieId, action } = req.body;
+
+        if (!movieId || !action) {
+            console.error("Error: Missing movieId or action", req.body);
+            return res.status(400).json({ error: "Missing movieId or action" });
+        }
+
+        console.log("Logging Activity:", { userId, movieId, action });
+
+        await UserActivity.create({ userId, movieId, action });
+
+        return res.status(200).json({ message: "Activity logged successfully" });
+    } catch (error) {
+        console.error("Error logging activity:", error);
+        return res.status(500).json({ error: "Internal Server Error can not use" });
+    }
+}
+
+module.exports = { logUserActivity };
