@@ -126,9 +126,10 @@
             <% movies.slice(0, 3).forEach(movie => { %>
                 <div class="col mb-2">
                     <div class="box-new row py-2 mx-1">
-                        <div class="col-3 mt-2 detailmovie">
+                        <div class="col-3 mt-1 detailmovie">
                             <a href="/movie-detail?id=<%= movie._id %>">
-                                <img class="poster-new" src="<%= (movie.poster_url && movie.poster_url.length) ? movie.poster_url[0] : '/images/poster-default.png' %>" height="210px">
+                               
+                                <img class="poster-new" src="<%= (movie.poster_url && movie.poster_url.length) ? movie.poster_url[0] : '/images/poster-default.png' %>" height="205px">
                             </a>
                         </div>
                         <div class="col-9">
@@ -199,16 +200,21 @@
 
         <div class="movie-container">
             <% topMovies.forEach((movie, index) => { %>
-                <div class="movie-card">
-                    <div class="movie-rank"><%= index + 1 %></div>
-                    <a href="/movie-detail?id=<%= movie._id %>">
+                <div class="title-item">
+                    <div class="title-item-number"><%= index + 1 %></div>
+                    <a href="/movie-detail?id=<%= movie._id %>" class="title-item-link">
                         <figure>
-                            <img class="movie-poster" 
+                            <img class="poster-top" 
                                 src="<%= (movie.poster_url && movie.poster_url.length) ? movie.poster_url[0] : '/images/poster-default.png' %>" 
                                 alt="<%= movie.title || 'Movie Poster' %>">
                         </figure>
+                        <div class="imdb-rate"><%= movie.rating_imdb || 'N/A' %></div>
+                        <div class="poster-title-box">
+                            <div class="top-title">
+                                <span class="entry-title"><%= movie.title %> (<%= movie.year %>)</span>
+                            </div>
+                        </div>
                     </a>
-                    <div class="movie-title"><%= movie.title %> (<%= movie.year %>)</div>
                 </div>
             <% }) %>
         </div>
@@ -245,8 +251,11 @@
 
 <section class="sec-3 mt-5 px-5">
     <div class="row justify-content-between">
+        <div class="col">
+            <button class="btn sg-button-1 body-font" type="button">ALL</button>
+        </div>
         <% sortedGenres.forEach((genre, index) => { %>
-            <% if (index % 5 === 0 && index !== 0) { %> <!-- ✅ สร้าง row ใหม่ทุกๆ 5 ปุ่ม -->
+            <% if ((index + 1) % 4 === 0) { %> <!-- ✅ New row starts after 4 more buttons -->
                 </div><div class="row justify-content-between mt-4">
             <% } %>
             <div class="col">
@@ -257,6 +266,7 @@
         <% }) %>
     </div>
 </section>
+
 
 <script>
     function filterGenre(genre) {
@@ -325,7 +335,7 @@
                                 <div class="row mt-4">
                                     <button class="btn o-button-1" type="button">
                                         <img class="watchlist" src="/images/icon/bookmark2.png">
-                                        WATCHLIST
+                                        WISHLIST
                                     </button>
                                 </div>
                             </div>
@@ -383,59 +393,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
 
 <script>
-    // ✅ ฟังก์ชันค้นหาหนัง (เพิ่ม debounce)
-    function debounce(func, delay) {
-        let timer;
-        return function(...args) {
-            clearTimeout(timer);
-            timer = setTimeout(() => func.apply(this, args), delay);
-        };
-    }
-
-    async function searchMovies() {
-        const query = document.getElementById("search-input").value;
-        const resultsContainer = document.getElementById("searchResults");
-
-        if (query.length < 2) {
-            resultsContainer.innerHTML = "";
-            return;
-        }
-
-        try {
-            const response = await fetch(`/search?query=${encodeURIComponent(query)}`);
-            const movies = await response.json();
-            console.log("🔍 API Response:", movies); // ✅ Debugging
-
-            resultsContainer.innerHTML = movies.length > 0 ? 
-                movies.map(movie => `
-                    <a href="/movie-detail?id=${movie._id}" class="search-item">
-                        <img src="${movie.poster_url && movie.poster_url.length ? movie.poster_url[0] : '/images/poster-default.png'}" 
-                            alt="${movie.title || 'Movie Poster'}" 
-                            class="search-thumbnail"
-                            onerror="this.onerror=null; this.src='/images/poster-default.png'">
-                        <div class="search-title">${movie.title} (${movie.year})</div>
-                    </a>
-                `).join('') : '<p class="no-results">No movies found</p>';
-        } catch (err) {
-            console.error("❌ Error fetching search results:", err);
-        }
-    }
-
-    document.getElementById("search-input").addEventListener("input", debounce(searchMovies, 300));
-
-    function showResults() {
-        if (document.querySelector('.search-input').value.length > 0) {
-            document.getElementById('searchResults').style.display = 'block';
-        }
-    }
-
-    document.addEventListener('click', function (event) {
-        let searchContainer = document.querySelector('.search-container');
-        if (!searchContainer.contains(event.target)) {
-            document.getElementById('searchResults').style.display = 'none';
-        }
-    });
-
     // ✅ ปุ่มเลื่อนซ้าย/ขวา (เพิ่มการเช็คว่ามีปุ่มก่อนใช้งาน)
     document.addEventListener("DOMContentLoaded", function() {
         const container = document.querySelector('.movie-container');
@@ -455,5 +412,26 @@
 </script>
 <script src="/js/omm.js"></script>
 <script src="/js/auth.js"></script>
+<script src="/js/userActivity.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const buttons = document.querySelectorAll(".o-button-1, .o-button-2");
+    
+        buttons.forEach(button => {
+            button.addEventListener("click", function () {
+                // ลบ class เดิม และเพิ่ม class ใหม่เมื่อกดปุ่ม
+                button.classList.add("active-style");
+    
+                // ใช้ setTimeout เพื่อให้ปุ่มกลับเป็นสไตล์เดิมหลังจากกด
+                setTimeout(() => {
+                    button.classList.remove("active-style");
+                }, 200);
+            });
+        });
+    });
+    
+</script>
+
 </body>
 </html>

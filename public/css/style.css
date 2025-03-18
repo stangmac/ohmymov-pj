@@ -144,6 +144,24 @@ a:hover {
     margin-top: 15px;
 }
 
+/* ปกติ */
+.o-button-1, .o-button-2 {
+    border-radius: 50px;
+    border-color: var(--main-color);
+    background-color: var(--bg--main);
+    color: var(--colour-white);
+    min-width: 180px;
+    font-size: var(--caption-size);
+    text-align: center;
+    padding: 4px 0px;
+}
+
+/* สไตล์เมื่อคลิก */
+.active-style {
+    background-color: var(--main-color) !important;
+    color: var(--bg--main) !important;
+}
+
 /*= img== */
 
 img.poster-new {
@@ -338,6 +356,7 @@ input.search:active, input.search:focus {
     background-color: var(--bg--main);
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* เพิ่มเงา */
+    z-index: 999;
 }
 
 
@@ -724,97 +743,24 @@ color: var(--colour-white);
     transition: transform 0.3s ease-in-out;
 }
 
-#scroll-button {
-    position: absolute;
-    right: 0px;
-    top: 58%;
-    transform: translateY(-50%);
-    background-color: rgba(183, 183, 183, 0.253);
-    padding: 3px 20px 5px;
-    cursor: pointer;
-    font-size: var(--h2-size);
-    border-radius: 50%;
-    border: none;
-    color: var(--bg--detail);
-}
-
-#scroll-button:hover {
-    background-color: rgba(183, 183, 183, 0.719);
-    color: var(--bg--main);
-}
-
 .movie-container {
-    margin: 0px 0px 10px 0px;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    gap: 15px;
+    padding: 10px 0;
+    padding-left: 20px;  /* ✅ ปรับระยะห่างซ้าย */
+    justify-content: flex-start;
+    max-width: 90%;
+    margin: auto;
+    position: relative;
+}
+
+
+.title-item:hover {
+    transform: scale(1.05); /* ขยายเมื่อชี้ */
 }
   
-
-/* .fave{
-    background: none;
-    border: 0;
-    padding: 0;
-    width: 70px;
-    height: 45px;
-    background: url(https://res.cloudinary.com/shanomurphy/image/upload/v1547543273/fave_ltre0q.png) no-repeat;
-    background-position: 0 0;
-    transition: background 1s steps(55);
-    outline: 0;
-    cursor: pointer;
-  }
-  
-  .fave.faved {
-    background-position: -3519px 0;
-  } */
-
-  /* ปรับปรุงการทำงานของการแอนิเมชัน */
-.btn-bookmark {
-    position: absolute; 
-    width: 50px;
-    height: 50px;
-    border: none;
-    outline: none;
-    z-index: 100;
-    top: 5px;
-    right: 20px;
-    cursor: pointer;
-    transition: transform 0.4s ease; /* เพิ่มเวลาให้แอนิเมชันนุ่มนวลขึ้น */
-}
-
-.btn-bookmark .icon-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;  /* ป้องกันการแสดงผลในขณะที่หมุน */
-    transition: transform 0.4s ease; /* ใช้เวลาเดียวกันกับการแอนิเมชัน */
-}
-
-.btn-bookmark .icon-container.second-icon {
-    transform-origin: top;
-    transform: rotateX(90deg);
-}
-
-.btn-bookmark .icon-container svg {
-    width: 100%;
-    height: 100%;
-}
-
-.btn-bookmark .icon-container .bookmark {
-    fill: #FFF;
-    stroke: #FFF;
-    stroke-width: 3px;
-}
-
-.btn-bookmark .icon-container.second-icon .bookmark {
-    fill: var(--main-color);
-    stroke: var(--main-color);
-}
-
-.btn-bookmark:active .icon-container {
-    transform: scale(0.98);
-}
-
-
 .title-item {
     display: flex;
     align-items: flex-end; 
@@ -878,7 +824,7 @@ figure {
     background: linear-gradient(
         to bottom,
         rgba(0, 0, 0, 0) 0%,
-        rgba(0, 0, 0, 0.55) 30%,
+        rgba(0, 0, 0, 0.8) 60%,
         rgba(0, 0, 0, 0.92) 100%
     );
     padding: 50px 10px 10px;
@@ -895,8 +841,9 @@ figure {
 }
 
 .entry-title {
-    font-size: var(--body-size);
+    font-size: var(--caption-size);
     color: var(--colour-white);
+    font-weight: bold;
     line-height: 1.4;
 }
 
@@ -920,7 +867,7 @@ figure {
 /*= section movie */
 
 .movie-detail {
-    margin: 90px 0px 60px 50px;
+    margin: 90px 0px 50px 50px;
 }
 
 .custom-line {
@@ -941,7 +888,11 @@ figure {
     width: 180px;
     padding: 15px 18px;
     margin-right: 23px;
+    display: inline-flex; /* Acts like flex but keeps inline flow */
+    flex-direction: column;
+    height: 100%; /* Ensures it stretches */
 }
+
 
 .detail-box {
     border-radius: 12px;
@@ -951,21 +902,165 @@ figure {
 
 }
 
-/*= user== */
-
+/* Profile Box */
 .user-box {
-    margin-top: 90px;
-    border-radius: 20px;
-    background-color: var(--bg--main);
-    border: 1px solid var(--main-color);
+    margin-top: 50px;
+    padding: 25px 35px;
+    border-radius: 15px;
+    background: var(--bg--main);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Profile Card */
+.profile-card {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* จัดให้อยู่ตรงกลาง */
+    text-align: center;
+}
+
+/* Profile Header */
+.profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-header img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid var(--main-color);
+}
+
+.profile-header .user-name {
+    font-size: var(--h2-size);
+    margin-top: 10px;
     color: var(--colour-white);
-    padding: 40px 0px;
 }
 
-.user-info {
-    margin: 30px 80px 0px;
+/* Profile Info */
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* จัดให้อยู่ตรงกลางของ .user-box */
+}
+.profile-info p {
+    font-size: var(--title-size);
+    color: var(--colour-white);
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* ชิดซ้าย */
+    width: 100%; /* ให้เต็ม container */
+}
+.profile-info .label {
+    display: inline-block;
+    min-width: 120px; /* ปรับให้ label เท่ากัน */
+    font-weight: bold;
+    text-align: left;
+}
+/* Form Styling */
+#editProfileForm,
+#changePasswordForm {
+    margin-top: 50px;
+    padding: 25px 35px;
+    border-radius: 15px;
+    background: var(--bg--main);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+#editProfileForm input,
+#editProfileForm select,
+#changePasswordForm input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border-radius: 10px;
+    border: 1px solid var(--bg--sub);
+    background: var(--bg--sub);
+    color: var(--colour-white);
+    font-size: var(--body-size);
+}
+
+#editProfileForm input:disabled,
+#editProfileForm select:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#changePasswordForm h3,
+#editProfileForm h3{
+    font-size: var(--h3-size);
+    margin-bottom: 15px;
+    color: var(--colour-white);
+}
+#changePasswordForm label,
+#editProfileForm label{
+
+    font-size: 16px;
+    margin-top: 15px;
+    color: var(--colour-white);
+    text-align: left;
+    display: block; /* บังคับให้ label เป็น block element */
+    width: 100%; /* ให้กินพื้นที่เต็ม row */
+
+}
+/* Buttons */
+.s-button {
+    display: block;
+    margin: 20px 0 5px 0;
+    width: 20%;
+    height: 50px;
+    border: 1px solid var(--main-color);
+    font-size: var(--body-size);
+    background-color: var(--bg--main);
+    color: var(--colour-white);
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.s-button:hover {
+    background-color: var(--main-color);
+    color: var(--bg--main);
+}
+
+#submitPasswordBtn{
+    display: block;
+    margin: 20px auto;
+    width: 50%;
+    height: 50px;
+    border: 1px solid var(--main-color);
+    font-size: var(--body-size);
+    background-color: var(--bg--main);
+    color: var(--colour-white);
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+#submitPasswordBtn:hover {
+    background-color: var(--main-color);
+    color: var(--bg--main);
+}
+
+/* Hidden Elements */
+.user-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+.hidden {
+    display: none;
+}
 .history-box {
     margin: 30px 50px 0px;
 }
@@ -999,8 +1094,10 @@ figure {
     font-size: 13px;
     color: var(--bg--main);
 }
+/* .user-info .title-font-bold.main-font {
+    margin: 30px 50px 0px;
 
-
+} */
 
 
 /*= footer== */
@@ -1033,57 +1130,6 @@ figure {
     width: 100%;
     height: 100%;
     object-fit: cover; /* ป้องกันขอบดำ */
-}
-
-
-
-
-
-
-/* 🔹 จัดเรียงหนังให้พอดีกับหน้าจอ */
-.movie-container {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow: hidden;
-    gap: 15px;
-    padding: 10px 0;
-    padding-left: 20px;  /* ✅ ปรับระยะห่างซ้าย */
-    justify-content: flex-start;
-    max-width: 90%;
-    margin: auto;
-    position: relative;
-}
-
-
-/* 🔹 รูปแบบของการ์ดหนัง */
-.movie-card {
-    flex: 0 0 auto;
-    width: 150px; /* ขนาดการ์ด */
-    text-align: center;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 10px;
-    border-radius: 10px;
-    transition: transform 0.3s ease-in-out;
-    position: relative;
-}
-
-.movie-card:hover {
-    transform: scale(1.05); /* ขยายเมื่อชี้ */
-}
-
-/* 🔹 รูปโปสเตอร์ */
-.movie-poster {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-}
-
-/* 🔹 ชื่อหนัง */
-.movie-title {
-    font-size: 14px;
-    color: white;
-    margin-top: 8px;
 }
 
 /* 🔹 อันดับ */
