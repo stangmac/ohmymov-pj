@@ -144,6 +144,24 @@ a:hover {
     margin-top: 15px;
 }
 
+/* ปกติ */
+.o-button-1, .o-button-2 {
+    border-radius: 50px;
+    border-color: var(--main-color);
+    background-color: var(--bg--main);
+    color: var(--colour-white);
+    min-width: 180px;
+    font-size: var(--caption-size);
+    text-align: center;
+    padding: 4px 0px;
+}
+
+/* สไตล์เมื่อคลิก */
+.active-style {
+    background-color: var(--main-color) !important;
+    color: var(--bg--main) !important;
+}
+
 /*= img== */
 
 img.poster-new {
