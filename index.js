@@ -118,36 +118,11 @@ app.post('/update-profile', updateProfileController);
 app.post('/request-otp', changePasswordController.requestOtp);
 app.post('/change-password', changePasswordController.changePassword);
 app.post('/log-activity', authMiddleware.requireLogin, logUserActivity);
+
+
+
 // //keep data user
-// // Example route for logging when a user views movie details
-// app.post('/movie-detail/:movieId/view', authMiddleware.requireLogin, async (req, res) => {
-//     await logActivity(req, res, 'view_movie');
-//   });
-  
-//   // Example route for logging when a user watches trailer
-//   app.post('/movie-detail/:movieId/trailer', authMiddleware.requireLogin, async (req, res) => {
-//     await logActivity(req, res, 'watch_trailer');
-//   });
-  
-//   // Example route for logging when a user likes a movie
-//   app.post('/movie-detail/:movieId/like', authMiddleware.requireLogin, async (req, res) => {
-//     await logActivity(req, res, 'like');
-//   });
-  
-//   // Example route for logging when a user dislikes a movie
-//   app.post('/movie-detail/:movieId/dislike', authMiddleware.requireLogin, async (req, res) => {
-//     await logActivity(req, res, 'dislike');
-//   });
-  
-//   // Example route for logging when a user adds a movie to their wishlist
-//   app.post('/movie-detail/:movieId/wishlist', authMiddleware.requireLogin, async (req, res) => {
-//     await logActivity(req, res, 'wishlist');
-//   });
-  
-//   // Example route for logging when a user marks a movie as seen
-//   app.post('/movie-detail/:movieId/seen', authMiddleware.requireLogin, async (req, res) => {
-//     await logActivity(req, res, 'seen');
-//   });
+
   
 
 
