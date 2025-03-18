@@ -2,15 +2,17 @@ require('dotenv').config();
 
 const { requireLogin } = require('./middleware/auth');
 
+
 const express = require('express');
 const router = express.Router();
+const { logUserActivity } = require('./controllers/userActivityController');
 const app = express();
 const mongoose = require('mongoose');
 const expressSession = require('express-session');
 const bodyParser = require("body-parser");
 const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
-const { logActivity } = require('./controllers/userActivityController');
+
 const authMiddleware = require('./middleware/auth');
 // เชื่อมต่อกับ MongoDB Atlas
 const dbUrl = 'mongodb+srv://admin:720272297234@cluster0.tah8c.mongodb.net/ohmymov';
@@ -35,9 +37,10 @@ const loginUserController = require('./controllers/loginUserController');
 const forgotPasswordController = require('./controllers/forgotPasswordController');
 const verifyOTPController = require('./controllers/verifyOTPController');
 const resetPasswordController = require('./controllers/resetPasswordController');
-const searchController = require('./controllers/searchController'); // Add searchController
+
 const updateProfileController = require("./controllers/updateProfileController");
 const changePasswordController = require("./controllers/changePasswordController");
+
 
 
 
@@ -51,9 +54,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 // Import Controller
-const { logUserActivity } = require("./controllers/userActivityController");
 
-// Route บันทึกกิจกรรมผู้ใช้
+
+
+
+
 
 
 
@@ -122,14 +127,19 @@ app.post('/log-activity', authMiddleware.requireLogin, logUserActivity);
 
 
 // //keep data user
+router.post('/log-activity', logUserActivity);
 
+module.exports = router;
   
 
+
+// Route สำหรับการเก็บพฤติกรรมการใช้งานของผู้ใช้
+app.post('/log-activity', requireLogin, logUserActivity);
 
 
 
 // Add search routing
-app.get('/search', searchController);
+
 
 // API ตรวจสอบสถานะการเข้าสู่ระบบ
 app.get('/check-login', (req, res) => {
