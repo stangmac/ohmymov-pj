@@ -1,7 +1,8 @@
 require('dotenv').config();
 
 const { requireLogin } = require('./middleware/auth');
-
+const { searchMovies } = require('./controllers/searchController');
+const { exec } = require('child_process');
 
 const express = require('express');
 const router = express.Router();
@@ -37,7 +38,7 @@ const loginUserController = require('./controllers/loginUserController');
 const forgotPasswordController = require('./controllers/forgotPasswordController');
 const verifyOTPController = require('./controllers/verifyOTPController');
 const resetPasswordController = require('./controllers/resetPasswordController');
-
+const searchController = require('./controllers/searchController'); // Add searchController
 const updateProfileController = require("./controllers/updateProfileController");
 const changePasswordController = require("./controllers/changePasswordController");
 
@@ -139,7 +140,15 @@ app.post('/log-activity', requireLogin, logUserActivity);
 
 
 // Add search routing
-
+app.get('/search', searchMovies);
+//วิธีตั้งให้รันอัตโนมัติทุกครั้งที่เปิดเซิร์ฟเวอร์ 
+// exec('node syncMoviesAuto.js', (err, stdout, stderr) => {
+//     if (err) {
+//         console.error('❌ Error Running syncMoviesAuto.js:', err);
+//         return;
+//     }
+//     console.log(stdout);
+// });
 
 // API ตรวจสอบสถานะการเข้าสู่ระบบ
 app.get('/check-login', (req, res) => {
