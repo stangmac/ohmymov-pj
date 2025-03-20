@@ -1,6 +1,10 @@
 require('dotenv').config();
 
 const { requireLogin } = require('./middleware/auth');
+const { searchMovies } = require('./controllers/searchController');
+const { exec } = require('child_process');
+
+
 
 const express = require('express');
 const router = express.Router();
@@ -12,6 +16,7 @@ const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
 const { logActivity } = require('./controllers/userActivityController');
 const authMiddleware = require('./middleware/auth');
+
 // เชื่อมต่อกับ MongoDB Atlas
 const dbUrl = 'mongodb+srv://admin:720272297234@cluster0.tah8c.mongodb.net/ohmymov';
 
@@ -123,38 +128,47 @@ app.post('/log-activity', authMiddleware.requireLogin, logUserActivity);
 // app.post('/movie-detail/:movieId/view', authMiddleware.requireLogin, async (req, res) => {
 //     await logActivity(req, res, 'view_movie');
 //   });
-  
+
 //   // Example route for logging when a user watches trailer
 //   app.post('/movie-detail/:movieId/trailer', authMiddleware.requireLogin, async (req, res) => {
 //     await logActivity(req, res, 'watch_trailer');
 //   });
-  
+
 //   // Example route for logging when a user likes a movie
 //   app.post('/movie-detail/:movieId/like', authMiddleware.requireLogin, async (req, res) => {
 //     await logActivity(req, res, 'like');
 //   });
-  
+
 //   // Example route for logging when a user dislikes a movie
 //   app.post('/movie-detail/:movieId/dislike', authMiddleware.requireLogin, async (req, res) => {
 //     await logActivity(req, res, 'dislike');
 //   });
-  
+
 //   // Example route for logging when a user adds a movie to their wishlist
 //   app.post('/movie-detail/:movieId/wishlist', authMiddleware.requireLogin, async (req, res) => {
 //     await logActivity(req, res, 'wishlist');
 //   });
-  
+
 //   // Example route for logging when a user marks a movie as seen
 //   app.post('/movie-detail/:movieId/seen', authMiddleware.requireLogin, async (req, res) => {
 //     await logActivity(req, res, 'seen');
 //   });
-  
 
 
 
 
-// Add search routing
-app.get('/search', searchController);
+
+// เพิ่ม API สำหรับค้นหาหนัง
+app.get('/search', searchMovies);
+//วิธีตั้งให้รันอัตโนมัติทุกครั้งที่เปิดเซิร์ฟเวอร์ 
+exec('node syncMoviesAuto.js', (err, stdout, stderr) => {
+    if (err) {
+        console.error('❌ Error Running syncMoviesAuto.js:', err);
+        return;
+    }
+    console.log(stdout);
+});
+
 
 // API ตรวจสอบสถานะการเข้าสู่ระบบ
 app.get('/check-login', (req, res) => {
