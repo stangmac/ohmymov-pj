@@ -136,5 +136,3 @@ async function deleteAndSyncMovies() {
 }
 
 deleteAndSyncMovies();
-
-

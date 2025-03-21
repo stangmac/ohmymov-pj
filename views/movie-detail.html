@@ -58,7 +58,9 @@
                         <li class="nav-item dropdown">
                             <button class="nav-link dropbtn">
                                 <img src="/images/icon/user-fill.png" class="icon-green" />
-                                <span class="main-font "><%= loggedIN %></span>
+                                <span class="main-font ">
+                                    <%= loggedIN %>
+                                </span>
                                 <img src="/images/icon/drop-more.png" class="icon-green" />
                             </button>
                             <ul class="dropdown-content">
@@ -115,16 +117,16 @@
                         </div>
                         <img class="app ml-4" src="/images/logo-rotten.png">
                         <div class="body-font white-font ml-3">
-                            <%= movie.rating_rotten ? movie.rating_rotten : 'N/A' %> 
+                            <%= movie.rating_rotten ? movie.rating_rotten : 'N/A' %>
                         </div>
                     </div>
                     <div class="row mt-5">
                         <div class="tag">
-                            <button class="btn o-button-3" type="button">Synopsis</button>
-                            <button class="btn o-button-3" type="button">Where to watch</button>
-                            <button class="btn o-button-3" type="button">Posters</button>
-                            <button class="btn o-button-3" type="button">Cast</button>
-                            <button class="btn o-button-3" type="button">Similar titles</button>
+                            <button class="btn o-button-2" type="button">Synopsis</button>
+                            <button class="btn o-button-2" type="button">Where to watch</button>
+                            <button class="btn o-button-2" type="button">Posters</button>
+                            <button class="btn o-button-2" type="button">Cast</button>
+                            <button class="btn o-button-2" type="button">Similar titles</button>
                         </div>
                     </div>
                 </div>
@@ -165,7 +167,8 @@
                     <% if (movie.watch && movie.watch.length> 0) { %>
                         <% movie.watch.forEach(platform=> { %>
                             <a href="#" target="_blank">
-                                <img class="app-2" src="/images/logo-<%= platform.toLowerCase().replace(/\s+/g, '-') %>.png"
+                                <img class="app-2"
+                                    src="/images/logo-<%= platform.toLowerCase().replace(/\s+/g, '-') %>.png"
                                     alt="<%= platform %> logo">
                             </a>
                             <% }); %>
@@ -176,7 +179,7 @@
                 <div class="line mt-4">
                     <hr class="custom-line">
                 </div>
-            
+
                 <div class="row mt-4">
                     <div class="title-font-bold main-font">Posters</div>
                 </div>
@@ -198,7 +201,7 @@
                 <div class="row mt-4">
                     <div class="title-font-bold main-font">Cast</div>
                 </div>
-                <div class="row mt-4 pl-2 style="display: flex; align-items: stretch;"">
+                <div class="row mt-4 pl-2 style=" display: flex; align-items: stretch;"">
                     <% if (movie.cast && movie.cast.length> 0) { %>
                         <% movie.cast.forEach(actor=> { %>
                             <div class="cast-box d-flex flex-column align-items-center">
@@ -289,32 +292,35 @@
                             src="<%= Array.isArray(movie.poster_url) && movie.poster_url.length > 0 ? movie.poster_url[0] : '/images/default-poster.jpg' %>"
                             alt="<%= movie.title %>">
                     </a>
-                  <!-- Button section -->
-                
-                  <div class="d-flex justify-content-center mt-2">
-                    <div class="row ml-3 mr-2">
-                        <button id="like-button" class="btn o-button-2 history" type="button" onclick="logUserActivity('<%= movie._id %>', 'like')">
-                            <img class="watchlist" src="/images/icon/like.png">
-                            <%= movie.like ? movie.like + ' K' : '0' %>
-                        </button>
-                        
-                        <button id="wishlist-button" class="btn o-button-2 history" type="button" onclick="logUserActivity('<%= movie._id %>', 'wishlist')">
-                            <img class="watchlist" src="/images/icon/bookmark.png">
-                            WISHLIST
-                        </button>
+                    <!-- Button section -->
+                    <div class="d-flex justify-content-center mt-2">
+                        <div class="row ml-3 mr-2">
+                            <button id="like-button" class="btn o-button-2 history" type="button"
+                                onclick="logUserActivity('<%= movie._id %>', 'like')">
+                                <img class="watchlist" src="/images/icon/like.png">
+                                <%= movie.like ? movie.like + ' K' : '0' %>
+                            </button>
+
+                            <button id="wishlist-button" class="btn o-button-2 history" type="button"
+                                onclick="logUserActivity('<%= movie._id %>', 'wishlist')">
+                                <img class="watchlist" src="/images/icon/bookmark.png">
+                                WISHLIST
+                            </button>
+                        </div>
+                        <div class="row">
+                            <button id="dislike-button" class="btn o-button-2 history" type="button"
+                                onclick="logUserActivity('<%= movie._id %>', 'dislike')">
+                                <img class="watchlist" src="/images/icon/dislike.png">
+                                <%= movie.dislike ? movie.dislike : '0' %>
+                            </button>
+                            <button id="seen-button" class="btn o-button-2 history" type="button"
+                                onclick="logUserActivity('<%= movie._id %>', 'seen')">
+                                <img class="watchlist" src="/images/icon/seen.png">
+                                SEEN
+                            </button>
+                        </div>
                     </div>
-                    <div class="row">
-                        <button id="dislike-button" class="btn o-button-2 history" type="button" onclick="logUserActivity('<%= movie._id %>', 'dislike')">
-                            <img class="watchlist" src="/images/icon/dislike.png">
-                            <%= movie.dislike ? movie.dislike : '0' %>
-                        </button>
-                        <button id="seen-button" class="btn o-button-2 history" type="button" onclick="logUserActivity('<%= movie._id %>', 'seen')">
-                            <img class="watchlist" src="/images/icon/seen.png">
-                            SEEN
-                        </button>
-                    </div>
-                </div>
-                
+
                 </div>
             </div>
         </div>

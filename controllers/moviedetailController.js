@@ -29,19 +29,28 @@ module.exports = async (req, res) => {
         movie.genres = Array.isArray(movie.genres) && movie.genres.length > 0 ? movie.genres : ['N/A'];
         movie.watch = Array.isArray(movie.watch) && movie.watch.length > 0 ? movie.watch : ['Not available'];
 
-        // ✅ ค้นหาหนังที่มีแนวเดียวกัน แต่ไม่รวมหนังเรื่องเดียวกัน
+        // ✅ ดึง `recommendations` และเรียงตาม `similarity`
         let similarMovies = [];
-        if (movie.genres && movie.genres.length > 0) {
-            similarMovies = await Movie.find({
-                genres: { $in: movie.genres },
-                _id: { $ne: objectId } // ✅ ต้องใช้ ObjectId ในการเปรียบเทียบ
-            })
-            .limit(4)
-            .select("_id title year poster_url rating_imdb rating_rotten watch")
-            .lean();
+        if (movie.recommendations && movie.recommendations.length > 0) {
+            const recommendedIds = movie.recommendations.map(rec => rec.movie_id);
+
+            // ✅ ดึงข้อมูลหนังที่มีอยู่จริงในฐานข้อมูล
+            let fetchedMovies = await Movie.find({ movie_id: { $in: recommendedIds } })
+                .select("movie_id title year poster_url rating_imdb rating_rotten watch")
+                .lean();
+
+            // ✅ ใช้ Map เก็บค่า similarity เพื่อเรียงลำดับ
+            const similarityMap = new Map(movie.recommendations.map(rec => [rec.movie_id, rec.similarity]));
+
+            // ✅ จัดเรียงลำดับตาม `similarity` มากไปน้อย และเลือกแค่ 6 เรื่อง
+            similarMovies = fetchedMovies
+                .map(movie => ({ ...movie, similarity: similarityMap.get(movie.movie_id) || 0 }))
+                .sort((a, b) => b.similarity - a.similarity)
+                .slice(0, 6);
         }
 
         console.log("🎬 Movie Data Sent to EJS:", movie);
+        console.log("🔗 Similar Movies (Sorted by Similarity):", similarMovies);
 
         res.render('movie-detail', { movie, similarMovies });
 

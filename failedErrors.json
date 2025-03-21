@@ -1,0 +1,3330 @@
+[
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1849] failed to parse field [watch_count] of type [long] in document with id '67d997bf3eb48412035537cc'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:476] failed to parse field [watch_count] of type [long] in document with id '67d997c13eb48412035537cd'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:451] failed to parse field [watch_count] of type [long] in document with id '67d997d03eb48412035537d8'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:465] failed to parse field [watch_count] of type [long] in document with id '67d997d53eb48412035537dc'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1221] failed to parse field [watch_count] of type [long] in document with id '67d997d53eb48412035537dd'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:519] failed to parse field [watch_count] of type [long] in document with id '67d997d63eb48412035537de'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:425] failed to parse field [watch_count] of type [long] in document with id '67d997d73eb48412035537df'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:707] failed to parse field [watch_count] of type [long] in document with id '67d997d93eb48412035537e0'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:873] failed to parse field [watch_count] of type [long] in document with id '67d997f53eb48412035537f9'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:615] failed to parse field [watch_count] of type [long] in document with id '67d997f63eb48412035537fa'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1095] failed to parse field [watch_count] of type [long] in document with id '67d997fd3eb48412035537ff'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:945] failed to parse field [watch_count] of type [long] in document with id '67d998003eb4841203553801'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:837] failed to parse field [watch_count] of type [long] in document with id '67d998053eb4841203553805'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1521] failed to parse field [watch_count] of type [long] in document with id '67d998073eb4841203553806'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:330] failed to parse field [watch_count] of type [long] in document with id '67d998083eb4841203553807'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1062] failed to parse field [watch_count] of type [long] in document with id '67d9980a3eb4841203553808'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:2354] failed to parse field [watch_count] of type [long] in document with id '67d9980b3eb4841203553809'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:321] failed to parse field [watch_count] of type [long] in document with id '67d9980c3eb484120355380a'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:555] failed to parse field [watch_count] of type [long] in document with id '67d9980e3eb484120355380b'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:561] failed to parse field [watch_count] of type [long] in document with id '67d9980f3eb484120355380c'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:327] failed to parse field [watch_count] of type [long] in document with id '67d998113eb484120355380d'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:342] failed to parse field [watch_count] of type [long] in document with id '67d998123eb484120355380e'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1043] failed to parse field [watch_count] of type [long] in document with id '67d998143eb484120355380f'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:298] failed to parse field [watch_count] of type [long] in document with id '67d998153eb4841203553810'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:3220] failed to parse field [watch_count] of type [long] in document with id '67d998163eb4841203553811'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:856] failed to parse field [watch_count] of type [long] in document with id '67d998173eb4841203553812'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:792] failed to parse field [watch_count] of type [long] in document with id '67d998193eb4841203553813'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:463] failed to parse field [watch_count] of type [long] in document with id '67d9981a3eb4841203553814'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:513] failed to parse field [watch_count] of type [long] in document with id '67d9981b3eb4841203553815'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:435] failed to parse field [watch_count] of type [long] in document with id '67d9981d3eb4841203553817'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:594] failed to parse field [watch_count] of type [long] in document with id '67d9981e3eb4841203553818'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:406] failed to parse field [watch_count] of type [long] in document with id '67d998203eb484120355381a'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:696] failed to parse field [watch_count] of type [long] in document with id '67d998233eb484120355381b'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1559] failed to parse field [watch_count] of type [long] in document with id '67d998243eb484120355381c'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1118] failed to parse field [watch_count] of type [long] in document with id '67d998253eb484120355381d'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:555] failed to parse field [watch_count] of type [long] in document with id '67d998293eb4841203553820'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:376] failed to parse field [watch_count] of type [long] in document with id '67d998393eb484120355382c'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1583] failed to parse field [watch_count] of type [long] in document with id '67d9984c3eb4841203553838'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1022] failed to parse field [watch_count] of type [long] in document with id '67d9984d3eb4841203553839'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:526] failed to parse field [watch_count] of type [long] in document with id '67d9984e3eb484120355383a'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1726] failed to parse field [watch_count] of type [long] in document with id '67d998533eb484120355383d'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1111] failed to parse field [watch_count] of type [long] in document with id '67d998593eb4841203553840'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1284] failed to parse field [watch_count] of type [long] in document with id '67d9985a3eb4841203553841'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1213] failed to parse field [watch_count] of type [long] in document with id '67d9985d3eb4841203553843'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:426] failed to parse field [watch_count] of type [long] in document with id '67d9985e3eb4841203553844'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1250] failed to parse field [watch_count] of type [long] in document with id '67d9985f3eb4841203553845'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:2891] failed to parse field [watch_count] of type [long] in document with id '67d998613eb4841203553846'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:392] failed to parse field [watch_count] of type [long] in document with id '67d998633eb4841203553847'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:641] failed to parse field [watch_count] of type [long] in document with id '67d998643eb4841203553848'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:546] failed to parse field [watch_count] of type [long] in document with id '67d9986d3eb484120355384b'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:851] failed to parse field [watch_count] of type [long] in document with id '67d9986e3eb484120355384c'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:430] failed to parse field [watch_count] of type [long] in document with id '67d998753eb4841203553852'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1167] failed to parse field [watch_count] of type [long] in document with id '67d998773eb4841203553853'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:920] failed to parse field [watch_count] of type [long] in document with id '67d998783eb4841203553854'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:443] failed to parse field [watch_count] of type [long] in document with id '67d9987a3eb4841203553855'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:570] failed to parse field [watch_count] of type [long] in document with id '67d9987b3eb4841203553856'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:385] failed to parse field [watch_count] of type [long] in document with id '67d9987d3eb4841203553857'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:419] failed to parse field [watch_count] of type [long] in document with id '67d9987e3eb4841203553858'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:302] failed to parse field [watch_count] of type [long] in document with id '67d9987f3eb4841203553859'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:251] failed to parse field [watch_count] of type [long] in document with id '67d998803eb484120355385a'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:500] failed to parse field [watch_count] of type [long] in document with id '67d998883eb484120355385c'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:3299] failed to parse field [watch_count] of type [long] in document with id '67d998933eb4841203553861'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:742] failed to parse field [watch_count] of type [long] in document with id '67d998953eb4841203553862'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1814] failed to parse field [watch_count] of type [long] in document with id '67d998973eb4841203553863'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:468] failed to parse field [watch_count] of type [long] in document with id '67d998a73eb484120355386c'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:786] failed to parse field [watch_count] of type [long] in document with id '67d998a83eb484120355386d'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1173] failed to parse field [watch_count] of type [long] in document with id '67d998aa3eb484120355386e'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1761] failed to parse field [watch_count] of type [long] in document with id '67d998aa3eb484120355386f'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:861] failed to parse field [watch_count] of type [long] in document with id '67d998ac3eb4841203553870'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:686] failed to parse field [watch_count] of type [long] in document with id '67d998ad3eb4841203553871'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1214] failed to parse field [watch_count] of type [long] in document with id '67d998af3eb4841203553872'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:614] failed to parse field [watch_count] of type [long] in document with id '67d998b03eb4841203553873'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:513] failed to parse field [watch_count] of type [long] in document with id '67d998b53eb4841203553874'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:503] failed to parse field [watch_count] of type [long] in document with id '67d998b63eb4841203553875'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:429] failed to parse field [watch_count] of type [long] in document with id '67d998b83eb4841203553876'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:562] failed to parse field [watch_count] of type [long] in document with id '67d998ba3eb4841203553877'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:561] failed to parse field [watch_count] of type [long] in document with id '67d998bc3eb4841203553878'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:451] failed to parse field [watch_count] of type [long] in document with id '67d998bd3eb4841203553879'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:511] failed to parse field [watch_count] of type [long] in document with id '67d998be3eb484120355387a'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:470] failed to parse field [watch_count] of type [long] in document with id '67d998bf3eb484120355387b'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:746] failed to parse field [watch_count] of type [long] in document with id '67d998c23eb484120355387c'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1010] failed to parse field [watch_count] of type [long] in document with id '67d998c23eb484120355387d'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:484] failed to parse field [watch_count] of type [long] in document with id '67d998c33eb484120355387e'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1106] failed to parse field [watch_count] of type [long] in document with id '67d998c53eb484120355387f'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:688] failed to parse field [watch_count] of type [long] in document with id '67d998c73eb4841203553880'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:443] failed to parse field [watch_count] of type [long] in document with id '67d998c83eb4841203553881'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:364] failed to parse field [watch_count] of type [long] in document with id '67d998c93eb4841203553882'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:550] failed to parse field [watch_count] of type [long] in document with id '67d998cb3eb4841203553883'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:985] failed to parse field [watch_count] of type [long] in document with id '67d998cd3eb4841203553884'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:434] failed to parse field [watch_count] of type [long] in document with id '67d998ce3eb4841203553885'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:489] failed to parse field [watch_count] of type [long] in document with id '67d998cf3eb4841203553886'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:683] failed to parse field [watch_count] of type [long] in document with id '67d998d03eb4841203553887'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:308] failed to parse field [watch_count] of type [long] in document with id '67d998d33eb4841203553888'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:2173] failed to parse field [watch_count] of type [long] in document with id '67d998d43eb4841203553889'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:456] failed to parse field [watch_count] of type [long] in document with id '67d998d53eb484120355388a'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1652] failed to parse field [watch_count] of type [long] in document with id '67d998d73eb484120355388b'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1088] failed to parse field [watch_count] of type [long] in document with id '67d998d93eb484120355388c'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:835] failed to parse field [watch_count] of type [long] in document with id '67d998dc3eb484120355388e'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:607] failed to parse field [watch_count] of type [long] in document with id '67d998de3eb484120355388f'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1079] failed to parse field [watch_count] of type [long] in document with id '67d998df3eb4841203553891'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:2113] failed to parse field [watch_count] of type [long] in document with id '67d998e13eb4841203553892'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1378] failed to parse field [watch_count] of type [long] in document with id '67d998e23eb4841203553893'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:787] failed to parse field [watch_count] of type [long] in document with id '67d998e33eb4841203553894'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:2665] failed to parse field [watch_count] of type [long] in document with id '67d998e63eb4841203553895'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1164] failed to parse field [watch_count] of type [long] in document with id '67d998e73eb4841203553896'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:816] failed to parse field [watch_count] of type [long] in document with id '67d998e83eb4841203553897'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1474] failed to parse field [watch_count] of type [long] in document with id '67d998e93eb4841203553898'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:384] failed to parse field [watch_count] of type [long] in document with id '67d998ec3eb4841203553899'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1625] failed to parse field [watch_count] of type [long] in document with id '67d998ed3eb484120355389a'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1686] failed to parse field [watch_count] of type [long] in document with id '67d998f03eb484120355389b'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:724] failed to parse field [watch_count] of type [long] in document with id '67d998f13eb484120355389c'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1243] failed to parse field [watch_count] of type [long] in document with id '67d998f23eb484120355389d'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1475] failed to parse field [watch_count] of type [long] in document with id '67d998f33eb484120355389e'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:758] failed to parse field [watch_count] of type [long] in document with id '67d998f43eb484120355389f'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:854] failed to parse field [watch_count] of type [long] in document with id '67d998f63eb48412035538a0'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:529] failed to parse field [watch_count] of type [long] in document with id '67d998f83eb48412035538a1'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1393] failed to parse field [watch_count] of type [long] in document with id '67d998f93eb48412035538a2'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1512] failed to parse field [watch_count] of type [long] in document with id '67d998fa3eb48412035538a3'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1044] failed to parse field [watch_count] of type [long] in document with id '67d998fc3eb48412035538a4'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1312] failed to parse field [watch_count] of type [long] in document with id '67d998fd3eb48412035538a5'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1930] failed to parse field [watch_count] of type [long] in document with id '67d998fe3eb48412035538a6'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1186] failed to parse field [watch_count] of type [long] in document with id '67d999013eb48412035538a7'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1291] failed to parse field [watch_count] of type [long] in document with id '67d999023eb48412035538a8'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:930] failed to parse field [watch_count] of type [long] in document with id '67d999043eb48412035538a9'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:476] failed to parse field [watch_count] of type [long] in document with id '67d999053eb48412035538aa'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:3051] failed to parse field [watch_count] of type [long] in document with id '67d999073eb48412035538ab'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:677] failed to parse field [watch_count] of type [long] in document with id '67d999083eb48412035538ac'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1577] failed to parse field [watch_count] of type [long] in document with id '67d999093eb48412035538ad'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:791] failed to parse field [watch_count] of type [long] in document with id '67d9990b3eb48412035538ae'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1210] failed to parse field [watch_count] of type [long] in document with id '67d9990d3eb48412035538af'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:754] failed to parse field [watch_count] of type [long] in document with id '67d9990f3eb48412035538b1'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:865] failed to parse field [watch_count] of type [long] in document with id '67d999103eb48412035538b2'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:411] failed to parse field [watch_count] of type [long] in document with id '67d999123eb48412035538b3'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:423] failed to parse field [watch_count] of type [long] in document with id '67d999143eb48412035538b5'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:440] failed to parse field [watch_count] of type [long] in document with id '67d999153eb48412035538b6'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:338] failed to parse field [watch_count] of type [long] in document with id '67d999173eb48412035538b7'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:311] failed to parse field [watch_count] of type [long] in document with id '67d999193eb48412035538b8'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1933] failed to parse field [watch_count] of type [long] in document with id '67d9991a3eb48412035538b9'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1031] failed to parse field [watch_count] of type [long] in document with id '67d999493eb48412035538d2'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:897] failed to parse field [watch_count] of type [long] in document with id '67d999533eb48412035538d5'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:812] failed to parse field [watch_count] of type [long] in document with id '67d999573eb48412035538d7'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1473] failed to parse field [watch_count] of type [long] in document with id '67d999603eb48412035538d9'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1137] failed to parse field [watch_count] of type [long] in document with id '67d999643eb48412035538db'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:621] failed to parse field [watch_count] of type [long] in document with id '67d999653eb48412035538dc'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1032] failed to parse field [watch_count] of type [long] in document with id '67d999673eb48412035538dd'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:4845] failed to parse field [watch_count] of type [long] in document with id '67d999683eb48412035538df'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:934] failed to parse field [watch_count] of type [long] in document with id '67d9996a3eb48412035538e0'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1152] failed to parse field [watch_count] of type [long] in document with id '67d9996c3eb48412035538e1'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:489] failed to parse field [watch_count] of type [long] in document with id '67d9996d3eb48412035538e2'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:932] failed to parse field [watch_count] of type [long] in document with id '67d9996e3eb48412035538e4'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1249] failed to parse field [watch_count] of type [long] in document with id '67d999703eb48412035538e5'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:274] failed to parse field [watch_count] of type [long] in document with id '67d999723eb48412035538e6'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:977] failed to parse field [watch_count] of type [long] in document with id '67d999733eb48412035538e7'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1385] failed to parse field [watch_count] of type [long] in document with id '67d999743eb48412035538e8'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1021] failed to parse field [watch_count] of type [long] in document with id '67d999773eb48412035538e9'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1425] failed to parse field [watch_count] of type [long] in document with id '67d999783eb48412035538ea'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1430] failed to parse field [watch_count] of type [long] in document with id '67d999793eb48412035538eb'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:2025] failed to parse field [watch_count] of type [long] in document with id '67d9997b3eb48412035538ec'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1231] failed to parse field [watch_count] of type [long] in document with id '67d9997d3eb48412035538ed'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:519] failed to parse field [watch_count] of type [long] in document with id '67d9997f3eb48412035538ee'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1979] failed to parse field [watch_count] of type [long] in document with id '67d999803eb48412035538ef'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:736] failed to parse field [watch_count] of type [long] in document with id '67d999813eb48412035538f0'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:878] failed to parse field [watch_count] of type [long] in document with id '67d999833eb48412035538f1'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1328] failed to parse field [watch_count] of type [long] in document with id '67d999853eb48412035538f2'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1254] failed to parse field [watch_count] of type [long] in document with id '67d999863eb48412035538f3'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1523] failed to parse field [watch_count] of type [long] in document with id '67d999873eb48412035538f4'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1079] failed to parse field [watch_count] of type [long] in document with id '67d9998a3eb48412035538f5'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:977] failed to parse field [watch_count] of type [long] in document with id '67d9998c3eb48412035538f6'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:848] failed to parse field [watch_count] of type [long] in document with id '67d9998d3eb48412035538f7'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1126] failed to parse field [watch_count] of type [long] in document with id '67d9998e3eb48412035538f8'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1038] failed to parse field [watch_count] of type [long] in document with id '67d999913eb48412035538f9'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:860] failed to parse field [watch_count] of type [long] in document with id '67d999933eb48412035538fa'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1561] failed to parse field [watch_count] of type [long] in document with id '67d999973eb48412035538fb'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:862] failed to parse field [watch_count] of type [long] in document with id '67d999983eb48412035538fc'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:545] failed to parse field [watch_count] of type [long] in document with id '67d999a33eb4841203553902'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:3945] failed to parse field [watch_count] of type [long] in document with id '67d999aa3eb4841203553905'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:863] failed to parse field [watch_count] of type [long] in document with id '67d999bb3eb4841203553912'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:815] failed to parse field [watch_count] of type [long] in document with id '67d999c33eb4841203553917'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:708] failed to parse field [watch_count] of type [long] in document with id '67d999c43eb4841203553918'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:851] failed to parse field [watch_count] of type [long] in document with id '67d999c63eb4841203553919'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:776] failed to parse field [watch_count] of type [long] in document with id '67d999c83eb484120355391a'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:873] failed to parse field [watch_count] of type [long] in document with id '67d999ca3eb484120355391b'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:490] failed to parse field [watch_count] of type [long] in document with id '67d999ca3eb484120355391c'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:472] failed to parse field [watch_count] of type [long] in document with id '67d999cd3eb484120355391d'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:468] failed to parse field [watch_count] of type [long] in document with id '67d999ce3eb484120355391e'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:877] failed to parse field [watch_count] of type [long] in document with id '67d999cf3eb484120355391f'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:798] failed to parse field [watch_count] of type [long] in document with id '67d999d03eb4841203553920'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:509] failed to parse field [watch_count] of type [long] in document with id '67d999d13eb4841203553921'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:679] failed to parse field [watch_count] of type [long] in document with id '67d999d23eb4841203553922'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:3026] failed to parse field [watch_count] of type [long] in document with id '67d999d43eb4841203553923'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:880] failed to parse field [watch_count] of type [long] in document with id '67d999d53eb4841203553924'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:581] failed to parse field [watch_count] of type [long] in document with id '67d999d73eb4841203553925'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:407] failed to parse field [watch_count] of type [long] in document with id '67d999d83eb4841203553926'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:632] failed to parse field [watch_count] of type [long] in document with id '67d999d93eb4841203553927'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:404] failed to parse field [watch_count] of type [long] in document with id '67d999da3eb4841203553928'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:798] failed to parse field [watch_count] of type [long] in document with id '67d999dc3eb4841203553929'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:554] failed to parse field [watch_count] of type [long] in document with id '67d999de3eb484120355392a'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1517] failed to parse field [watch_count] of type [long] in document with id '67d999df3eb484120355392b'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1067] failed to parse field [watch_count] of type [long] in document with id '67d999e13eb484120355392c'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:724] failed to parse field [watch_count] of type [long] in document with id '67d999e33eb484120355392d'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:648] failed to parse field [watch_count] of type [long] in document with id '67d999e43eb484120355392e'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1858] failed to parse field [watch_count] of type [long] in document with id '67d999e53eb484120355392f'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:599] failed to parse field [watch_count] of type [long] in document with id '67d999e63eb4841203553930'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:813] failed to parse field [watch_count] of type [long] in document with id '67d999e83eb4841203553931'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:501] failed to parse field [watch_count] of type [long] in document with id '67d999ea3eb4841203553932'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1242] failed to parse field [watch_count] of type [long] in document with id '67d999eb3eb4841203553933'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:895] failed to parse field [watch_count] of type [long] in document with id '67d999ec3eb4841203553934'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1155] failed to parse field [watch_count] of type [long] in document with id '67d999ef3eb4841203553935'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:471] failed to parse field [watch_count] of type [long] in document with id '67d999f03eb4841203553936'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:747] failed to parse field [watch_count] of type [long] in document with id '67d999f13eb4841203553937'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:556] failed to parse field [watch_count] of type [long] in document with id '67d999f33eb4841203553938'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:705] failed to parse field [watch_count] of type [long] in document with id '67d999f53eb4841203553939'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:628] failed to parse field [watch_count] of type [long] in document with id '67d999f73eb484120355393a'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1075] failed to parse field [watch_count] of type [long] in document with id '67d999f83eb484120355393b'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1467] failed to parse field [watch_count] of type [long] in document with id '67d999fa3eb484120355393c'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:902] failed to parse field [watch_count] of type [long] in document with id '67d999fc3eb484120355393d'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:3016] failed to parse field [watch_count] of type [long] in document with id '67d999fd3eb484120355393e'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:538] failed to parse field [watch_count] of type [long] in document with id '67d999ff3eb484120355393f'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1535] failed to parse field [watch_count] of type [long] in document with id '67d99a003eb4841203553940'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:495] failed to parse field [watch_count] of type [long] in document with id '67d99a023eb4841203553941'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:925] failed to parse field [watch_count] of type [long] in document with id '67d99a043eb4841203553942'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:636] failed to parse field [watch_count] of type [long] in document with id '67d99a053eb4841203553943'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1200] failed to parse field [watch_count] of type [long] in document with id '67d99a073eb4841203553944'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:2529] failed to parse field [watch_count] of type [long] in document with id '67d99a093eb4841203553945'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1362] failed to parse field [watch_count] of type [long] in document with id '67d99a0b3eb4841203553946'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1134] failed to parse field [watch_count] of type [long] in document with id '67d99a0f3eb4841203553948'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1104] failed to parse field [watch_count] of type [long] in document with id '67d99a103eb4841203553949'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:426] failed to parse field [watch_count] of type [long] in document with id '67d99a123eb484120355394a'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1357] failed to parse field [watch_count] of type [long] in document with id '67d99a153eb484120355394b'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1060] failed to parse field [watch_count] of type [long] in document with id '67d99a183eb484120355394d'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:491] failed to parse field [watch_count] of type [long] in document with id '67d99a193eb484120355394e'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:935] failed to parse field [watch_count] of type [long] in document with id '67d99a1c3eb484120355394f'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1166] failed to parse field [watch_count] of type [long] in document with id '67d99a1d3eb4841203553951'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1039] failed to parse field [watch_count] of type [long] in document with id '67d99a1e3eb4841203553953'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:571] failed to parse field [watch_count] of type [long] in document with id '67d99a343eb4841203553960'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:507] failed to parse field [watch_count] of type [long] in document with id '67d99a843eb484120355397c'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:959] failed to parse field [watch_count] of type [long] in document with id '67d99a863eb484120355397e'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:869] failed to parse field [watch_count] of type [long] in document with id '67d99a883eb484120355397f'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:843] failed to parse field [watch_count] of type [long] in document with id '67d99a8a3eb4841203553980'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:986] failed to parse field [watch_count] of type [long] in document with id '67d99a8b3eb4841203553981'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1222] failed to parse field [watch_count] of type [long] in document with id '67d99a8e3eb4841203553983'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1095] failed to parse field [watch_count] of type [long] in document with id '67d99a933eb4841203553984'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:247] failed to parse field [watch_count] of type [long] in document with id '67d99a953eb4841203553985'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:575] failed to parse field [watch_count] of type [long] in document with id '67d99a973eb4841203553986'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:714] failed to parse field [watch_count] of type [long] in document with id '67d99a9a3eb4841203553987'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:768] failed to parse field [watch_count] of type [long] in document with id '67d99a9b3eb4841203553988'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1233] failed to parse field [watch_count] of type [long] in document with id '67d99a9d3eb4841203553989'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:748] failed to parse field [watch_count] of type [long] in document with id '67d99a9e3eb484120355398a'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:872] failed to parse field [watch_count] of type [long] in document with id '67d99aa13eb484120355398b'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:610] failed to parse field [watch_count] of type [long] in document with id '67d99aa23eb484120355398c'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:849] failed to parse field [watch_count] of type [long] in document with id '67d99aa53eb484120355398d'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1017] failed to parse field [watch_count] of type [long] in document with id '67d99aa63eb484120355398e'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:520] failed to parse field [watch_count] of type [long] in document with id '67d99aa83eb484120355398f'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:761] failed to parse field [watch_count] of type [long] in document with id '67d99aaa3eb4841203553990'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:993] failed to parse field [watch_count] of type [long] in document with id '67d99b073eb48412035539b7'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:276] failed to parse field [watch_count] of type [long] in document with id '67d99b613eb48412035539e1'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:402] failed to parse field [watch_count] of type [long] in document with id '67d99b633eb48412035539e2'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:308] failed to parse field [watch_count] of type [long] in document with id '67d99b643eb48412035539e3'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1025] failed to parse field [watch_count] of type [long] in document with id '67d99b663eb48412035539e4'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1619] failed to parse field [watch_count] of type [long] in document with id '67d99b693eb48412035539e5'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:786] failed to parse field [watch_count] of type [long] in document with id '67d99b693eb48412035539e6'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:316] failed to parse field [watch_count] of type [long] in document with id '67d99b6b3eb48412035539e7'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:819] failed to parse field [watch_count] of type [long] in document with id '67d99b6c3eb48412035539e8'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1340] failed to parse field [watch_count] of type [long] in document with id '67d99b6e3eb48412035539e9'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1019] failed to parse field [watch_count] of type [long] in document with id '67d99b703eb48412035539eb'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:659] failed to parse field [watch_count] of type [long] in document with id '67d99b733eb48412035539ed'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:985] failed to parse field [watch_count] of type [long] in document with id '67d99b763eb48412035539ee'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1123] failed to parse field [watch_count] of type [long] in document with id '67d99b9f3eb4841203553a04'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:480] failed to parse field [watch_count] of type [long] in document with id '67d99ba03eb4841203553a05'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:540] failed to parse field [watch_count] of type [long] in document with id '67d99ba13eb4841203553a06'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:354] failed to parse field [watch_count] of type [long] in document with id '67d99bad3eb4841203553a0c'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:692] failed to parse field [watch_count] of type [long] in document with id '67d99c1b3eb4841203553a3d'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:819] failed to parse field [watch_count] of type [long] in document with id '67d99c1c3eb4841203553a3e'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:754] failed to parse field [watch_count] of type [long] in document with id '67d99c1f3eb4841203553a3f'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:675] failed to parse field [watch_count] of type [long] in document with id '67d99c203eb4841203553a40'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:472] failed to parse field [watch_count] of type [long] in document with id '67d99c213eb4841203553a41'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:384] failed to parse field [watch_count] of type [long] in document with id '67d99c233eb4841203553a42'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:721] failed to parse field [watch_count] of type [long] in document with id '67d99c253eb4841203553a43'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:646] failed to parse field [watch_count] of type [long] in document with id '67d99c273eb4841203553a44'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:267] failed to parse field [watch_count] of type [long] in document with id '67d99c283eb4841203553a45'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1544] failed to parse field [watch_count] of type [long] in document with id '67d99c293eb4841203553a46'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:867] failed to parse field [watch_count] of type [long] in document with id '67d99c2c3eb4841203553a47'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:526] failed to parse field [watch_count] of type [long] in document with id '67d99c2e3eb4841203553a48'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:608] failed to parse field [watch_count] of type [long] in document with id '67d99c2f3eb4841203553a49'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:532] failed to parse field [watch_count] of type [long] in document with id '67d99c303eb4841203553a4a'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:417] failed to parse field [watch_count] of type [long] in document with id '67d99c333eb4841203553a4b'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:601] failed to parse field [watch_count] of type [long] in document with id '67d99c353eb4841203553a4c'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1221] failed to parse field [watch_count] of type [long] in document with id '67d99c363eb4841203553a4d'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:836] failed to parse field [watch_count] of type [long] in document with id '67d99c383eb4841203553a4e'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:527] failed to parse field [watch_count] of type [long] in document with id '67d99c3a3eb4841203553a4f'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:935] failed to parse field [watch_count] of type [long] in document with id '67d99c3d3eb4841203553a51'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:634] failed to parse field [watch_count] of type [long] in document with id '67d99c3e3eb4841203553a52'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:400] failed to parse field [watch_count] of type [long] in document with id '67d99c413eb4841203553a53'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:568] failed to parse field [watch_count] of type [long] in document with id '67d99c423eb4841203553a54'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:583] failed to parse field [watch_count] of type [long] in document with id '67d99c433eb4841203553a55'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:280] failed to parse field [watch_count] of type [long] in document with id '67d99c443eb4841203553a56'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:552] failed to parse field [watch_count] of type [long] in document with id '67d99c473eb4841203553a57'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:939] failed to parse field [watch_count] of type [long] in document with id '67d99c483eb4841203553a58'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:497] failed to parse field [watch_count] of type [long] in document with id '67d99c493eb4841203553a59'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:384] failed to parse field [watch_count] of type [long] in document with id '67d99c4a3eb4841203553a5a'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:536] failed to parse field [watch_count] of type [long] in document with id '67d99c4d3eb4841203553a5b'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:395] failed to parse field [watch_count] of type [long] in document with id '67d99c4e3eb4841203553a5c'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1032] failed to parse field [watch_count] of type [long] in document with id '67d99c503eb4841203553a5d'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:415] failed to parse field [watch_count] of type [long] in document with id '67d99c513eb4841203553a5e'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:517] failed to parse field [watch_count] of type [long] in document with id '67d99c533eb4841203553a5f'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:799] failed to parse field [watch_count] of type [long] in document with id '67d99c553eb4841203553a60'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:551] failed to parse field [watch_count] of type [long] in document with id '67d99c713eb4841203553a62'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:375] failed to parse field [watch_count] of type [long] in document with id '67d99c773eb4841203553a63'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:590] failed to parse field [watch_count] of type [long] in document with id '67d99c7a3eb4841203553a64'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:446] failed to parse field [watch_count] of type [long] in document with id '67d99c7b3eb4841203553a65'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:394] failed to parse field [watch_count] of type [long] in document with id '67d99c833eb4841203553a6a'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:860] failed to parse field [watch_count] of type [long] in document with id '67d99c843eb4841203553a6b'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1468] failed to parse field [watch_count] of type [long] in document with id '67d99c893eb4841203553a6d'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:947] failed to parse field [watch_count] of type [long] in document with id '67d99c8e3eb4841203553a70'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:753] failed to parse field [watch_count] of type [long] in document with id '67d99c933eb4841203553a73'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:325] failed to parse field [watch_count] of type [long] in document with id '67d99c983eb4841203553a76'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:862] failed to parse field [watch_count] of type [long] in document with id '67d99c9c3eb4841203553a78'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:253] failed to parse field [watch_count] of type [long] in document with id '67d99c9d3eb4841203553a79'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:271] failed to parse field [watch_count] of type [long] in document with id '67d99c9f3eb4841203553a7a'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:567] failed to parse field [watch_count] of type [long] in document with id '67d99ca03eb4841203553a7b'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1794] failed to parse field [watch_count] of type [long] in document with id '67d99ca33eb4841203553a7c'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:415] failed to parse field [watch_count] of type [long] in document with id '67d99ca43eb4841203553a7d'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1255] failed to parse field [watch_count] of type [long] in document with id '67d99ca93eb4841203553a7f'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:654] failed to parse field [watch_count] of type [long] in document with id '67d99cc33eb4841203553a8d'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:264] failed to parse field [watch_count] of type [long] in document with id '67d99cf93eb4841203553aa7'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:467] failed to parse field [watch_count] of type [long] in document with id '67d99cfa3eb4841203553aa8'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:921] failed to parse field [watch_count] of type [long] in document with id '67d99cfc3eb4841203553aa9'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:658] failed to parse field [watch_count] of type [long] in document with id '67d99cfd3eb4841203553aaa'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:538] failed to parse field [watch_count] of type [long] in document with id '67d99cff3eb4841203553aab'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:613] failed to parse field [watch_count] of type [long] in document with id '67d99d003eb4841203553aac'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1023] failed to parse field [watch_count] of type [long] in document with id '67d99d013eb4841203553aad'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:487] failed to parse field [watch_count] of type [long] in document with id '67d99d023eb4841203553aae'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:573] failed to parse field [watch_count] of type [long] in document with id '67d99d053eb4841203553aaf'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1055] failed to parse field [watch_count] of type [long] in document with id '67d99d073eb4841203553ab0'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1326] failed to parse field [watch_count] of type [long] in document with id '67d99fa73eb4841203553c17'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1131] failed to parse field [watch_count] of type [long] in document with id '67d9a1503eb4841203553cd0'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:923] failed to parse field [watch_count] of type [long] in document with id '67d9a1763eb4841203553ce6'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:740] failed to parse field [watch_count] of type [long] in document with id '67d9a1e83eb4841203553d29'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:430] failed to parse field [watch_count] of type [long] in document with id '67d9a22b3eb4841203553d4f'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1713] failed to parse field [watch_count] of type [long] in document with id '67d9a22f3eb4841203553d51'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1024] failed to parse field [watch_count] of type [long] in document with id '67d9a2313eb4841203553d52'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1498] failed to parse field [watch_count] of type [long] in document with id '67d9a2403eb4841203553d5a'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:527] failed to parse field [watch_count] of type [long] in document with id '67d9a2413eb4841203553d5b'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:665] failed to parse field [watch_count] of type [long] in document with id '67d9a24a3eb4841203553d60'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:969] failed to parse field [watch_count] of type [long] in document with id '67d9a24c3eb4841203553d61'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:594] failed to parse field [watch_count] of type [long] in document with id '67d9a24f3eb4841203553d62'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1216] failed to parse field [watch_count] of type [long] in document with id '67d9a2513eb4841203553d63'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1147] failed to parse field [watch_count] of type [long] in document with id '67d9a2583eb4841203553d69'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:888] failed to parse field [watch_count] of type [long] in document with id '67d9a2593eb4841203553d6a'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:590] failed to parse field [watch_count] of type [long] in document with id '67d9a25c3eb4841203553d6b'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:588] failed to parse field [watch_count] of type [long] in document with id '67d9a27a3eb4841203553d7c'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:579] failed to parse field [watch_count] of type [long] in document with id '67d9a2b13eb4841203553d9d'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1764] failed to parse field [watch_count] of type [long] in document with id '67d9a2bd3eb4841203553da4'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:3547] failed to parse field [watch_count] of type [long] in document with id '67d9a35d3eb4841203553dfb'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1076] failed to parse field [watch_count] of type [long] in document with id '67d9a35f3eb4841203553dfc'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:775] failed to parse field [watch_count] of type [long] in document with id '67d9a3623eb4841203553dfe'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:636] failed to parse field [watch_count] of type [long] in document with id '67d9a3633eb4841203553dff'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1779] failed to parse field [watch_count] of type [long] in document with id '67d9a3663eb4841203553e01'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1090] failed to parse field [watch_count] of type [long] in document with id '67d9a47f3eb4841203553e8f'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:996] failed to parse field [watch_count] of type [long] in document with id '67d9a6cf3eb4841203553fa5'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:888] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f957'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:334] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f958'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:859] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f959'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:904] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f95a'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:850] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f95b'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1064] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f95c'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:686] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f95d'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:702] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f95e'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:680] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f95f'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:883] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f960'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:318] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f961'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:445] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f962'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:553] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f963'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:685] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f964'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:718] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f965'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:815] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f966'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:516] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f967'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:609] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f968'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:265] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f96a'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1049] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f96b'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:320] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f96c'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1560] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f96d'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:650] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f96e'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:575] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f971'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:733] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f972'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:556] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f973'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:263] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f975'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:398] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f976'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:396] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f977'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:259] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f978'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:519] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f979'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:966] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f97a'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:772] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f97c'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:476] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f97d'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:420] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f97e'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:571] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f97f'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:691] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f980'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:791] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f981'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:496] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f982'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:828] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f983'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1330] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f984'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1047] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f985'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:793] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f986'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:877] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f987'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1421] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f988'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:709] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f989'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:712] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f98a'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:807] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f98b'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:606] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f98d'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:266] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f98e'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:869] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f98f'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:877] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f990'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:412] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f991'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:439] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f995'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:1683] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f996'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  },
+  {
+    "type": "document_parsing_exception",
+    "reason": "[1:268] failed to parse field [watch_count] of type [long] in document with id '67da7cc1d37e679735c6f997'. Preview of field's value: 'Unknown'",
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "For input string: \"Unknown\""
+    }
+  }
+]
