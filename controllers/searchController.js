@@ -24,7 +24,7 @@ async function searchMovies(req, res) {
                             'crew',
                             'year'
                         ],
-                        fuzziness: 'AUTO' // รองรับการสะกดผิดเล็กน้อย
+                        fuzziness: 'AUTO' // รองรับการสะกดผิดเล็กน้อย55
                     }
                 }
             }
