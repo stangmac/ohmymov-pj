@@ -4,19 +4,17 @@ const { requireLogin } = require('./middleware/auth');
 const { searchMovies } = require('./controllers/searchController');
 const { exec } = require('child_process');
 
-
-
 const express = require('express');
 const router = express.Router();
+const { logUserActivity } = require('./controllers/userActivityController');
 const app = express();
 const mongoose = require('mongoose');
 const expressSession = require('express-session');
 const bodyParser = require("body-parser");
 const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
-const { logActivity } = require('./controllers/userActivityController');
-const authMiddleware = require('./middleware/auth');
 
+const authMiddleware = require('./middleware/auth');
 // เชื่อมต่อกับ MongoDB Atlas
 const dbUrl = 'mongodb+srv://admin:720272297234@cluster0.tah8c.mongodb.net/ohmymov';
 
@@ -46,6 +44,7 @@ const changePasswordController = require("./controllers/changePasswordController
 
 
 
+
 app.use(express.static('public'));
 app.use(express.static('asset'));
 // Middleware สำหรับอ่าน JSON
@@ -56,9 +55,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 // Import Controller
-const { logUserActivity } = require("./controllers/userActivityController");
 
-// Route บันทึกกิจกรรมผู้ใช้
+
+
+
+
 
 
 
@@ -123,52 +124,31 @@ app.post('/update-profile', updateProfileController);
 app.post('/request-otp', changePasswordController.requestOtp);
 app.post('/change-password', changePasswordController.changePassword);
 app.post('/log-activity', authMiddleware.requireLogin, logUserActivity);
+
+
+
 // //keep data user
-// // Example route for logging when a user views movie details
-// app.post('/movie-detail/:movieId/view', authMiddleware.requireLogin, async (req, res) => {
-//     await logActivity(req, res, 'view_movie');
-//   });
+router.post('/log-activity', logUserActivity);
 
-//   // Example route for logging when a user watches trailer
-//   app.post('/movie-detail/:movieId/trailer', authMiddleware.requireLogin, async (req, res) => {
-//     await logActivity(req, res, 'watch_trailer');
-//   });
+module.exports = router;
+  
 
-//   // Example route for logging when a user likes a movie
-//   app.post('/movie-detail/:movieId/like', authMiddleware.requireLogin, async (req, res) => {
-//     await logActivity(req, res, 'like');
-//   });
 
-//   // Example route for logging when a user dislikes a movie
-//   app.post('/movie-detail/:movieId/dislike', authMiddleware.requireLogin, async (req, res) => {
-//     await logActivity(req, res, 'dislike');
-//   });
-
-//   // Example route for logging when a user adds a movie to their wishlist
-//   app.post('/movie-detail/:movieId/wishlist', authMiddleware.requireLogin, async (req, res) => {
-//     await logActivity(req, res, 'wishlist');
-//   });
-
-//   // Example route for logging when a user marks a movie as seen
-//   app.post('/movie-detail/:movieId/seen', authMiddleware.requireLogin, async (req, res) => {
-//     await logActivity(req, res, 'seen');
-//   });
+// Route สำหรับการเก็บพฤติกรรมการใช้งานของผู้ใช้
+app.post('/log-activity', requireLogin, logUserActivity);
 
 
 
-
-
-// เพิ่ม API สำหรับค้นหาหนัง
+// Add search routing
 app.get('/search', searchMovies);
 //วิธีตั้งให้รันอัตโนมัติทุกครั้งที่เปิดเซิร์ฟเวอร์ 
-exec('node syncMoviesAuto.js', (err, stdout, stderr) => {
-    if (err) {
-        console.error('❌ Error Running syncMoviesAuto.js:', err);
-        return;
-    }
-    console.log(stdout);
-});
-
+// exec('node syncMoviesAuto.js', (err, stdout, stderr) => {
+//     if (err) {
+//         console.error('❌ Error Running syncMoviesAuto.js:', err);
+//         return;
+//     }
+//     console.log(stdout);
+// });
 
 // API ตรวจสอบสถานะการเข้าสู่ระบบ
 app.get('/check-login', (req, res) => {
