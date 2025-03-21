@@ -225,12 +225,12 @@
                     <div class="title-font-bold main-font">Similar Titles</div>
                 </div>
                 <div class="row mt-1">
-                    <% if (similarMovies && similarMovies.length > 0) { %>
-                        <% similarMovies.forEach(similar => { %>
+                    <% if (similarMovies && similarMovies.length> 0) { %>
+                        <% similarMovies.forEach(similar=> { %>
                             <div class="col">
                                 <div class="genre-movie-item">
                                     <div class="row">
-                                        <a href="/movie-detail?id=<%= similar.movie_id %>">
+                                        <a href="/movie-detail?id=<%= similar._id %>">
                                             <img class="poster-genre"
                                                 src="<%= Array.isArray(similar.poster_url) && similar.poster_url.length > 0 ? similar.poster_url[0] : '/images/default-poster.jpg' %>"
                                                 alt="<%= similar.title %>">
@@ -247,21 +247,21 @@
                                     <div class="row mt-3">
                                         <img class="app" src="/images/logo-imdb.png">
                                         <div class="caption-font white-font ml-2">
-                                            <%= similar.rating_imdb && similar.rating_imdb !== 'N/A' ? similar.rating_imdb + ' / 10' : 'N/A' %>
+                                            <%= similar.rating_imdb ? similar.rating_imdb + ' / 10' : 'N/A' %>
                                         </div>
                                         <img class="app ml-4" src="/images/logo-rotten.png">
                                         <div class="caption-font white-font ml-2">
-                                            <%= similar.rating_rotten && similar.rating_rotten !== 'N/A' ? similar.rating_rotten : 'N/A' %>
+                                            <%= similar.rating_rotten ? similar.rating_rotten : 'N/A' %>
                                         </div>
                                     </div>
                                     <div class="row app-logo mt-3">
-                                        <% if (similar.watch && similar.watch.length > 0) { %>
-                                            <% similar.watch.forEach(platform => { %>
+                                        <% if (similar.watch && similar.watch.length> 0) { %>
+                                            <% similar.watch.forEach(platform=> { %>
                                                 <img class="app"
                                                     src="/images/logo-<%= platform.toLowerCase().replace(/\s+/g, '-') %>.png"
                                                     alt="<%= platform %>">
-                                            <% }); %>
-                                        <% } %>
+                                                <% }); %>
+                                                    <% } %>
                                     </div>
                                     <div class="row mt-4">
                                         <button class="btn o-button-1" type="button">
@@ -271,12 +271,11 @@
                                     </div>
                                 </div>
                             </div>
-                        <% }); %>
-                    <% } else { %>
-                        <p class="body-font white-font">No similar titles available.</p>
-                    <% } %>
+                            <% }); %>
+                                <% } else { %>
+                                    <p class="body-font white-font">No similar titles available.</p>
+                                    <% } %>
                 </div>
-                
             </div>
 
             <div class="col-4 mt-4">
