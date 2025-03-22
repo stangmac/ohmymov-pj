@@ -17,26 +17,20 @@ async function logUserActivity(req, res) {
     if (action === 'like') {
       // หาก movieId อยู่ใน dislike หรือ wishlist หรือ seen ให้ลบออกก่อน
       user.dislike = user.dislike.filter(id => !id.equals(objectId));
-      user.wishlist = user.wishlist.filter(id => !id.equals(objectId));
-      user.seen = user.seen.filter(id => !id.equals(objectId));
-
       if (!user.like.includes(objectId)) {
         user.like.push(objectId);
       }
     } else if (action === 'dislike') {
       // หาก movieId อยู่ใน like หรือ wishlist หรือ seen ให้ลบออกก่อน
       user.like = user.like.filter(id => !id.equals(objectId));
-      user.wishlist = user.wishlist.filter(id => !id.equals(objectId));
-      user.seen = user.seen.filter(id => !id.equals(objectId));
+
 
       if (!user.dislike.includes(objectId)) {
         user.dislike.push(objectId);
       }
     } else if (action === 'wishlist') {
       // หาก movieId อยู่ใน like หรือ dislike หรือ seen ให้ลบออกก่อน
-      user.like = user.like.filter(id => !id.equals(objectId));
-      user.dislike = user.dislike.filter(id => !id.equals(objectId));
-      user.seen = user.seen.filter(id => !id.equals(objectId));
+     
 
       // หาก movieId อยู่ใน wishlist และต้องการ "unwishlist" ให้ลบออก
       if (user.wishlist.includes(objectId)) {
@@ -47,9 +41,7 @@ async function logUserActivity(req, res) {
       }
     } else if (action === 'seen') {
       // หาก movieId อยู่ใน like หรือ dislike หรือ wishlist ให้ลบออกก่อน
-      user.like = user.like.filter(id => !id.equals(objectId));
-      user.dislike = user.dislike.filter(id => !id.equals(objectId));
-      user.wishlist = user.wishlist.filter(id => !id.equals(objectId));
+     
 
       // หาก movieId อยู่ใน seen และต้องการ "unseen" ให้ลบออก
       if (user.seen.includes(objectId)) {
