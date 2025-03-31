@@ -1,15 +1,12 @@
 document.addEventListener('click', handleUserInteraction);
-
 let lastCheckTime = 0; // เวลาตรวจสอบล่าสุด
 const checkInterval = 5000; // ตรวจสอบทุก 5 วินาที
 let isChecking = false; // ป้องกันการเรียก fetch ซ้ำซ้อน
-
 function handleUserInteraction() {
     if (!isChecking) {
         checkLogin();
     }
 }
-
 async function checkLogin() {
     try {
         const response = await fetch('/check-login');
@@ -29,8 +26,6 @@ async function checkLogin() {
         console.error('Error checking login status:', error);
     }
 }
-
-
 // ใช้ setInterval ให้ตรวจสอบทุก 5 วินาที
 setInterval(() => {
     if (document.visibilityState === "visible") {
