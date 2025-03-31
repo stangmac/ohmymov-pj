@@ -1,8 +1,6 @@
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const sendEmail = require("../services/mailService");
-
-// ✅ ฟังก์ชันขอ OTP (ไม่ต้องใส่อีเมล)
 module.exports.requestOtp = async (req, res) => {
     try {
         if (!req.session.user) {

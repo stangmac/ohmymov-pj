@@ -41,6 +41,8 @@ const resetPasswordController = require('./controllers/resetPasswordController')
 const searchController = require('./controllers/searchController'); // Add searchController
 const updateProfileController = require("./controllers/updateProfileController");
 const changePasswordController = require("./controllers/changePasswordController");
+const suggestionController = require("./controllers/suggestionController");
+
 
 
 
@@ -105,6 +107,7 @@ app.get('/user-profile', userprofileController);
 app.get('/home-new', homenewController);
 app.get('/result-search', resultsearchController);
 app.get('/all-content', allcontentController);
+app.get('/suggestion', suggestionController);
 app.get('/logout', (req, res) => {
     req.session.destroy(() => {
         res.locals.loggedIN = null;
