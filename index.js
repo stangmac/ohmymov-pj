@@ -47,6 +47,8 @@ const suggestionController = require("./controllers/suggestionController");
 
 
 
+
+
 app.use(express.static('public'));
 app.use(express.static('asset'));
 // Middleware สำหรับอ่าน JSON

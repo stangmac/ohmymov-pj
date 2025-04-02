@@ -2,626 +2,365 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/result-page.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=bookmark" />
-
     <title>Oh! My Mov</title>
 </head>
 
 <body>
-  <!-----------------------------------------------------------HEADER--------------------------------------------------------->
-  <div id="overlay"></div>
-  <header class="fixed-top">
-      <nav class="navbar navbar-expand-lg">
-          <a class="navbar-brand" href="/">
-              <img src="/images/logo2.png" width="150px" height="33px">
-          </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-          </button>
+    <div id="overlay"></div>
+    <header class="fixed-top">
+        <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand" href="/">
+                <img src="/images/logo2.png" width="150px" height="33px">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <div class="col-6">
-                  <ul class="navbar-nav">
-                      <li class="nav-item active">
-                          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-                      </li>
-                  
-                      <li class="nav-item">
-                          <a class="nav-link" href="/suggestion">Suggestion</a>
-                      </li>
-                  </ul>
-              </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="col-6">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/suggestion">Suggestion</a>
+                        </li>
+                    </ul>
+                </div>
 
-              <div class="col-4 d-flex justify-content-end pr-2 ml-3">
-                  <div class="search-container">
-                      <div class="search-box">
-                          <img src="/images/icon/search-icon.png" alt="Search" class="search-icon">
-                          <input type="text" class="search-input" placeholder="Search for a movie..."
-                              onkeyup="searchMovies(this.value)" onfocus="showResults()">
-                      </div>
-                      <div class="search-results" id="searchResults"></div>
-                  </div>
-              </div>
+                <div class="col-4 d-flex justify-content-end pr-2 ml-3">
+                    <div class="search-container">
+                        <div class="search-box">
+                            <img src="/images/icon/search-icon.png" alt="Search" class="search-icon">
+                            <input type="text" class="search-input" placeholder="Search for a movie..."
+                                onkeyup="searchMovies(this.value)" onfocus="showResults()">
+                        </div>
+                        <div class="search-results" id="searchResults"></div>
+                    </div>
+                </div>
 
-              <% if (!loggedIN) { %> 
-                  <div class="col-1 d-flex justify-content-end ml-2">
-                      <button class="btn o-button" type="button" id="show-signin">Sign In</button>
-                  </div>
-              <% } else { %>
-                  <div class="col-1 d-flex">
-                      <ul class="menu-right">
-                          <li class="nav-item dropdown">
-                              <button class="nav-link dropbtn">
-                                  <img src="/images/icon/user-fill.png" class="icon-green" />
-                                  <span class="main-font"><%= loggedIN %></span> <!-- แสดง username -->
-                                  <img src="/images/icon/drop-more.png" class="icon-green" />
-                              </button>
-                              <ul class="dropdown-content">
-                                  <li class="nav-item">
-                                      <a class="nav-link" href="/user-profile">
-                                          <img src="/images/icon/edit-profile.png" class="img-icon" />
-                                          Edit Profile
-                                      </a>
-                                  </li>
-                                  <li class="nav-item">
-                                      <a class="nav-link" href="/logout">
-                                          <img src="/images/icon/sign-out.png" class="img-icon" />
-                                          Sign out
-                                      </a>
-                                  </li>
-                              </ul>
-                          </li>
-                      </ul>
-                  </div>
-              <% } %>
-          </div>
-      </nav>
-  </header>
-
+                <% if (!loggedIN) { %> 
+                    <div class="col-1 d-flex justify-content-end ml-2">
+                        <button class="btn o-button" type="button" id="show-signin">Sign In</button>
+                    </div>
+                <% } else { %>
+                    <div class="col-1 d-flex">
+                        <ul class="menu-right">
+                            <li class="nav-item dropdown">
+                                <button class="nav-link dropbtn">
+                                    <img src="/images/icon/user-fill.png" class="icon-green" />
+                                    <span class="main-font"><%= loggedIN %></span>
+                                    <img src="/images/icon/drop-more.png" class="icon-green" />
+                                </button>
+                                <ul class="dropdown-content">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/user-profile">
+                                            <img src="/images/icon/edit-profile.png" class="img-icon" />
+                                            Edit Profile
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/logout">
+                                            <img src="/images/icon/sign-out.png" class="img-icon" />
+                                            Sign out
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                <% } %>
+            </div>
+        </nav>
+    </header>
 
     <section class="suggestion mt-5">
         <div class="container-fluid">
-        <h1 class="h2-font white-font">Suggestion For You
-        </h1>
-                <div class="genre-big mt-5">
-                    <div class="row">
-                        <h2>หวานอมรสเปรี้ยว</h2>
-                    </div>
-                    <div class="row">
-                                <div class="col-2">
-                                    <div class="genre-movie-item">
-                                        <div class="row">
-                                            <a href="#">
-                                                <img class="poster-genre"
-                                                    src="images\poster\thefallguy.jpg"
-                                                    alt="Movie Poster">
-                                            </a>
-                                        </div>
-                                        <div class="row mt-3">
-                                            <span class="entry-title">
-                                                thefallguy
-                                            </span>
-                                        </div>
-                                        <div class="row">
-                                            <span class="entry-title">2024</span>
-                                        </div>
-                                        <div class="row mt-3">
-                                            <img class="app" src="/images/logo-imdb.png">
-                                            <div class="caption-font white-font ml-2">
-                                               7.8
-                                            </div>
-                                            <img class="app ml-4" src="/images/logo-rotten.png">
-                                            <div class="caption-font white-font ml-2">
-                                               90%
-                                            </div>
-                                        </div>
-                                        <div class="row app-logo mt-3">
-                                                    <img class="\images\logo-disney.png" src="platformFileName"
-                                                        alt="platform">
-                                                            <div class="caption-font grey-font">platform
-                                                                </div>
-                                        </div>
-                                        <div class="row mt-4">
-                                            <button class="btn o-button-1" type="button">
-                                                <img class="watchlist" src="/images/icon/bookmark2.png">
-                                                WISHLIST
-                                            </button>
-                                        </div>
-                                    </div>
+            <h1 class="h2-font white-font">Suggestion For You</h1>
+
+            <!-- 🟢 Section: ดึงหนังจาก recommendation ของ users -->
+            <% if (recommendations && recommendations.length > 0) { %>
+            <div class="genre-big mt-5">
+                <div class="row">
+                    <h2>recommendations</h2>
+                </div>
+                <div class="row">
+                    <% recommendations.forEach(movie => { %>
+                    <div class="col-2">
+                        <div class="genre-movie-item">
+                            <div class="row">
+                                <a href="/movie-detail?id=<%= movie._id %>">
+                                    <img class="poster-genre"
+                                        src="<%= movie.poster_url && movie.poster_url.length > 0 ? movie.poster_url[0] : '/images/default-poster.jpg' %>"
+                                        alt="<%= movie.title %>">
+                                </a>
+                            </div>
+                            <div class="row mt-3">
+                                <span class="entry-title"><%= movie.title %></span>
+                            </div>
+                            <div class="row">
+                                <span class="entry-title"><%= movie.year %></span>
+                            </div>
+                            <div class="row mt-3">
+                                <img class="app" src="/images/logo-imdb.png">
+                                <div class="caption-font white-font ml-2">
+                                    <%= movie.rating_imdb ? movie.rating_imdb : 'N/A' %>
                                 </div>
-                                <div class="col-2">
-                                    <div class="genre-movie-item">
-                                        <div class="row">
-                                            <a href="#">
-                                                <img class="poster-genre"
-                                                    src="images\poster\thefallguy.jpg"
-                                                    alt="Movie Poster">
-                                            </a>
-                                        </div>
-                                        <div class="row mt-3">
-                                            <span class="entry-title">
-                                                thefallguy
-                                            </span>
-                                        </div>
-                                        <div class="row">
-                                            <span class="entry-title">2024</span>
-                                        </div>
-                                        <div class="row mt-3">
-                                            <img class="app" src="/images/logo-imdb.png">
-                                            <div class="caption-font white-font ml-2">
-                                               7.8
-                                            </div>
-                                            <img class="app ml-4" src="/images/logo-rotten.png">
-                                            <div class="caption-font white-font ml-2">
-                                               90%
-                                            </div>
-                                        </div>
-                                        <div class="row app-logo mt-3">
-                                                    <img class="\images\logo-disney.png" src="platformFileName"
-                                                        alt="platform">
-                                                            <div class="caption-font grey-font">platform
-                                                                </div>
-                                        </div>
-                                        <div class="row mt-4">
-                                            <button class="btn o-button-1" type="button">
-                                                <img class="watchlist" src="/images/icon/bookmark2.png">
-                                                WISHLIST
-                                            </button>
-                                        </div>
-                                    </div>
+                                <img class="app ml-4" src="/images/logo-rotten.png">
+                                <div class="caption-font white-font ml-2">
+                                    <%= movie.rating_rotten ? movie.rating_rotten : 'N/A' %>
                                 </div>
-                                <div class="col-2">
-                                    <div class="genre-movie-item">
-                                        <div class="row">
-                                            <a href="#">
-                                                <img class="poster-genre"
-                                                    src="images\poster\thefallguy.jpg"
-                                                    alt="Movie Poster">
-                                            </a>
-                                        </div>
-                                        <div class="row mt-3">
-                                            <span class="entry-title">
-                                                thefallguy
-                                            </span>
-                                        </div>
-                                        <div class="row">
-                                            <span class="entry-title">2024</span>
-                                        </div>
-                                        <div class="row mt-3">
-                                            <img class="app" src="/images/logo-imdb.png">
-                                            <div class="caption-font white-font ml-2">
-                                               7.8
-                                            </div>
-                                            <img class="app ml-4" src="/images/logo-rotten.png">
-                                            <div class="caption-font white-font ml-2">
-                                               90%
-                                            </div>
-                                        </div>
-                                        <div class="row app-logo mt-3">
-                                                    <img class="\images\logo-disney.png" src="platformFileName"
-                                                        alt="platform">
-                                                            <div class="caption-font grey-font">platform
-                                                                </div>
-                                        </div>
-                                        <div class="row mt-4">
-                                            <button class="btn o-button-1" type="button">
-                                                <img class="watchlist" src="/images/icon/bookmark2.png">
-                                                WISHLIST
-                                            </button>
-                                        </div>
-                                    </div>
+                            </div>
+                            <div class="row app-logo mt-3">
+                                <img src="/images/logo-disney.png" alt="platform">
+                                <div class="caption-font grey-font">
+                                    <%= movie.platform || 'platform' %>
                                 </div>
-                                <div class="col-2">
-                                    <div class="genre-movie-item">
-                                        <div class="row">
-                                            <a href="#">
-                                                <img class="poster-genre"
-                                                    src="images\poster\thefallguy.jpg"
-                                                    alt="Movie Poster">
-                                            </a>
-                                        </div>
-                                        <div class="row mt-3">
-                                            <span class="entry-title">
-                                                thefallguy
-                                            </span>
-                                        </div>
-                                        <div class="row">
-                                            <span class="entry-title">2024</span>
-                                        </div>
-                                        <div class="row mt-3">
-                                            <img class="app" src="/images/logo-imdb.png">
-                                            <div class="caption-font white-font ml-2">
-                                               7.8
-                                            </div>
-                                            <img class="app ml-4" src="/images/logo-rotten.png">
-                                            <div class="caption-font white-font ml-2">
-                                               90%
-                                            </div>
-                                        </div>
-                                        <div class="row app-logo mt-3">
-                                                    <img class="\images\logo-disney.png" src="platformFileName"
-                                                        alt="platform">
-                                                            <div class="caption-font grey-font">platform
-                                                                </div>
-                                        </div>
-                                        <div class="row mt-4">
-                                            <button class="btn o-button-1" type="button">
-                                                <img class="watchlist" src="/images/icon/bookmark2.png">
-                                                WISHLIST
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-2">
-                                    <div class="genre-movie-item">
-                                        <div class="row">
-                                            <a href="#">
-                                                <img class="poster-genre"
-                                                    src="images\poster\thefallguy.jpg"
-                                                    alt="Movie Poster">
-                                            </a>
-                                        </div>
-                                        <div class="row mt-3">
-                                            <span class="entry-title">
-                                                thefallguy
-                                            </span>
-                                        </div>
-                                        <div class="row">
-                                            <span class="entry-title">2024</span>
-                                        </div>
-                                        <div class="row mt-3">
-                                            <img class="app" src="/images/logo-imdb.png">
-                                            <div class="caption-font white-font ml-2">
-                                               7.8
-                                            </div>
-                                            <img class="app ml-4" src="/images/logo-rotten.png">
-                                            <div class="caption-font white-font ml-2">
-                                               90%
-                                            </div>
-                                        </div>
-                                        <div class="row app-logo mt-3">
-                                                    <img class="\images\logo-disney.png" src="platformFileName"
-                                                        alt="platform">
-                                                            <div class="caption-font grey-font">platform
-                                                                </div>
-                                        </div>
-                                        <div class="row mt-4">
-                                            <button class="btn o-button-1" type="button">
-                                                <img class="watchlist" src="/images/icon/bookmark2.png">
-                                                WISHLIST
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-2">
-                                    <div class="genre-movie-item">
-                                        <div class="row">
-                                            <a href="#">
-                                                <img class="poster-genre"
-                                                    src="images\poster\thefallguy.jpg"
-                                                    alt="Movie Poster">
-                                            </a>
-                                        </div>
-                                        <div class="row mt-3">
-                                            <span class="entry-title">
-                                                thefallguy
-                                            </span>
-                                        </div>
-                                        <div class="row">
-                                            <span class="entry-title">2024</span>
-                                        </div>
-                                        <div class="row mt-3">
-                                            <img class="app" src="/images/logo-imdb.png">
-                                            <div class="caption-font white-font ml-2">
-                                               7.8
-                                            </div>
-                                            <img class="app ml-4" src="/images/logo-rotten.png">
-                                            <div class="caption-font white-font ml-2">
-                                               90%
-                                            </div>
-                                        </div>
-                                        <div class="row app-logo mt-3">
-                                                    <img class="\images\logo-disney.png" src="platformFileName"
-                                                        alt="platform">
-                                                            <div class="caption-font grey-font">platform
-                                                                </div>
-                                        </div>
-                                        <div class="row mt-4">
-                                            <button class="btn o-button-1" type="button">
-                                                <img class="watchlist" src="/images/icon/bookmark2.png">
-                                                WISHLIST
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>  
-                    </div>
-                    <div class="row justify-content-end mt-5">
-                        <!-- ✅ ตรวจสอบว่า genre มีค่าจริงก่อนแสดงปุ่ม -->
-                            <button class="btn sg-button-2" type="button" >
-                                All Of Genre
-                                <img class="more" src="/images/icon/more.png">
-                            </button>
-                    </div>
-                    </div>
-                    <div class="genre-big mt-5">
-                        <div class="row">
-                            <h2>หวานอมรสขม</h2>
-                        </div>
-                        <div class="suggestiion-box">
-                        <div class="row">
-                                    <div class="col-2">
-                                        <div class="genre-movie-item">
-                                            <div class="row">
-                                                <a href="#">
-                                                    <img class="poster-genre"
-                                                        src="images\poster\thefallguy.jpg"
-                                                        alt="Movie Poster">
-                                                </a>
-                                            </div>
-                                            <div class="row mt-3">
-                                                <span class="entry-title">
-                                                    thefallguy
-                                                </span>
-                                            </div>
-                                            <div class="row">
-                                                <span class="entry-title">2024</span>
-                                            </div>
-                                            <div class="row mt-3">
-                                                <img class="app" src="/images/logo-imdb.png">
-                                                <div class="caption-font white-font ml-2">
-                                                   7.8
-                                                </div>
-                                                <img class="app ml-4" src="/images/logo-rotten.png">
-                                                <div class="caption-font white-font ml-2">
-                                                   90%
-                                                </div>
-                                            </div>
-                                            <div class="row app-logo mt-3">
-                                                        <img class="\images\logo-disney.png" src="platformFileName"
-                                                            alt="platform">
-                                                                <div class="caption-font grey-font">platform
-                                                                    </div>
-                                            </div>
-                                            <div class="row mt-4">
-                                                <button class="btn o-button-1" type="button">
-                                                    <img class="watchlist" src="/images/icon/bookmark2.png">
-                                                    WISHLIST
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-2">
-                                        <div class="genre-movie-item">
-                                            <div class="row">
-                                                <a href="#">
-                                                    <img class="poster-genre"
-                                                        src="images\poster\thefallguy.jpg"
-                                                        alt="Movie Poster">
-                                                </a>
-                                            </div>
-                                            <div class="row mt-3">
-                                                <span class="entry-title">
-                                                    thefallguy
-                                                </span>
-                                            </div>
-                                            <div class="row">
-                                                <span class="entry-title">2024</span>
-                                            </div>
-                                            <div class="row mt-3">
-                                                <img class="app" src="/images/logo-imdb.png">
-                                                <div class="caption-font white-font ml-2">
-                                                   7.8
-                                                </div>
-                                                <img class="app ml-4" src="/images/logo-rotten.png">
-                                                <div class="caption-font white-font ml-2">
-                                                   90%
-                                                </div>
-                                            </div>
-                                            <div class="row app-logo mt-3">
-                                                        <img class="\images\logo-disney.png" src="platformFileName"
-                                                            alt="platform">
-                                                                <div class="caption-font grey-font">platform
-                                                                    </div>
-                                            </div>
-                                            <div class="row mt-4">
-                                                <button class="btn o-button-1" type="button">
-                                                    <img class="watchlist" src="/images/icon/bookmark2.png">
-                                                    WISHLIST
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-2">
-                                        <div class="genre-movie-item">
-                                            <div class="row">
-                                                <a href="#">
-                                                    <img class="poster-genre"
-                                                        src="images\poster\thefallguy.jpg"
-                                                        alt="Movie Poster">
-                                                </a>
-                                            </div>
-                                            <div class="row mt-3">
-                                                <span class="entry-title">
-                                                    thefallguy
-                                                </span>
-                                            </div>
-                                            <div class="row">
-                                                <span class="entry-title">2024</span>
-                                            </div>
-                                            <div class="row mt-3">
-                                                <img class="app" src="/images/logo-imdb.png">
-                                                <div class="caption-font white-font ml-2">
-                                                   7.8
-                                                </div>
-                                                <img class="app ml-4" src="/images/logo-rotten.png">
-                                                <div class="caption-font white-font ml-2">
-                                                   90%
-                                                </div>
-                                            </div>
-                                            <div class="row app-logo mt-3">
-                                                        <img class="\images\logo-disney.png" src="platformFileName"
-                                                            alt="platform">
-                                                                <div class="caption-font grey-font">platform
-                                                                    </div>
-                                            </div>
-                                            <div class="row mt-4">
-                                                <button class="btn o-button-1" type="button">
-                                                    <img class="watchlist" src="/images/icon/bookmark2.png">
-                                                    WISHLIST
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-2">
-                                        <div class="genre-movie-item">
-                                            <div class="row">
-                                                <a href="#">
-                                                    <img class="poster-genre"
-                                                        src="images\poster\thefallguy.jpg"
-                                                        alt="Movie Poster">
-                                                </a>
-                                            </div>
-                                            <div class="row mt-3">
-                                                <span class="entry-title">
-                                                    thefallguy
-                                                </span>
-                                            </div>
-                                            <div class="row">
-                                                <span class="entry-title">2024</span>
-                                            </div>
-                                            <div class="row mt-3">
-                                                <img class="app" src="/images/logo-imdb.png">
-                                                <div class="caption-font white-font ml-2">
-                                                   7.8
-                                                </div>
-                                                <img class="app ml-4" src="/images/logo-rotten.png">
-                                                <div class="caption-font white-font ml-2">
-                                                   90%
-                                                </div>
-                                            </div>
-                                            <div class="row app-logo mt-3">
-                                                        <img class="\images\logo-disney.png" src="platformFileName"
-                                                            alt="platform">
-                                                                <div class="caption-font grey-font">platform
-                                                                    </div>
-                                            </div>
-                                            <div class="row mt-4">
-                                                <button class="btn o-button-1" type="button">
-                                                    <img class="watchlist" src="/images/icon/bookmark2.png">
-                                                    WISHLIST
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-2">
-                                        <div class="genre-movie-item">
-                                            <div class="row">
-                                                <a href="#">
-                                                    <img class="poster-genre"
-                                                        src="images\poster\thefallguy.jpg"
-                                                        alt="Movie Poster">
-                                                </a>
-                                            </div>
-                                            <div class="row mt-3">
-                                                <span class="entry-title">
-                                                    thefallguy
-                                                </span>
-                                            </div>
-                                            <div class="row">
-                                                <span class="entry-title">2024</span>
-                                            </div>
-                                            <div class="row mt-3">
-                                                <img class="app" src="/images/logo-imdb.png">
-                                                <div class="caption-font white-font ml-2">
-                                                   7.8
-                                                </div>
-                                                <img class="app ml-4" src="/images/logo-rotten.png">
-                                                <div class="caption-font white-font ml-2">
-                                                   90%
-                                                </div>
-                                            </div>
-                                            <div class="row app-logo mt-3">
-                                                        <img class="\images\logo-disney.png" src="platformFileName"
-                                                            alt="platform">
-                                                                <div class="caption-font grey-font">platform
-                                                                    </div>
-                                            </div>
-                                            <div class="row mt-4">
-                                                <button class="btn o-button-1" type="button">
-                                                    <img class="watchlist" src="/images/icon/bookmark2.png">
-                                                    WISHLIST
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-2">
-                                        <div class="genre-movie-item">
-                                            <div class="row">
-                                                <a href="#">
-                                                    <img class="poster-genre"
-                                                        src="images\poster\thefallguy.jpg"
-                                                        alt="Movie Poster">
-                                                </a>
-                                            </div>
-                                            <div class="row mt-3">
-                                                <span class="entry-title">
-                                                    thefallguy
-                                                </span>
-                                            </div>
-                                            <div class="row">
-                                                <span class="entry-title">2024</span>
-                                            </div>
-                                            <div class="row mt-3">
-                                                <img class="app" src="/images/logo-imdb.png">
-                                                <div class="caption-font white-font ml-2">
-                                                   7.8
-                                                </div>
-                                                <img class="app ml-4" src="/images/logo-rotten.png">
-                                                <div class="caption-font white-font ml-2">
-                                                   90%
-                                                </div>
-                                            </div>
-                                            <div class="row app-logo mt-3">
-                                                        <img class="\images\logo-disney.png" src="platformFileName"
-                                                            alt="platform">
-                                                                <div class="caption-font grey-font">platform
-                                                                    </div>
-                                            </div>
-                                            <div class="row mt-4">
-                                                <button class="btn o-button-1" type="button">
-                                                    <img class="watchlist" src="/images/icon/bookmark2.png">
-                                                    WISHLIST
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                        </div>
-                        <div class="row justify-content-end mt-5">
-                            <!-- ✅ ตรวจสอบว่า genre มีค่าจริงก่อนแสดงปุ่ม -->
-                                <button class="btn sg-button-2" type="button" >
-                                    All Of Genre
-                                    <img class="more" src="/images/icon/more.png">
+                            </div>
+                            <div class="row mt-4">
+                                <button class="btn o-button-1" type="button">
+                                    <img class="watchlist" src="/images/icon/bookmark2.png">
+                                    WATCHLIST
                                 </button>
-                        </div> 
+                            </div>
                         </div>
+                    </div>
+                    <% }) %>
+                </div>
+                <div class="row justify-content-end mt-5">
+                    <button class="btn sg-button-2" type="button">
+                        All Of Genre
+                        <img class="more" src="/images/icon/more.png">
+                    </button>
+                </div>
+            </div>
+            <% } %>
+
+            <!-- 🟡 Section: ดึงหนังจาก wishlist ของ users -->
+<% if (wishlist && wishlist.length > 0) { %>
+    <div class="genre-big mt-5">
+        <div class="row">
+            <h2>Wishlist</h2>
+        </div>
+        <div class="row">
+            <% wishlist.forEach(movie => { %>
+            <div class="col-2">
+                <div class="genre-movie-item">
+                    <div class="row">
+                        <a href="/movie-detail?id=<%= movie._id %>">
+                            <img class="poster-genre"
+                                src="<%= movie.poster_url && movie.poster_url.length > 0 ? movie.poster_url[0] : '/images/default-poster.jpg' %>"
+                                alt="<%= movie.title %>">
+                        </a>
+                    </div>
+                    <div class="row mt-3">
+                        <span class="entry-title"><%= movie.title %></span>
+                    </div>
+                    <div class="row">
+                        <span class="entry-title"><%= movie.year %></span>
+                    </div>
+                    <div class="row mt-3">
+                        <img class="app" src="/images/logo-imdb.png">
+                        <div class="caption-font white-font ml-2">
+                            <%= movie.rating_imdb ? movie.rating_imdb : 'N/A' %>
+                        </div>
+                        <img class="app ml-4" src="/images/logo-rotten.png">
+                        <div class="caption-font white-font ml-2">
+                            <%= movie.rating_rotten ? movie.rating_rotten : 'N/A' %>
+                        </div>
+                    </div>
+                    <div class="row app-logo mt-3">
+                        <img src="/images/logo-disney.png" alt="platform">
+                        <div class="caption-font grey-font">
+                            <%= movie.platform || 'platform' %>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <button class="btn o-button-1" type="button">
+                            <img class="watchlist" src="/images/icon/bookmark2.png">
+                            WISHLIST
+                        </button>
                     </div>
                 </div>
+            </div>
+            <% }) %>
+        </div>
+    </div>
+    <% } %>
+    
+    <!-- 💚 Section: Like -->
+    <% if (like && like.length > 0) { %>
+    <div class="genre-big mt-5">
+        <div class="row">
+            <h2>Liked</h2>
+        </div>
+        <div class="row">
+            <% like.forEach(movie => { %>
+            <!-- ใช้โครงสร้างเดียวกับด้านบนเลย -->
+            <div class="col-2">
+                <div class="genre-movie-item">
+                    <div class="row">
+                        <a href="/movie-detail?id=<%= movie._id %>">
+                            <img class="poster-genre"
+                                src="<%= movie.poster_url && movie.poster_url.length > 0 ? movie.poster_url[0] : '/images/default-poster.jpg' %>"
+                                alt="<%= movie.title %>">
+                        </a>
+                    </div>
+                    <div class="row mt-3">
+                        <span class="entry-title"><%= movie.title %></span>
+                    </div>
+                    <div class="row">
+                        <span class="entry-title"><%= movie.year %></span>
+                    </div>
+                    <div class="row mt-3">
+                        <img class="app" src="/images/logo-imdb.png">
+                        <div class="caption-font white-font ml-2">
+                            <%= movie.rating_imdb ? movie.rating_imdb : 'N/A' %>
+                        </div>
+                        <img class="app ml-4" src="/images/logo-rotten.png">
+                        <div class="caption-font white-font ml-2">
+                            <%= movie.rating_rotten ? movie.rating_rotten : 'N/A' %>
+                        </div>
+                    </div>
+                    <div class="row app-logo mt-3">
+                        <img src="/images/logo-disney.png" alt="platform">
+                        <div class="caption-font grey-font">
+                            <%= movie.platform || 'platform' %>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <button class="btn o-button-1" type="button">
+                            <img class="watchlist" src="/images/icon/bookmark2.png">
+                            LIKE
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+        </div>
+    </div>
+    <% } %>
+    
+    <!-- ❤️ Section: Dislike -->
+    <% if (dislike && dislike.length > 0) { %>
+    <div class="genre-big mt-5">
+        <div class="row">
+            <h2>Disliked</h2>
+        </div>
+        <div class="row">
+            <% dislike.forEach(movie => { %>
+            <!-- ใช้โครงสร้างเดียวกับด้านบนเลย -->
+            <div class="col-2">
+                <div class="genre-movie-item">
+                    <div class="row">
+                        <a href="/movie-detail?id=<%= movie._id %>">
+                            <img class="poster-genre"
+                                src="<%= movie.poster_url && movie.poster_url.length > 0 ? movie.poster_url[0] : '/images/default-poster.jpg' %>"
+                                alt="<%= movie.title %>">
+                        </a>
+                    </div>
+                    <div class="row mt-3">
+                        <span class="entry-title"><%= movie.title %></span>
+                    </div>
+                    <div class="row">
+                        <span class="entry-title"><%= movie.year %></span>
+                    </div>
+                    <div class="row mt-3">
+                        <img class="app" src="/images/logo-imdb.png">
+                        <div class="caption-font white-font ml-2">
+                            <%= movie.rating_imdb ? movie.rating_imdb : 'N/A' %>
+                        </div>
+                        <img class="app ml-4" src="/images/logo-rotten.png">
+                        <div class="caption-font white-font ml-2">
+                            <%= movie.rating_rotten ? movie.rating_rotten : 'N/A' %>
+                        </div>
+                    </div>
+                    <div class="row app-logo mt-3">
+                        <img src="/images/logo-disney.png" alt="platform">
+                        <div class="caption-font grey-font">
+                            <%= movie.platform || 'platform' %>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <button class="btn o-button-1" type="button">
+                            <img class="watchlist" src="/images/icon/bookmark2.png">
+                            DISLIKE
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+        </div>
+    </div>
+    <% } %>
+    
+    <!-- 👁️ Section: Seen -->
+    <% if (seen && seen.length > 0) { %>
+    <div class="genre-big mt-5">
+        <div class="row">
+            <h2>Seen</h2>
+        </div>
+        <div class="row">
+            <% seen.forEach(movie => { %>
+            <!-- ใช้โครงสร้างเดียวกัน -->
+            <div class="col-2">
+                <div class="genre-movie-item">
+                    <div class="row">
+                        <a href="/movie-detail?id=<%= movie._id %>">
+                            <img class="poster-genre"
+                                src="<%= movie.poster_url && movie.poster_url.length > 0 ? movie.poster_url[0] : '/images/default-poster.jpg' %>"
+                                alt="<%= movie.title %>">
+                        </a>
+                    </div>
+                    <div class="row mt-3">
+                        <span class="entry-title"><%= movie.title %></span>
+                    </div>
+                    <div class="row">
+                        <span class="entry-title"><%= movie.year %></span>
+                    </div>
+                    <div class="row mt-3">
+                        <img class="app" src="/images/logo-imdb.png">
+                        <div class="caption-font white-font ml-2">
+                            <%= movie.rating_imdb ? movie.rating_imdb : 'N/A' %>
+                        </div>
+                        <img class="app ml-4" src="/images/logo-rotten.png">
+                        <div class="caption-font white-font ml-2">
+                            <%= movie.rating_rotten ? movie.rating_rotten : 'N/A' %>
+                        </div>
+                    </div>
+                    <div class="row app-logo mt-3">
+                        <img src="/images/logo-disney.png" alt="platform">
+                        <div class="caption-font grey-font">
+                            <%= movie.platform || 'platform' %>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <button class="btn o-button-1" type="button">
+                            <img class="watchlist" src="/images/icon/bookmark2.png">
+                            SEEN
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+        </div>
+    </div>
+    <% } %>
+    
+
+        </div>
     </section>
-        
-        <script src="/js/userActivity.js"></script>
-         
-        <script src="/js/actionbutton.js"></script>
 
-    </body>
-
+    <script src="/js/userActivity.js"></script>
+    <script src="/js/actionbutton.js"></script>
+</body>
 </html>
