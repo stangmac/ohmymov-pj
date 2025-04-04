@@ -1,69 +1,72 @@
 const mongoose = require('mongoose');
-const User = require('../models/User'); // โมเดล User ที่ใช้เก็บข้อมูลผู้ใช้
+const User = require('../models/User');
+const Movie = require('../models/Movies');
 
-async function logUserActivity(req, res) {
+exports.logUserActivity = async (req, res) => {
   try {
-    const userId = req.session.user.id; // ดึง ID ของผู้ใช้จาก session
-    const { movieId, action } = req.body; // ดึง movieId และ action จาก body ของคำขอ
+    const userId = req.session?.user?._id;
+    const { movieId, action } = req.body;
 
-    // แปลง movieId จาก string เป็น ObjectId
-    const objectId = new mongoose.Types.ObjectId(movieId); // แก้ไขการสร้าง ObjectId
+    console.log("👤 session.user:", req.session.user);
+    console.log("📽️ movieId:", movieId);
+    console.log("🎬 action:", action);
 
-    const user = await User.findById(userId); // ค้นหาผู้ใช้ในฐานข้อมูล
+    if (!mongoose.Types.ObjectId.isValid(movieId)) {
+      return res.status(400).json({ success: false, message: "Invalid movie ID" });
+    }
 
-    console.log("User before update:", user);
+    const objectId = new mongoose.Types.ObjectId(movieId);
+    const user = await User.findById(userId);
+    const movie = await Movie.findById(objectId);
 
-    // ตรวจสอบ action และอัพเดตข้อมูลพฤติกรรมการใช้งาน
-    if (action === 'like') {
-      // หาก movieId อยู่ใน dislike หรือ wishlist หรือ seen ให้ลบออกก่อน
-      user.dislike = user.dislike.filter(id => !id.equals(objectId));
-      if (!user.like.includes(objectId)) {
-        user.like.push(objectId);
+    if (!user || !movie) {
+      return res.status(404).json({ success: false, message: "User or Movie not found" });
+    }
+
+    const alreadyExists = user[action].some(id => id.equals(objectId));
+
+    if (alreadyExists) {
+      // 👈 ถ้ากดซ้ำ จะยกเลิกการกระทำ
+      user[action] = user[action].filter(id => !id.equals(objectId));
+      if (action === 'like') movie.like = Math.max(0, movie.like - 1);
+      if (action === 'dislike') movie.dislike = Math.max(0, movie.dislike - 1);
+    } else {
+      // 👈 ถ้ากดใหม่ จะเพิ่มการกระทำ และลบฝั่งตรงข้าม (เฉพาะที่เคยกด)
+      user[action].push(objectId);
+
+      if (action === 'like') {
+        movie.like += 1;
+
+        if (user.dislike.some(id => id.equals(objectId))) {
+          user.dislike = user.dislike.filter(id => !id.equals(objectId));
+          movie.dislike = Math.max(0, movie.dislike - 1);
+        }
       }
-    } else if (action === 'dislike') {
-      // หาก movieId อยู่ใน like หรือ wishlist หรือ seen ให้ลบออกก่อน
-      user.like = user.like.filter(id => !id.equals(objectId));
 
+      if (action === 'dislike') {
+        movie.dislike += 1;
 
-      if (!user.dislike.includes(objectId)) {
-        user.dislike.push(objectId);
-      }
-    } else if (action === 'wishlist') {
-      // หาก movieId อยู่ใน like หรือ dislike หรือ seen ให้ลบออกก่อน
-     
-
-      // หาก movieId อยู่ใน wishlist และต้องการ "unwishlist" ให้ลบออก
-      if (user.wishlist.includes(objectId)) {
-        user.wishlist = user.wishlist.filter(id => !id.equals(objectId));
-      } else {
-        // หากไม่พบใน wishlist ให้เพิ่มเข้าไป
-        user.wishlist.push(objectId);
-      }
-    } else if (action === 'seen') {
-      // หาก movieId อยู่ใน like หรือ dislike หรือ wishlist ให้ลบออกก่อน
-     
-
-      // หาก movieId อยู่ใน seen และต้องการ "unseen" ให้ลบออก
-      if (user.seen.includes(objectId)) {
-        user.seen = user.seen.filter(id => !id.equals(objectId));
-      } else {
-        // หากไม่พบใน seen ให้เพิ่มเข้าไป
-        user.seen.push(objectId);
+        if (user.like.some(id => id.equals(objectId))) {
+          user.like = user.like.filter(id => !id.equals(objectId));
+          movie.like = Math.max(0, movie.like - 1);
+        }
       }
     }
 
-    // บันทึกข้อมูลการอัพเดต
     await user.save();
+    await movie.save();
 
-    // เพิ่มการตรวจสอบว่าการบันทึกเสร็จสมบูรณ์
-    console.log("User after update:", user);
+    res.json({
+      success: true,
+      removed: alreadyExists,
+      counts: {
+        like: movie.like,
+        dislike: movie.dislike
+      }
+    });
 
-    // ส่งข้อมูลการตอบสนองกลับไป
-    res.json({ success: true, action, movieId, updatedData: user[action] });
   } catch (error) {
-    console.error("Error logging user activity:", error);
-    res.status(500).json({ success: false, message: "Failed to log user activity" });
+    console.error("❌ Error logUserActivity:", error);
+    res.status(500).json({ success: false });
   }
-}
-
-module.exports = { logUserActivity };
+};

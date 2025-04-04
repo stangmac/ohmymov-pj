@@ -21,7 +21,8 @@ const movieSchema = new mongoose.Schema({
 
     dislike: { type: Number, default: 0 },
     dubbing_languages: [{ type: String }],
-    duration_minute: { type: Number, required: true },
+    // เปลี่ยน duration_minute เป็น optional และตั้ง default เป็น null
+    duration_minute: { type: Number, required: false, default: null },
     genres: [{ type: String }],
     keywords: [{ type: String }],
     language: { type: String, default: "Unknown" },
@@ -49,7 +50,7 @@ const movieSchema = new mongoose.Schema({
     recommendations: [{
         movie_id: { type: Number, required: true },
         title: { type: String, required: true },
-        similarity: { type: Number, required: true }
+        similarity: { type: Number, required: false, default: 0 } // ✅ ปลอดภัย
     }]
 });
 

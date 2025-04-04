@@ -290,29 +290,80 @@
                             alt="<%= movie.title %>">
                     </a>
                   <!-- Button section -->
+
+                  <style>
+                    .active-btn {
+                      background-color: #28a745 !important;
+                      color: white;
+                      border: 2px solid #1e7e34;
+                    }
+                  </style>
                 
-                  <div class="d-flex justify-content-center mt-2">
+                  
+                <div class="d-flex justify-content-center mt-2">
                     <div class="row ml-3 mr-2">
-                        <button id="like-button" class="btn o-button-2 history" type="button" onclick="logUserActivity('<%= movie._id %>', 'like')">
-                            <img class="watchlist" src="/images/icon/like.png">
-                            <%= movie.like ? movie.like + ' K' : '0' %>
-                        </button>
-                        
-                        <button id="wishlist-button" class="btn o-button-2 history" type="button" onclick="logUserActivity('<%= movie._id %>', 'wishlist')">
-                            <img class="watchlist" src="/images/icon/bookmark.png">
-                            WISHLIST
-                        </button>
+                  
+                      <!-- ✅ LIKE -->
+                      <button id="like-button"
+                        class="btn o-button-2 history
+                          <% if (
+                            user && Array.isArray(user.like) &&
+                            user.like.map(id => id.toString()).includes(movie._id.toString())
+                          ) { %>active-btn<% } %>"
+                        type="button"
+                        onclick="toggleButton(this, '<%= movie._id %>', 'like')">
+                        <img class="watchlist" src="/images/icon/like.png">
+                        <span id="like-count"><%= movie.like || 0 %></span>
+                      </button>
+                  
+                      <!-- ✅ WISHLIST -->
+                      <button id="wishlist-button"
+                        class="btn o-button-2 history
+                          <% if (
+                            user && Array.isArray(user.wishlist) &&
+                            user.wishlist.map(id => id.toString()).includes(movie._id.toString())
+                          ) { %>active-btn<% } %>"
+                        type="button"
+                        onclick="toggleButton(this, '<%= movie._id %>', 'wishlist')">
+                        <img class="watchlist" src="/images/icon/bookmark.png">
+                        WISHLIST
+                      </button>
+                  
                     </div>
+                  
                     <div class="row">
-                        <button id="dislike-button" class="btn o-button-2 history" type="button" onclick="logUserActivity('<%= movie._id %>', 'dislike')">
-                            <img class="watchlist" src="/images/icon/dislike.png">
-                            <%= movie.dislike ? movie.dislike : '0' %>
-                        </button>
-                        <button id="seen-button" class="btn o-button-2 history" type="button" onclick="logUserActivity('<%= movie._id %>', 'seen')">
-                            <img class="watchlist" src="/images/icon/seen.png">
-                            SEEN
-                        </button>
+                  
+                      <!-- ✅ DISLIKE -->
+                      <button id="dislike-button"
+                        class="btn o-button-2 history
+                          <% if (
+                            user && Array.isArray(user.dislike) &&
+                            user.dislike.map(id => id.toString()).includes(movie._id.toString())
+                          ) { %>active-btn<% } %>"
+                        type="button"
+                        onclick="toggleButton(this, '<%= movie._id %>', 'dislike')">
+                        <img class="watchlist" src="/images/icon/dislike.png">
+                        <span id="dislike-count"><%= movie.dislike || 0 %></span>
+                      </button>
+                  
+                      <!-- ✅ SEEN -->
+                      <button id="seen-button"
+                        class="btn o-button-2 history
+                          <% if (
+                            user && Array.isArray(user.seen) &&
+                            user.seen.map(id => id.toString()).includes(movie._id.toString())
+                          ) { %>active-btn<% } %>"
+                        type="button"
+                        onclick="toggleButton(this, '<%= movie._id %>', 'seen')">
+                        <img class="watchlist" src="/images/icon/seen.png">
+                        SEEN
+                      </button>
+                  
                     </div>
+                  </div>
+                  
+  
+                  </div>
                 </div>
                 
                 </div>
@@ -320,7 +371,47 @@
         </div>
     </div>
 
-
+    <script>
+        function toggleButton(button, movieId, action) {
+          fetch('/log-activity', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ movieId, action })
+          })
+            .then(res => res.json())
+            .then(data => {
+              if (data.success) {
+                // ✅ toggle ปุ่ม active สีเขียว
+                if (action === 'like' || action === 'dislike') {
+                  document.getElementById('like-button').classList.remove('active-btn');
+                  document.getElementById('dislike-button').classList.remove('active-btn');
+                  if (!data.removed) {
+                    document.getElementById(`${action}-button`).classList.add('active-btn');
+                  }
+                } else {
+                  button.classList.toggle('active-btn', !data.removed);
+                }
+      
+                // ✅ อัปเดตจำนวน like/dislike
+                if (data.counts) {
+                  if ('like' in data.counts) {
+                    document.getElementById('like-count').innerText = data.counts.like;
+                  }
+                  if ('dislike' in data.counts) {
+                    document.getElementById('dislike-count').innerText = data.counts.dislike;
+                  }
+                }
+              } else {
+                alert('⚠️ Failed to log activity.');
+              }
+            })
+            .catch(err => {
+              console.error('❌ Error calling log-activity:', err);
+              alert('❌ Error communicating with server');
+            });
+        }
+      </script>
+      
     <script src="/js/userActivity.js"></script>
 
     <script src="/js/actionbutton.js"></script>
