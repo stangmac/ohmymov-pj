@@ -9,43 +9,48 @@ async function searchMovies(req, res) {
     }
 
     try {
-        const { hits } = await client.search({
-            index: 'movie', // ใช้ Index "movie" ให้ตรงกับ MongoDB
+        const { hits, max_score } = await client.search({
+            index: 'movie',
             body: {
                 query: {
                     multi_match: {
                         query: query,
                         fields: [
-                            'title',
-                            'genres',
-                            'synopsis',
-                            'keywords',
-                            'cast',
-                            'crew',
-                            'year'
+                            'title^5',
+                            'genres^3',
+                            'keywords^2',
+                            'synopsis^1',
+                            'cast^1',
+                            'crew.members^1',
+                            'crew.role^0.5',
+                            'year^0.5'
                         ],
-                        fuzziness: 'AUTO' // รองรับการสะกดผิดเล็กน้อย55
+                        fuzziness: 'AUTO'
                     }
                 }
             }
         });
 
-        // ดึงเฉพาะข้อมูลที่จำเป็นจาก Elasticsearch
-        const movies = hits.hits.map(hit => ({
-            id: hit._id,
-            title: hit._source.title,
-            genres: hit._source.genres,
-            synopsis: hit._source.synopsis,
-            keywords: hit._source.keywords,
-            cast: hit._source.cast,
-            crew: hit._source.crew,
-            year: hit._source.year,
-            release_date: hit._source.release_date,
-            popularity_score: hit._source.popularity_score,
-            watch_count: hit._source.watch_count,
-            // ✅ ส่ง poster_url ออกมาด้วย
-            poster_url: hit._source.poster_url || '/images/default-movie.png'
-        }));
+        // ดึงเฉพาะข้อมูลที่จำเป็นจาก Elasticsearch พร้อมเปอร์เซ็นต์ความแม่นยำ
+        const movies = hits.hits.map(hit => {
+            const percent = max_score ? ((hit._score / max_score) * 100).toFixed(0) : 100;
+
+            return {
+                id: hit._id,
+                title: hit._source.title,
+                genres: hit._source.genres,
+                synopsis: hit._source.synopsis,
+                keywords: hit._source.keywords,
+                cast: hit._source.cast,
+                crew: hit._source.crew,
+                year: hit._source.year,
+                release_date: hit._source.release_date,
+                popularity_score: hit._source.popularity_score,
+                watch_count: hit._source.watch_count,
+                poster_url: hit._source.poster_url || '/images/default-movie.png',
+                matchPercent: `${percent}%` // ✅ ส่งเปอร์เซ็นต์ความตรง
+            };
+        });
 
         res.json({ results: movies });
     } catch (error) {
@@ -54,4 +59,64 @@ async function searchMovies(req, res) {
     }
 }
 
-module.exports = { searchMovies };
+
+// ต่อจากด้านบน
+async function renderSearchPage(req, res) {
+    const query = req.query.query;
+
+    if (!query) {
+        return res.render('result-search', { query: '', results: [] });
+    }
+
+    try {
+        const { hits, max_score } = await client.search({
+            index: 'movie',
+            body: {
+                query: {
+                    multi_match: {
+                        query: query,
+                        fields: [
+                            'title^5',
+                            'genres^3',
+                            'keywords^2',
+                            'synopsis^1',
+                            'cast^1',
+                            'crew.members^1',
+                            'crew.role^0.5',
+                            'year^0.5'
+                        ],
+                        fuzziness: 'AUTO'
+                    }
+                }
+            }
+        });
+
+        const results = hits.hits.map(hit => {
+            const percent = max_score ? ((hit._score / max_score) * 100).toFixed(0) : 100;
+            return {
+                id: hit._id,
+                title: hit._source.title,
+                genres: hit._source.genres,
+                year: hit._source.year,
+                poster_url: hit._source.poster_url || '/images/default-movie.png',
+                matchPercent: `${percent}%`
+            };
+        });
+
+        res.render('result-search', {
+            query,
+            results,
+            loggedIN: req.session?.username || null
+        });
+
+    } catch (error) {
+        console.error('❌ Error rendering search page:', error);
+        res.status(500).send('เกิดข้อผิดพลาดในการค้นหา');
+    }
+}
+
+
+module.exports = {
+    searchMovies,
+    renderSearchPage
+};

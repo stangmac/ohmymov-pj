@@ -162,290 +162,114 @@
     <div class="user-info">
        
         <div class="history-box">
-            <div class="title-font-bold main-font mb-5">Activity</div>
-            <div class="history-topic">
-                <div class="topic-header">
-                    <div class="circle-button">
-                        <span class="star">&#9733;</span>
-                    </div>
-                    <div class="title-font main-font">Wishlist</div>
-                </div>
-                <div class="row mx-5">
-                    <div class="title-item">
-                        <a href="/" class="title-item-link">
-                            <figure>
-                                <img class="poster-top" src="/images/poster/teeyod2.jpg" alt="ธี่หยด 2 (2024)">
-                            </figure>
-                            <div class="poster-title-box">
-                                <div class="top-title">
-                                    <span class="entry-title">ธี่หยด 2 (2024)</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="title-item">
-                        <a href="/" class="title-item-link">
-                            <figure>
-                                <img class="poster-top" src="/images/poster/teeyod2.jpg" alt="ธี่หยด 2 (2024)">
-                            </figure>
-                            <div class="poster-title-box">
-                                <div class="top-title">
-                                    <span class="entry-title">ธี่หยด 2 (2024)</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="title-item">
-                        <a href="/" class="title-item-link">
-                            <figure>
-                                <img class="poster-top" src="/images/poster/teeyod2.jpg" alt="ธี่หยด 2 (2024)">
-                            </figure>
-                            <div class="poster-title-box">
-                                <div class="top-title">
-                                    <span class="entry-title">ธี่หยด 2 (2024)</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="title-item">
-                        <a href="/" class="title-item-link">
-                            <figure>
-                                <img class="poster-top" src="/images/poster/teeyod2.jpg" alt="ธี่หยด 2 (2024)">
-                            </figure>
-                            <div class="poster-title-box">
-                                <div class="top-title">
-                                    <span class="entry-title">ธี่หยด 2 (2024)</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="title-item">
-                        <a href="/" class="title-item-link">
-                            <figure>
-                                <img class="poster-top" src="/images/poster/teeyod2.jpg" alt="ธี่หยด 2 (2024)">
-                            </figure>
-                            <div class="poster-title-box">
-                                <div class="top-title">
-                                    <span class="entry-title">ธี่หยด 2 (2024)</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+            <!----- Section - Info ----->
+
+<div class="container">
+    <!-- 🟡 Section: Wishlist -->
+    <% if (wishlist && wishlist.length > 0) { %>
+        <div class="genre-big mt-5">
+            <div class="row">
+                <h2>Wishlist</h2>
             </div>
-            <!-- <div class="line-connector"></div> -->
-            <div class="history-topic">
-                <div class="topic-header">
-                    <div class="circle-button">
-                        <span class="star">&#9733;</span>
-                    </div>
-                    <div class="title-font main-font">Seen</div>
-                </div>
-                <div class="row mx-5">
-                    <div class="title-item">
-                        <a href="/" class="title-item-link">
-                            <figure>
-                                <img class="poster-top" src="/images/poster/teeyod2.jpg" alt="ธี่หยด 2 (2024)">
-                            </figure>
-                            <div class="poster-title-box">
-                                <div class="top-title">
-                                    <span class="entry-title">ธี่หยด 2 (2024)</span>
-                                </div>
+            <div class="row">
+                <% wishlist.forEach(movie => { %>
+                    <div class="col-2">
+                        <div class="genre-movie-item">
+                            <a href="/movie-detail?id=<%= movie._id %>">
+                                <img class="poster-genre" src="<%= movie.poster_url?.[0] || '/images/default-poster.jpg' %>" alt="<%= movie.title %>">
+                            </a>
+                            <div class="row mt-3">
+                                <span class="entry-title"><%= movie.title %></span>
                             </div>
-                        </a>
-                    </div>
-                    <div class="title-item">
-                        <a href="/" class="title-item-link">
-                            <figure>
-                                <img class="poster-top" src="/images/poster/teeyod2.jpg" alt="ธี่หยด 2 (2024)">
-                            </figure>
-                            <div class="poster-title-box">
-                                <div class="top-title">
-                                    <span class="entry-title">ธี่หยด 2 (2024)</span>
-                                </div>
+                            <div class="row">
+                                <span class="entry-title"><%= movie.year %></span>
                             </div>
-                        </a>
+                        </div>
                     </div>
-                    <div class="title-item">
-                        <a href="/" class="title-item-link">
-                            <figure>
-                                <img class="poster-top" src="/images/poster/teeyod2.jpg" alt="ธี่หยด 2 (2024)">
-                            </figure>
-                            <div class="poster-title-box">
-                                <div class="top-title">
-                                    <span class="entry-title">ธี่หยด 2 (2024)</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="title-item">
-                        <a href="/" class="title-item-link">
-                            <figure>
-                                <img class="poster-top" src="/images/poster/teeyod2.jpg" alt="ธี่หยด 2 (2024)">
-                            </figure>
-                            <div class="poster-title-box">
-                                <div class="top-title">
-                                    <span class="entry-title">ธี่หยด 2 (2024)</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="title-item">
-                        <a href="/" class="title-item-link">
-                            <figure>
-                                <img class="poster-top" src="/images/poster/teeyod2.jpg" alt="ธี่หยด 2 (2024)">
-                            </figure>
-                            <div class="poster-title-box">
-                                <div class="top-title">
-                                    <span class="entry-title">ธี่หยด 2 (2024)</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+                <% }) %>
             </div>
-            <!-- <div class="line-connector"></div> -->
-            <div class="history-topic">
-                <div class="topic-header">
-                    <div class="circle-button">
-                        <span class="star">&#9733;</span>
-                    </div>
-                    <div class="title-font main-font">Liked movies</div>
-                </div>
-                <div class="row mx-5">
-                    <div class="title-item">
-                        <a href="/" class="title-item-link">
-                            <figure>
-                                <img class="poster-top" src="/images/poster/teeyod2.jpg" alt="ธี่หยด 2 (2024)">
-                            </figure>
-                            <div class="poster-title-box">
-                                <div class="top-title">
-                                    <span class="entry-title">ธี่หยด 2 (2024)</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="title-item">
-                        <a href="/" class="title-item-link">
-                            <figure>
-                                <img class="poster-top" src="/images/poster/teeyod2.jpg" alt="ธี่หยด 2 (2024)">
-                            </figure>
-                            <div class="poster-title-box">
-                                <div class="top-title">
-                                    <span class="entry-title">ธี่หยด 2 (2024)</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="title-item">
-                        <a href="/" class="title-item-link">
-                            <figure>
-                                <img class="poster-top" src="/images/poster/teeyod2.jpg" alt="ธี่หยด 2 (2024)">
-                            </figure>
-                            <div class="poster-title-box">
-                                <div class="top-title">
-                                    <span class="entry-title">ธี่หยด 2 (2024)</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="title-item">
-                        <a href="/" class="title-item-link">
-                            <figure>
-                                <img class="poster-top" src="/images/poster/teeyod2.jpg" alt="ธี่หยด 2 (2024)">
-                            </figure>
-                            <div class="poster-title-box">
-                                <div class="top-title">
-                                    <span class="entry-title">ธี่หยด 2 (2024)</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="title-item">
-                        <a href="/" class="title-item-link">
-                            <figure>
-                                <img class="poster-top" src="/images/poster/teeyod2.jpg" alt="ธี่หยด 2 (2024)">
-                            </figure>
-                            <div class="poster-title-box">
-                                <div class="top-title">
-                                    <span class="entry-title">ธี่หยด 2 (2024)</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+        </div>
+    <% } %>
+
+    <!-- 💚 Section: Like -->
+    <% if (like && like.length > 0) { %>
+        <div class="genre-big mt-5">
+            <div class="row">
+                <h2>Liked</h2>
             </div>
-            <!-- <div class="line-connector"></div> -->
-            <div class="history-topic">
-                <div class="topic-header">
-                    <div class="circle-button">
-                        <span class="star">&#9733;</span>
-                    </div>
-                    <div class="title-font main-font">Disliked movies</div>
-                </div>
-                <div class="row mx-5">
-                    <div class="title-item">
-                        <a href="/" class="title-item-link">
-                            <figure>
-                                <img class="poster-top" src="/images/poster/teeyod2.jpg" alt="ธี่หยด 2 (2024)">
-                            </figure>
-                            <div class="poster-title-box">
-                                <div class="top-title">
-                                    <span class="entry-title">ธี่หยด 2 (2024)</span>
-                                </div>
+            <div class="row">
+                <% like.forEach(movie => { %>
+                    <div class="col-2">
+                        <div class="genre-movie-item">
+                            <a href="/movie-detail?id=<%= movie._id %>">
+                                <img class="poster-genre" src="<%= movie.poster_url?.[0] || '/images/default-poster.jpg' %>" alt="<%= movie.title %>">
+                            </a>
+                            <div class="row mt-3">
+                                <span class="entry-title"><%= movie.title %></span>
                             </div>
-                        </a>
-                    </div>
-                    <div class="title-item">
-                        <a href="/" class="title-item-link">
-                            <figure>
-                                <img class="poster-top" src="/images/poster/teeyod2.jpg" alt="ธี่หยด 2 (2024)">
-                            </figure>
-                            <div class="poster-title-box">
-                                <div class="top-title">
-                                    <span class="entry-title">ธี่หยด 2 (2024)</span>
-                                </div>
+                            <div class="row">
+                                <span class="entry-title"><%= movie.year %></span>
                             </div>
-                        </a>
+                        </div>
                     </div>
-                    <div class="title-item">
-                        <a href="/" class="title-item-link">
-                            <figure>
-                                <img class="poster-top" src="/images/poster/teeyod2.jpg" alt="ธี่หยด 2 (2024)">
-                            </figure>
-                            <div class="poster-title-box">
-                                <div class="top-title">
-                                    <span class="entry-title">ธี่หยด 2 (2024)</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="title-item">
-                        <a href="/" class="title-item-link">
-                            <figure>
-                                <img class="poster-top" src="/images/poster/teeyod2.jpg" alt="ธี่หยด 2 (2024)">
-                            </figure>
-                            <div class="poster-title-box">
-                                <div class="top-title">
-                                    <span class="entry-title">ธี่หยด 2 (2024)</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="title-item">
-                        <a href="/" class="title-item-link">
-                            <figure>
-                                <img class="poster-top" src="/images/poster/teeyod2.jpg" alt="ธี่หยด 2 (2024)">
-                            </figure>
-                            <div class="poster-title-box">
-                                <div class="top-title">
-                                    <span class="entry-title">ธี่หยด 2 (2024)</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+                <% }) %>
             </div>
+        </div>
+    <% } %>
+
+    <!-- ❤️ Section: Dislike -->
+    <% if (dislike && dislike.length > 0) { %>
+        <div class="genre-big mt-5">
+            <div class="row">
+                <h2>Disliked</h2>
+            </div>
+            <div class="row">
+                <% dislike.forEach(movie => { %>
+                    <div class="col-2">
+                        <div class="genre-movie-item">
+                            <a href="/movie-detail?id=<%= movie._id %>">
+                                <img class="poster-genre" src="<%= movie.poster_url?.[0] || '/images/default-poster.jpg' %>" alt="<%= movie.title %>">
+                            </a>
+                            <div class="row mt-3">
+                                <span class="entry-title"><%= movie.title %></span>
+                            </div>
+                            <div class="row">
+                                <span class="entry-title"><%= movie.year %></span>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    <% } %>
+
+    <!-- 👁️ Section: Seen -->
+    <% if (seen && seen.length > 0) { %>
+        <div class="genre-big mt-5">
+            <div class="row">
+                <h2>Seen</h2>
+            </div>
+            <div class="row">
+                <% seen.forEach(movie => { %>
+                    <div class="col-2">
+                        <div class="genre-movie-item">
+                            <a href="/movie-detail?id=<%= movie._id %>">
+                                <img class="poster-genre" src="<%= movie.poster_url?.[0] || '/images/default-poster.jpg' %>" alt="<%= movie.title %>">
+                            </a>
+                            <div class="row mt-3">
+                                <span class="entry-title"><%= movie.title %></span>
+                            </div>
+                            <div class="row">
+                                <span class="entry-title"><%= movie.year %></span>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    <% } %>
+</div>
+
                        
         </div>
     </div>

@@ -40,7 +40,11 @@ router.post('/login', [
 
         user.lastLogin = new Date();
         await user.save();
-        req.session.user = { id: user._id, email: user.email, username: user.username };
+        req.session.user = { 
+            _id: user._id.toString(), // ✅ ใช้ `_id` ให้ตรงกับ MongoDB
+            email: user.email,
+            username: user.username 
+        };
 
 await req.session.save();
 console.log("User logged in:", req.session.user);

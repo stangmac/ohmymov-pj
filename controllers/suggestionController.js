@@ -8,8 +8,10 @@ module.exports = async (req, res) => {
     }
 
     try {
-        // ✅ ใช้ id ที่ถูกต้อง
-        const user = await User.findById(req.session.user.id).lean();
+        console.log("👤 Session user:", req.session.user); // Debug ดูค่า session
+
+        // ✅ ใช้ _id แทน id
+        const user = await User.findById(req.session.user._id).lean();
 
         if (!user) {
             return res.status(404).send("User not found");
@@ -27,6 +29,7 @@ module.exports = async (req, res) => {
         const recMovieIds = user.recommendations.map(r => r.movie_id);
         const recommendations = await Movie.find({ movie_id: { $in: recMovieIds } }).lean();
 
+        // ✅ render หน้า suggestion พร้อมข้อมูล
         res.render('suggestion', {
             wishlist,
             like,
