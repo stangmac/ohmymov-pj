@@ -1,13 +1,15 @@
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const sendEmail = require("../services/mailService");
+
+// ✅ ฟังก์ชันขอ OTP
 module.exports.requestOtp = async (req, res) => {
     try {
         if (!req.session.user) {
             return res.status(401).json({ success: false, message: "Unauthorized" });
         }
 
-        const user = await User.findById(req.session.user.id);
+        const user = await User.findById(req.session.user._id);
         if (!user) return res.status(404).json({ success: false, message: "User not found" });
 
         const otp = Math.floor(100000 + Math.random() * 900000).toString();
@@ -27,7 +29,7 @@ module.exports.requestOtp = async (req, res) => {
     }
 };
 
-// ✅ ฟังก์ชันเปลี่ยนรหัสผ่าน (ใช้ Session แทนการกรอกอีเมล)
+// ✅ ฟังก์ชันเปลี่ยนรหัสผ่าน
 module.exports.changePassword = async (req, res) => {
     try {
         if (!req.session.user) {
@@ -35,7 +37,7 @@ module.exports.changePassword = async (req, res) => {
         }
 
         const { newPassword, otpCode } = req.body;
-        const user = await User.findById(req.session.user.id);
+        const user = await User.findById(req.session.user._id);
 
         if (!user) {
             return res.status(404).json({ success: false, message: "User not found" });
