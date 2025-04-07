@@ -34,10 +34,7 @@
                             <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Blog</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/search-result">Suggestion</a>
+                            <a class="nav-link" href="/suggestion">Suggestion</a>
                         </li>
                     </ul>
                 </div>
@@ -46,12 +43,11 @@
                         <div class="search-box">
                             <img src="/images/icon/search-icon.png" alt="Search" class="search-icon">
                             <input type="text" class="search-input" placeholder="Search for a movie..."
-                                onkeyup="searchMovies()" onfocus="showResults()">
+                                onkeyup="searchMovies(this.value)" onfocus="showResults()">
                         </div>
-                        <a href="/result-search">
-                            <div class="search-results" id="searchResults"></div>
-                        </a>
+                        <div class="search-results" id="searchResults"></div>
                     </div>
+                </div>
                 </div>
                 <div class="col-1 d-flex ">
                     <ul class="menu-right">
@@ -293,9 +289,13 @@
 
                   <style>
                     .active-btn {
-                      background-color: #28a745 !important;
-                      color: white;
-                      border: 2px solid #1e7e34;
+                      background-color: #9bee98 !important;
+                      color: #191919;
+                      border: 2px solid#9bee98;
+                      
+                    }
+                    .active-btn .watchlist {
+                        filter: drop-shadow(0 0 2px var(--bg--main)) brightness(0) saturate(100%);
                     }
                   </style>
                 

@@ -43,6 +43,7 @@ a:hover {
     color: var(--bg--detail);
 }
 
+/* Default font sizes */
 .h1-font {
     font-size: var(--h1-size);
 }
@@ -78,6 +79,139 @@ a:hover {
     font-size: var(--caption-size);
 }
 
+/* Responsive font adjustments */
+@media (max-width: 1200px) {
+    .h1-font {
+        font-size: calc(var(--h1-size) - 4px); /* ลดขนาด font h1 สำหรับจอขนาดกลาง */
+    }
+
+    .h2-font {
+        font-size: calc(var(--h2-size) - 3px); /* ลดขนาด font h2 */
+    }
+
+    .h3-font {
+        font-size: calc(var(--h3-size) - 2px); /* ลดขนาด font h3 */
+    }
+
+    .title-font {
+        font-size: calc(var(--title-size) - 2px); /* ลดขนาด title font */
+    }
+
+    .body-font {
+        font-size: calc(var(--body-size) - 1px); /* ลดขนาด body font */
+    }
+
+    .caption-font {
+        font-size: calc(var(--caption-size) - 1px); /* ลดขนาด caption font */
+    }
+}
+
+@media (max-width: 992px) {
+    .h1-font {
+        font-size: calc(var(--h1-size) - 8px); /* ลดขนาด font h1 สำหรับแท็บเล็ต */
+    }
+
+    .h2-font {
+        font-size: calc(var(--h2-size) - 6px); /* ลดขนาด font h2 */
+    }
+
+    .h3-font {
+        font-size: calc(var(--h3-size) - 5px); /* ลดขนาด font h3 */
+    }
+
+    .title-font {
+        font-size: calc(var(--title-size) - 4px); /* ลดขนาด title font */
+    }
+
+    .body-font {
+        font-size: calc(var(--body-size) - 2px); /* ลดขนาด body font */
+    }
+
+    .caption-font {
+        font-size: calc(var(--caption-size) - 2px); /* ลดขนาด caption font */
+    }
+}
+
+@media (max-width: 768px) {
+    .h1-font {
+        font-size: calc(var(--h1-size) - 12px); /* ลดขนาด font h1 สำหรับหน้าจอขนาดเล็ก */
+    }
+
+    .h2-font {
+        font-size: calc(var(--h2-size) - 10px); /* ลดขนาด font h2 */
+    }
+
+    .h3-font {
+        font-size: calc(var(--h3-size) - 8px); /* ลดขนาด font h3 */
+    }
+
+    .title-font {
+        font-size: calc(var(--title-size) - 6px); /* ลดขนาด title font */
+    }
+
+    .body-font {
+        font-size: calc(var(--body-size) - 3px); /* ลดขนาด body font */
+    }
+
+    .caption-font {
+        font-size: calc(var(--caption-size) - 3px); /* ลดขนาด caption font */
+    }
+}
+
+@media (max-width: 576px) {
+    .h1-font {
+        font-size: calc(var(--h1-size) - 16px); /* ลดขนาด font h1 สำหรับมือถือขนาดเล็ก */
+    }
+
+    .h2-font {
+        font-size: calc(var(--h2-size) - 12px); /* ลดขนาด font h2 */
+    }
+
+    .h3-font {
+        font-size: calc(var(--h3-size) - 10px); /* ลดขนาด font h3 */
+    }
+
+    .title-font {
+        font-size: calc(var(--title-size) - 8px); /* ลดขนาด title font */
+    }
+
+    .body-font {
+        font-size: calc(var(--body-size) - 4px); /* ลดขนาด body font */
+    }
+
+    .caption-font {
+        font-size: calc(var(--caption-size) - 4px); /* ลดขนาด caption font */
+    }
+}
+
+@media (max-width: 480px) {
+    .h1-font {
+        font-size: calc(var(--h1-size) - 20px); /* ลดขนาด font h1 สำหรับมือถือขนาดเล็กสุด */
+    }
+
+    .h2-font {
+        font-size: calc(var(--h2-size) - 16px); /* ลดขนาด font h2 */
+    }
+
+    .h3-font {
+        font-size: calc(var(--h3-size) - 12px); /* ลดขนาด font h3 */
+    }
+
+    .title-font {
+        font-size: calc(var(--title-size) - 10px); /* ลดขนาด title font */
+    }
+
+    .body-font {
+        font-size: calc(var(--body-size) - 5px); /* ลดขนาด body font */
+    }
+
+    .caption-font {
+        font-size: calc(var(--caption-size) - 5px); /* ลดขนาด caption font */
+    }
+}
+
+
+/* Default Button Styles */
 .o-button {
     border-radius: 12px;
     background-color: var(--main-color);
@@ -97,9 +231,8 @@ a:hover {
     background-color: var(--main-color);
 }
 
-
-/* square-button-for-genre */
-.sg-button,.sg-button-1 {  
+/* Square Button for Genre */
+.sg-button, .sg-button-1 {  
     min-width: 80%;
     padding: 5px 25px;
 }
@@ -141,7 +274,7 @@ a:hover {
     margin-top: 15px;
 }
 
-/* ปกติ */
+/* Regular Button */
 .o-button-1, .o-button-2 {
     border-radius: 50px;
     border-color: var(--main-color);
@@ -153,14 +286,12 @@ a:hover {
     padding: 4px 0px;
 }
 
-
-/* สไตล์เมื่อคลิก */
+/* Active Style */
 .active-style {
     background-color: var(--main-color) !important;
     color: var(--bg--main) !important;
 }
 
-/* ปรับสไตล์ของไอคอน .watchlist เมื่อปุ่มที่มี .active-style ถูกคลิก */
 .active-style .watchlist {
     filter: drop-shadow(0 0 2px var(--bg--main)) brightness(0) saturate(100%);
 }
@@ -175,14 +306,98 @@ a:hover {
     text-align: center;
     padding: 4px 0px;
 }
-/* สไตล์เมื่อคลิก */
+
+/* Active Style for o-button-3 */
 .active-style-o-button-3 {
     background-color: var(--main-color) !important;
     color: var(--bg--main) !important;
 }
 
+/* Responsive Styling for Buttons */
+@media (max-width: 1200px) {
+    .o-button, .s-button, .sg-button {
+        font-size: calc(var(--body-size) - 2px);
+        padding: 6px 20px;
+    }
+
+    .sg-button-1, .sg-button-2 {
+        min-width: 60%;
+    }
+
+    .o-button-1, .o-button-2, .o-button-3 {
+        min-width: 150px;
+        font-size: calc(var(--caption-size) - 2px);
+    }
+}
+
+@media (max-width: 992px) {
+    .o-button, .s-button, .sg-button {
+        font-size: calc(var(--body-size) - 3px);
+        padding: 6px 15px;
+    }
+
+    .sg-button-1, .sg-button-2 {
+        min-width: 70%;
+    }
+
+    .o-button-1, .o-button-2, .o-button-3 {
+        min-width: 130px;
+        font-size: calc(var(--caption-size) - 3px);
+    }
+}
+
+@media (max-width: 768px) {
+    .o-button, .s-button, .sg-button {
+        font-size: calc(var(--body-size) - 4px);
+        padding: 6px 12px;
+    }
+
+    .sg-button-1, .sg-button-2 {
+        min-width: 80%;
+    }
+
+    .o-button-1, .o-button-2, .o-button-3 {
+        min-width: 120px;
+        font-size: calc(var(--caption-size) - 4px);
+    }
+}
+
+@media (max-width: 576px) {
+    .o-button, .s-button, .sg-button {
+        font-size: calc(var(--body-size) - 5px);
+        padding: 5px 10px;
+    }
+
+    .sg-button-1, .sg-button-2 {
+        min-width: 100%;
+    }
+
+    .o-button-1, .o-button-2, .o-button-3 {
+        min-width: 100px;
+        font-size: calc(var(--caption-size) - 5px);
+    }
+}
+
+@media (max-width: 480px) {
+    .o-button, .s-button, .sg-button {
+        font-size: calc(var(--body-size) - 6px);
+        padding: 5px 8px;
+    }
+
+    .sg-button-1, .sg-button-2 {
+        min-width: 100%;
+    }
+
+    .o-button-1, .o-button-2, .o-button-3 {
+        min-width: 90px;
+        font-size: calc(var(--caption-size) - 6px);
+    }
+}
+
+
 /*= img== */
 
+/* Default Styles for Images */
 img.poster-new {
     height: 170px;
     margin-top: 5px;
@@ -250,8 +465,219 @@ img.movie-detail-poster {
     height: 235px;
 }
 
-/*= navbar== */
+/* Responsive Styling for Images */
+@media (max-width: 1200px) {
+    img.poster-new {
+        height: 150px;
+    }
 
+    img.poster-top {
+        height: 200px;
+    }
+
+    img.poster-genre, img.poster-search {
+        height: 220px;
+    }
+
+    img.poster-detail {
+        height: 220px;
+    }
+
+    img.movie-detail-poster {
+        height: 210px;
+    }
+
+    img.app {
+        height: 20px;
+    }
+
+    img.app2 {
+        height: 25px;
+    }
+
+    img.app-2 {
+        height: 55px;
+    }
+
+    img.poster-detail-box {
+        height: 160px;
+    }
+
+    img.user-pic {
+        max-width: 120px;
+    }
+}
+
+@media (max-width: 992px) {
+    img.poster-new {
+        height: 130px;
+    }
+
+    img.poster-top {
+        height: 180px;
+    }
+
+    img.poster-genre, img.poster-search {
+        height: 200px;
+    }
+
+    img.poster-detail {
+        height: 200px;
+    }
+
+    img.movie-detail-poster {
+        height: 190px;
+    }
+
+    img.app {
+        height: 18px;
+    }
+
+    img.app2 {
+        height: 22px;
+    }
+
+    img.app-2 {
+        height: 50px;
+    }
+
+    img.poster-detail-box {
+        height: 145px;
+    }
+
+    img.user-pic {
+        max-width: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    img.poster-new {
+        height: 120px;
+    }
+
+    img.poster-top {
+        height: 160px;
+    }
+
+    img.poster-genre, img.poster-search {
+        height: 180px;
+    }
+
+    img.poster-detail {
+        height: 180px;
+    }
+
+    img.movie-detail-poster {
+        height: 180px;
+    }
+
+    img.app {
+        height: 16px;
+    }
+
+    img.app2 {
+        height: 20px;
+    }
+
+    img.app-2 {
+        height: 45px;
+    }
+
+    img.poster-detail-box {
+        height: 130px;
+    }
+
+    img.user-pic {
+        max-width: 90px;
+    }
+}
+
+@media (max-width: 576px) {
+    img.poster-new {
+        height: 100px;
+    }
+
+    img.poster-top {
+        height: 140px;
+    }
+
+    img.poster-genre, img.poster-search {
+        height: 160px;
+    }
+
+    img.poster-detail {
+        height: 160px;
+    }
+
+    img.movie-detail-poster {
+        height: 160px;
+    }
+
+    img.app {
+        height: 14px;
+    }
+
+    img.app2 {
+        height: 18px;
+    }
+
+    img.app-2 {
+        height: 40px;
+    }
+
+    img.poster-detail-box {
+        height: 120px;
+    }
+
+    img.user-pic {
+        max-width: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    img.poster-new {
+        height: 90px;
+    }
+
+    img.poster-top {
+        height: 120px;
+    }
+
+    img.poster-genre, img.poster-search {
+        height: 140px;
+    }
+
+    img.poster-detail {
+        height: 140px;
+    }
+
+    img.movie-detail-poster {
+        height: 140px;
+    }
+
+    img.app {
+        height: 12px;
+    }
+
+    img.app2 {
+        height: 16px;
+    }
+
+    img.app-2 {
+        height: 35px;
+    }
+
+    img.poster-detail-box {
+        height: 110px;
+    }
+
+    img.user-pic {
+        max-width: 70px;
+    }
+}
+
+
+/*= navbar== */
 
 .navbar.navbar-expand-lg {
     position: relative;
@@ -285,7 +711,8 @@ input.search {
     border-color: var(--bg--sub);
     color: var(--bg--detail);
     background-color: var(--bg--sub);
-    width:350px;
+    width: 350px;
+    padding: 10px;
 }
 
 input.search:active, input.search:focus {
@@ -296,8 +723,87 @@ input.search:active, input.search:focus {
 .form-input {
     display: inline-block;
     vertical-align: middle;
-
 }
+
+/* Responsive Styling for Navbar and Search Input */
+@media (max-width: 1200px) {
+    .nav {
+        font-size: 1.1rem;
+        padding: 15px;
+    }
+
+    input.search {
+        width: 300px;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 992px) {
+    .navbar.navbar-expand-lg {
+        padding: 10px;
+    }
+
+    .nav {
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+    input.search {
+        width: 250px;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar.navbar-expand-lg {
+        padding: 8px;
+    }
+
+    .nav {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    input.search {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar.navbar-expand-lg {
+        padding: 8px;
+    }
+
+    .nav {
+        font-size: 0.8rem;
+        padding: 8px;
+    }
+
+    input.search {
+        width: 100%;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar.navbar-expand-lg {
+        padding: 5px;
+    }
+
+    .nav {
+        font-size: 0.75rem;
+        padding: 6px;
+    }
+
+    input.search {
+        width: 100%;
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+}
+
 
 
 /*= section 1== banner */
@@ -319,7 +825,81 @@ input.search:active, input.search:focus {
     font-size: 24px;
 }
 
+/* Responsive Styling for Section 1, Banner and Text */
+@media (max-width: 1200px) {
+    .sec-1 {
+        padding-top: 70px;
+        margin-bottom: 35px;
+    }
 
+    .box-banner {
+        padding-left: 60px;
+    }
+
+    .line-text {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 992px) {
+    .sec-1 {
+        padding-top: 60px;
+        margin-bottom: 30px;
+    }
+
+    .box-banner {
+        padding-left: 40px;
+    }
+
+    .line-text {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sec-1 {
+        padding-top: 50px;
+        margin-bottom: 25px;
+    }
+
+    .box-banner {
+        padding-left: 20px;
+    }
+
+    .line-text {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 576px) {
+    .sec-1 {
+        padding-top: 40px;
+        margin-bottom: 20px;
+    }
+
+    .box-banner {
+        padding-left: 10px;
+    }
+
+    .line-text {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sec-1 {
+        padding-top: 30px;
+        margin-bottom: 15px;
+    }
+
+    .box-banner {
+        padding-left: 10px;
+    }
+
+    .line-text {
+        font-size: 14px;
+    }
+}
 
 /*= section 2== new */
 
@@ -345,20 +925,120 @@ input.search:active, input.search:focus {
     padding-right: 10px;
 }
 
+/* Responsive Styling for Section 2, Box and Logo */
+@media (max-width: 1200px) {
+    .sec-2 {
+        padding-top: 20px;
+    }
+
+    .sec-2 .container-left {
+        margin-left: calc(100% - 92%);
+    }
+
+    .box-new {
+        border-radius: 15px;
+    }
+
+    .inside-box {
+        padding: 8px;
+    }
+
+    .app-logo img {
+        padding-right: 8px;
+    }
+}
+
+@media (max-width: 992px) {
+    .sec-2 {
+        padding-top: 15px;
+    }
+
+    .sec-2 .container-left {
+        margin-left: calc(100% - 90%);
+    }
+
+    .box-new {
+        border-radius: 10px;
+    }
+
+    .inside-box {
+        padding: 6px;
+    }
+
+    .app-logo img {
+        padding-right: 6px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sec-2 {
+        padding-top: 10px;
+    }
+
+    .sec-2 .container-left {
+        margin-left: calc(100% - 80%);
+    }
+
+    .box-new {
+        border-radius: 8px;
+    }
+
+    .inside-box {
+        padding: 5px;
+    }
+
+    .app-logo img {
+        padding-right: 5px;
+    }
+}
+
+@media (max-width: 576px) {
+    .sec-2 {
+        padding-top: 10px;
+    }
+
+    .sec-2 .container-left {
+        margin-left: calc(100% - 75%);
+    }
+
+    .box-new {
+        border-radius: 5px;
+    }
+
+    .inside-box {
+        padding: 4px;
+    }
+
+    .app-logo img {
+        padding-right: 4px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sec-2 {
+        padding-top: 10px;
+    }
+
+    .sec-2 .container-left {
+        margin-left: calc(100% - 70%);
+    }
+
+    .box-new {
+        border-radius: 5px;
+    }
+
+    .inside-box {
+        padding: 4px;
+    }
+
+    .app-logo img {
+        padding-right: 4px;
+    }
+}
+
 
 
 /* ----------start modal sign in--------------- */
-/* #overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(5px);
-    display: none;
-    z-index: 999;
-} */
 
 .popup-sign-p {
     position: fixed;
@@ -706,11 +1386,133 @@ color: var(--colour-white);
 
 }
 
-/* ทำให้ Responsive */
-@media (max-width: 600px) {
+/* Styles for responsive modal */
+@media (max-width: 1200px) {
+    .popup-sign-p {
+        max-width: 900px;
+        padding: 20px 30px;
+    }
+}
+
+@media (max-width: 992px) {
+    .popup-sign-p {
+        max-width: 750px;
+        padding: 20px 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .popup-sign-p {
+        max-width: 600px;
+        padding: 15px 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .popup-sign-p {
+        max-width: 500px;
+        padding: 10px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .popup-sign-p {
+        max-width: 90%;  /* Adjust to fit smaller screens */
+        padding: 10px 10px;
+    }
+
+    .title-sign {
+        font-size: 18px;
+    }
+
+    .btn-sign {
+        width: 70%;
+    }
+
+    .social-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .social-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+/* Responsive Styles for Form Elements */
+@media (max-width: 1200px) {
+    .form-element-sign input {
+        font-size: var(--body-size);
+    }
+
+    .btn-sign {
+        width: 60%;
+    }
+}
+
+@media (max-width: 768px) {
+    .form-element-sign input {
+        font-size: 14px;
+    }
+
+    .btn-sign {
+        width: 75%;
+    }
+}
+
+/* ----------start reset password--------------- */
+
+.resetpassword {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    padding: 30px;
+    background-color: var(--bg--main);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Styles for Reset Password Modal */
+@media (max-width: 1200px) {
     .resetpassword {
-        width: 95%;
+        max-width: 450px;
+        padding: 25px;
+    }
+}
+
+@media (max-width: 992px) {
+    .resetpassword {
+        max-width: 400px;
         padding: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .resetpassword {
+        max-width: 350px;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .resetpassword {
+        max-width: 90%;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .resetpassword {
+        max-width: 90%;
+        padding: 10px;
     }
 
     .resetpassword h1 {
@@ -719,17 +1521,14 @@ color: var(--colour-white);
 
     .resetpassword input {
         font-size: 14px;
-        padding: 10px;
     }
 
     .resetpassword button {
-        font-size: 16px;
-        height: 40px;
+        width: 80%;
     }
 }
 
-
-/* End reset password */
+/* ----------End modal sign in--------------- */
 
 
 /* ----------End modal sign in--------------- */
@@ -865,7 +1664,86 @@ figure {
     font-weight: bold;
     line-height: 1.4;
 }
+/* เพิ่ม @media queries เพื่อให้รองรับขนาดหน้าจอที่แตกต่างกัน */
+@media (max-width: 480px) {
+    .title-item-number {
+        font-size: 60px;
+    }
 
+    .movie-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .title-item {
+        margin-top: 15px;
+        margin-right: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .title-item-number {
+        font-size: 70px;
+    }
+
+    .movie-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .title-item {
+        margin-top: 20px;
+        margin-right: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .title-item-number {
+        font-size: 75px;
+    }
+
+    .movie-container {
+        gap: 10px;
+        padding-left: 10px;
+    }
+
+    .title-item {
+        margin-top: 20px;
+        margin-right: 20px;
+    }
+}
+
+@media (max-width: 992px) {
+    .title-item-number {
+        font-size: 75px;
+    }
+
+    .movie-container {
+        gap: 12px;
+        padding-left: 15px;
+    }
+
+    .title-item {
+        margin-top: 20px;
+        margin-right: 20px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .title-item-number {
+        font-size: 80px;
+    }
+
+    .movie-container {
+        gap: 15px;
+        padding-left: 20px;
+    }
+
+    .title-item {
+        margin-top: 25px;
+        margin-right: 25px;
+    }
+}
 /*= section 5== genre movie */
 
 .genre-big {
@@ -881,7 +1759,86 @@ figure {
     height: 25px;
     padding-right: 12px;
 }
+/* เพิ่ม @media queries เพื่อรองรับการ responsive */
+@media (max-width: 480px) {
+    .genre-big {
+        margin-top: 15px;
+    }
 
+    .genre-movie-item {
+        margin-top: 15px;
+        margin-left: 10px;
+    }
+
+    .app-logo img {
+        height: 20px;
+        padding-right: 8px;
+    }
+}
+
+@media (max-width: 576px) {
+    .genre-big {
+        margin-top: 20px;
+    }
+
+    .genre-movie-item {
+        margin-top: 20px;
+        margin-left: 15px;
+    }
+
+    .app-logo img {
+        height: 22px;
+        padding-right: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .genre-big {
+        margin-top: 20px;
+    }
+
+    .genre-movie-item {
+        margin-top: 20px;
+        margin-left: 18px;
+    }
+
+    .app-logo img {
+        height: 23px;
+        padding-right: 11px;
+    }
+}
+
+@media (max-width: 992px) {
+    .genre-big {
+        margin-top: 22px;
+    }
+
+    .genre-movie-item {
+        margin-top: 22px;
+        margin-left: 18px;
+    }
+
+    .app-logo img {
+        height: 24px;
+        padding-right: 11px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .genre-big {
+        margin-top: 25px;
+    }
+
+    .genre-movie-item {
+        margin-top: 25px;
+        margin-left: 20px;
+    }
+
+    .app-logo img {
+        height: 25px;
+        padding-right: 12px;
+    }
+}
 
 /*= section movie */
 
@@ -919,6 +1876,71 @@ figure {
     padding: 20px;
     margin: 20px 35px 0px 5px;
 
+}
+@media (max-width: 768px) {
+    .movie-detail {
+        margin: 80px 20px 45px 20px;
+    }
+
+    .vdo {
+        margin-right: 25px;
+    }
+
+    .cast-box {
+        width: 170px;
+        padding: 14px 17px;
+        margin-right: 20px;
+        font-size: 16px;
+    }
+
+    .detail-box {
+        margin: 20px 25px;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 992px) {
+    .movie-detail {
+        margin: 85px 30px 45px 30px;
+    }
+
+    .vdo {
+        margin-right: 25px;
+    }
+
+    .cast-box {
+        width: 175px;
+        padding: 14px 18px;
+        margin-right: 20px;
+        font-size: 16px;
+    }
+
+    .detail-box {
+        margin: 20px 30px;
+        padding: 22px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .movie-detail {
+        margin: 90px 40px 50px 40px;
+    }
+
+    .vdo {
+        margin-right: 30px;
+    }
+
+    .cast-box {
+        width: 180px;
+        padding: 15px 18px;
+        margin-right: 23px;
+        font-size: 17px;
+    }
+
+    .detail-box {
+        margin: 20px 35px;
+        padding: 20px;
+    }
 }
 
 /* Profile Box */
@@ -1030,6 +2052,241 @@ figure {
     width: 100%; /* ให้กินพื้นที่เต็ม row */
 
 }
+/* เพิ่ม @media queries เพื่อรองรับการ responsive */
+@media (max-width: 480px) {
+    .user-box {
+        margin-top: 30px;
+        padding: 15px 25px;
+    }
+
+    .profile-header img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .profile-header .user-name {
+        font-size: 18px;
+        margin-top: 8px;
+    }
+
+    .profile-info p {
+        font-size: 14px;
+    }
+
+    .profile-info .label {
+        min-width: 100px;
+    }
+
+    #editProfileForm,
+    #changePasswordForm {
+        padding: 20px 25px;
+    }
+
+    #editProfileForm input,
+    #editProfileForm select,
+    #changePasswordForm input {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    #changePasswordForm h3,
+    #editProfileForm h3 {
+        font-size: 20px;
+    }
+
+    #changePasswordForm label,
+    #editProfileForm label {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 576px) {
+    .user-box {
+        margin-top: 40px;
+        padding: 20px 30px;
+    }
+
+    .profile-header img {
+        width: 110px;
+        height: 110px;
+    }
+
+    .profile-header .user-name {
+        font-size: 20px;
+        margin-top: 8px;
+    }
+
+    .profile-info p {
+        font-size: 15px;
+    }
+
+    .profile-info .label {
+        min-width: 110px;
+    }
+
+    #editProfileForm,
+    #changePasswordForm {
+        padding: 22px 30px;
+    }
+
+    #editProfileForm input,
+    #editProfileForm select,
+    #changePasswordForm input {
+        padding: 11px;
+        font-size: 15px;
+    }
+
+    #changePasswordForm h3,
+    #editProfileForm h3 {
+        font-size: 22px;
+    }
+
+    #changePasswordForm label,
+    #editProfileForm label {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .user-box {
+        margin-top: 45px;
+        padding: 20px 30px;
+    }
+
+    .profile-header img {
+        width: 110px;
+        height: 110px;
+    }
+
+    .profile-header .user-name {
+        font-size: 22px;
+        margin-top: 8px;
+    }
+
+    .profile-info p {
+        font-size: 16px;
+    }
+
+    .profile-info .label {
+        min-width: 120px;
+    }
+
+    #editProfileForm,
+    #changePasswordForm {
+        padding: 22px 35px;
+    }
+
+    #editProfileForm input,
+    #editProfileForm select,
+    #changePasswordForm input {
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    #changePasswordForm h3,
+    #editProfileForm h3 {
+        font-size: 24px;
+    }
+
+    #changePasswordForm label,
+    #editProfileForm label {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 992px) {
+    .user-box {
+        margin-top: 50px;
+        padding: 25px 35px;
+    }
+
+    .profile-header img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .profile-header .user-name {
+        font-size: 24px;
+        margin-top: 10px;
+    }
+
+    .profile-info p {
+        font-size: 17px;
+    }
+
+    .profile-info .label {
+        min-width: 120px;
+    }
+
+    #editProfileForm,
+    #changePasswordForm {
+        padding: 25px 40px;
+    }
+
+    #editProfileForm input,
+    #editProfileForm select,
+    #changePasswordForm input {
+        padding: 12px;
+        font-size: 17px;
+    }
+
+    #changePasswordForm h3,
+    #editProfileForm h3 {
+        font-size: 26px;
+    }
+
+    #changePasswordForm label,
+    #editProfileForm label {
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .user-box {
+        margin-top: 50px;
+        padding: 25px 35px;
+    }
+
+    .profile-header img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .profile-header .user-name {
+        font-size: 26px;
+        margin-top: 10px;
+    }
+
+    .profile-info p {
+        font-size: 18px;
+    }
+
+    .profile-info .label {
+        min-width: 120px;
+    }
+
+    #editProfileForm,
+    #changePasswordForm {
+        padding: 25px 40px;
+    }
+
+    #editProfileForm input,
+    #editProfileForm select,
+    #changePasswordForm input {
+        padding: 12px;
+        font-size: 18px;
+    }
+
+    #changePasswordForm h3,
+    #editProfileForm h3 {
+        font-size: 28px;
+    }
+
+    #changePasswordForm label,
+    #editProfileForm label {
+        font-size: 18px;
+    }
+}
 /* Buttons */
 .s-button {
     display: block;
@@ -1046,12 +2303,48 @@ figure {
     transition: background-color 0.3s, color 0.3s;
 }
 
+/* Hover effect */
 .s-button:hover {
     background-color: var(--main-color);
     color: var(--bg--main);
 }
 
-#submitPasswordBtn{
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .s-button {
+        width: 25%; /* ปรับความกว้างให้เหมาะกับหน้าจอขนาดกลางถึงใหญ่ */
+    }
+}
+
+@media (max-width: 992px) {
+    .s-button {
+        width: 30%; /* ปรับให้ปุ่มกว้างขึ้นเล็กน้อยบนหน้าจอขนาดกลาง */
+    }
+}
+
+@media (max-width: 768px) {
+    .s-button {
+        width: 50%; /* ปรับให้ปุ่มกว้างขึ้นบนหน้าจอขนาดกลาง */
+    }
+}
+
+@media (max-width: 576px) {
+    .s-button {
+        width: 70%; /* ปรับให้ปุ่มกว้างขึ้นบนหน้าจอขนาดเล็ก */
+    }
+}
+
+@media (max-width: 480px) {
+    .s-button {
+        width: 80%;  /* ปรับให้ปุ่มเต็มความกว้างบนหน้าจอมือถือ */
+        height: 45px; /* ลดความสูงลงเล็กน้อย */
+        font-size: 14px; /* ปรับขนาดตัวอักษรให้เล็กลง */
+    }
+}
+
+
+
+#submitPasswordBtn {
     display: block;
     margin: 20px auto;
     width: 50%;
@@ -1065,36 +2358,110 @@ figure {
     text-align: center;
     transition: background-color 0.3s, color 0.3s;
 }
+
 #submitPasswordBtn:hover {
     background-color: var(--main-color);
     color: var(--bg--main);
 }
 
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    #submitPasswordBtn {
+        width: 40%; /* ปรับให้ปุ่มเล็กลงเล็กน้อยบนหน้าจอขนาดใหญ่ */
+    }
+}
+
+@media (max-width: 992px) {
+    #submitPasswordBtn {
+        width: 45%; /* ปรับขนาดปุ่มให้พอดีกับหน้าจอขนาดกลาง */
+    }
+}
+
+@media (max-width: 768px) {
+    #submitPasswordBtn {
+        width: 60%; /* ปรับให้ปุ่มกว้างขึ้นบนหน้าจอแท็บเล็ต */
+    }
+}
+
+@media (max-width: 576px) {
+    #submitPasswordBtn {
+        width: 70%; /* ปรับให้ปุ่มกว้างขึ้นบนมือถือขนาดเล็ก */
+    }
+}
+
+@media (max-width: 480px) {
+    #submitPasswordBtn {
+        width: 80%; /* ปรับให้ปุ่มเต็มความกว้างบนมือถือ */
+        height: 45px; /* ปรับความสูงให้พอดี */
+        font-size: 14px; /* ปรับขนาดตัวอักษรให้เล็กลง */
+    }
+}
+
+
 /* Hidden Elements */
-.user-info{
+/* .user-info */
+.user-info {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start; /* แก้ไขจาก 'left' เป็น 'flex-start' */
     margin-top: 50px;
+    margin-left: 200px;
 }
+
+@media (max-width: 1200px) {
+    .user-info {
+        margin-left: 150px; /* ปรับ margin-left สำหรับหน้าจอขนาดกลาง */
+    }
+}
+
+@media (max-width: 992px) {
+    .user-info {
+        margin-left: 100px; /* ปรับ margin-left สำหรับแท็บเล็ต */
+    }
+}
+
+@media (max-width: 768px) {
+    .user-info {
+        margin-left: 50px; /* ปรับ margin-left สำหรับแท็บเล็ตขนาดเล็ก */
+    }
+}
+
+@media (max-width: 576px) {
+    .user-info {
+        margin-left: 20px; /* ลด margin-left สำหรับมือถือ */
+    }
+}
+
+/* .hidden */
 .hidden {
     display: none;
 }
+
+/* .history-box */
 .history-box {
     margin: 30px 50px 0px;
 }
 
+@media (max-width: 768px) {
+    .history-box {
+        margin: 20px 20px 0px; /* ปรับ margin ให้เหมาะสมบนหน้าจอเล็ก */
+    }
+}
+
+/* .history-topic */
 .history-topic {
     margin: 25px 0px;
     position: relative;
 }
 
+/* .topic-header */
 .topic-header {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
 }
 
+/* .circle-button */
 .circle-button {
     width: 18px;
     height: 18px;
@@ -1106,13 +2473,27 @@ figure {
     margin-right: 10px;
     position: relative;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    margin-right: 10px;
 }
 
+@media (max-width: 768px) {
+    .circle-button {
+        width: 15px;
+        height: 15px; /* ปรับขนาด circle-button สำหรับหน้าจอเล็ก */
+    }
+}
+
+/* .star */
 .star {
     font-size: 13px;
     color: var(--bg--main);
 }
+
+@media (max-width: 768px) {
+    .star {
+        font-size: 12px; /* ปรับขนาดของ star ให้เล็กลงในหน้าจอขนาดเล็ก */
+    }
+}
+
 /* .user-info .title-font-bold.main-font {
     margin: 30px 50px 0px;
 
@@ -1207,7 +2588,76 @@ figure {
 }
 
 
+/* 🔹 ปรับขนาด responsive */
+@media (max-width: 480px) {
+    .movie-rank {
+        width: 20px;
+        height: 20px;
+        font-size: 10px;
+    }
 
+    .scroll-button {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 576px) {
+    .movie-rank {
+        width: 25px;
+        height: 25px;
+        font-size: 12px;
+    }
+
+    .scroll-button {
+        width: 38px;
+        height: 38px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .movie-rank {
+        width: 28px;
+        height: 28px;
+        font-size: 13px;
+    }
+
+    .scroll-button {
+        width: 40px;
+        height: 40px;
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 992px) {
+    .movie-rank {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+    }
+
+    .scroll-button {
+        width: 42px;
+        height: 42px;
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .movie-rank {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+
+    .scroll-button {
+        width: 45px;
+        height: 45px;
+        font-size: 26px;
+    }
+}
 
 /* Suggestion Start*/
 .suggestion{
@@ -1236,4 +2686,110 @@ figure {
     object-fit: cover; /* ✅ รักษาสัดส่วนแบบเต็มกล่อง */
     border-radius: 12px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+/* 🔹 Responsive for different screen sizes */
+
+/* For screens less than 480px (mobile) */
+@media (max-width: 480px) {
+    .suggestion {
+        margin-left: 10px; /* ลด margin สำหรับหน้าจอเล็ก */
+    }
+
+    .suggestion h1 {
+        font-size: 18px; /* ปรับขนาดตัวอักษร */
+        margin-top: 50px; /* ลดระยะห่างด้านบน */
+    }
+
+    .suggestion h2 {
+        font-size: 14px; /* ปรับขนาดตัวอักษร */
+        margin-left: 10px;
+    }
+
+    .poster-fixed {
+        height: 200px; /* ลดขนาดรูปภาพ */
+    }
+}
+
+/* For screens less than 576px */
+@media (max-width: 576px) {
+    .suggestion {
+        margin-left: 15px;
+    }
+
+    .suggestion h1 {
+        font-size: 20px;
+        margin-top: 70px;
+    }
+
+    .suggestion h2 {
+        font-size: 16px;
+        margin-left: 15px;
+    }
+
+    .poster-fixed {
+        height: 220px;
+    }
+}
+
+/* For screens less than 768px */
+@media (max-width: 768px) {
+    .suggestion {
+        margin-left: 20px;
+    }
+
+    .suggestion h1 {
+        font-size: 22px;
+        margin-top: 80px;
+    }
+
+    .suggestion h2 {
+        font-size: 18px;
+        margin-left: 20px;
+    }
+
+    .poster-fixed {
+        height: 240px;
+    }
+}
+
+/* For screens less than 992px */
+@media (max-width: 992px) {
+    .suggestion {
+        margin-left: 30px;
+    }
+
+    .suggestion h1 {
+        font-size: 24px;
+        margin-top: 90px;
+    }
+
+    .suggestion h2 {
+        font-size: 20px;
+        margin-left: 25px;
+    }
+
+    .poster-fixed {
+        height: 260px;
+    }
+}
+
+/* For screens less than 1200px */
+@media (max-width: 1200px) {
+    .suggestion {
+        margin-left: 40px;
+    }
+
+    .suggestion h1 {
+        font-size: 26px;
+        margin-top: 100px;
+    }
+
+    .suggestion h2 {
+        font-size: 22px;
+        margin-left: 30px;
+    }
+
+    .poster-fixed {
+        height: 270px;
+    }
 }
