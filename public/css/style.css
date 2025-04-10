@@ -11,7 +11,7 @@
 
    /* colour */
 
-   --main-color:#9bee98;
+   --main-color:rgb(155, 238, 152);
    --bg--main:#191919;
    --bg--sub:#3b3b3b;
    --bg--detail:#b7b7b7;
@@ -675,141 +675,209 @@ img.movie-detail-poster {
         max-width: 70px;
     }
 }
-
-
-/*= navbar== */
-
-.navbar.navbar-expand-lg {
-    position: relative;
+/* === NAVBAR STYLES === */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    width: 100%;
     background-color: var(--bg--main);
+    padding: 12px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(8px);
+    transition: background-color 0.3s ease, padding 0.3s ease;
 }
 
-.nav {
-    font-size: var(--title-size);
-    display: block;
-    padding: 20px;
-    color: var(--main-color);
-    text-decoration: none;
-    transition: color 0.3s;
-    font-weight: bold;
+.navbar-brand img {
+    max-width: 130px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+.navbar-brand img:hover {
+    transform: scale(1.05);
 }
 
-a.nav-link {
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-link {
     color: var(--colour-white);
+    font-size: 1rem;
+    font-weight: 600;
+    position: relative;
+    text-decoration: none;
+    padding: 8px 10px;
+    transition: all 0.3s ease;
 }
 
-a.nav-link:hover {
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 80%;
+    height: 2px;
+    background-color: var(--main-color);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+.nav-link:hover {
     color: var(--main-color);
 }
 
-a.nav-link:active {
-    color: var(--bg-main-color);
+.nav-link:hover::after {
+    transform: scaleX(1);
 }
 
-input.search {
-    border-radius: 12px;
-    border-color: var(--bg--sub);
-    color: var(--bg--detail);
+.search-container {
+    position: relative;
+    flex: 1;
+    max-width: 380px;
+    margin: 0 20px;
+}
+.search-box {
+    display: flex;
+    align-items: center;
     background-color: var(--bg--sub);
-    width: 350px;
-    padding: 10px;
+    padding: 2px 10px; /* ลดความสูง */
+    border-radius: 20px; /* ลดความโค้งลงนิดหน่อย */
+    width: 100%;
+    border: 1.5px solid var(--main-color);
+    transition: box-shadow 0.3s ease;
 }
 
-input.search:active, input.search:focus {
+.search-box:focus-within {
+    box-shadow: 0 0 10px var(--main-color);
+}
+
+.search-icon {
+    width: 20px;
+    margin-right: 12px;
+    opacity: 0.7;
+}
+
+.search-input {
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--colour-white);
+    width: 100%;
+    font-size: 0.95rem; /* ลดขนาด font นิดหน่อยให้ดูพอดี */
+}
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
     background-color: var(--bg--sub);
-    border-color: var(--bg--sub);
+    border-radius: 0 0 10px 10px;
+    display: none;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    z-index: 10;
 }
 
-.form-input {
-    display: inline-block;
-    vertical-align: middle;
+.user-menu {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
-/* Responsive Styling for Navbar and Search Input */
+.dropbtn {
+    background: none;
+    border: none;
+    color: var(--colour-white);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* === RESPONSIVE NAVBAR === */
 @media (max-width: 1200px) {
-    .nav {
-        font-size: 1.1rem;
-        padding: 15px;
+    .navbar {
+        padding: 12px 4%;
     }
-
-    input.search {
-        width: 300px;
-        padding: 8px;
+    .search-container {
+        max-width: 300px;
     }
 }
 
 @media (max-width: 992px) {
-    .navbar.navbar-expand-lg {
-        padding: 10px;
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 10px 3%;
     }
 
-    .nav {
-        font-size: 1rem;
-        padding: 10px;
-    }
-
-    input.search {
-        width: 250px;
-        padding: 8px;
-    }
-}
-
-@media (max-width: 768px) {
-    .navbar.navbar-expand-lg {
-        padding: 8px;
-    }
-
-    .nav {
-        font-size: 0.9rem;
-        padding: 10px;
-    }
-
-    input.search {
+    .navbar-nav {
+        justify-content: center;
         width: 100%;
-        padding: 10px;
+        margin-top: 10px;
+    }
+
+    .search-container {
+        order: 3;
+        max-width: 90%;
         margin-top: 10px;
     }
 }
 
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 3%;
+    }
+
+    .nav-link {
+        font-size: 0.95rem;
+    }
+
+    .search-container {
+        max-width: 100%;
+    }
+
+    .navbar-brand img {
+        max-width: 110px;
+    }
+}
+
 @media (max-width: 576px) {
-    .navbar.navbar-expand-lg {
-        padding: 8px;
+    .navbar {
+        padding: 8px 2%;
     }
 
-    .nav {
-        font-size: 0.8rem;
-        padding: 8px;
+    .nav-link {
+        font-size: 0.85rem;
     }
 
-    input.search {
-        width: 100%;
-        padding: 8px;
+    .search-container {
+        margin: 10px 0;
+    }
+
+    .navbar-brand img {
+        max-width: 100px;
     }
 }
 
-@media (max-width: 480px) {
-    .navbar.navbar-expand-lg {
-        padding: 5px;
-    }
 
-    .nav {
-        font-size: 0.75rem;
-        padding: 6px;
-    }
-
-    input.search {
-        width: 100%;
-        padding: 8px;
-        font-size: 0.9rem;
-    }
-}
 
 
 
 /*= section 1== banner */
 
 .sec-1 {
-    padding-top: 85px;
+    padding-top: 100px; /* เท่ากับความสูงของ navbar หรือ slightly มากกว่า */
     margin-bottom: 45px;
 }
 
@@ -1856,27 +1924,81 @@ figure {
     margin-right: 30px;
 }
 
+/* Container */
+.cast-container {
+    position: relative;
+    padding: 0 20px;
+    overflow: hidden;
+}
+
+/* Cast Box */
 .cast-box {
     font-size: var(--body-size);
     background-color: var(--main-color);
     color: var(--bg--main);
-    border-radius: 10px;
-    width: 180px;
-    padding: 15px 18px;
-    margin-right: 23px;
-    display: inline-flex; /* Acts like flex but keeps inline flow */
-    flex-direction: column;
-    height: 100%; /* Ensures it stretches */
+    border-radius: 16px;
+    width: 140px;
+    padding: 12px;
+    height: 110px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cast-box:hover {
+
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+/* Swiper Navigation Buttons */
+.swiper-button-next,
+.swiper-button-prev {
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; /* ขนาดวงกลม */
+    height: 40px;
+    background-color: #fff;
+    border-radius: 90px;
+    transition: all 0.2s ease;
+}
+
+/* Icon Size & Color */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 30px !important;
+    color: black;
+}
+
+/* Position */
+.swiper-button-next {
+    right: 8px;
+}
+
+.swiper-button-prev {
+    left: 8px;
+}
+
+/* Hover Effect */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background-color: rgba(255, 255, 255);
+    scale: 1.15;
+}
+
+/* Active Effect */
+.swiper-button-next:active,
+.swiper-button-prev:active {
+    scale: 0.9;
 }
 
 
-.detail-box {
-    border-radius: 12px;
-    border: 1px solid var(--main-color);
-    padding: 20px;
-    margin: 20px 35px 0px 5px;
 
-}
+
+
 @media (max-width: 768px) {
     .movie-detail {
         margin: 80px 20px 45px 20px;
