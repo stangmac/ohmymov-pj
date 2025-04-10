@@ -63,7 +63,7 @@ router.post('/register', [
             }
             return true;
         }),
-        body('username')
+    body('username')
         .notEmpty().withMessage('Please enter a valid username')
         .custom(async (value) => {
             const existingUser = await User.findOne({ username: value });
@@ -82,8 +82,11 @@ router.post('/register', [
                 throw new Error('Passwords do not match');
             }
             return true;
-        })
+        }),
+    body('agreeTerms')
+        .equals('on').withMessage('You must agree to the Terms of Service and Privacy Policy')
 ], async (req, res) => {
+
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.render('register', {
