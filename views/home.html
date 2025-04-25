@@ -124,7 +124,7 @@
       <div class="row align-items-center">
   
         <!-- 🔹 ฝั่งซ้าย -->
-        <div class="col-md-7">
+        <div class="col-md-5">
           <div class="box-banner">
             <div class="row">
               <div class="line-text mb-3">Welcome</div>
@@ -134,14 +134,16 @@
                 Let's Create Your <br> Own Collection
               </h1>
             </div>
-            <div class="row">
-              <button class="btn s-button mt-3" type="button">START</button>
-            </div>
+            <div class="row ">
+                <div class="col-auto">
+                  <button class="btn s-button start-btn" type="button">START</button>
+                </div>
+              </div>
           </div>
         </div>
   
         <!-- 🔹 ฝั่งขวา -->
-        <div class="col-md-5 mt-5 pt-5"> <!-- ✅ เขยิบลง -->
+        <div class="col-md-7 mt-md-5 pt-md-5"> <!-- ✅ เขยิบลง -->
           <% const validPosters = latestMovies.filter(m => Array.isArray(m.poster_url) && m.poster_url[0] && m.poster_url[0] !== "No posters available"); %>
           <% if (validPosters.length > 0) { %>
           <div id="latestMovieCarousel" class="carousel slide bg-transparent p-2 rounded shadow-sm" data-ride="carousel" data-interval="4000">
@@ -193,6 +195,8 @@
 <section class="sec-2 pt-4 pb-4 px-4">
     <div class="container-fluid">
         <div class="title-font-bold black-font mb-3">New</div>
+        <div class="row">
+            <div class="col-sm-12">
         <div class="row g-3">
             <% movies.slice(0, 3).forEach(movie => { %>
                 <div class="col mb-2">
@@ -252,6 +256,8 @@
                 </div>
             <% }) %>
         </div>
+    </div>
+</div>
     </div>
 </section>
 
