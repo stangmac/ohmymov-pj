@@ -1069,256 +1069,273 @@ img.movie-detail-poster {
   }
   
 
-/* 🌐 พื้นฐานของ Section 2 */
-.sec-2 {
+  .sec-2 {
     padding-top: 30px;
-    background-color: var(--colour-white); /* สีพื้นหลัง */
-}
-
-.box-new {
-    border-radius: 20px; /* ขอบโค้งนุ่มนวล */
-    background-color: var(--bg--main); /* ใช้สีหลักของธีม */
-}
-
-.inside-box {
-    padding: 10px; /* ช่องว่างในกล่องด้านใน */
-}
-
-.app-logo img {
-    padding-right: 10px; /* ระยะห่างระหว่างโลโก้ */
-}
-
-
-@media (max-width: 576px) {
-    .sec-2 .row.g-3 > .col {
-        flex: 0 0 100%;
-        max-width: 100%;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
+    background-color: var(--colour-white);
+  }
+  
+  .box-new {
+    border-radius: 20px;
+    background-color: var(--bg--main);
+  }
+  
+  .inside-box {
+    padding: 10px;
+  }
+  
+  .app-logo img {
+    padding-right: 10px;
+    width: 20px;
+    height: 20px;
+  }
+  
+  .rating-row img {
+    height: 20px;
+    width: auto;
+  }
+  
+  .caption-font, .body-font-bold {
+    font-size: 14px;
+  }
+  
+ /* ปุ่ม scroll สำหรับมือถือ */
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    border: none;
+    color: white;
+    font-size: 24px;
+    padding: 10px 12px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+  }
+  
+  .scroll-wrapper {
+    position: relative;
+  }
+  
+  .scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background-color:var(--colour-white);
+    color: var(--bg--main);
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .scroll-left {
+    left: -15px; /* ขยับออกนอก container เล็กน้อย */
+    border-radius: 50%;
+  }
+  
+  .scroll-right {
+    right: -15px;
+    border-radius: 50%;
+  }
+  
+  .horizontal-scroll-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+  }
+  
+  .card-horizontal {
+    width: 90vw; /* หรือขนาดที่เหมาะกับการแสดงผลการ์ดเดียวบนมือถือ */
+    margin: 0 5px;
+  }
+  
+    /* Horizontal scroll (มือถือ) */
+    @media (max-width: 567px) {
+        .horizontal-scroll-container {
+          display: flex;
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          gap: 16px;
+          padding-bottom: 10px;
+          scroll-behavior: smooth;
+          -webkit-overflow-scrolling: touch;
+        }
+      
+        .card-horizontal {
+          flex: 0 0 100%;
+          scroll-snap-align: center;
+        }
+      
+        .horizontal-scroll-container::-webkit-scrollbar {
+          display: none;
+        }
+        .poster-new {
+            height: 100px !important;
+            width: auto;
+            display: block;
+            margin: 0 auto;
+          }
+          
+      
+          /* ปรับขนาดคอลัมน์ให้โปสเตอร์กว้างขึ้น */
+          .box-new .col-3 {
+            flex: 0 0 20%;
+            max-width: 20%;
+            margin-left: 10px;
+          }
+      
+          .box-new .col-9 {
+            flex: 0 0 40%;
+            max-width: 40%;
+          }
+      
+          /* ลด padding/margin เพื่อใช้พื้นที่ให้คุ้ม */
+          .inside-box {
+            margin-left: 1rem !important;
+            padding-top: 0.5rem !important;
+          }
+      
+          .box-new {
+            align-items: center;
+          }
+      }
+  
+  /* Horizontal scroll (มือถือ) */
+  @media (max-width: 992px) {
+    .horizontal-scroll-container {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 16px;
+      padding-bottom: 10px;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
     }
-
-    .sec-2 .box-new {
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-        background: #1b1b1b;
-        border-radius: 20px;
-        padding: 10px;
-        gap: 10px;
+  
+    .card-horizontal {
+      flex: 0 0 100%;
+      scroll-snap-align: center;
     }
-
-    .sec-2 .box-new .detailmovie {
+  
+    .horizontal-scroll-container::-webkit-scrollbar {
+      display: none;
+    }
+    .poster-new {
+        height: 260px !important; /* เพิ่มความสูงของโปสเตอร์ */
         width: auto;
-        flex: 0 0 auto;
-        margin: 0;
-        padding: 0;
-    }
-
-    .sec-2 .box-new .col-3, 
-    .sec-2 .box-new .col-9 {
-        flex: 0 0 auto;
-        width: auto;
-        max-width: none;
-        padding: 0;
-    }
-
-    .sec-2 .box-new .col-3 {
-        display: flex;
+      }
+  
+      /* ปรับขนาดคอลัมน์ให้โปสเตอร์กว้างขึ้น */
+      .box-new .col-3 {
+        flex: 0 0 40%;
+        max-width: 40%;
+      }
+  
+      .box-new .col-9 {
+        flex: 0 0 60%;
+        max-width: 60%;
+      }
+  
+      /* ลด padding/margin เพื่อใช้พื้นที่ให้คุ้ม */
+      .inside-box {
+        margin-left: 1rem !important;
+        padding-top: 0.5rem !important;
+      }
+  
+      .box-new {
         align-items: center;
-    }
-
-    .sec-2 .box-new .col-9 {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-    }
-
-    .sec-2 .poster-new {
-        width: 100px;
-        height: auto;
-        max-height: 150px;
-        object-fit: cover;
-        border-radius: 10px;
-        flex-shrink: 0;
-    }
-
-    .sec-2 .inside-box {
-        margin-left: 0 !important;
-        padding: 0;
-    }
-
-    .sec-2 .inside-box .row {
-        margin: 0;
-    }
-
-    .sec-2 .inside-box .caption-font, 
-    .sec-2 .inside-box .body-font-bold {
-        font-size: 14px;
-        line-height: 1.4;
-    }
-
-    .sec-2 .inside-box .app-logo,
-    .sec-2 .inside-box img.app {
-        margin-top: 5px;
-    }
-
-    .sec-2 .inside-box .app {
-        width: 20px;
-        height: 20px;
-    }
-
-    .sec-2 .inside-box .ml-2, 
-    .sec-2 .inside-box .ml-4 {
-        margin-left: 5px !important;
-    }
-
-    .sec-2 .inside-box .mt-4 {
-        margin-top: 10px !important;
-    }
-}
-
-
-
-
-
-/* 📱 มือถือแนวนอน หรือแท็บเล็ตแนวตั้ง */
-/* 📱 มือถือแนวนอน หรือแท็บเล็ตแนวตั้ง */
-@media (max-width: 992px) {
+      }
+  }
+  
+  /* มือถือแนวนอน / แท็บเล็ตแนวตั้ง */
+  /* @media (max-width: 992px) {
     .sec-2 .box-new {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 15px;
     }
-
+  
     .sec-2 .box-new .col-3,
     .sec-2 .box-new .col-9 {
-        flex: 0 0 100%;
-        max-width: 100%;
+      flex: 0 0 100%;
+      max-width: 100%;
     }
-
+  
     .sec-2 .detailmovie {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 15px;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 15px;
     }
-
+  
     .sec-2 .poster-new {
-        height: auto;
-        max-height: 300px;
-        width: 100%;
-        max-width: 220px;
-        border-radius: 12px;
+      height: auto;
+      max-height: 300px;
+      width: 100%;
+      max-width: 220px;
+      border-radius: 12px;
     }
-
+  
     .sec-2 .inside-box {
-        padding: 0 15px; /* เพิ่ม padding ซ้าย-ขวา */
-        margin-left: 0;
-        text-align: left; /* รายละเอียดชิดซ้าย */
+      padding: 0 15px;
+      margin-left: 0;
+      text-align: left;
     }
-
+  
     .sec-2 .app-logo {
-        justify-content: flex-start; /* โลโก้ streaming platform เรียงซ้าย */
+      justify-content: flex-start;
     }
-
-    .sec-2 .app-logo img {
-        padding-right: 8px;
-        height: 25px;
-    }
-
+  
     .sec-2 .inside-box .row {
-        justify-content: flex-start; /* ตัวหนังสือแต่ละแถวชิดซ้าย */
+      justify-content: flex-start;
     }
-
-    .sec-2 .inside-box img.app {
-        height: 20px;
-    }
-
+  
     .sec-2 .inside-box .ml-2,
     .sec-2 .inside-box .ml-4 {
-        margin-left: 8px !important;
+      margin-left: 8px !important;
     }
-}
-
-@media (max-width: 768px) {
-    .sec-2 .box-new {
-        flex-direction: column !important;
-        text-align: center;
-    }
-
-    .sec-2 .box-new .col-3,
-    .sec-2 .box-new .col-9 {
-        flex: 0 0 100%;
-        max-width: 100%;
-    }
-
-    .sec-2 .inside-box {
-        padding: 0 15px; /* padding ซ้าย-ขวาเท่าเดิม */
-        margin-left: 0 !important;
-        text-align: left; /* รายละเอียดชิดซ้าย */
-    }
-
-    .sec-2 .detailmovie {
-        margin-bottom: 15px;
-    }
-
-    .sec-2 .app-logo img {
-        padding-right: 6px;
-    }
-
-    .sec-2 .inside-box {
-        padding-top: 6px;
-    }
-
-    .sec-2 .app-logo {
-        justify-content: flex-start; /* โลโก้ชิดซ้ายเหมือนกัน */
-    }
-
-    .sec-2 .inside-box .row {
-        justify-content: flex-start;
-    }
-}
-
-
-/* 💻 หน้าจอระหว่างแล็ปท็อปกับแท็บเล็ต */
-@media (max-width: 1020px) {
+  }
+   */
+  /* หน้าจอแล็ปท็อป */
+  @media (max-width: 1020px) {
     .sec-2 {
-        padding-top: 18px;
+      padding-top: 18px;
     }
-
+  
     .box-new {
-        border-radius: 12px;
+      border-radius: 12px;
     }
-
+  
     .inside-box {
-        padding: 8px;
+      padding: 8px;
     }
-
+  
     .app-logo img {
-        padding-right: 8px;
+      padding-right: 8px;
     }
-}
-
-/* 💻 แล็ปท็อปและจอทั่วไป */
-@media (max-width: 1200px) {
+  }
+  
+  @media (max-width: 1200px) {
     .sec-2 {
-        padding-top: 20px;
+      padding-top: 20px;
     }
-
+  
     .box-new {
-        border-radius: 15px;
+      border-radius: 15px;
     }
-
+  
     .inside-box {
-        padding: 9px;
+      padding: 9px;
     }
-
+  
     .app-logo img {
-        padding-right: 9px;
+      padding-right: 9px;
     }
-}
-
+  }
+  
 
 
 
@@ -1948,86 +1965,53 @@ figure {
     font-weight: bold;
     line-height: 1.4;
 }
-/* เพิ่ม @media queries เพื่อให้รองรับขนาดหน้าจอที่แตกต่างกัน */
-@media (max-width: 480px) {
-    .title-item-number {
-        font-size: 60px;
-    }
 
-    .movie-container {
-        flex-direction: column;
-        align-items: center;
+  
+  .sec-4 #scroll-left {
+    left: -10px; /* ปรับตำแหน่งให้ไม่เบียด content */
+      top: 160px;
+  }
+  
+  .sec-4 #scroll-right {
+    right: -10px;
+    top: 160px;
+  }
+  @media (max-width: 567px) {
+    .sec-4 .scroll-button {
+      padding: 6px 10px;
+      font-size: 18px;
     }
+  
+    .sec-4 #scroll-left {
+      left: -30px; /* ปรับตำแหน่งให้ไม่เบียด content */
+      top: 150px;
+    }
+  
+    .sec-4 #scroll-right {
+      right: -30px;
+      top: 150px;
+    }
+  
+    .sec-4 .title-item-number {
+      font-size: 50px; /* ลดขนาดตัวเลขอันดับ */
+    }
+  
+    .sec-4 .movie-container {
+      gap: 10px;
+      padding-left: 10px;
+    }
+  
+    .sec-4 .poster-top {
+      width: 100px;
+      height: auto;
+    }
+  
+    .sec-4 .entry-title {
+      font-size: 12px;
+    }
+  }
+  
 
-    .title-item {
-        margin-top: 15px;
-        margin-right: 15px;
-    }
-}
-
-@media (max-width: 576px) {
-    .title-item-number {
-        font-size: 70px;
-    }
-
-    .movie-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .title-item {
-        margin-top: 20px;
-        margin-right: 20px;
-    }
-}
-
-@media (max-width: 768px) {
-    .title-item-number {
-        font-size: 75px;
-    }
-
-    .movie-container {
-        gap: 10px;
-        padding-left: 10px;
-    }
-
-    .title-item {
-        margin-top: 20px;
-        margin-right: 20px;
-    }
-}
-
-@media (max-width: 992px) {
-    .title-item-number {
-        font-size: 75px;
-    }
-
-    .movie-container {
-        gap: 12px;
-        padding-left: 15px;
-    }
-
-    .title-item {
-        margin-top: 20px;
-        margin-right: 20px;
-    }
-}
-
-@media (max-width: 1200px) {
-    .title-item-number {
-        font-size: 80px;
-    }
-
-    .movie-container {
-        gap: 15px;
-        padding-left: 20px;
-    }
-
-    .title-item {
-        margin-top: 25px;
-        margin-right: 25px;
-    }
-}
 /*= section 5== genre movie */
 
 .genre-big {
