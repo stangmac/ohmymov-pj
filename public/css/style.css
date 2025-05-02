@@ -11,7 +11,7 @@
 
    /* colour */
 
-   --main-color:rgb(155, 238, 152);
+   --main-color:#9bee98;
    --bg--main:#191919;
    --bg--sub:#3b3b3b;
    --bg--detail:#b7b7b7;
@@ -78,138 +78,6 @@ a:hover {
 .caption-font {
     font-size: var(--caption-size);
 }
-
-/* Responsive font adjustments */
-@media (max-width: 1200px) {
-    .h1-font {
-        font-size: calc(var(--h1-size) - 4px); /* ลดขนาด font h1 สำหรับจอขนาดกลาง */
-    }
-
-    .h2-font {
-        font-size: calc(var(--h2-size) - 3px); /* ลดขนาด font h2 */
-    }
-
-    .h3-font {
-        font-size: calc(var(--h3-size) - 2px); /* ลดขนาด font h3 */
-    }
-
-    .title-font {
-        font-size: calc(var(--title-size) - 2px); /* ลดขนาด title font */
-    }
-
-    .body-font {
-        font-size: calc(var(--body-size) - 1px); /* ลดขนาด body font */
-    }
-
-    .caption-font {
-        font-size: calc(var(--caption-size) - 1px); /* ลดขนาด caption font */
-    }
-}
-
-@media (max-width: 992px) {
-    .h1-font {
-        font-size: calc(var(--h1-size) - 8px); /* ลดขนาด font h1 สำหรับแท็บเล็ต */
-    }
-
-    .h2-font {
-        font-size: calc(var(--h2-size) - 6px); /* ลดขนาด font h2 */
-    }
-
-    .h3-font {
-        font-size: calc(var(--h3-size) - 5px); /* ลดขนาด font h3 */
-    }
-
-    .title-font {
-        font-size: calc(var(--title-size) - 4px); /* ลดขนาด title font */
-    }
-
-    .body-font {
-        font-size: calc(var(--body-size) - 2px); /* ลดขนาด body font */
-    }
-
-    .caption-font {
-        font-size: calc(var(--caption-size) - 2px); /* ลดขนาด caption font */
-    }
-}
-
-@media (max-width: 768px) {
-    .h1-font {
-        font-size: calc(var(--h1-size) - 12px); /* ลดขนาด font h1 สำหรับหน้าจอขนาดเล็ก */
-    }
-
-    .h2-font {
-        font-size: calc(var(--h2-size) - 10px); /* ลดขนาด font h2 */
-    }
-
-    .h3-font {
-        font-size: calc(var(--h3-size) - 8px); /* ลดขนาด font h3 */
-    }
-
-    .title-font {
-        font-size: calc(var(--title-size) - 6px); /* ลดขนาด title font */
-    }
-
-    .body-font {
-        font-size: calc(var(--body-size) - 3px); /* ลดขนาด body font */
-    }
-
-    .caption-font {
-        font-size: calc(var(--caption-size) - 3px); /* ลดขนาด caption font */
-    }
-}
-
-@media (max-width: 576px) {
-    .h1-font {
-        font-size: calc(var(--h1-size) - 16px); /* ลดขนาด font h1 สำหรับมือถือขนาดเล็ก */
-    }
-
-    .h2-font {
-        font-size: calc(var(--h2-size) - 12px); /* ลดขนาด font h2 */
-    }
-
-    .h3-font {
-        font-size: calc(var(--h3-size) - 10px); /* ลดขนาด font h3 */
-    }
-
-    .title-font {
-        font-size: calc(var(--title-size) - 8px); /* ลดขนาด title font */
-    }
-
-    .body-font {
-        font-size: calc(var(--body-size) - 4px); /* ลดขนาด body font */
-    }
-
-    .caption-font {
-        font-size: calc(var(--caption-size) - 4px); /* ลดขนาด caption font */
-    }
-}
-
-@media (max-width: 480px) {
-    .h1-font {
-        font-size: calc(var(--h1-size) - 20px); /* ลดขนาด font h1 สำหรับมือถือขนาดเล็กสุด */
-    }
-
-    .h2-font {
-        font-size: calc(var(--h2-size) - 16px); /* ลดขนาด font h2 */
-    }
-
-    .h3-font {
-        font-size: calc(var(--h3-size) - 12px); /* ลดขนาด font h3 */
-    }
-
-    .title-font {
-        font-size: calc(var(--title-size) - 10px); /* ลดขนาด title font */
-    }
-
-    .body-font {
-        font-size: calc(var(--body-size) - 5px); /* ลดขนาด body font */
-    }
-
-    .caption-font {
-        font-size: calc(var(--caption-size) - 5px); /* ลดขนาด caption font */
-    }
-}
-
 
 /* Default Button Styles */
 .o-button {
@@ -692,7 +560,7 @@ img.movie-detail-poster {
 }
 
 .navbar-brand img {
-    max-width: 130px;
+    max-width: 200px;
     height: auto;
     transition: transform 0.3s ease;
 }
@@ -2345,7 +2213,22 @@ figure {
 
 
 
-
+.ratio-4by3 {
+    position: relative;
+    width: 90%;
+    padding-top: 50%; /* 4:3 = 3 ÷ 4 = 0.75 */
+  }
+  
+  .ratio-4by3 iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  
+  
 
 @media (max-width: 768px) {
     .movie-detail {

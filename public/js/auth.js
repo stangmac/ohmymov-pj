@@ -25,6 +25,8 @@ async function checkLogin() {
     } catch (error) {
         console.error('Error checking login status:', error);
     }
+    console.log("auth.js loaded"); // ทันทีเมื่อไฟล์ถูก execute
+document.addEventListener('click', () => console.log("User clicked")); // เพื่อดูว่ interaction trigger ได้ไหม
 }
 // ใช้ setInterval ให้ตรวจสอบทุก 5 วินาที
 setInterval(() => {

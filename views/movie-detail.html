@@ -23,7 +23,7 @@
           <!-- Left Group: Logo + Desktop Menu -->
           <div class="d-flex align-items-center left-group">
             <a class="navbar-brand" href="/">
-              <img src="/images/logo2.png" width="130" height="33" />
+              <img src="/images/logo2.png" width="200" height="33" />
             </a>
             <!-- Desktop Menu Links -->
             <ul class="navbar-nav d-none d-lg-flex ml-3">
@@ -121,62 +121,56 @@
     <!----- Section 1 - header ----->
     <div class="movie-detail">
         <div class="detail-header">
-            <div class="row">
-                <div class="col-7 pt-4" style="padding-left: 30px;">
-                    <div class="row">
-                        <div class="h2-font white-font">
-                            <%= movie.title %>
-                        </div>
-                    </div>
-                    <div class="row mt-2">
-                        <div class="body-font white-font mr-3">
-                            <%= movie.year ? movie.year : 'N/A' %>
-                        </div>
-                        <div class="body-font white-font mr-3">·</div>
-                        <div class="body-font white-font mr-3">
-                            <%= movie.duration_minute !==undefined ? movie.duration_minute : 'N/A' %> mins
-                        </div>
-                        <div class="body-font white-font mr-3">·</div>
-                        <div class="body-font main-font">
-                            <%= Array.isArray(movie.genres) && movie.genres.length> 0 ? movie.genres.join(", ") : 'N/A'
-                                %>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <img class="app" src="/images/logo-imdb.png">
-                        <div class="body-font white-font ml-2">
-                            <%= movie.rating_imdb ? movie.rating_imdb + ' / 10' : 'N/A' %>
-                        </div>
-                        <img class="app ml-4" src="/images/logo-rotten.png">
-                        <div class="body-font white-font ml-3">
-                            <%= movie.rating_rotten ? movie.rating_rotten : 'N/A' %> 
-                        </div>
-                    </div>
-                    <div class="row mt-5">
-                        <div class="tag">
-                            <button class="btn o-button-3" type="button">Synopsis</button>
-                            <button class="btn o-button-3" type="button">Where to watch</button>
-                            <button class="btn o-button-3" type="button">Posters</button>
-                            <button class="btn o-button-3" type="button">Cast</button>
-                            <button class="btn o-button-3" type="button">Similar titles</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-5 pr-2 pt-3">
-                    <% if (movie.teaser_url && movie.teaser_url.includes("youtube.com/watch?v=")) { %>
-                    <iframe width=" 500" height="280"
-                        src="<%= movie.teaser_url.replace('watch?v=', 'embed/') + '?autoplay=1&rel=0' %>"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
-                        </iframe>
-                        <% } else { %>
-                            <p class="body-font white-font text-right">No video available</p>
-                            <% } %>
-                </div>
+          <div class="row">
+            <!-- Left content (Title, info, ratings, buttons) -->
+            <div class="col-md-8 pt-4 ps-md-5">
+              <!-- Title -->
+              <h2 class="h2-font white-font mb-3"><%= movie.title %></h2>
+          
+              <!-- Year, Duration, Genre -->
+              <div class="d-flex flex-wrap align-items-center text-white mb-3">
+                <span class="me-3 body-font"><%= movie.year ? movie.year : 'N/A' %></span>
+                <span class="me-3">·</span>
+                <span class="me-3 body-font"><%= movie.duration_minute !== undefined ? movie.duration_minute : 'N/A' %> mins</span>
+                <span class="me-3">·</span>
+                <span class="body-font"><%= Array.isArray(movie.genres) && movie.genres.length > 0 ? movie.genres.join(", ") : 'N/A' %></span>
+              </div>
+          
+              <!-- Ratings -->
+              <div class="d-flex align-items-center mb-4">
+                <img src="/images/logo-imdb.png" class="me-2 app" alt="IMDb">
+                <span class="me-4 body-font white-font"><%= movie.rating_imdb ? movie.rating_imdb + ' / 10' : 'N/A' %></span>
+                <img src="/images/logo-rotten.png" class="me-2 app" alt="Rotten Tomatoes">
+                <span class="body-font white-font"><%= movie.rating_rotten ? movie.rating_rotten : 'N/A' %></span>
+              </div>
+          
+              <!-- Buttons -->
+              <div class="d-flex flex-wrap g-1">
+                <button class="btn o-button-3 px-3 py-2">Synopsis</button>
+                <button class="btn o-button-3 px-3 py-2">Where to watch</button>
+                <button class="btn o-button-3 px-3 py-2">Posters</button>
+                <button class="btn o-button-3 px-3 py-2">Cast</button>
+                <button class="btn o-button-3 px-3 py-2">Similar titles</button>
+              </div>
             </div>
-        </div>
-
+          
+            <div class="col-md-4 pt-4">
+              <% if (movie.teaser_url && movie.teaser_url.includes("youtube.com/watch?v=")) { %>
+                <div class="ratio-4by3">
+                  <iframe
+                    src="<%= movie.teaser_url.replace('watch?v=', 'embed/') + '?autoplay=1&rel=0' %>"
+                    title="Teaser"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                  </iframe>
+                </div>
+              <% } else { %>
+                <p class="body-font white-font text-center mt-4">No video available</p>
+              <% } %>
+            </div>
+          </div>
+          
+          
         <div class="row">
             <div class="col-8">
                 <div class="title-movies mt-4">
