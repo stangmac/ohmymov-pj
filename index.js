@@ -67,7 +67,7 @@ const updateProfileController = require("./controllers/updateProfileController")
 const changePasswordController = require("./controllers/changePasswordController");
 const suggestionController = require("./controllers/suggestionController");
 const { logUserActivity } = require('./controllers/userActivityController');
-
+const startController = require("./controllers/startController");
 // 🛣️ Routes
 app.get('/', indexController);
 app.get('/login', loginController);
@@ -106,6 +106,18 @@ app.post('/change-password', changePasswordController.changePassword);
 
 // ✅ เก็บกิจกรรมผู้ใช้ (like, seen, etc.)
 app.post('/log-activity', requireLogin, logUserActivity);
+
+
+
+//start
+app.post('/start', startController);
+
+
+
+
+
+
+
 
 // 🔐 ตรวจสอบ login
 app.get('/check-login', (req, res) => {
