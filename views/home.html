@@ -21,72 +21,102 @@
     <!-----------------------------------------------------------HEADER--------------------------------------------------------->
     <div id="overlay"></div>
     <header class="fixed-top">
-        <nav class="navbar navbar-expand-lg">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid d-flex align-items-center justify-content-between">
+          <!-- Left Group: Logo + Desktop Menu -->
+          <div class="d-flex align-items-center left-group">
             <a class="navbar-brand" href="/">
-                <img src="/images/logo2.png" width="150px" height="33px">
+              <img src="/images/logo2.png" width="200" height="36" />
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <div class="col-6">
-                    <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/suggestion">Suggestion</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="col-4 d-flex justify-content-end pr-2 ml-3">
-                    <div class="search-container">
-                        <div class="search-box">
-                            <img src="/images/icon/search-icon.png" alt="Search" class="search-icon">
-                            <input type="text" class="search-input" placeholder="Search for a movie..."
-                                onkeyup="searchMovies(this.value)" onfocus="showResults()">
-                        </div>
-                        <div class="search-results" id="searchResults"></div>
-                    </div>
-                </div>
-
-                <% if (!loggedIN) { %> 
-                    <div class="col-1 d-flex justify-content-end ml-2">
-                        <button class="btn o-button" type="button" id="show-signin">Sign In</button>
-                    </div>
-                <% } else { %>
-                    <div class="col-1 d-flex">
-                        <ul class="menu-right">
-                            <li class="nav-item dropdown">
-                                <button class="nav-link dropbtn">
-                                    <img src="/images/icon/user-fill.png" class="icon-green" />
-                                    <span class="main-font"><%= loggedIN %></span> <!-- แสดง username -->
-                                    <img src="/images/icon/drop-more.png" class="icon-green" />
-                                </button>
-                                <ul class="dropdown-content">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="/user-profile">
-                                            <img src="/images/icon/edit-profile.png" class="img-icon" />
-                                            Edit Profile
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="/logout">
-                                            <img src="/images/icon/sign-out.png" class="img-icon" />
-                                            Sign out
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                <% } %>
+            <!-- Desktop Menu Links -->
+            <ul class="navbar-nav d-none d-lg-flex ml-3">
+              <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="/suggestion">Suggestion</a></li>
+            </ul>
+          </div>
+    
+          <!-- Search Box -->
+          <div class="search-container order-2 order-md-1 mx-auto">
+            <div class="search-box">
+              <img src="/images/icon/search-icon.png" alt="Search" class="search-icon" />
+              <input
+                type="text"
+                class="search-input"
+                placeholder="Search for a movie..."
+                onkeyup="searchMovies(this.value)"
+                onfocus="showResults()"
+              />
             </div>
-        </nav>
+            <div class="search-results" id="searchResults"></div>
+          </div>
+    
+          <!-- Right Group: Hamburger + User Menu (Desktop) -->
+          <div class="d-flex align-items-center right-group order-1 order-md-2">
+            <!-- Hamburger (Mobile only) -->
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarMenu"
+              aria-controls="navbarMenu"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <!-- Desktop User Menu -->
+            <% if (!loggedIN) { %>
+              <button class="btn o-button ml-3 d-none d-lg-block" id="show-signin">Sign In</button>
+            <% } else { %>
+              <ul class="menu-right d-none d-lg-flex ml-3">
+                <li class="nav-item dropdown">
+                  <button class="nav-link dropbtn">
+                    <img src="/images/icon/user-fill.png" class="icon-green" />
+                    <span class="main-font"><%= loggedIN %></span>
+                    <img src="/images/icon/drop-more.png" class="icon-green" />
+                  </button>
+                  <ul class="dropdown-content">
+                    <li><a class="nav-link" href="/user-profile">Edit Profile</a></li>
+                    <li><a class="nav-link" href="/logout">Sign out</a></li>
+                  </ul>
+                </li>
+              </ul>
+            <% } %>
+          </div>
+        </div>
+    
+        <!-- Mobile Menu -->
+       <!-- Mobile Menu -->
+<div class="collapse navbar-collapse d-lg-none text-center" id="navbarMenu">
+    <ul class="navbar-nav mx-auto my-3 d-lg-none">
+      <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="/suggestion">Suggestion</a></li>
+  
+      <% if (!loggedIN) { %>
+        <li class="nav-item mt-2">
+          <button class="btn o-button ml-3 d-none d-lg-block" id="show-signin">Sign In</button>
+        </li>
+      <% } else { %>
+        <li class="nav-item dropdown mt-2">
+          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+            <img src="/images/icon/user-fill.png" class="icon-green" />
+            <span class="main-font"><%= loggedIN %></span>
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/user-profile">Edit Profile</a>
+            <a class="dropdown-item" href="/logout">Sign out</a>
+          </div>
+        </li>
+      <% } %>
+    </ul>
+  </div>
+  
+      </nav>
     </header>
+    
+      
+      
 
  <!-- 🔥 Section 1 - Welcome + Latest Movie Carousel -->
 <section class="sec-1 py-4">
@@ -94,7 +124,7 @@
       <div class="row align-items-center">
   
         <!-- 🔹 ฝั่งซ้าย -->
-        <div class="col-md-7">
+        <div class="col-md-5">
           <div class="box-banner">
             <div class="row">
               <div class="line-text mb-3">Welcome</div>
@@ -104,14 +134,16 @@
                 Let's Create Your <br> Own Collection
               </h1>
             </div>
-            <div class="row">
-              <button class="btn s-button mt-3" type="button">START</button>
-            </div>
+            <div class="row ">
+                <div class="col-auto">
+                  <button class="btn s-button start-btn" type="button">START</button>
+                </div>
+              </div>
           </div>
         </div>
   
         <!-- 🔹 ฝั่งขวา -->
-        <div class="col-md-5 mt-5 pt-5"> <!-- ✅ เขยิบลง -->
+        <div class="col-md-7 mt-md-5 pt-md-5"> <!-- ✅ เขยิบลง -->
           <% const validPosters = latestMovies.filter(m => Array.isArray(m.poster_url) && m.poster_url[0] && m.poster_url[0] !== "No posters available"); %>
           <% if (validPosters.length > 0) { %>
           <div id="latestMovieCarousel" class="carousel slide bg-transparent p-2 rounded shadow-sm" data-ride="carousel" data-interval="4000">
@@ -154,77 +186,119 @@
   
   
   
+  <!--Section 2-->
   
-  
-
-
-<!----- Section 2 - new movie ----->
-
-<section class="sec-2 pt-4 pb-4 px-4">
+  <section class="sec-2 pt-4 pb-4 px-4"> 
     <div class="container-fluid">
-        <div class="title-font-bold black-font mb-3">New</div>
-        <div class="row g-3">
-            <% movies.slice(0, 3).forEach(movie => { %>
-                <div class="col mb-2">
-                    <div class="box-new row py-2 mx-1">
-                        <div class="col-3 mt-1 detailmovie">
-                            <a href="/movie-detail?id=<%= movie._id %>">
-                               
-                                <img class="poster-new" src="<%= (movie.poster_url && movie.poster_url.length) ? movie.poster_url[0] : '/images/poster-default.png' %>" height="205px">
-                            </a>
-                        </div>
-                        <div class="col-9">
-                            <div class="inside-box ml-5 pt-3 mb-1">
-                                <div class="row">
-                                    <div class="caption-font main-font"><%= movie.year || 'Unknown' %></div>
-                                </div>
-                                <div class="row">
-                                    <div class="body-font-bold white-font"><%= movie.title || 'Untitled' %></div>
-                                </div>
-                                <div class="row">
-                                    <% if (movie.genres && movie.genres.length) { %>
-                                        <% movie.genres.forEach((genre, index) => { %>
-                                            <div class="caption-font main-font mr-2"><%= genre %></div>
-                                            <% if (index < movie.genres.length - 1) { %>
-                                                <div class="caption-font main-font mr-2">·</div>
-                                            <% } %>
-                                        <% }) %>
-                                    <% } %>
-                                </div>
-                                <div class="row app-logo mt-3">
-                                    <% if (Array.isArray(movie.watch) && movie.watch.length > 0) { %>
-                                        <% movie.watch.forEach(platform => { 
-                                            let platformFileName = platform
-                                                .toLowerCase()
-                                                .replace(/\s+/g, '-') // เปลี่ยน space เป็น "-"
-                                                .replace(/[^a-z0-9-]/g, '') // เอาอักขระพิเศษออก
-                                                .trim();
-                                        %>
-                                            <img class="app" src="/images/logo-<%= platformFileName %>.png" 
-                                                alt="<%= platform %>" 
-                                                onerror="this.onerror=null; this.src='/images/logo-default.png'">
-                                        <% }) %>
-                                    <% } else { %>
-                                        <div class="caption-font grey-font">No streaming platform available</div>
-                                    <% } %>
-                                </div>
-                                
-                                
-                                <div class="row mt-4">
-                                    <img class="app" src="/images/logo-imdb.png">
-                                    <div class="caption-font white-font ml-2"><%= movie.rating_imdb || 'N/A' %> / 10</div>
-                                    <img class="app ml-4" src="/images/logo-rotten.png">
-                                    <div class="caption-font white-font ml-2"><%= movie.rating_rotten || 'N/A' %></div>
-                                </div>
-                            </div>
-                        </div>
+      <div class="title-font-bold black-font mb-3">New</div>
+      
+  
+      <!-- 📱 Mobile (<768px): Show 1 card + scroll buttons -->
+        <div class="d-block d-lg-none position-relative scroll-wrapper">
+        <button id="new-scroll-left" class="scroll-btn scroll-left">&lt;</button>
+        <button id="new-scroll-right" class="scroll-btn scroll-right">&gt;</button>
+        <div class="horizontal-scroll-container d-flex overflow-auto">
+          <% movies.slice(0, 3).forEach(movie => { %>
+            <div class="card-horizontal flex-shrink-0">
+                <div class="box-new row py-2 mx-1 box-new-responsive">
+                  <div class="col-12 col-md-4 mt-1 detailmovie d-flex justify-content-center align-items-center">
+                    <a href="/movie-detail?id=<%= movie._id %>">
+                      <img class="poster-new" src="<%= movie.poster_url?.[0] || '/images/poster-default.png' %>" height="205px">
+                    </a>
+                  </div>
+                  <div class="col-12 col-md-8">
+                  <div class="inside-box ml-5 pt-3 mb-1">
+                    <div class="row"><div class="caption-font main-font"><%= movie.year || 'Unknown' %></div></div>
+                    <div class="row"><div class="body-font-bold white-font"><%= movie.title || 'Untitled' %></div></div>
+                    <div class="row">
+                      <% movie.genres?.forEach((genre, i) => { %>
+                        <div class="caption-font main-font mr-2"><%= genre %></div>
+                        <% if (i < movie.genres.length - 1) { %>
+                          <div class="caption-font main-font mr-2">·</div>
+                        <% } %>
+                      <% }) %>
                     </div>
+                    <div class="row app-logo mt-3">
+                      <% if (Array.isArray(movie.watch)) {
+                        movie.watch.forEach(platform => {
+                          let platformFileName = platform.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+                      %>
+                        <img class="app" src="/images/logo-<%= platformFileName %>.png" alt="<%= platform %>" onerror="this.onerror=null;this.src='/images/logo-default.png'">
+                      <% }) } else { %>
+                        <div class="caption-font grey-font">No streaming platform available</div>
+                      <% } %>
+                    </div>
+                    <div class="row mt-4 rating-row">
+                      <img class="app" src="/images/logo-imdb.png">
+                      <div class="caption-font white-font ml-2"><%= movie.rating_imdb || 'N/A' %> / 10</div>
+                      <img class="app ml-4" src="/images/logo-rotten.png">
+                      <div class="caption-font white-font ml-2"><%= movie.rating_rotten || 'N/A' %></div>
+                    </div>
+                  </div>
                 </div>
-            <% }) %>
+              </div>
+            </div>
+          <% }) %>
         </div>
+      </div>
+  
+      <!-- 💻 Desktop (>=768px): Grid 3 items -->
+      <div class="row d-none d-lg-flex">
+        <% movies.slice(0, 3).forEach(movie => { %>
+          <div class="col-md-4 mb-3">
+            <div class="box-new row py-2 mx-1 box-new-responsive">
+              <div class="col-3 mt-1 detailmovie">
+                <a href="/movie-detail?id=<%= movie._id %>">
+                  <img class="poster-new" src="<%= movie.poster_url?.[0] || '/images/poster-default.png' %>" height="205px">
+                </a>
+              </div>
+              <div class="col-9">
+                <div class="inside-box ml-5 pt-3 mb-1">
+                  <div class="row"><div class="caption-font main-font"><%= movie.year || 'Unknown' %></div></div>
+                  <div class="row"><div class="body-font-bold white-font"><%= movie.title || 'Untitled' %></div></div>
+                  <div class="row">
+                    <% movie.genres?.forEach((genre, i) => { %>
+                      <div class="caption-font main-font mr-2"><%= genre %></div>
+                      <% if (i < movie.genres.length - 1) { %>
+                        <div class="caption-font main-font mr-2">·</div>
+                      <% } %>
+                    <% }) %>
+                  </div>
+                  <div class="row app-logo mt-3">
+                    <% if (Array.isArray(movie.watch)) {
+                      movie.watch.forEach(platform => {
+                        let platformFileName = platform.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+                    %>
+                      <img class="app" src="/images/logo-<%= platformFileName %>.png" alt="<%= platform %>" onerror="this.onerror=null;this.src='/images/logo-default.png'">
+                    <% }) } else { %>
+                      <div class="caption-font grey-font">No streaming platform available</div>
+                    <% } %>
+                  </div>
+                  <div class="row mt-4 rating-row">
+                    <img class="app" src="/images/logo-imdb.png">
+                    <div class="caption-font white-font ml-2"><%= movie.rating_imdb || 'N/A' %> / 10</div>
+                    <img class="app ml-4" src="/images/logo-rotten.png">
+                    <div class="caption-font white-font ml-2"><%= movie.rating_rotten || 'N/A' %></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      </div>
     </div>
-</section>
-
+  </section>
+  
+  <script>
+    const container = document.querySelector('.horizontal-scroll-container');
+    document.getElementById('new-scroll-left').addEventListener('click', () => {
+      container.scrollBy({ left: -300, behavior: 'smooth' });
+    });
+    document.getElementById('new-scroll-right').addEventListener('click', () => {
+      container.scrollBy({ left: 300, behavior: 'smooth' });
+    });
+  </script>
+  
     
 <!----- Section 3 -  top movies  ----->
 
@@ -295,7 +369,7 @@
             <button class="btn sg-button-1 body-font" type="button" onclick="window.location.href='/all-content'">ALL</button>
         </div>
         <% sortedGenres.forEach((genre, index) => { %>
-            <% if ((index + 1) % 4 === 0) { %> <!-- ✅ New row starts after 4 more buttons -->
+            <% if ((index + 1) % 5 === 0) { %> <!-- ✅ New row starts after 4 more buttons -->
     </div>
     <div class="row justify-content-between mt-4">
         <% } %>

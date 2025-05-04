@@ -22,29 +22,14 @@
     <header class="fixed-top">
         <nav class="navbar navbar-expand-lg">
             <a class="navbar-brand" href="/" id="logo">
-                <img src="/images/logo2.png" width="150px" height="33px">
+                <img src="/images/logo2.png" width="200px" height="33px">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <div class="col-6">
-                    <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/user-profile.html">Blog</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Suggestion</a>
-                        </li>
-                    </ul>
-                </div>
-
-            </div>
+            
         </nav>
     </header>
 
@@ -178,13 +163,153 @@
 
 
                                             <div class="form-element-sign">
-                                                <input type="checkbox" id="agree-terms" name="agreeTerms" required>
+                                                <!-- Checkbox ที่มีลิงก์ไป Terms/Privacy -->
                                                 <label for="agree-terms">
+                                                    <input type="checkbox" id="agree-terms" name="agreeTerms" />
+                                                    
+                                                    
+
                                                     I agree to the
-                                                    <a href="#" class="create privacy">Terms of Service</a> and
-                                                    <a href="#" class="create privacy">Privacy Policy</a>
+                                                    <a href="#" id="open-terms" class="create privacy">Terms of Service</a> and
+                                                    <a href="#" id="open-privacy" class="create privacy">Privacy Policy</a>
+                                                    <% if (error.agreeTerms) { %>
+                                                        <p class="alert alert-danger"><%= error.agreeTerms.msg %></p>
+                                                    <% } %>
                                                 </label>
                                             </div>
+                                            <!-- Modal Template -->
+                                            <div id="modal" class="modal hidden">
+                                                <div class="modal-content">
+                                                    <span id="close-modal" class="close">&times;</span>
+                                                    <div id="modal-body">
+                                                        <!-- เนื้อหาจะแสดงที่นี่ -->
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <style>
+                                                .modal {
+                                                    position: fixed;
+                                                    top: 0;
+                                                    left: 0;
+                                                    width: 100%;
+                                                    height: 100%;
+                                                    background: rgba(0, 0, 0, 0.6);
+                                                    display: flex;
+                                                    justify-content: center;
+                                                    align-items: center;
+                                                    z-index: 9999;
+                                                }
+
+                                                .modal.hidden {
+                                                    display: none;
+                                                }
+
+                                                .modal-content {
+                                                    background: white;
+                                                    padding: 20px;
+                                                    width: 90%;
+                                                    max-width: 700px;
+                                                    border-radius: 8px;
+                                                    position: relative;
+                                                    max-height: 80vh;
+                                                    overflow-y: auto;
+                                                }
+
+                                                .close {
+                                                    position: absolute;
+                                                    top: 10px;
+                                                    right: 20px;
+                                                    font-size: 20px;
+                                                    cursor: pointer;
+                                                }
+
+                                                #modal-body {
+                                                    font-size: 13.5px;
+                                                    line-height: 1.5;
+                                                }
+                                            </style>
+
+                                            <script>
+                                                // เนื้อหาของ Terms และ Privacy
+                                                const termsContent = `
+                                                <p>Terms of Service</p>
+                                                <p>โปรดอ่านเงื่อนไขการให้บริการนี้อย่างละเอียดก่อนใช้บริการของเรา การใช้งานหรือการลงทะเบียนบัญชีของคุณถือว่าคุณยอมรับเงื่อนไขเหล่านี้</p>
+
+                                                <p>1. การยอมรับข้อตกลง
+                                                เมื่อคุณลงทะเบียนหรือใช้บริการ ถือว่าคุณตกลงปฏิบัติตามข้อกำหนดและเงื่อนไขนี้ในทุกประการ</p>
+
+                                                <p>2. ข้อมูลผู้ใช้งาน
+                                                เราจะเก็บข้อมูลที่คุณให้ไว้ เช่น ชื่อผู้ใช้งาน อีเมล วันเดือนปีเกิด และรหัสผ่าน ซึ่งจะถูกเก็บอย่างปลอดภัยและเข้ารหัส</p>
+
+                                                <p>3. ความรับผิดชอบของผู้ใช้งาน</p>
+                                                <ul>
+                                                    <li>ห้ามให้ข้อมูลปลอมแปลง หรือแอบอ้างบุคคลอื่น</li>
+                                                    <li>ห้ามใช้บัญชีเพื่อจุดประสงค์ที่ผิดกฎหมาย</li>
+                                                    <li>คุณต้องเก็บข้อมูลเข้าสู่ระบบไว้เป็นความลับ</li>
+                                                </ul>
+
+                                                <p>4. การระงับหรือยุติบัญชี
+                                                เราสามารถระงับหรือยุติบัญชีของคุณได้ทันที หากตรวจพบว่ามีการละเมิดเงื่อนไขใด ๆ</p>
+
+                                                <p>5. สิทธิในทรัพย์สินทางปัญญา
+                                                เนื้อหาในระบบ เช่น ซอฟต์แวร์ โค้ด และกราฟิก เป็นทรัพย์สินของบริษัท ห้ามนำไปใช้โดยไม่ได้รับอนุญาต</p>
+
+                                            <p>6. การเปลี่ยนแปลงข้อตกลง
+                                                บริษัทอาจปรับเปลี่ยนข้อตกลงนี้โดยไม่ต้องแจ้งล่วงหน้า แต่จะอัปเดตให้ทราบผ่านระบบหากมีสาระสำคัญเปลี่ยนแปลง</p>
+
+                                                `;
+
+                                                const privacyContent = `
+                                                <p>Privacy Policy</p>
+                                                <p>1. ข้อมูลที่เราเก็บ</p>
+                                                <ul>
+                                                    <li>ชื่อผู้ใช้งาน</li>
+                                                    <li>อีเมล</li>
+                                                    <li>วันเดือนปีเกิด</li>
+                                                    <li>รหัสผ่าน (จัดเก็บแบบเข้ารหัส)</li>
+                                                </ul>
+
+                                                <p>2. วัตถุประสงค์ของการเก็บข้อมูล</p>
+                                                <ul>
+                                                    <li>เพื่อระบุตัวตนของผู้ใช้งาน</li>
+                                                    <li>เพื่อให้บริการต่าง ๆ ในระบบ</li>
+                                                    <li>เพื่อความปลอดภัยของบัญชี</li>
+                                                </ul>
+ 
+                                                <p>3. ระยะเวลาการเก็บรักษา
+                                                เราจะเก็บข้อมูลจนกว่าผู้ใช้งานจะลบบัญชี หรือขอให้ลบข้อมูลตามสิทธิที่มี</p>
+
+                                                <p>4. การเปิดเผยข้อมูล
+                                                ข้อมูลของคุณจะไม่ถูกขายหรือเปิดเผยแก่บุคคลที่สาม ยกเว้นตามกฎหมาย หรือเมื่อได้รับความยินยอมจากคุณ</p>
+
+                                                <p>5. สิทธิของเจ้าของข้อมูล</p>
+                                                <ul>
+                                                    <li>สิทธิในการเข้าถึง แก้ไข หรือลบข้อมูลส่วนบุคคล</li>
+                                                    <li>สิทธิในการถอนความยินยอม</li>
+                                                    <li>สิทธิในการร้องเรียนต่อหน่วยงานกำกับ</li>
+                                                </ul>
+                                                `;
+
+
+                                                // Event handler
+                                                document.getElementById('open-terms').addEventListener('click', function (e) {
+                                                    e.preventDefault();
+                                                    document.getElementById('modal-body').innerHTML = termsContent;
+                                                    document.getElementById('modal').classList.remove('hidden');
+                                                });
+
+                                                document.getElementById('open-privacy').addEventListener('click', function (e) {
+                                                    e.preventDefault();
+                                                    document.getElementById('modal-body').innerHTML = privacyContent;
+                                                    document.getElementById('modal').classList.remove('hidden');
+                                                });
+
+                                                document.getElementById('close-modal').addEventListener('click', function () {
+                                                    document.getElementById('modal').classList.add('hidden');
+                                                });
+                                            </script>
+
 
                                             <button class="btn-sign" type="submit">Sign Up</button>
                                         </div>
