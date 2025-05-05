@@ -68,6 +68,21 @@ const changePasswordController = require("./controllers/changePasswordController
 const suggestionController = require("./controllers/suggestionController");
 const { logUserActivity } = require('./controllers/userActivityController');
 const startController = require("./controllers/startController");
+const saveStartController = require('./controllers/saveStartController');
+const startGenreController = require('./controllers/startGenreController');
+app.use(startGenreController);
+
+
+
+
+
+
+
+
+
+
+
+
 // 🛣️ Routes
 app.get('/', indexController);
 app.get('/login', loginController);
@@ -111,6 +126,7 @@ app.post('/log-activity', requireLogin, logUserActivity);
 
 //start
 app.post('/start', startController);
+app.post('/start/save', saveStartController);
 
 
 
