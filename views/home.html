@@ -219,12 +219,12 @@
                         <% } %>
                       <% }) %>
                     </div>
-                    <div class="row app-logo mt-3">
+                    <div class="row app-logo mt-3 d-flex align-items-center flex-wrap">
                       <% if (Array.isArray(movie.watch)) {
                         movie.watch.forEach(platform => {
                           let platformFileName = platform.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
                       %>
-                        <img class="app" src="/images/logo-<%= platformFileName %>.png" alt="<%= platform %>" onerror="this.onerror=null;this.src='/images/logo-default.png'">
+                        <img class="platform-logo" src="/images/logo-<%= platformFileName %>.png" alt="<%= platform %>" onerror="this.onerror=null;this.src='/images/logo-default.png'">
                       <% }) } else { %>
                         <div class="caption-font grey-font">No streaming platform available</div>
                       <% } %>

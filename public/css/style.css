@@ -272,11 +272,16 @@ img.poster-new {
 }
 
 img.app {
-    height: 24px;
+    height: 22px;
+    object-fit: contain;
 }
-
+.app-logo.img.app {
+    height: 40px;
+    object-fit: contain;
+}
 img.app2 {
-    height: 30px;
+    height: 24px;
+    object-fit: contain;
 }
 
 img.poster-top {
@@ -333,6 +338,20 @@ img.movie-detail-poster {
     height: 235px;
 }
 
+img.platform-logo {
+    height: 50px;
+    width: auto;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    object-fit: contain;
+    transition: transform 0.2s ease;
+}
+
+img.platform-logo:hover {
+    transform: scale(1.1);
+}
+
+
 /* Responsive Styling for Images */
 @media (max-width: 1200px) {
     img.poster-new {
@@ -356,7 +375,8 @@ img.movie-detail-poster {
     }
 
     img.app {
-        height: 20px;
+        height: 30px;
+        width: 30px;
     }
 
     img.app2 {
@@ -364,7 +384,7 @@ img.movie-detail-poster {
     }
 
     img.app-2 {
-        height: 55px;
+        height: 30px;
     }
 
     img.poster-detail-box {
@@ -398,7 +418,8 @@ img.movie-detail-poster {
     }
 
     img.app {
-        height: 18px;
+        height: 30px;
+        width: 30px;
     }
 
     img.app2 {
@@ -1081,12 +1102,6 @@ img.movie-detail-poster {
   
   .inside-box {
     padding: 10px;
-  }
-  
-  .app-logo img {
-    padding-right: 10px;
-    width: 20px;
-    height: 20px;
   }
   
   .rating-row img {
@@ -2023,10 +2038,6 @@ figure {
     margin-left: 20px                         ;
 }
 
-.app-logo img {
-    height: 25px;
-    padding-right: 12px;
-}
 /* เพิ่ม @media queries เพื่อรองรับการ responsive */
 @media (max-width: 480px) {
     .genre-big {
