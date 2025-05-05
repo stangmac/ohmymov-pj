@@ -3130,3 +3130,49 @@ figure {
         height: 270px;
     }
 }
+
+/* sec Start */
+ .genre-section {
+      min-height: 100vh;
+      background-color: var(--bg--main);
+      color: var(--colour-white);
+      padding-bottom: 60px;
+    }
+  
+    .genre-btn {
+      background-color: var(--bg--sub);
+      color: var(--colour-white);
+      border: 2px solid var(--main-color);
+      padding: 10px;
+
+      cursor: pointer;
+      font-size: var(--body-size);
+      transition: all 0.2s ease;
+    }
+  
+    .genre-btn:hover {
+      background-color: var(--main-color);
+      color: var(--bg--main);
+    }
+  
+    .genre-btn.active {
+      background-color: var(--main-color);
+      color: var(--bg--main);
+      font-weight: bold;
+    }
+  
+    .submit-btn {
+      margin-top: 30px;
+      padding: 12px 40px;
+      background-color: var(--bg--main);
+      color: var(--colour-white);
+      border: 2px solid var(--main-color);
+      font-size: var(--body-size);
+
+      transition: background-color 0.2s;
+    }
+  
+    .submit-btn:hover {
+      background-color: var(--main-color);
+      color: var(--bg--main);
+    }

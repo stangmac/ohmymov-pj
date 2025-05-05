@@ -6,6 +6,7 @@ const UserSchema = new mongoose.Schema({
     password: { type: String, required: true },
     date: { type: Date, required: true },
     gender: { type: String, required: true },
+    favoriteGenres: [{ type: String }],
     lastLogin: { type: Date, default: null },
     resetToken: { type: String, default: null }, // เพิ่มฟิลด์ resetToken
     resetTokenExpires: { type: Date, default: null }, // เพิ่มฟิลด์ resetTokenExpires
