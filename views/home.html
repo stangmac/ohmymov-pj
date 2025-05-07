@@ -126,8 +126,8 @@
         <!-- 🔹 ฝั่งซ้าย -->
         <div class="col-md-5">
           <div class="box-banner">
-            <div class="row">
-              <div class="line-text mb-3">Welcome</div>
+            <div class="row mt-5">
+              <div class="line-text mb-3 mt-5">Welcome</div>
             </div>
             <div class="row">
               <h1 class="h1-font white-font mb-3">
@@ -196,8 +196,15 @@
   
       <!-- 📱 Mobile (<768px): Show 1 card + scroll buttons -->
         <div class="d-block d-lg-none position-relative scroll-wrapper">
-        <button id="new-scroll-left" class="scroll-btn scroll-left">&lt;</button>
-        <button id="new-scroll-right" class="scroll-btn scroll-right">&gt;</button>
+<!-- ปุ่มเลื่อนสไตล์ Bootstrap -->
+<a class="carousel-control-prev" href="#" role="button" id="new-scroll-left">
+  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  <span class="sr-only">Previous</span>
+</a>
+<a class="carousel-control-next" href="#" role="button" id="new-scroll-right">
+  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  <span class="sr-only">Next</span>
+</a>
         <div class="horizontal-scroll-container d-flex overflow-auto">
           <% movies.slice(0, 3).forEach(movie => { %>
             <div class="card-horizontal flex-shrink-0">
@@ -291,97 +298,163 @@
   </section>
   
   <script>
-    const container = document.querySelector('.horizontal-scroll-container');
-    document.getElementById('new-scroll-left').addEventListener('click', () => {
-      container.scrollBy({ left: -300, behavior: 'smooth' });
-    });
-    document.getElementById('new-scroll-right').addEventListener('click', () => {
-      container.scrollBy({ left: 300, behavior: 'smooth' });
+    document.addEventListener('DOMContentLoaded', () => {
+      const container = document.querySelector('.horizontal-scroll-container');
+      const leftBtn = document.getElementById('new-scroll-left');
+      const rightBtn = document.getElementById('new-scroll-right');
+  
+      if (!container || !leftBtn || !rightBtn) return;
+  
+      leftBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        container.scrollBy({ left: -300, behavior: 'smooth' });
+      });
+  
+      rightBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        container.scrollBy({ left: 300, behavior: 'smooth' });
+      });
+  
+      // รองรับการสไลด์ด้วยนิ้ว
+      let isDown = false;
+      let startX;
+      let scrollLeft;
+  
+      container.addEventListener('touchstart', (e) => {
+        isDown = true;
+        startX = e.touches[0].pageX - container.offsetLeft;
+        scrollLeft = container.scrollLeft;
+      });
+  
+      container.addEventListener('touchmove', (e) => {
+        if (!isDown) return;
+        const x = e.touches[0].pageX - container.offsetLeft;
+        const walk = (x - startX) * 1.5;
+        container.scrollLeft = scrollLeft - walk;
+      });
+  
+      container.addEventListener('touchend', () => {
+        isDown = false;
+      });
     });
   </script>
   
-    
-<!----- Section 3 -  top movies  ----->
+        <!-- Top movie -->
+        <section class="sec-4 mt-5">
+          <div class="row">
+              <h2 class="h2-font white-font">Top 10 in Thailand today</h2>
+          </div>
+          <% if (topMovies.length) { %>
+            <a class="carousel-control-prev" href="#" role="button" id="top-scroll-left">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#" role="button" id="top-scroll-right">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+              <div class="movie-container">
+                  <% topMovies.forEach((movie, index) => { %>
+                      <div class="title-item">
+                          <div class="title-item-number"><%= index + 1 %></div>
+                          <a href="/movie-detail?id=<%= movie._id %>" class="title-item-link">
+                              <figure>
+                                  <img class="poster-top" 
+                                      src="<%= (movie.poster_url && movie.poster_url.length) ? movie.poster_url[0] : '/images/poster-default.png' %>" 
+                                      alt="<%= movie.title || 'Movie Poster' %>">
+                              </figure>
+                              <div class="imdb-rate"><%= movie.rating_imdb || 'N/A' %></div>
+                              <div class="poster-title-box">
+                                  <div class="top-title">
+                                      <span class="entry-title"><%= movie.title %> (<%= movie.year %>)</span>
+                                  </div>
+                              </div>
+                          </a>
+                      </div>
+                  <% }) %>
+              </div>
+ 
+          <% } else { %>
+              <div class="row">
+                  <p class="caption-font white-font">No top movies available.</p>
+              </div>
+          <% } %>
+      </section>
+      
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const container = document.querySelector('.movie-container');
+          const leftBtn = document.getElementById('top-scroll-left');
+          const rightBtn = document.getElementById('top-scroll-right');
+      
+          if (!container || !leftBtn || !rightBtn) return;
+      
+          leftBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            container.scrollBy({ left: -300, behavior: 'smooth' });
+          });
+      
+          rightBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            container.scrollBy({ left: 300, behavior: 'smooth' });
+          });
+      
+          // รองรับการสไลด์ด้วยนิ้ว
+          let isDown = false;
+          let startX;
+          let scrollLeft;
+      
+          container.addEventListener('touchstart', (e) => {
+            isDown = true;
+            startX = e.touches[0].pageX - container.offsetLeft;
+            scrollLeft = container.scrollLeft;
+          });
+      
+          container.addEventListener('touchmove', (e) => {
+            if (!isDown) return;
+            const x = e.touches[0].pageX - container.offsetLeft;
+            const walk = (x - startX) * 1.5;
+            container.scrollLeft = scrollLeft - walk;
+          });
+      
+          container.addEventListener('touchend', () => {
+            isDown = false;
+          });
+        });
+      </script>
+      
 
-
-<section class="sec-4 mt-5">
-    <div class="row">
-        <h2 class="h2-font white-font">Top 10 in Thailand today</h2>
-    </div>
-
-    <% if (topMovies.length) { %>
-
-        <!-- ปุ่มเลื่อนซ้าย -->
-        <button id="scroll-left" class="scroll-button">&#8249;</button>
-
-        <div class="movie-container">
-            <% topMovies.forEach((movie, index) => { %>
-                <div class="title-item">
-                    <div class="title-item-number"><%= index + 1 %></div>
-                    <a href="/movie-detail?id=<%= movie._id %>" class="title-item-link">
-                        <figure>
-                            <img class="poster-top" 
-                                src="<%= (movie.poster_url && movie.poster_url.length) ? movie.poster_url[0] : '/images/poster-default.png' %>" 
-                                alt="<%= movie.title || 'Movie Poster' %>">
-                        </figure>
-                        <div class="imdb-rate"><%= movie.rating_imdb || 'N/A' %></div>
-                        <div class="poster-title-box">
-                            <div class="top-title">
-                                <span class="entry-title"><%= movie.title %> (<%= movie.year %>)</span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            <% }) %>
-        </div>
-
-        <!-- ปุ่มเลื่อนขวา -->
-        <button id="scroll-right" class="scroll-button">&#8250;</button>
-
-    <% } else { %>
-        <div class="row">
-            <p class="caption-font white-font">No top movies available.</p>
-        </div>
-    <% } %>
+<<!-- Section 4 genre -->
+<section class="sec-3 mt-5 px-5">
+  <div class="row">
+      <div class="col-4 col-sm-2-4 mb-3">
+          <button class="btn sg-button-1 body-font w-100" type="button" onclick="window.location.href='/all-content'">
+              ALL
+          </button>
+      </div>
+      <% sortedGenres.forEach((genre) => { %>
+          <div class="col-4 col-sm-2-4 mb-3">
+              <button class="btn sg-button body-font w-100" type="button" onclick="filterGenre('<%= genre %>')">
+                  <%= genre %>
+              </button>
+          </div>
+      <% }) %>
+  </div>
 </section>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const container = document.querySelector(".movie-container");
-        const scrollLeft = document.getElementById("scroll-left");
-        const scrollRight = document.getElementById("scroll-right");
-
-        if (container && scrollLeft && scrollRight) {
-            scrollLeft.addEventListener("click", function() {
-                container.scrollBy({ left: -250, behavior: "smooth" });
-            });
-
-            scrollRight.addEventListener("click", function() {
-                container.scrollBy({ left: 250, behavior: "smooth" });
-            });
-        }
-    });
+  function filterGenre(genre) {
+      window.location.href = `/all-content?genre=${encodeURIComponent(genre)}`;
+  }
 </script>
 
-<!----- Section 4 genre----->
-<section class="sec-3 mt-5 px-5">
-    <div class="row justify-content-between">
-        <div class="col">
-            <button class="btn sg-button-1 body-font" type="button" onclick="window.location.href='/all-content'">ALL</button>
-        </div>
-        <% sortedGenres.forEach((genre, index) => { %>
-            <% if ((index + 1) % 5 === 0) { %> <!-- ✅ New row starts after 4 more buttons -->
-    </div>
-    <div class="row justify-content-between mt-4">
-        <% } %>
-            <div class="col">
-                <button class="btn sg-button body-font" type="button" onclick="filterGenre('<%= genre %>')">
-                    <%= genre %>
-                </button>
-            </div>
-        <% }) %>
-    </div>
-</section>
+
+<script>
+  function filterGenre(genre) {
+      window.location.href = `/all-content?genre=${encodeURIComponent(genre)}`;
+  }
+</script>
+
 
 <!-- ✅ เพิ่มฟังก์ชันให้เปลี่ยนหน้า -->
 <script>
@@ -391,93 +464,124 @@
 </script>
 
 
-    <!----- Section 5 movie each genre ----->
+<section class="sec-5 mt-5 mx-5">
+  <% sortedGenres.forEach(genre => { %>
+    <% const genreMovies = movies.filter(m => m.genres.includes(genre)).slice(0, 6); %>
+    <% if (genreMovies.length > 0) { %>
+      <div class="genre-big genre-<%= genre.toLowerCase().replace(/\s+/g, '-') %> mt-5 position-relative">
+        <div class="row">
+          <h2 class="h2-font white-font"><%= genre %></h2>
+        </div>
 
-    <section class="sec-5 sec-4 mt-5">
-        <% sortedGenres.forEach(genre=> { %>
-            <% var genreMovies=movies.filter(m=> m.genres.includes(genre)).slice(0, 6); %>
+        <!-- Scrollable container -->
+        <div class="scroll-wrapper">
+          <!-- ปุ่ม scroll ซ้าย -->
+          <a class="carousel-control-prev genre-scroll-left" role="button">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          </a>
 
-                <div class="genre-big genre-<%= genre.toLowerCase().replace(/\s+/g, '-') %> mt-5">
-                    <div class="row">
-                        <h2 class="h2-font white-font">
-                            <%= genre %>
-                        </h2>
-                    </div>
-                    <div class="row">
-                        <% if (genreMovies.length> 0) { %>
-                            <% genreMovies.forEach(movie=> { %>
-                                <div class="col">
-                                    <div class="genre-movie-item">
-                                        <div class="row">
-                                            <a href="/movie-detail?id=<%= movie._id %>">
-                                                <img class="poster-genre"
-                                                    src="<%= (movie.poster_url && movie.poster_url.length) ? movie.poster_url[0] : '/images/poster-default.png' %>"
-                                                    alt="<%= movie.title || 'Movie Poster' %>">
-                                            </a>
-                                        </div>
-                                        <div class="row mt-3">
-                                            <span class="entry-title">
-                                                <%= movie.title %>
-                                            </span>
-                                        </div>
-                                        <div class="row">
-                                            <span class="entry-title">(<%= movie.year || 'Unknown' %>)</span>
-                                        </div>
-                                        <div class="row mt-3">
-                                            <img class="app" src="/images/logo-imdb.png">
-                                            <div class="caption-font white-font ml-2">
-                                                <%= movie.rating_imdb || 'N/A' %> / 10
-                                            </div>
-                                            <img class="app ml-4" src="/images/logo-rotten.png">
-                                            <div class="caption-font white-font ml-2">
-                                                <%= movie.rating_rotten || 'N/A' %>
-                                            </div>
-                                        </div>
-                                        <div class="row app-logo mt-3">
-                                            <% if (Array.isArray(movie.watch) && movie.watch.length> 0) { %>
-                                                <% movie.watch.forEach(platform=> {
-                                                    let platformFileName = platform
-                                                    .toLowerCase()
-                                                    .replace(/\s+/g, '-') // เปลี่ยน space เป็น "-"
-                                                    .replace(/[^a-z0-9-]/g, '') // เอาอักขระพิเศษออก
-                                                    .trim();
-                                                    %>
-                                                    <img class="app" src="/images/logo-<%= platformFileName %>.png"
-                                                        alt="<%= platform %>"
-                                                        onerror="this.onerror=null; this.src='/images/logo-default.png'">
-                                                    <% }) %>
-                                                        <% } else { %>
-                                                            <div class="caption-font grey-font">No streaming platform
-                                                                available</div>
-                                                            <% } %>
-                                        </div>
-                                        <div class="row mt-4">
-                                            <button class="btn o-button-1" type="button">
-                                                <img class="watchlist" src="/images/icon/bookmark2.png">
-                                                WISHLIST
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <% }) %>
-                                    <% } else { %>
-                                        <div class="col">
-                                            <p class="caption-font grey-font">No movies available in this genre.</p>
-                                        </div>
-                                        <% } %>
-                    </div>
-                    <div class="row justify-content-end mt-5">
-                        <% if (genre) { %>  <!-- ✅ ตรวจสอบว่า genre มีค่าจริงก่อนแสดงปุ่ม -->
-                            <button class="btn sg-button-2" type="button" onclick="window.location.href='/all-content?genre=<%= encodeURIComponent(genre) %>'">
-                                All Of <%= genre %>
-                                <img class="more" src="/images/icon/more.png">
-                            </button>
-                        <% } %>
-                    </div>
-                    
+          <div class="horizontal-scroll-container genre-scroll-container">
+            <% genreMovies.forEach(movie => { %>
+              <div class="card-horizontal">
+                <div class="genre-movie-item">
+                  <a href="/movie-detail?id=<%= movie._id %>">
+                    <img class="poster-genre" src="<%= movie.poster_url?.[0] || '/images/poster-default.png' %>" alt="<%= movie.title || 'Movie Poster' %>">
+                  </a>
+                  <div class="mt-2 entry-title"><%= movie.title %></div>
+                  <div class="caption-font">(<%= movie.year || 'Unknown' %>)</div>
+                  <div class="rating-row mt-2">
+                    <img class="app" src="/images/logo-imdb.png">
+                    <span class="caption-font ml-2"><%= movie.rating_imdb || 'N/A' %> / 10</span>
+                    <img class="app ml-4" src="/images/logo-rotten.png">
+                    <span class="caption-font ml-2"><%= movie.rating_rotten || 'N/A' %></span>
+                  </div>
+                  <div class="app-logo mt-3">
+                    <% if (Array.isArray(movie.watch) && movie.watch.length > 0) { %>
+                      <% movie.watch.forEach(platform => {
+                          let file = platform.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+                      %>
+                        <img class="app platform-logo" src="/images/logo-<%= file %>.png" alt="<%= platform %>" onerror="this.src='/images/logo-default.png'">
+                      <% }) %>
+                    <% } else { %>
+                      <div class="caption-font grey-font">No streaming platform available</div>
+                    <% } %>
+                  </div>
+                  <div class="mt-3">
+                    <button class="btn o-button-1" type="button">
+                      <img class="watchlist" src="/images/icon/bookmark2.png"> WISHLIST
+                    </button>
+                  </div>
                 </div>
-                <% }) %>
-    </section>
+              </div>
+            <% }) %>
+          </div>
+
+          <!-- ปุ่ม scroll ขวา -->
+          <a class="carousel-control-next genre-scroll-right" role="button">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <!-- ปุ่ม All Content -->
+        <div class="row justify-content-end mt-4">
+          <button class="btn sg-button-2 col-12 col-xl-2" type="button" onclick="window.location.href='/all-content?genre=<%= encodeURIComponent(genre) %>'">
+            All Of <%= genre %> <img class="more" src="/images/icon/more.png">
+          </button>
+        </div>
+      </div>
+    <% } %>
+  <% }) %>
+</section>
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const sections = document.querySelectorAll('.scroll-wrapper');
+  
+    sections.forEach(wrapper => {
+      const container = wrapper.querySelector('.genre-scroll-container');
+      const leftBtn = wrapper.querySelector('.genre-scroll-left');
+      const rightBtn = wrapper.querySelector('.genre-scroll-right');
+  
+      if (!container || !leftBtn || !rightBtn) return;
+  
+      const card = container.querySelector('.card-horizontal');
+      const cardWidth = card ? card.offsetWidth + 20 /* รวม gap */ : 300;
+  
+      // Scroll left
+      leftBtn.addEventListener('click', e => {
+        e.preventDefault();
+        container.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+      });
+  
+      // Scroll right
+      rightBtn.addEventListener('click', e => {
+        e.preventDefault();
+        container.scrollBy({ left: cardWidth, behavior: 'smooth' });
+      });
+  
+      // Touch gesture support
+      let isDown = false, startX, scrollLeft;
+      container.addEventListener('touchstart', e => {
+        isDown = true;
+        startX = e.touches[0].pageX - container.offsetLeft;
+        scrollLeft = container.scrollLeft;
+      });
+  
+      container.addEventListener('touchmove', e => {
+        if (!isDown) return;
+        const x = e.touches[0].pageX - container.offsetLeft;
+        const walk = (x - startX) *3.3;
+        container.scrollLeft = scrollLeft - walk;
+      });
+  
+      container.addEventListener('touchend', () => isDown = false);
+    });
+  });
+  
+  
+</script>
 
 
 

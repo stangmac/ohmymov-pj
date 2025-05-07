@@ -106,7 +106,7 @@ async function renderSearchPage(req, res) {
         res.render('result-search', {
             query,
             results,
-            loggedIN: req.session?.username || null
+            loggedIN: req.session?.user.username || null
         });
 
     } catch (error) {

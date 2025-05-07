@@ -99,10 +99,20 @@ app.get('/suggestion', suggestionController);
 app.get('/search', searchController.searchMovies); // สำหรับ autocomplete (JSON)
 app.get('/result-search', searchController.renderSearchPage); // สำหรับหน้าแสดงผลเต็มแบบมี % Matching
 
+// app.get('/logout', (req, res) => {
+//     req.session.destroy(() => {
+//         res.locals.loggedIN = null;
+//         res.redirect('/');
+//     });
+// });
+
+
+
 app.get('/logout', (req, res) => {
     req.session.destroy(() => {
+        res.clearCookie('connect.sid'); // ✅ เพิ่มบรรทัดนี้
         res.locals.loggedIN = null;
-        res.redirect('/');
+        res.redirect('/login'); // เพื่อให้ Cypress ดัก url ที่ชัดเจน
     });
 });
 
@@ -139,6 +149,8 @@ app.post('/start/save', saveStartController);
 app.get('/check-login', (req, res) => {
     res.json({ loggedIn: !!req.session.user });
 });
+
+
 
 // 🔐 Protected test
 app.use('/protected', requireLogin, (req, res) => {
