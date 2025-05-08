@@ -891,28 +891,7 @@ img.platform-logo:hover {
       .left-group {
         flex: 1;
       }
-      .search-input {
-          border: none;
-          outline: none;
-          background: transparent;
-          color: var(--colour-white);
-          width: 50%;
-          font-size: 0.05rem;
-          height: 25px;
-        }
-        
-      .search-container {
-          order: 2;
-          flex-grow: 1;
-          max-width: 80%;
-          height: 30%;
-          margin: 0 10px;
-        }
-        div.search-box > input {
-            font-size: 0.85rem;
-            margin-left: 0px;
-            padding-left: 18px;
-        }
+    
         .right-group {
           order: 3;
         }
@@ -958,10 +937,149 @@ img.platform-logo:hover {
           text-decoration: none;
           padding: 8px 10px;
       }
+
+  
     }
-
-
-
+/* Overlay ที่เปิดเมื่อค้นหา */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none;
+    z-index: 5;
+  }
+  
+  /* Default (Desktop หรือ > 576px) */
+  .search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-box {
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    height: 50px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+  }
+  
+  .search-input {
+    width: 100%;
+    font-size: 1rem;
+    margin-left: 10px;
+    background: transparent;
+    color: var(--colour-white);
+    border: none;
+    outline: none;
+  }
+  
+  /* Search results default */
+  .search-results {
+    position: absolute;
+    top: 50px; /* below the search box */
+    left: 0;
+    width: 100%;
+    background-color: var(--bg--main);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    z-index: 6;
+    max-height: 300px;
+    overflow-y: auto;
+    display: none;
+  }
+  
+  /* Mobile-specific styles */
+  @media (max-width: 576px) {
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  
+    .hamburger-icon {
+      font-size: 24px;
+      color: var(--colour-white);
+      cursor: pointer;
+    }
+  
+    .search-container {
+      flex: 1;
+      z-index: 6;
+      display: flex;
+      align-items: center;
+    }
+  
+    .search-box {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      overflow: hidden;
+      padding: 0 10px;
+      cursor: pointer;
+      margin-left: auto;
+    }
+  
+    .search-box.expanded {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      right: 10px;
+      width: calc(100% - 20px);
+      height: 50px;
+      border-radius: 25px;
+      padding: 0 15px;
+      z-index: 7;
+      background-color: var(--bg--main);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      display: flex;
+      align-items: center;
+    }
+  
+    .search-input {
+      display: none;
+      width: 100%;
+      font-size: 1rem;
+      margin-left: 10px;
+      background: transparent;
+      color: var(--colour-white);
+      border: none;
+      outline: none;
+    }
+  
+    .search-box.expanded .search-input {
+      display: block;
+    }
+  
+    .search-results {
+      position: fixed;
+      top: 70px; /* 10px + 50px */
+      left: 10px;
+      right: 10px;
+      width: calc(100% - 20px);
+      max-height: 60vh;
+      overflow-y: auto;
+      background-color: var(--bg--main);
+      border-radius: 12px;
+      z-index: 6;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+      padding: 10px;
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .search-results.expanded {
+      display: flex;
+    }
+  }
+  
+  
+  
 
 /*= section 1== banner */
 

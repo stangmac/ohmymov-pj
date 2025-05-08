@@ -96,3 +96,24 @@ document.addEventListener('keydown', function (event) {
         goToMovieDetail(selected.getAttribute("onclick").match(/'([^']+)'/)[1]);
     }
 });
+
+
+const searchBox = document.querySelector('.search-box');
+const overlay = document.getElementById('overlay');
+const searchResults = document.querySelector('.search-results');
+
+function expandSearch() {
+  searchBox.classList.add('expanded');
+  searchResults.classList.add('expanded');
+  overlay.style.display = 'block';
+}
+
+function collapseSearch() {
+  searchBox.classList.remove('expanded');
+  searchResults.classList.remove('expanded');
+  overlay.style.display = 'none';
+}
+
+overlay.addEventListener('click', collapseSearch);
+
+  
