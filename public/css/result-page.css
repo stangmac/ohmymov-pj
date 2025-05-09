@@ -37,17 +37,100 @@
 .search-results {
     display: none;
     position: absolute;
+    top: 100%;
+    left: 0;
     width: 100%;
-    background: var(--bg--sub);
-    border: none;
-    border-radius: 10px;
-    overflow: hidden;
-    margin-top: 5px;
-    max-height: 200px;
+    background-color: var(--bg--sub);
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    max-height: 300px;
     overflow-y: auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    flex-direction: column;
+    gap: 10px;
 }
-
+  /* When expanded */
+  .search-results.expanded {
+    display: flex;
+  }
+  @media (max-width: 576px) {
+    .search-container {
+      flex: 1;
+      z-index: 6;
+      display: flex;
+      align-items: center;
+    }
+  
+    .search-box {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      overflow: hidden;
+      padding: 0;
+      cursor: pointer;
+      margin-left: auto;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+    }
+  
+    .search-box.expanded {
+      position: fixed;
+      top: 30px;
+      left: 10px;
+      right: 10px;
+      width: calc(100% - 20px);
+      height: 50px;
+      border-radius: 25px;
+      padding: 0 15px;
+      z-index: 7;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      display: flex;
+      align-items: center;
+    }
+  
+    .search-input {
+      display: none;
+      width: 100%;
+      font-size: 1rem;
+      margin-left: 10px;
+      background: transparent;
+      color: var(--colour-white);
+      border: none;
+      outline: none;
+    }
+  
+    .search-box.expanded .search-input {
+      display: block;
+    }
+    .search-results {
+        position: fixed;
+        top: 70px;
+        left: 20px;
+        right: 20px;
+        width: calc(100% - 40px);
+        max-height: 60vh;
+        background-color: var(--bg--main);
+        border-radius: 15px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        z-index: 6;
+        padding: 15px;
+        display: none;
+        gap: 15px;
+        flex-direction: column;
+        transition: all 0.3s ease;
+      }
+    
+      .search-results.expanded {
+        display: flex;
+        left: 0;
+        right: 0;
+        width: 100%;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      }
+  }
 .result-item {
     display: flex;
     align-items: center;

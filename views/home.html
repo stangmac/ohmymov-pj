@@ -37,7 +37,7 @@
     
           <!-- Search Box -->
           <div class="search-container order-2 order-md-1 mx-auto">
-            <div class="search-box">
+            <div class="search-box" onclick="expandSearch()">
               <img src="/images/icon/search-icon.png" alt="Search" class="search-icon" />
               <input
                 type="text"
@@ -49,7 +49,6 @@
             </div>
             <div class="search-results" id="searchResults"></div>
           </div>
-    
           <!-- Right Group: Hamburger + User Menu (Desktop) -->
           <div class="d-flex align-items-center right-group order-1 order-md-2">
             <!-- Hamburger (Mobile only) -->
@@ -464,7 +463,7 @@
 </script>
 
 
-<section class="sec-5 mt-5 mx-5">
+<section class="sec-5 mt-5">
   <% sortedGenres.forEach(genre => { %>
     <% const genreMovies = movies.filter(m => m.genres.includes(genre)).slice(0, 6); %>
     <% if (genreMovies.length > 0) { %>

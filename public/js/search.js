@@ -97,7 +97,6 @@ document.addEventListener('keydown', function (event) {
     }
 });
 
-
 const searchBox = document.querySelector('.search-box');
 const overlay = document.getElementById('overlay');
 const searchResults = document.querySelector('.search-results');
@@ -115,5 +114,3 @@ function collapseSearch() {
 }
 
 overlay.addEventListener('click', collapseSearch);
-
-  
