@@ -13,105 +13,101 @@
        <title>Profile</title>
    </head>
 <body>
-   <!-----------------------------------------------------------HEADER--------------------------------------------------------->
-   <div id="overlay"></div>
-   <header class="fixed-top">
-     <nav class="navbar navbar-expand-lg">
-       <div class="container-fluid d-flex align-items-center justify-content-between">
-         <!-- Left Group: Logo + Desktop Menu -->
-         <div class="d-flex align-items-center left-group">
-           <a class="navbar-brand" href="/">
-             <img src="/images/logo2.png" width="200" height="33" />
-           </a>
-           <!-- Desktop Menu Links -->
-           <ul class="navbar-nav d-none d-lg-flex ml-3">
-             <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-             <li class="nav-item"><a class="nav-link" href="/suggestion">Suggestion</a></li>
-           </ul>
-         </div>
-   
-         <!-- Search Box -->
-         <div class="search-container order-2 order-md-1 mx-auto">
-           <div class="search-box">
-             <img src="/images/icon/search-icon.png" alt="Search" class="search-icon" />
-             <input
-               type="text"
-               class="search-input"
-               placeholder="Search for a movie..."
-               onkeyup="searchMovies(this.value)"
-               onfocus="showResults()"
-             />
-           </div>
-           <div class="search-results" id="searchResults"></div>
-         </div>
-   
-         <!-- Right Group: Hamburger + User Menu (Desktop) -->
-         <div class="d-flex align-items-center right-group order-1 order-md-2">
-           <!-- Hamburger (Mobile only) -->
-           <button
-             class="navbar-toggler"
-             type="button"
-             data-toggle="collapse"
-             data-target="#navbarMenu"
-             aria-controls="navbarMenu"
-             aria-expanded="false"
-             aria-label="Toggle navigation"
-           >
-             <span class="navbar-toggler-icon"></span>
-           </button>
-   
-           <!-- Desktop User Menu -->
-           <% if (!loggedIN) { %>
-             <button class="btn o-button ml-3 d-none d-lg-block" id="show-signin">Sign In</button>
-           <% } else { %>
-             <ul class="menu-right d-none d-lg-flex ml-3">
-               <li class="nav-item dropdown">
-                 <button class="nav-link dropbtn">
-                   <img src="/images/icon/user-fill.png" class="icon-green" />
-                   <span class="main-font"><%= loggedIN %></span>
-                   <img src="/images/icon/drop-more.png" class="icon-green" />
-                 </button>
-                 <ul class="dropdown-content">
-                   <li><a class="nav-link" href="/user-profile">Edit Profile</a></li>
-                   <li><a class="nav-link" href="/logout">Sign out</a></li>
-                 </ul>
-               </li>
-             </ul>
-           <% } %>
-         </div>
-       </div>
-   
+    <!-----------------------------------------------------------HEADER--------------------------------------------------------->
+    <div id="overlay"></div>
+    <header class="fixed-top">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid d-flex align-items-center justify-content-between">
+          <!-- Left Group: Logo + Desktop Menu -->
+          <div class="d-flex align-items-center left-group">
+            <a class="navbar-brand" href="/">
+              <img src="/images/logo2.png" width="200" height="36" />
+            </a>
+            <!-- Desktop Menu Links -->
+            <ul class="navbar-nav d-none d-lg-flex ml-3">
+              <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="/suggestion">Suggestion</a></li>
+            </ul>
+          </div>
+    
+          <!-- Search Box -->
+          <div class="search-container order-2 order-md-1 mx-auto">
+            <div class="search-box" onclick="expandSearch()">
+              <img src="/images/icon/search-icon.png" alt="Search" class="search-icon" />
+              <input
+                type="text"
+                class="search-input"
+                placeholder="Search for a movie..."
+                onkeyup="searchMovies(this.value)"
+                onfocus="showResults()"
+              />
+            </div>
+            <div class="search-results" id="searchResults"></div>
+          </div>
+          <!-- Right Group: Hamburger + User Menu (Desktop) -->
+          <div class="d-flex align-items-center right-group order-1 order-md-2">
+            <!-- Hamburger (Mobile only) -->
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarMenu"
+              aria-controls="navbarMenu"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <!-- Desktop User Menu -->
+            <% if (!loggedIN) { %>
+              <button class="btn o-button ml-3 d-none d-lg-block" id="show-signin">Sign In</button>
+            <% } else { %>
+              <ul class="menu-right d-none d-lg-flex ml-3">
+                <li class="nav-item dropdown">
+                  <button class="nav-link dropbtn">
+                    <img src="/images/icon/user-fill.png" class="icon-green" />
+                    <span class="main-font"><%= loggedIN %></span>
+                    <img src="/images/icon/drop-more.png" class="icon-green" />
+                  </button>
+                  <ul class="dropdown-content">
+                    <li><a class="nav-link" href="/user-profile">Edit Profile</a></li>
+                    <li><a class="nav-link" href="/logout">Sign out</a></li>
+                  </ul>
+                </li>
+              </ul>
+            <% } %>
+          </div>
+        </div>
+    
+        <!-- Mobile Menu -->
        <!-- Mobile Menu -->
-      <!-- Mobile Menu -->
 <div class="collapse navbar-collapse d-lg-none text-center" id="navbarMenu">
-   <ul class="navbar-nav mx-auto my-3 d-lg-none">
-     <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-     <li class="nav-item"><a class="nav-link" href="/suggestion">Suggestion</a></li>
- 
-     <% if (!loggedIN) { %>
-       <li class="nav-item mt-2">
-         <button class="btn o-button ml-3 d-none d-lg-block" id="show-signin">Sign In</button>
-       </li>
-     <% } else { %>
-       <li class="nav-item dropdown mt-2">
-         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-           <img src="/images/icon/user-fill.png" class="icon-green" />
-           <span class="main-font"><%= loggedIN %></span>
-         </a>
-         <div class="dropdown-menu">
-           <a class="dropdown-item" href="/user-profile">Edit Profile</a>
-           <a class="dropdown-item" href="/logout">Sign out</a>
-         </div>
-       </li>
-     <% } %>
-   </ul>
- </div>
- 
-     </nav>
-   </header>
-   
-     
-     
+    <ul class="navbar-nav mx-auto my-3 d-lg-none">
+      <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="/suggestion">Suggestion</a></li>
+  
+      <% if (!loggedIN) { %>
+        <li class="nav-item mt-2">
+          <button class="btn o-button ml-3 d-none d-lg-block" id="show-signin">Sign In</button>
+        </li>
+      <% } else { %>
+        <li class="nav-item dropdown mt-2">
+          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+            <img src="/images/icon/user-fill.png" class="icon-green" />
+            <span class="main-font"><%= loggedIN %></span>
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/user-profile">Edit Profile</a>
+            <a class="dropdown-item" href="/logout">Sign out</a>
+          </div>
+        </li>
+      <% } %>
+    </ul>
+  </div>
+  
+      </nav>
+    </header>
 
 
    <!----- Section - header ----->
@@ -214,7 +210,7 @@
             <div class="title-item">
               <a href="/movie-detail?id=<%= movie._id %>" class="title-item-link">
                 <figure>
-                  <img class="poster-top" src="<%= movie.poster_url?.[0] || '/images/default-poster.jpg' %>" alt="<%= movie.title %>">
+                  <img class="poster-top" src="<%= movie.poster_url?.[0] || '/images/no-poster.jpg' %>" alt="<%= movie.title %>"  onerror="this.onerror=null; this.src='/images/no-poster.png'; this.alt='No Streaming';">
                 </figure>
                 <div class="poster-title-box">
                   <div class="top-title">
@@ -243,7 +239,7 @@
           <div class="title-item">
             <a href="/movie-detail?id=<%= movie._id %>" class="title-item-link">
               <figure>
-                <img class="poster-top" src="<%= movie.poster_url?.[0] || '/images/default-poster.jpg' %>" alt="<%= movie.title %>">
+                <img class="poster-top" src="<%= movie.poster_url?.[0] || '/images/no-poster.jpg' %>" alt="<%= movie.title %>" onerror="this.onerror=null; this.src='/images/no-poster.png'; this.alt='No Streaming';">
               </figure>
               <div class="poster-title-box">
                 <div class="top-title">
@@ -273,7 +269,7 @@
           <div class="title-item">
             <a href="/movie-detail?id=<%= movie._id %>" class="title-item-link">
               <figure>
-                <img class="poster-top" src="<%= movie.poster_url?.[0] || '/images/default-poster.jpg' %>" alt="<%= movie.title %>">
+                <img class="poster-top" src="<%= movie.poster_url?.[0] || '/images/no-poster.jpg' %>" alt="<%= movie.title %>"  onerror="this.onerror=null; this.src='/images/no-poster.png'; this.alt='No Streaming';">
               </figure>
               <div class="poster-title-box">
                 <div class="top-title">
@@ -302,7 +298,7 @@
           <div class="title-item">
             <a href="/movie-detail?id=<%= movie._id %>" class="title-item-link">
               <figure>
-                <img class="poster-top" src="<%= movie.poster_url?.[0] || '/images/default-poster.jpg' %>" alt="<%= movie.title %>">
+                <img class="poster-top" src="<%= movie.poster_url?.[0] || '/images/no-poster.jpg' %>" alt="<%= movie.title %>"  onerror="this.onerror=null; this.src='/images/no-poster.png'; this.alt='No Streaming';">
               </figure>
               <div class="poster-title-box">
                 <div class="top-title">

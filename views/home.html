@@ -210,7 +210,7 @@
                 <div class="box-new row py-2 mx-1 box-new-responsive">
                   <div class="col-12 col-md-4 mt-1 detailmovie d-flex justify-content-center align-items-center">
                     <a href="/movie-detail?id=<%= movie._id %>">
-                      <img class="poster-new" src="<%= movie.poster_url?.[0] || '/images/poster-default.png' %>" height="205px">
+                      <img class="poster-new" src="<%= movie.poster_url?.[0] %>"  onerror="this.onerror=null; this.src='/images/no-poster.png'; this.alt='No Streaming';"height="205px">
                     </a>
                   </div>
                   <div class="col-12 col-md-8">
@@ -225,16 +225,20 @@
                         <% } %>
                       <% }) %>
                     </div>
-                    <div class="row app-logo mt-3 d-flex align-items-center flex-wrap">
-                      <% if (Array.isArray(movie.watch)) {
-                        movie.watch.forEach(platform => {
-                          let platformFileName = platform.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
-                      %>
-                        <img class="platform-logo" src="/images/logo-<%= platformFileName %>.png" alt="<%= platform %>" onerror="this.onerror=null;this.src='/images/logo-default.png'">
-                      <% }) } else { %>
-                        <div class="caption-font grey-font">No streaming platform available</div>
-                      <% } %>
-                    </div>
+<div class="row app-logo mt-3 d-flex align-items-center flex-wrap">
+  <% if (Array.isArray(movie.watch) && movie.watch.length > 0) { %>
+    <% movie.watch.forEach(platform => { %>
+      <img class="platform-logo"
+           src="/images/logo-<%= platform.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '') %>.png?v=1"
+           alt="<%= platform %>"
+           onerror="this.onerror=null; this.src='/images/No-streaming.png?v=1'; this.alt='No Streaming';">
+    <% }) %>
+  <% } else { %>
+    <img class="platform-logo" src="/images/No-streaming.png" alt="No Streaming Available">
+  <% } %>
+</div>
+
+
                     <div class="row mt-4 rating-row">
                       <img class="app" src="/images/logo-imdb.png">
                       <div class="caption-font white-font ml-2"><%= movie.rating_imdb || 'N/A' %> / 10</div>
@@ -276,7 +280,7 @@
                       movie.watch.forEach(platform => {
                         let platformFileName = platform.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
                     %>
-                      <img class="app" src="/images/logo-<%= platformFileName %>.png" alt="<%= platform %>" onerror="this.onerror=null;this.src='/images/logo-default.png'">
+                      <img class="app" src="/images/logo-<%= platformFileName %>.png" alt="<%= platform %>" onerror="this.onerror=null; this.src='/images/No-streaming.png'; this.alt='No Streaming';">
                     <% }) } else { %>
                       <div class="caption-font grey-font">No streaming platform available</div>
                     <% } %>
@@ -484,7 +488,7 @@
               <div class="card-horizontal">
                 <div class="genre-movie-item">
                   <a href="/movie-detail?id=<%= movie._id %>">
-                    <img class="poster-genre" src="<%= movie.poster_url?.[0] || '/images/poster-default.png' %>" alt="<%= movie.title || 'Movie Poster' %>">
+                    <img class="poster-genre" src="<%= movie.poster_url?.[0] %>" alt="<%= movie.title || 'Movie Poster' %>" onerror="this.onerror=null; this.src='/images/no-poster.png'; this.alt='No Streaming';">
                   </a>
                   <div class="mt-2 entry-title"><%= movie.title %></div>
                   <div class="caption-font">(<%= movie.year || 'Unknown' %>)</div>
@@ -494,17 +498,18 @@
                     <img class="app ml-4" src="/images/logo-rotten.png">
                     <span class="caption-font ml-2"><%= movie.rating_rotten || 'N/A' %></span>
                   </div>
-                  <div class="app-logo mt-3">
-                    <% if (Array.isArray(movie.watch) && movie.watch.length > 0) { %>
-                      <% movie.watch.forEach(platform => {
-                          let file = platform.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
-                      %>
-                        <img class="app platform-logo" src="/images/logo-<%= file %>.png" alt="<%= platform %>" onerror="this.src='/images/logo-default.png'">
-                      <% }) %>
-                    <% } else { %>
-                      <div class="caption-font grey-font">No streaming platform available</div>
-                    <% } %>
-                  </div>
+<div class="app-logo mt-3">
+  <% if (Array.isArray(movie.watch) && movie.watch.length > 0) { %>
+    <% movie.watch.forEach(platform => {
+        let file = platform.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+    %>
+      <img class="app platform-logo" src="/images/logo-<%= file %>.png" alt="<%= platform %>" 
+           onerror="this.onerror=null; this.src='/images/No-streaming.png'; this.alt='No Streaming';">
+    <% }) %>
+  <% } else { %>
+    <div class="caption-font grey-font">No streaming platform available</div>
+  <% } %>
+</div>
                   <div class="mt-3">
                     <button class="btn o-button-1" type="button">
                       <img class="watchlist" src="/images/icon/bookmark2.png"> WISHLIST

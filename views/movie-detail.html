@@ -15,52 +15,61 @@
 </head>
 
 <body>
-  <!-----------------------------------------------------------HEADER--------------------------------------------------------->
-  <div id="overlay"></div>
-  <header class="fixed-top">
-    <nav class="navbar navbar-expand-lg">
-      <div class="container-fluid d-flex align-items-center justify-content-between">
-        <!-- Left Group: Logo + Desktop Menu -->
-        <div class="d-flex align-items-center left-group">
-          <a class="navbar-brand" href="/">
-            <img src="/images/logo2.png" width="200" height="33" />
-          </a>
-          <!-- Desktop Menu Links -->
-          <ul class="navbar-nav d-none d-lg-flex ml-3">
-            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="/suggestion">Suggestion</a></li>
-          </ul>
-        </div>
-
-        <!-- Search Box -->
-        <div class="search-container order-2 order-md-1 mx-auto">
-          <div class="search-box">
-            <img src="/images/icon/search-icon.png" alt="Search" class="search-icon" />
-            <input type="text" class="search-input" placeholder="Search for a movie..."
-              onkeyup="searchMovies(this.value)" onfocus="showResults()" />
+    <!-----------------------------------------------------------HEADER--------------------------------------------------------->
+    <div id="overlay"></div>
+    <header class="fixed-top">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid d-flex align-items-center justify-content-between">
+          <!-- Left Group: Logo + Desktop Menu -->
+          <div class="d-flex align-items-center left-group">
+            <a class="navbar-brand" href="/">
+              <img src="/images/logo2.png" width="200" height="36" />
+            </a>
+            <!-- Desktop Menu Links -->
+            <ul class="navbar-nav d-none d-lg-flex ml-3">
+              <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="/suggestion">Suggestion</a></li>
+            </ul>
           </div>
-          <div class="search-results" id="searchResults"></div>
-        </div>
-
-        <!-- Right Group: Hamburger + User Menu (Desktop) -->
-        <div class="d-flex align-items-center right-group order-1 order-md-2">
-          <!-- Hamburger (Mobile only) -->
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu"
-            aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <!-- Desktop User Menu -->
-          <% if (!loggedIN) { %>
-            <button class="btn o-button ml-3 d-none d-lg-block" id="show-signin">Sign In</button>
+    
+          <!-- Search Box -->
+          <div class="search-container order-2 order-md-1 mx-auto">
+            <div class="search-box" onclick="expandSearch()">
+              <img src="/images/icon/search-icon.png" alt="Search" class="search-icon" />
+              <input
+                type="text"
+                class="search-input"
+                placeholder="Search for a movie..."
+                onkeyup="searchMovies(this.value)"
+                onfocus="showResults()"
+              />
+            </div>
+            <div class="search-results" id="searchResults"></div>
+          </div>
+          <!-- Right Group: Hamburger + User Menu (Desktop) -->
+          <div class="d-flex align-items-center right-group order-1 order-md-2">
+            <!-- Hamburger (Mobile only) -->
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarMenu"
+              aria-controls="navbarMenu"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <!-- Desktop User Menu -->
+            <% if (!loggedIN) { %>
+              <button class="btn o-button ml-3 d-none d-lg-block" id="show-signin">Sign In</button>
             <% } else { %>
               <ul class="menu-right d-none d-lg-flex ml-3">
                 <li class="nav-item dropdown">
                   <button class="nav-link dropbtn">
                     <img src="/images/icon/user-fill.png" class="icon-green" />
-                    <span class="main-font">
-                      <%= loggedIN %>
-                    </span>
+                    <span class="main-font"><%= loggedIN %></span>
                     <img src="/images/icon/drop-more.png" class="icon-green" />
                   </button>
                   <ul class="dropdown-content">
@@ -69,40 +78,38 @@
                   </ul>
                 </li>
               </ul>
-              <% } %>
+            <% } %>
+          </div>
         </div>
-      </div>
-
-      <!-- Mobile Menu -->
-      <!-- Mobile Menu -->
-      <div class="collapse navbar-collapse d-lg-none text-center" id="navbarMenu">
-        <ul class="navbar-nav mx-auto my-3 d-lg-none">
-          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="/suggestion">Suggestion</a></li>
-
-          <% if (!loggedIN) { %>
-            <li class="nav-item mt-2">
-              <button class="btn o-button ml-3 d-none d-lg-block" id="show-signin">Sign In</button>
-            </li>
-            <% } else { %>
-              <li class="nav-item dropdown mt-2">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-                  <img src="/images/icon/user-fill.png" class="icon-green" />
-                  <span class="main-font">
-                    <%= loggedIN %>
-                  </span>
-                </a>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="/user-profile">Edit Profile</a>
-                  <a class="dropdown-item" href="/logout">Sign out</a>
-                </div>
-              </li>
-              <% } %>
-        </ul>
-      </div>
-
-    </nav>
-  </header>
+    
+        <!-- Mobile Menu -->
+       <!-- Mobile Menu -->
+<div class="collapse navbar-collapse d-lg-none text-center" id="navbarMenu">
+    <ul class="navbar-nav mx-auto my-3 d-lg-none">
+      <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="/suggestion">Suggestion</a></li>
+  
+      <% if (!loggedIN) { %>
+        <li class="nav-item mt-2">
+          <button class="btn o-button ml-3 d-none d-lg-block" id="show-signin">Sign In</button>
+        </li>
+      <% } else { %>
+        <li class="nav-item dropdown mt-2">
+          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+            <img src="/images/icon/user-fill.png" class="icon-green" />
+            <span class="main-font"><%= loggedIN %></span>
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/user-profile">Edit Profile</a>
+            <a class="dropdown-item" href="/logout">Sign out</a>
+          </div>
+        </li>
+      <% } %>
+    </ul>
+  </div>
+  
+      </nav>
+    </header>
 
 
 
@@ -217,7 +224,7 @@
             <% movie.watch.forEach(platform=> { %>
               <a href="#" target="_blank">
                 <img class="app-2" src="/images/logo-<%= platform.toLowerCase().replace(/\s+/g, '-') %>.png"
-                  alt="<%= platform %> logo">
+                  alt="<%= platform %> logo" onerror="this.onerror=null; this.src='/images/No-streaming.png'; this.alt='No Streaming';">
               </a>
               <% }); %>
                 <% } else { %>
@@ -246,54 +253,59 @@
           <hr class="custom-line">
         </div>
 
-        <div class="row mt-4">
-          <div class="title-font-bold main-font">Cast</div>
-        </div>
+      <div class="row mt-4">
+  <div class="title-font-bold main-font">Cast</div>
+</div>
 
-        <% if (movie.cast && movie.cast.length> 0) { %>
-          <div class="cast-container mt-4">
-            <div class="swiper-container cast-swiper">
-              <div class="swiper-wrapper">
-                <% movie.cast.forEach(actor=> { %>
-                  <div class="swiper-slide">
-                    <div class="cast-box d-flex flex-column align-items-center">
-                      <div class="body-font-bold">
-                        <%= actor.national_name %>
-                      </div>
-                      <div>
-                        <%= actor.character %>
-                      </div>
-                    </div>
-                  </div>
-                  <% }) %>
-              </div>
+<% if (movie.cast && movie.cast.length > 0) { %>
+  <div class="cast-scroll-wrapper mt-4">
+    <!-- Scroll Buttons -->
+    <a class="cast-scroll-left" role="button">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    </a>
 
-              <div class="swiper-button-next"></div>
-              <div class="swiper-button-prev"></div>
-            </div>
+    <!-- Scrollable Cast Container -->
+    <div class="cast-horizontal-scroll">
+      <% movie.cast.forEach(actor => { %>
+        <div class="cast-box d-flex flex-column align-items-center">
+          <div class="body-font-bold">
+            <%= actor.national_name %>
           </div>
-          <% } else { %>
-            <p class="body-font white-font">No cast information available.</p>
-            <% } %>
+          <div>
+            <%= actor.character %>
+          </div>
+        </div>
+      <% }) %>
+    </div>
 
-              <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-              <script>
-                const swiper = new Swiper('.cast-swiper', {
-                  slidesPerView: 5,
-                  spaceBetween: 20,
-                  navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                  },
-                  breakpoints: {
-                    1200: { slidesPerView: 5 },
-                    992: { slidesPerView: 4 },
-                    768: { slidesPerView: 3 },
-                    576: { slidesPerView: 2 },
-                    0: { slidesPerView: 1 },
-                  }
-                });
-              </script>
+    <a class="cast-scroll-right" role="button">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    </a>
+  </div>
+<% } else { %>
+  <p class="body-font white-font">No cast information available.</p>
+<% } %>
+
+
+            <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const scrollContainer = document.querySelector('.cast-horizontal-scroll');
+    const scrollLeftBtn = document.querySelector('.cast-scroll-left');
+    const scrollRightBtn = document.querySelector('.cast-scroll-right');
+    const scrollAmount = 250; // pixel to scroll per click
+
+    if (scrollLeftBtn && scrollRightBtn && scrollContainer) {
+      scrollLeftBtn.addEventListener('click', function () {
+        scrollContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      });
+
+      scrollRightBtn.addEventListener('click', function () {
+        scrollContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      });
+    }
+  });
+</script>
+
               
               <div class="line mt-4">
                 <hr class="custom-line">
@@ -309,10 +321,12 @@
                       <div class="genre-movie-item">
                         <div class="row">
                           <a href="/movie-detail?id=<%= similar._id %>">
-                            <img class="poster-genre"
-                              src="<%= Array.isArray(similar.poster_url) && similar.poster_url.length > 0 ? similar.poster_url[0] : '/images/default-poster.jpg' %>"
-                              alt="<%= similar.title %>">
-                          </a>
+  <img class="poster-genre"
+       src="<%= Array.isArray(similar.poster_url) && similar.poster_url.length > 0 ? similar.poster_url[0] : '/images/no-poster.png' %>"
+       onerror="this.onerror=null; this.src='/images/no-poster.png'; this.alt='No Poster';"
+       alt="<%= similar.title %>">
+</a>
+
                         </div>
                         <div class="row mt-3">
                           <span class="entry-title">
@@ -336,7 +350,7 @@
                           <% if (similar.watch && similar.watch.length> 0) { %>
                             <% similar.watch.forEach(platform=> { %>
                               <img class="app" src="/images/logo-<%= platform.toLowerCase().replace(/\s+/g, '-') %>.png"
-                                alt="<%= platform %>">
+                                alt="<%= platform %>" onerror="this.onerror=null; this.src='/images/No-streaming.png'; this.alt='No Streaming';">
                               <% }); %>
                                 <% } %>
                         </div>

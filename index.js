@@ -73,6 +73,9 @@ const startGenreController = require('./controllers/startGenreController');
 app.use(startGenreController);
 
 
+const path = require('path');
+app.use('/asset', express.static(path.join(__dirname, 'asset')));
+
 
 
 
