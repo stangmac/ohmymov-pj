@@ -160,18 +160,45 @@
                               <% }) %>
                           <% } %>
                       </div>
-                      <div class="row app-logo mt-4">
-                          <img class="app2" src="/images/logo-netflix.png">
-                          <img class="app2" src="/images/logo-true-id.png">
-                          <img class="app2" src="/images/logo-apple-tv.png">
-                          <img class="app2" src="/images/logo-playstore.png">
-                      </div>
-                      <div class="row mt-4">
-                          <img class="app2" src="/images/logo-imdb.png">
-                          <div class="body-font white-font ml-3">6.6 / 10</div>
-                          <img class="app2 ml-4" src="/images/logo-rotten.png">
-                          <div class="body-font white-font ml-3">95 %</div>
-                      </div>
+                      <!-- ✅ แสดงโลโก้แพลตฟอร์มตาม movie.watch -->
+<div class="row app-logo mt-4">
+  <% if (movie.watch && Array.isArray(movie.watch)) { %>
+    <% movie.watch.forEach(platform => { %>
+      <% if (platform === 'Netflix') { %>
+        <img class="app2" src="/images/logo-netflix.png" alt="Netflix" />
+      <% } else if (platform === 'Apple TV') { %>
+        <img class="app2" src="/images/logo-apple-tv.png" alt="Apple TV" />
+      <% } else if (platform === 'Amazon Prime Video') { %>
+        <img class="app2" src="/images/logo-amazon-prime-video.png" alt="Amazon Prime" />
+      <% } else if (platform === 'Disney+') { %>
+        <img class="app2" src="/images/logo-disney.png" alt="Disney+" />
+      <% } else if (platform === 'HBO Max') { %>
+        <img class="app2" src="/images/logo-hbo-max.png" alt="HBO Max" />
+      <% } else if (platform === 'Google Play' || platform === 'Playstore') { %>
+        <img class="app2" src="/images/logo-playstore.png" alt="Google Play" />
+      <% } else if (platform === 'TrueID') { %>
+        <img class="app2" src="/images/logo-true-id.png" alt="TrueID" />
+      <% } else if (platform === 'iQIYI') { %>
+        <img class="app2" src="/images/iQIYI.png" alt="iQIYI" />
+      <% } else if (platform === 'Viu') { %>
+        <img class="app2" src="/images/logo-viu.png" alt="Viu" />
+      <% } %>
+    <% }) %>
+  <% } %>
+</div>
+
+<!-- ✅ แสดงคะแนน IMDb และ Rotten Tomatoes จริง -->
+<div class="row mt-4">
+  <% if (movie.rating_imdb && movie.rating_imdb !== "N/A") { %>
+    <img class="app2" src="/images/logo-imdb.png" alt="IMDb">
+    <div class="body-font white-font ml-3"><%= movie.rating_imdb %> / 10</div>
+  <% } %>
+  <% if (movie.rating_rotten && movie.rating_rotten !== "N/A") { %>
+    <img class="app2 ml-4" src="/images/logo-rotten.png" alt="Rotten Tomatoes">
+    <div class="body-font white-font ml-3"><%= movie.rating_rotten %></div>
+  <% } %>
+</div>
+
                   </div>
               </div>
           </div>
