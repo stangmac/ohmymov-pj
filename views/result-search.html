@@ -37,7 +37,7 @@
     
           <!-- Search Box -->
           <div class="search-container order-2 order-md-1 mx-auto">
-            <div class="search-box">
+            <div class="search-box" onclick="expandSearch()">
               <img src="/images/icon/search-icon.png" alt="Search" class="search-icon" />
               <input
                 type="text"
@@ -49,7 +49,6 @@
             </div>
             <div class="search-results" id="searchResults"></div>
           </div>
-    
           <!-- Right Group: Hamburger + User Menu (Desktop) -->
           <div class="d-flex align-items-center right-group order-1 order-md-2">
             <!-- Hamburger (Mobile only) -->
@@ -136,7 +135,7 @@
           <div class="box-new row py-2 mx-1 mt-4">
               <div class="col-2 mt-2">
                   <a href="/movie-detail?id=<%= movie.id %>">
-                      <img class="poster-search" src="<%= movie.poster_url %>" height="210px">
+                      <img class="poster-search" src="<%= movie.poster_url %>" height="210px"  onerror="this.onerror=null; this.src='/images/no-poster.png'; this.alt='No Streaming';">
                   </a>
               </div>
               <div class="col-10 mt-1">

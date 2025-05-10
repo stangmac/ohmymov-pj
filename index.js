@@ -70,7 +70,6 @@ const startController = require("./controllers/startController");
 const saveStartController = require('./controllers/saveStartController');
 const startGenreController = require('./controllers/startGenreController');
 app.use(startGenreController);
-
 // 🛣️ Routes
 app.get('/', indexController);
 app.get('/login', loginController);
