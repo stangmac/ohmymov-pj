@@ -64,7 +64,7 @@ document.addEventListener('click', function (event) {
     }
 });
 
-// ✅ ใช้แป้นพิมพ์เลื่อนผลลัพธ์ (Arrow Up/Down) และเลือกหนัง (Enter)
+// ✅ ใช้แป้นพิมพ์เลื่อนผลลัพธ์ (Arrow Up/Down) และกด Enter เพื่อไปหน้า result-search
 document.addEventListener('keydown', function (event) {
     let resultsContainer = document.getElementById('searchResults');
     let items = document.querySelectorAll('.result-item');
@@ -92,28 +92,28 @@ document.addEventListener('keydown', function (event) {
                 prev.classList.add('selected');
             }
         }
-    } else if (event.key === 'Enter' && selected) {
-        goToMovieDetail(selected.getAttribute("onclick").match(/'([^']+)'/)[1]);
+    } else if (event.key === 'Enter') {
+        let input = document.querySelector('.search-input').value.trim();
+        if (input.length > 0) {
+            goToFullResult(input);
+        }
     }
 });
-
 
 const searchBox = document.querySelector('.search-box');
 const overlay = document.getElementById('overlay');
 const searchResults = document.querySelector('.search-results');
 
 function expandSearch() {
-  searchBox.classList.add('expanded');
-  searchResults.classList.add('expanded');
-  overlay.style.display = 'block';
+    searchBox.classList.add('expanded');
+    searchResults.classList.add('expanded');
+    overlay.style.display = 'block';
 }
 
 function collapseSearch() {
-  searchBox.classList.remove('expanded');
-  searchResults.classList.remove('expanded');
-  overlay.style.display = 'none';
+    searchBox.classList.remove('expanded');
+    searchResults.classList.remove('expanded');
+    overlay.style.display = 'none';
 }
 
 overlay.addEventListener('click', collapseSearch);
-
-  
