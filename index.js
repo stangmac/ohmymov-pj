@@ -5,7 +5,6 @@ const app = express();
 const mongoose = require('mongoose');
 const expressSession = require('express-session');
 const MongoStore = require('connect-mongo');
-const bodyParser = require("body-parser");
 const flash = require('connect-flash');
 const { exec } = require('child_process');
 
@@ -13,36 +12,36 @@ const { exec } = require('child_process');
 const { requireLogin } = require('./middleware/auth');
 
 // 🌐 MongoDB Atlas
-const dbUrl = 'mongodb+srv://admin:720272297234@cluster0.tah8c.mongodb.net/ohmymov';
+const dbUrl = process.env.MONGO_URL;
 
 mongoose.connect(dbUrl)
-    .then(() => console.log('✅ Connected to MongoDB!'))
-    .catch((err) => console.error('❌ Error connecting to MongoDB:', err));
+  .then(() => console.log('✅ Connected to MongoDB!'))
+  .catch((err) => console.error('❌ Error connecting to MongoDB:', err));
 
 // 📦 Middleware
 app.use(express.static('public'));
 app.use(express.static('asset'));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use(flash());
 
 app.use(expressSession({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false,
-    store: MongoStore.create({ mongoUrl: dbUrl }),
-    cookie: { secure: false, httpOnly: true, maxAge: 1000 * 60 * 60 }
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false,
+  store: MongoStore.create({ mongoUrl: dbUrl }),
+  cookie: { secure: false, httpOnly: true, maxAge: 1000 * 60 * 60 }
 }));
 
-// 📌 ตั้งค่าผู้ใช้เข้าสู่ระบบ
+// 📌 ตั้งค่าผู้ใช้เข้าสู่ระบบ (ใช้ global.loggedIN)
 global.loggedIN = null;
+
 app.use((req, res, next) => {
-    res.locals.loggedIN = req.session.user ? req.session.user.username : null;
-    global.loggedIN = req.session.user ? req.session.user._id : null;
-    console.log("Session User:", req.session.user);
-    next();
+  global.loggedIN = req.session.user ? req.session.user.username : null;
+  console.log("Session User:", req.session.user);
+  next();
 });
 
 // 🖼️ Template Engine
@@ -71,21 +70,6 @@ const startController = require("./controllers/startController");
 const saveStartController = require('./controllers/saveStartController');
 const startGenreController = require('./controllers/startGenreController');
 app.use(startGenreController);
-
-
-const path = require('path');
-app.use('/asset', express.static(path.join(__dirname, 'asset')));
-
-
-
-
-
-
-
-
-
-
-
 // 🛣️ Routes
 app.get('/', indexController);
 app.get('/login', loginController);
@@ -99,24 +83,16 @@ app.get('/all-content', allcontentController);
 app.get('/suggestion', suggestionController);
 
 // ✅ 🔍 Search Routes
-app.get('/search', searchController.searchMovies); // สำหรับ autocomplete (JSON)
-app.get('/result-search', searchController.renderSearchPage); // สำหรับหน้าแสดงผลเต็มแบบมี % Matching
+app.get('/search', searchController.searchMovies);
+app.get('/result-search', searchController.renderSearchPage);
 
-// app.get('/logout', (req, res) => {
-//     req.session.destroy(() => {
-//         res.locals.loggedIN = null;
-//         res.redirect('/');
-//     });
-// });
-
-
-
+// 🔐 Logout
 app.get('/logout', (req, res) => {
-    req.session.destroy(() => {
-        res.clearCookie('connect.sid'); // ✅ เพิ่มบรรทัดนี้
-        res.locals.loggedIN = null;
-        res.redirect('/login'); // เพื่อให้ Cypress ดัก url ที่ชัดเจน
-    });
+  req.session.destroy(() => {
+    res.clearCookie('connect.sid');
+    global.loggedIN = null;
+    res.redirect('/login');
+  });
 });
 
 // 🔐 Forgot / Reset Password
@@ -132,41 +108,35 @@ app.post('/update-profile', updateProfileController);
 app.post('/request-otp', changePasswordController.requestOtp);
 app.post('/change-password', changePasswordController.changePassword);
 
-// ✅ เก็บกิจกรรมผู้ใช้ (like, seen, etc.)
+// ✅ User Activity
 app.post('/log-activity', requireLogin, logUserActivity);
 
-
-
-//start
+// 🎬 Start step
 app.post('/start', startController);
 app.post('/start/save', saveStartController);
 
-
-
-
-
-
-
-
-// 🔐 ตรวจสอบ login
+// 🔐 Check login (used by frontend JS)
 app.get('/check-login', (req, res) => {
-    res.json({ loggedIn: !!req.session.user });
+  res.json({ loggedIn: !!req.session.user });
 });
-
-
 
 // 🔐 Protected test
 app.use('/protected', requireLogin, (req, res) => {
-    res.send('This is a protected page');
+  res.send('This is a protected page');
 });
 
-// 🚀 Auto sync movie data (optional)
-// exec('node syncMoviesAuto.js', (err, stdout, stderr) => {
-//     if (err) return console.error('❌ Error Running syncMoviesAuto.js:', err);
-//     console.log(stdout);
-// });
+// ❌ 404 Handler
+app.use((req, res, next) => {
+  res.status(404).render('404', { message: "Page not found" });
+});
+
+// 🚨 Error Handler
+app.use((err, req, res, next) => {
+  console.error("🚨 Error:", err.stack);
+  res.status(500).render('500', { message: "Internal server error" });
+});
 
 // 🎬 Start Server
 app.listen(3000, () => {
-    console.log('🎥 Server is running on http://localhost:3000');
+  console.log('🎥 Server is running on http://localhost:3000');
 });

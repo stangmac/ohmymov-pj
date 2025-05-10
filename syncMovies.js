@@ -19,12 +19,44 @@ async function deleteAndSyncMovies() {
         if (indexExists) {
             console.log('🗑️ กำลังลบ Index "movie" ใน Elasticsearch...');
             await client.indices.delete({ index: 'movie' });
-        } else {
-            console.log('⚠️ ไม่มี Index "movie" ให้ลบ (ข้ามขั้นตอนนี้)');
         }
 
         console.log('📌 กำลังสร้าง Index "movie" ใหม่...');
-        await client.indices.create({ index: 'movie' });
+        await client.indices.create({
+            index: 'movie',
+            body: {
+                mappings: {
+                    properties: {
+                        movie_id: { type: 'integer' },
+                        title: { type: 'text' },
+                        genres: { type: 'keyword' },
+                        keywords: { type: 'text' },
+                        synopsis: { type: 'text' },
+                        cast: {
+                            type: 'nested',
+                            properties: {
+                                national_name: { type: 'text' }
+                            }
+                        },
+                        crew: {
+                            type: 'nested',
+                            properties: {
+                                role: { type: 'keyword' },
+                                members: { type: 'text' }
+                            }
+                        },
+                        year: { type: 'keyword' },
+                        release_date: { type: 'text' },
+                        popularity_score: { type: 'float' },
+                        watch_count: { type: 'integer' },
+                        poster_url: { type: 'text' },
+                        watch: { type: 'keyword' },
+                        rating_imdb: { type: 'text' },
+                        rating_rotten: { type: 'text' }
+                    }
+                }
+            }
+        });
 
         const movies = await Movie.find({});
         console.log(`🔍 กำลัง Sync หนัง ${movies.length} เรื่องจาก MongoDB...`);
@@ -45,11 +77,8 @@ async function deleteAndSyncMovies() {
                 continue;
             }
 
-            // ✅ ตรวจสอบค่าของ `watch_count` ให้เป็นตัวเลขเสมอ
             let watchCount = Number(movie.watch_count);
-            if (isNaN(watchCount)) {
-                watchCount = 0; // เปลี่ยนค่า "Unknown" เป็น 0
-            }
+            if (isNaN(watchCount)) watchCount = 0;
 
             bulkBody.push({ index: { _index: 'movie', _id: movie._id.toString() } });
             bulkBody.push({
@@ -58,74 +87,52 @@ async function deleteAndSyncMovies() {
                 genres: movie.genres || [],
                 synopsis: movie.synopsis || "No synopsis available",
                 keywords: movie.keywords || [],
-                cast: Array.isArray(movie.cast) ? movie.cast.map(c => (c.national_name || c)) : [],
-                crew: Array.isArray(movie.crew) ? movie.crew.map(c => (c.national_name || c)) : [],
+                cast: Array.isArray(movie.cast)
+                    ? movie.cast.map(c => ({ national_name: c.national_name || c }))
+                    : [],
+                crew: Array.isArray(movie.crew)
+                    ? movie.crew.map(c => ({
+                        role: c.role,
+                        members: c.members || []
+                    }))
+                    : [],
                 year: movie.year || "Unknown",
                 release_date: movie.release_date || "Unknown",
                 popularity_score: movie.popularity_score || 0,
-                watch_count: watchCount, // ✅ ตรวจสอบแล้วเป็นตัวเลขแน่นอน
-                poster_url: movie.poster_url && Array.isArray(movie.poster_url) && movie.poster_url.length > 0 
-                            ? movie.poster_url[0] 
-                            : null
+                watch_count: watchCount,
+                poster_url:
+                    movie.poster_url && Array.isArray(movie.poster_url) && movie.poster_url.length > 0
+                        ? movie.poster_url[0]
+                        : null,
+                watch: movie.watch || [],
+                rating_imdb: movie.rating_imdb || "N/A",
+                rating_rotten: movie.rating_rotten || "N/A"
             });
 
             syncedCount++;
 
             if (bulkBody.length >= 500) {
-                try {
-                    const response = await client.bulk({ refresh: "wait_for", body: bulkBody });
-                    if (response.errors) {
-                        console.error(`⛔ พบข้อผิดพลาดในการ Sync (บางเรื่องอาจไม่ได้เพิ่มลง Elasticsearch)`);
-                        response.items.forEach((item, index) => {
-                            if (item.index && item.index.error) {
-                                console.error(`❌ ERROR (${item.index.status}):`, item.index.error);
-                                failedMovies.push(bulkBody[index * 2 + 1]);
-                                failedErrors.push(item.index.error);
-                            }
-                        });
-                    }
-                } catch (err) {
-                    console.error(`❌ Error ในการ Sync:`, err);
-                }
+                await uploadBulk(bulkBody, failedMovies, failedErrors);
                 bulkBody = [];
                 console.log(`✅ Synced ${syncedCount}/${movies.length} เรื่อง...`);
             }
         }
 
         if (bulkBody.length > 0) {
-            try {
-                const response = await client.bulk({ refresh: "wait_for", body: bulkBody });
-                if (response.errors) {
-                    console.error(`⛔ พบข้อผิดพลาดในการ Sync (บางเรื่องอาจไม่ได้เพิ่มลง Elasticsearch)`);
-                    response.items.forEach((item, index) => {
-                        if (item.index && item.index.error) {
-                            console.error(`❌ ERROR (${item.index.status}):`, item.index.error);
-                            failedMovies.push(bulkBody[index * 2 + 1]);
-                            failedErrors.push(item.index.error);
-                        }
-                    });
-                }
-            } catch (err) {
-                console.error(`❌ Error ในการ Sync:`, err);
-            }
+            await uploadBulk(bulkBody, failedMovies, failedErrors);
         }
 
         await client.indices.refresh({ index: "movie" });
 
         const { count } = await client.count({ index: "movie" });
-
         console.log(`📊 ตรวจสอบแล้ว จำนวนหนังใน Elasticsearch: ${count} เรื่อง`);
-        if (count < 2018) {
-            console.warn(`⚠️ Elasticsearch ยังขาด ${2018 - count} เรื่อง`);
-        } else {
-            console.log(`✅ Sync หนังครบ 2018 เรื่องแล้ว!`);
-        }
 
         if (failedMovies.length > 0) {
-            console.error(`⛔ มี ${failedMovies.length} เรื่องที่ Sync ไม่สำเร็จ`);
             fs.writeFileSync('failedMovies.json', JSON.stringify(failedMovies, null, 2));
             fs.writeFileSync('failedErrors.json', JSON.stringify(failedErrors, null, 2));
-            console.log(`📂 บันทึกข้อมูลหนังที่ล้มเหลวลงไฟล์ failedMovies.json และข้อผิดพลาดลง failedErrors.json แล้ว`);
+            console.error(`⛔ มี ${failedMovies.length} เรื่องที่ Sync ไม่สำเร็จ (ดูในไฟล์ failedMovies.json)`);
+        } else {
+            console.log(`✅ Sync สำเร็จทั้งหมด!`);
         }
 
     } catch (error) {
@@ -135,8 +142,20 @@ async function deleteAndSyncMovies() {
     }
 }
 
+async function uploadBulk(bulkBody, failedMovies, failedErrors) {
+    try {
+        const response = await client.bulk({ refresh: "wait_for", body: bulkBody });
+        if (response.errors) {
+            response.items.forEach((item, index) => {
+                if (item.index && item.index.error) {
+                    failedMovies.push(bulkBody[index * 2 + 1]);
+                    failedErrors.push(item.index.error);
+                }
+            });
+        }
+    } catch (err) {
+        console.error("❌ Bulk upload failed:", err);
+    }
+}
+
 deleteAndSyncMovies();
-
-
-
-
