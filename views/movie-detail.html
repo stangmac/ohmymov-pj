@@ -15,61 +15,51 @@
 </head>
 
 <body>
-    <!-----------------------------------------------------------HEADER--------------------------------------------------------->
-    <div id="overlay"></div>
-    <header class="fixed-top">
-      <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid d-flex align-items-center justify-content-between">
-          <!-- Left Group: Logo + Desktop Menu -->
-          <div class="d-flex align-items-center left-group">
-            <a class="navbar-brand" href="/">
-              <img src="/images/logo2.png" width="200" height="36" />
-            </a>
-            <!-- Desktop Menu Links -->
-            <ul class="navbar-nav d-none d-lg-flex ml-3">
-              <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-              <li class="nav-item"><a class="nav-link" href="/suggestion">Suggestion</a></li>
-            </ul>
+  <!-----------------------------------------------------------HEADER--------------------------------------------------------->
+  <div id="overlay"></div>
+  <header class="fixed-top">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid d-flex align-items-center justify-content-between">
+        <!-- Left Group: Logo + Desktop Menu -->
+        <div class="d-flex align-items-center left-group">
+          <a class="navbar-brand" href="/">
+            <img src="/images/logo2.png" width="200" height="36" />
+          </a>
+          <!-- Desktop Menu Links -->
+          <ul class="navbar-nav d-none d-lg-flex ml-3">
+            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/suggestion">Suggestion</a></li>
+          </ul>
+        </div>
+
+        <!-- Search Box -->
+        <div class="search-container order-2 order-md-1 mx-auto">
+          <div class="search-box" onclick="expandSearch()">
+            <img src="/images/icon/search-icon.png" alt="Search" class="search-icon" />
+            <input type="text" class="search-input" placeholder="Search for a movie..."
+              onkeyup="searchMovies(this.value)" onfocus="showResults()" />
           </div>
-    
-          <!-- Search Box -->
-          <div class="search-container order-2 order-md-1 mx-auto">
-            <div class="search-box" onclick="expandSearch()">
-              <img src="/images/icon/search-icon.png" alt="Search" class="search-icon" />
-              <input
-                type="text"
-                class="search-input"
-                placeholder="Search for a movie..."
-                onkeyup="searchMovies(this.value)"
-                onfocus="showResults()"
-              />
-            </div>
-            <div class="search-results" id="searchResults"></div>
-          </div>
-          <!-- Right Group: Hamburger + User Menu (Desktop) -->
-          <div class="d-flex align-items-center right-group order-1 order-md-2">
-            <!-- Hamburger (Mobile only) -->
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target="#navbarMenu"
-              aria-controls="navbarMenu"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
-    
-            <!-- Desktop User Menu -->
-            <% if (!loggedIN) { %>
-              <button class="btn o-button ml-3 d-none d-lg-block" id="show-signin">Sign In</button>
+          <div class="search-results" id="searchResults"></div>
+        </div>
+        <!-- Right Group: Hamburger + User Menu (Desktop) -->
+        <div class="d-flex align-items-center right-group order-1 order-md-2">
+          <!-- Hamburger (Mobile only) -->
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu"
+            aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- Desktop User Menu -->
+          <% if (!loggedIN) { %>
+            <button class="btn o-button ml-3 d-none d-lg-block" id="show-signin">Sign In</button>
             <% } else { %>
               <ul class="menu-right d-none d-lg-flex ml-3">
                 <li class="nav-item dropdown">
                   <button class="nav-link dropbtn">
                     <img src="/images/icon/user-fill.png" class="icon-green" />
-                    <span class="main-font"><%= loggedIN %></span>
+                    <span class="main-font">
+                      <%= loggedIN %>
+                    </span>
                     <img src="/images/icon/drop-more.png" class="icon-green" />
                   </button>
                   <ul class="dropdown-content">
@@ -78,38 +68,41 @@
                   </ul>
                 </li>
               </ul>
-            <% } %>
-          </div>
+              <% } %>
         </div>
-    
-        <!-- Mobile Menu -->
-       <!-- Mobile Menu -->
-<div class="collapse navbar-collapse d-lg-none text-center" id="navbarMenu">
-    <ul class="navbar-nav mx-auto my-3 d-lg-none">
-      <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-      <li class="nav-item"><a class="nav-link" href="/suggestion">Suggestion</a></li>
-  
-      <% if (!loggedIN) { %>
-        <li class="nav-item mt-2">
-          <button class="btn o-button ml-3 d-none d-lg-block" id="show-signin">Sign In</button>
-        </li>
-      <% } else { %>
-        <li class="nav-item dropdown mt-2">
-          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-            <img src="/images/icon/user-fill.png" class="icon-green" />
-            <span class="main-font"><%= loggedIN %></span>
-          </a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="/user-profile">Edit Profile</a>
-            <a class="dropdown-item" href="/logout">Sign out</a>
-          </div>
-        </li>
-      <% } %>
-    </ul>
-  </div>
-  
-      </nav>
-    </header>
+      </div>
+
+      <!-- Mobile Menu -->
+      <!-- Mobile Menu -->
+      <div class="collapse navbar-collapse d-lg-none text-center" id="navbarMenu">
+        <ul class="navbar-nav mx-auto my-3 d-lg-none">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/suggestion">Suggestion</a></li>
+
+          <% if (!loggedIN) { %>
+            <li class="nav-item mt-2">
+              <button class="btn o-button ml-3 d-none d-lg-block" id="show-signin">Sign In</button>
+            </li>
+            <% } else { %>
+              <li class="nav-item dropdown mt-2">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                  <img src="/images/icon/user-fill.png" class="icon-green" />
+                  <span class="main-font">
+                    <%= loggedIN %>
+                  </span>
+                </a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="/user-profile">Edit Profile</a>
+                  <a class="dropdown-item" href="/logout">Sign out</a>
+                </div>
+              </li>
+              <% } %>
+        </ul>
+      </div>
+
+    </nav>
+  </header>
+
 
 
 
@@ -130,63 +123,69 @@
 
           <!-- Year, Duration, Genre -->
           <div class="d-flex flex-wrap align-items-center text-white mb-3 movie-info">
-            <span class="body-font text-main"><%= movie.year ? movie.year : 'N/A' %></span>
-          
+            <span class="body-font text-main">
+              <%= movie.year ? movie.year : 'N/A' %>
+            </span>
+
             <span class="dot-separator"></span>
-          
-            <span class="body-font text-main"><%= movie.duration_minute !== undefined ? movie.duration_minute : 'N/A' %> mins</span>
-          
+
+            <span class="body-font text-main">
+              <%= movie.duration_minute !==undefined ? movie.duration_minute : 'N/A' %> mins
+            </span>
+
             <span class="dot-separator"></span>
-          
+
             <span class="body-font genre-list d-flex flex-wrap align-items-center">
-              <% if (Array.isArray(movie.genres) && movie.genres.length > 0) { %>
-                <% movie.genres.forEach((genre, index) => { %>
-                  <span class="text-main genre-item"><%= genre %></span>
-                  <% if (index !== movie.genres.length - 1) { %>
+              <% if (Array.isArray(movie.genres) && movie.genres.length> 0) { %>
+                <% movie.genres.forEach((genre, index)=> { %>
+                  <span class="text-main genre-item">
+                    <%= genre %>
+                  </span>
+                  <% if (index !==movie.genres.length - 1) { %>
                     <span class="dot-separator"></span>
-                  <% } %>
-                <% }); %>
-              <% } else { %>
-                <span class="text-main">N/A</span>
-              <% } %>
+                    <% } %>
+                      <% }); %>
+                        <% } else { %>
+                          <span class="text-main">N/A</span>
+                          <% } %>
             </span>
           </div>
-          
-          
 
-<!-- Ratings -->
-<div class="d-flex align-items-center gap-4 mb-4 rating-box">
-  <!-- IMDb -->
-  <div class="d-flex align-items-center gap-2">
-    <img src="/images/logo-imdb.png" class="rating-logo" alt="IMDb">
-    <span class="body-font white-font">
-      <%= movie.rating_imdb ? movie.rating_imdb + ' / 10' : 'N/A' %>
-    </span>
-  </div>
 
-  <!-- Rotten Tomatoes -->
-  <div class="d-flex align-items-center gap-2">
-    <img src="/images/logo-rotten.png" class="rating-logo" alt="Rotten Tomatoes">
-    <span class="body-font white-font">
-      <%= movie.rating_rotten ? movie.rating_rotten : 'N/A' %>
-    </span>
-  </div>
-</div>
+
+          <!-- Ratings -->
+          <div class="d-flex align-items-center gap-4 mb-4 rating-box">
+            <!-- IMDb -->
+            <div class="d-flex align-items-center gap-2">
+              <img src="/images/logo-imdb.png" class="rating-logo" alt="IMDb">
+              <span class="body-font white-font">
+                <%= movie.rating_imdb ? movie.rating_imdb + ' / 10' : 'N/A' %>
+              </span>
+            </div>
+
+            <!-- Rotten Tomatoes -->
+            <div class="d-flex align-items-center gap-2">
+              <img src="/images/logo-rotten.png" class="rating-logo" alt="Rotten Tomatoes">
+              <span class="body-font white-font">
+                <%= movie.rating_rotten ? movie.rating_rotten : 'N/A' %>
+              </span>
+            </div>
+          </div>
 
 
           <!-- Buttons -->
-   <!-- Buttons -->
-<div class="d-flex flex-wrap gap-2 button-group">
-  <button class="btn o-button-3">Synopsis</button>
-  <button class="btn o-button-3">Where to watch</button>
-  <button class="btn o-button-3">Posters</button>
-  <button class="btn o-button-3">Cast</button>
-  <button class="btn o-button-3">Similar titles</button>
-</div>
+          <!-- Buttons -->
+          <div class="d-flex flex-xl-wrap gap-2 button-group d-none">
+            <a href="#section-synopsis" class="btn o-button-3">Synopsis</a>
+            <a href="#section-watch" class="btn o-button-3">Where to watch</a>
+            <a href="#section-posters" class="btn o-button-3">Posters</a>
+            <a href="#section-cast" class="btn o-button-3">Cast</a>
+            <a href="#section-similar" class="btn o-button-3">Similar titles</a>
+          </div>
 
         </div>
 
-        <div class="col-md-4 pt-4">
+        <div class="col-xl-4 pt-4">
           <% if (movie.teaser_url && movie.teaser_url.includes("youtube.com/watch?v=")) { %>
                 <div class=" ratio-4by3">
             <iframe src="<%= movie.teaser_url.replace('watch?v=', 'embed/') + '?autoplay=1&rel=0' %>" title="Teaser"
@@ -201,11 +200,11 @@
     </div>
 
 
-    <div class="row">
-      <div class="col-8">
+<div class="row mt-4">
+  <div class="col-12 col-xl-8">
         <div class="title-movies mt-4">
           <div class="row">
-            <div class="title-font-bold main-font">Synopsis</div>
+            <div class="title-font-bold main-font" id="section-synopsis">Synopsis</div>
           </div>
           <div class="row mt-4">
             <div class="body-font white-font">
@@ -217,14 +216,15 @@
           </div>
         </div>
         <div class="row mt-4">
-          <div class="title-font-bold main-font">Where to watch</div>
+          <div class="title-font-bold main-font" id="section-watch">Where to watch</div>
         </div>
         <div class="row mt-4">
           <% if (movie.watch && movie.watch.length> 0) { %>
             <% movie.watch.forEach(platform=> { %>
               <a href="#" target="_blank">
                 <img class="app-2" src="/images/logo-<%= platform.toLowerCase().replace(/\s+/g, '-') %>.png"
-                  alt="<%= platform %> logo" onerror="this.onerror=null; this.src='/images/No-streaming.png'; this.alt='No Streaming';">
+                  alt="<%= platform %> logo"
+                  onerror="this.onerror=null; this.src='/images/No-streaming.png'; this.alt='No Streaming';">
               </a>
               <% }); %>
                 <% } else { %>
@@ -236,231 +236,381 @@
         </div>
 
         <div class="row mt-4">
-          <div class="title-font-bold main-font">Posters</div>
+          <div class="title-font-bold main-font" id="section-posters">Posters</div>
         </div>
         <div class="row mt-4">
           <% if (movie.poster_url && movie.poster_url.length> 0) { %>
-            <% movie.poster_url.forEach(poster=> { %>
-              <div class="col">
-                <img class="movie-detail-poster" src="<%= poster %>" alt="Movie Poster">
+            <div class="poster-scroll-wrapper mt-4">
+              <a class="poster-scroll-left" role="button">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              </a>
+
+              <div class="poster-horizontal-scroll">
+                <% movie.poster_url.forEach(poster=> { %>
+                  <div class="poster-box">
+                    <img class="movie-detail-poster" src="<%= poster %>" alt="Movie Poster">
+                  </div>
+                  <% }); %>
               </div>
-              <% }); %>
-                <% } else { %>
-                  <p class="body-font white-font">No posters available.</p>
-                  <% } %>
+
+              <a class="poster-scroll-right" role="button">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              </a>
+            </div>
+            <% } %>
         </div>
         <div class="line mt-4">
           <hr class="custom-line">
         </div>
 
-      <div class="row mt-4">
-  <div class="title-font-bold main-font">Cast</div>
-</div>
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            const posterScrollContainer = document.querySelector('.poster-horizontal-scroll');
+            const posterScrollLeftBtn = document.querySelector('.poster-scroll-left');
+            const posterScrollRightBtn = document.querySelector('.poster-scroll-right');
+            const posterScrollAmount = 250;
 
-<% if (movie.cast && movie.cast.length > 0) { %>
-  <div class="cast-scroll-wrapper mt-4">
-    <!-- Scroll Buttons -->
-    <a class="cast-scroll-left" role="button">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    </a>
+            if (posterScrollLeftBtn && posterScrollRightBtn && posterScrollContainer) {
+              posterScrollLeftBtn.addEventListener('click', function () {
+                posterScrollContainer.scrollBy({ left: -posterScrollAmount, behavior: 'smooth' });
+              });
 
-    <!-- Scrollable Cast Container -->
-    <div class="cast-horizontal-scroll">
-      <% movie.cast.forEach(actor => { %>
-        <div class="cast-box d-flex flex-column align-items-center">
-          <div class="body-font-bold">
-            <%= actor.national_name %>
-          </div>
-          <div>
-            <%= actor.character %>
-          </div>
+              posterScrollRightBtn.addEventListener('click', function () {
+                posterScrollContainer.scrollBy({ left: posterScrollAmount, behavior: 'smooth' });
+              });
+            }
+          });
+        </script>
+
+        <div class="row mt-4">
+          <div class="title-font-bold main-font" id="section-cast">Cast</div>
         </div>
-      <% }) %>
-    </div>
 
-    <a class="cast-scroll-right" role="button">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    </a>
-  </div>
-<% } else { %>
-  <p class="body-font white-font">No cast information available.</p>
-<% } %>
+        <% if (movie.cast && movie.cast.length> 0) { %>
+          <div class="cast-scroll-wrapper mt-4">
+            <!-- Scroll Buttons -->
+            <a class="cast-scroll-left" role="button">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </a>
+
+            <!-- Scrollable Cast Container -->
+            <div class="cast-horizontal-scroll">
+              <% movie.cast.forEach(actor=> { %>
+                <div class="cast-box d-flex flex-column align-items-center">
+                  <div class="body-font-bold">
+                    <%= actor.national_name %>
+                  </div>
+                  <div>
+                    <%= actor.character %>
+                  </div>
+                </div>
+                <% }) %>
+            </div>
+
+            <a class="cast-scroll-right" role="button">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </a>
+          </div>
+          <% } else { %>
+            <p class="body-font white-font">No cast information available.</p>
+            <% } %>
 
 
-            <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const scrollContainer = document.querySelector('.cast-horizontal-scroll');
-    const scrollLeftBtn = document.querySelector('.cast-scroll-left');
-    const scrollRightBtn = document.querySelector('.cast-scroll-right');
-    const scrollAmount = 250; // pixel to scroll per click
+              <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                  const scrollContainer = document.querySelector('.cast-horizontal-scroll');
+                  const scrollLeftBtn = document.querySelector('.cast-scroll-left');
+                  const scrollRightBtn = document.querySelector('.cast-scroll-right');
+                  const scrollAmount = 250; // pixel to scroll per click
 
-    if (scrollLeftBtn && scrollRightBtn && scrollContainer) {
-      scrollLeftBtn.addEventListener('click', function () {
-        scrollContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-      });
+                  if (scrollLeftBtn && scrollRightBtn && scrollContainer) {
+                    scrollLeftBtn.addEventListener('click', function () {
+                      scrollContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                    });
 
-      scrollRightBtn.addEventListener('click', function () {
-        scrollContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-      });
-    }
-  });
-</script>
+                    scrollRightBtn.addEventListener('click', function () {
+                      scrollContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                    });
+                  }
+                });
+              </script>
 
-              
+              <div class="col-12 col-md-12 col-lg-12 mt-4 d-flex d-xl-none justify-content-center res">
+                <div class="detail-box sticky-box p-3 p-4">
+                  <!-- ปีที่ฉาย -->
+                  <div class="caption-font main-font movie-year mb-2">
+                    <%= movie.year ? movie.year : 'N/A' %>
+                  </div>
+                  <!-- ชื่อหนัง -->
+                  <div class="body-font-bold movie-title mb-3">
+                    <%= movie.title %>
+                  </div>
+
+                  <!-- โปสเตอร์ -->
+                  <a href="/" class="d-flex justify-content-center mb-3">
+                    <img class="poster-detail-box"
+                      src="<%= Array.isArray(movie.poster_url) && movie.poster_url.length > 0 ? movie.poster_url[0] : '/images/default-poster.jpg' %>"
+                      alt="<%= movie.title %>">
+                  </a>
+
+                  <!-- ปุ่มกดต่าง ๆ -->
+                  <style>
+                    .active-btn {
+                      background-color: #9bee98 !important;
+                      color: #191919;
+                      border: 2px solid #9bee98;
+                    }
+
+                    .active-btn .watchlist {
+                      filter: drop-shadow(0 0 2px var(--bg--main)) brightness(0) saturate(100%);
+                    }
+
+                    .sticky-box {
+                      position: sticky;
+                      top: 100px;
+                      /* ปรับตำแหน่งจากด้านบน */
+                      z-index: 5;
+                    }
+
+                    .poster-detail-box {
+                      max-width: 100%;
+                      height: auto;
+                      border-radius: 8px;
+                    }
+                  </style>
+
+                  <div class="d-flex justify-content-center mt-2">
+                    <div class="row  mr-2">
+                      <!-- LIKE -->
+                      <button id="like-button"
+                        class="btn o-button-2 history <% if (user && Array.isArray(user.like) && user.like.map(id => id.toString()).includes(movie._id.toString())) { %>active-btn<% } %>"
+                        type="button" onclick="toggleButton(this, '<%= movie._id %>', 'like')">
+                        <img class="watchlist" src="/images/icon/like.png">
+                        <span id="like-count">
+                          <%= movie.like || 0 %>
+                        </span>
+                      </button>
+
+                      <!-- WISHLIST -->
+                      <button id="wishlist-button"
+                        class="btn o-button-2 history <% if (user && Array.isArray(user.wishlist) && user.wishlist.map(id => id.toString()).includes(movie._id.toString())) { %>active-btn<% } %>"
+                        type="button" onclick="toggleButton(this, '<%= movie._id %>', 'wishlist')">
+                        <img class="watchlist" src="/images/icon/bookmark.png">
+                        WISHLIST
+                      </button>
+                    </div>
+
+                    <div class="row">
+                      <!-- DISLIKE -->
+                      <button id="dislike-button"
+                        class="btn o-button-2 history <% if (user && Array.isArray(user.dislike) && user.dislike.map(id => id.toString()).includes(movie._id.toString())) { %>active-btn<% } %>"
+                        type="button" onclick="toggleButton(this, '<%= movie._id %>', 'dislike')">
+                        <img class="watchlist" src="/images/icon/dislike.png">
+                        <span id="dislike-count">
+                          <%= movie.dislike || 0 %>
+                        </span>
+                      </button>
+
+                      <!-- SEEN -->
+                      <button id="seen-button"
+                        class="btn o-button-2 history <% if (user && Array.isArray(user.seen) && user.seen.map(id => id.toString()).includes(movie._id.toString())) { %>active-btn<% } %>"
+                        type="button" onclick="toggleButton(this, '<%= movie._id %>', 'seen')">
+                        <img class="watchlist" src="/images/icon/seen.png">
+                        SEEN
+                      </button>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
               <div class="line mt-4">
                 <hr class="custom-line">
               </div>
 
-              <div class="row mt-4">
-                <div class="title-font-bold main-font">Similar Titles</div>
-              </div>
-              <div class="row mt-1">
-                <% if (similarMovies && similarMovies.length> 0) { %>
-                  <% similarMovies.forEach(similar=> { %>
-                    <div class="col">
-                      <div class="genre-movie-item">
-                        <div class="row">
-                          <a href="/movie-detail?id=<%= similar._id %>">
-  <img class="poster-genre"
-       src="<%= Array.isArray(similar.poster_url) && similar.poster_url.length > 0 ? similar.poster_url[0] : '/images/no-poster.png' %>"
-       onerror="this.onerror=null; this.src='/images/no-poster.png'; this.alt='No Poster';"
-       alt="<%= similar.title %>">
-</a>
 
-                        </div>
-                        <div class="row mt-3">
-                          <span class="entry-title">
+              <!-- Similar -->
+              <div class="row mt-4">
+                <div class="title-font-bold main-font" id="section-similar">Similar Titles</div>
+              </div>
+
+              <% if (similarMovies && similarMovies.length> 0) { %>
+                <div class="poster-scroll-wrapper mt-3 position-relative">
+
+                  <!-- Scroll Buttons -->
+                  <a class="similar-scroll-left" role="button" style="z-index: 1;">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  </a>
+
+                  <!-- Similar Scroll Container -->
+                  <div class="poster-horizontal-scroll similar-scroll">
+                    <% similarMovies.forEach(similar=> { %>
+                      <div class="card-horizontal similar-card">
+                        <div class="similar-genre-movie-item">
+                          <a href="/movie-detail?id=<%= similar._id %>">
+                            <img class="poster-genre"
+                              src="<%= Array.isArray(similar.poster_url) && similar.poster_url.length > 0 ? similar.poster_url[0] : '/images/no-poster.png' %>"
+                              onerror="this.onerror=null; this.src='/images/no-poster.png'; this.alt='No Poster';"
+                              alt="<%= similar.title %>">
+                          </a>
+                          <div class="mt-2 entry-title">
                             <%= similar.title %>
-                          </span>
-                        </div>
-                        <div class="row">
-                          <span class="entry-title">(<%= similar.year %>)</span>
-                        </div>
-                        <div class="row mt-3">
-                          <img class="app" src="/images/logo-imdb.png">
-                          <div class="caption-font white-font ml-2">
-                            <%= similar.rating_imdb ? similar.rating_imdb + ' / 10' : 'N/A' %>
                           </div>
-                          <img class="app ml-4" src="/images/logo-rotten.png">
-                          <div class="caption-font white-font ml-2">
-                            <%= similar.rating_rotten ? similar.rating_rotten : 'N/A' %>
+                          <div class="caption-font">(<%= similar.year %>)</div>
+                          <div class="rating-row mt-2">
+                            <img class="app" src="/images/logo-imdb.png">
+                            <span class="caption-font ml-2">
+                              <%= similar.rating_imdb || 'N/A' %> / 10
+                            </span>
+                            <img class="app ml-2" src="/images/logo-rotten.png">
+                            <span class="caption-font ml-2">
+                              <%= similar.rating_rotten || 'N/A' %>
+                            </span>
+                          </div>
+                          <div class="app-logo mt-3">
+                            <% if (similar.watch?.length) { similar.watch.forEach(platform=> {
+                              let file = platform.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+                              %>
+                              <img class="app" src="/images/logo-<%= file %>.png" alt="<%= platform %>"
+                                onerror="this.onerror=null; this.src='/images/No-streaming.png'; this.alt='No Streaming';">
+                              <% }) } %>
+                          </div>
+                          <div class="mt-3">
+                            <button class="btn o-button-1" type="button">
+                              <img class="watchlist" src="/images/icon/bookmark2.png"> WISHLIST
+                            </button>
                           </div>
                         </div>
-                        <div class="row app-logo mt-3">
-                          <% if (similar.watch && similar.watch.length> 0) { %>
-                            <% similar.watch.forEach(platform=> { %>
-                              <img class="app" src="/images/logo-<%= platform.toLowerCase().replace(/\s+/g, '-') %>.png"
-                                alt="<%= platform %>" onerror="this.onerror=null; this.src='/images/No-streaming.png'; this.alt='No Streaming';">
-                              <% }); %>
-                                <% } %>
+                      </div>
+                      <% }); %>
+                  </div>
+
+                  <!-- Scroll Right -->
+                  <a class="similar-scroll-right" role="button" style="z-index: 1;">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  </a>
+                </div>
+                <% } else { %>
+                  <p class="body-font white-font">No similar titles available.</p>
+                  <% } %>
+  </div>
+
+
+                    <script>
+                      document.addEventListener("DOMContentLoaded", function () {
+                        const scrollContainer = document.querySelector('.similar-scroll');
+                        const scrollLeftBtn = document.querySelector('.similar-scroll-left');
+                        const scrollRightBtn = document.querySelector('.similar-scroll-right');
+
+                        if (!scrollContainer || !scrollLeftBtn || !scrollRightBtn) return;
+
+                        const getScrollAmount = () => {
+                          const card = scrollContainer.querySelector('.similar-card');
+                          if (!card) return 300; // fallback
+                          const gap = 16; // ให้ตรงกับ CSS
+                          return card.offsetWidth + gap;
+                        };
+
+                        scrollLeftBtn.addEventListener('click', () => {
+                          scrollContainer.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+                        });
+
+                        scrollRightBtn.addEventListener('click', () => {
+                          scrollContainer.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+                        });
+                      });
+                    </script>
+
+
+
+                    <div class="col-12 col-md-12 col-xl-4 mt-4 d-none d-xl-flex">
+                      <div class="detail-box sticky-box">
+                        <!-- ปีที่ฉาย -->
+                        <div class="caption-font main-font movie-year mb-2">
+                          <%= movie.year ? movie.year : 'N/A' %>
                         </div>
-                        <div class="row mt-4">
-                          <button class="btn o-button-1" type="button">
-                            <img class="watchlist" src="/images/icon/bookmark2.png">
-                            WISHLIST
-                          </button>
+                        <!-- ชื่อหนัง -->
+                        <div class="body-font-bold movie-title mb-3">
+                          <%= movie.title %>
+                        </div>
+
+                        <!-- โปสเตอร์ -->
+                        <a href="/" class="d-flex justify-content-center mb-3">
+                          <img class="poster-detail-box"
+                            src="<%= Array.isArray(movie.poster_url) && movie.poster_url.length > 0 ? movie.poster_url[0] : '/images/default-poster.jpg' %>"
+                            alt="<%= movie.title %>">
+                        </a>
+
+                        <!-- ปุ่มกดต่าง ๆ -->
+                        <style>
+                          .active-btn {
+                            background-color: #9bee98 !important;
+                            color: #191919;
+                            border: 2px solid #9bee98;
+                          }
+
+                          .active-btn .watchlist {
+                            filter: drop-shadow(0 0 2px var(--bg--main)) brightness(0) saturate(100%);
+                          }
+
+                          .sticky-box {
+                            position: sticky;
+                            top: 100px;
+                            /* ปรับตำแหน่งจากด้านบน */
+                            z-index: 5;
+                          }
+
+                          .poster-detail-box {
+                            max-width: 100%;
+                            height: auto;
+                            border-radius: 8px;
+                          }
+                        </style>
+
+                        <div class="d-flex justify-content-center mt-2">
+                          <div class="row ml-3 mr-2">
+                            <!-- LIKE -->
+                            <button id="like-button"
+                              class="btn o-button-2 history <% if (user && Array.isArray(user.like) && user.like.map(id => id.toString()).includes(movie._id.toString())) { %>active-btn<% } %>"
+                              type="button" onclick="toggleButton(this, '<%= movie._id %>', 'like')">
+                              <img class="watchlist" src="/images/icon/like.png">
+                              <span id="like-count">
+                                <%= movie.like || 0 %>
+                              </span>
+                            </button>
+
+                            <!-- WISHLIST -->
+                            <button id="wishlist-button"
+                              class="btn o-button-2 history <% if (user && Array.isArray(user.wishlist) && user.wishlist.map(id => id.toString()).includes(movie._id.toString())) { %>active-btn<% } %>"
+                              type="button" onclick="toggleButton(this, '<%= movie._id %>', 'wishlist')">
+                              <img class="watchlist" src="/images/icon/bookmark.png">
+                              WISHLIST
+                            </button>
+                          </div>
+
+                          <div class="row">
+                            <!-- DISLIKE -->
+                            <button id="dislike-button"
+                              class="btn o-button-2 history <% if (user && Array.isArray(user.dislike) && user.dislike.map(id => id.toString()).includes(movie._id.toString())) { %>active-btn<% } %>"
+                              type="button" onclick="toggleButton(this, '<%= movie._id %>', 'dislike')">
+                              <img class="watchlist" src="/images/icon/dislike.png">
+                              <span id="dislike-count">
+                                <%= movie.dislike || 0 %>
+                              </span>
+                            </button>
+
+                            <!-- SEEN -->
+                            <button id="seen-button"
+                              class="btn o-button-2 history <% if (user && Array.isArray(user.seen) && user.seen.map(id => id.toString()).includes(movie._id.toString())) { %>active-btn<% } %>"
+                              type="button" onclick="toggleButton(this, '<%= movie._id %>', 'seen')">
+                              <img class="watchlist" src="/images/icon/seen.png">
+                              SEEN
+                            </button>
+                          </div>
                         </div>
                       </div>
                     </div>
-                    <% }); %>
-                      <% } else { %>
-                        <p class="body-font white-font">No similar titles available.</p>
-                        <% } %>
-              </div>
       </div>
-
-      <div class="col-4 mt-4">
-        <div class="detail-box sticky-box p-3">
-          <!-- ปีที่ฉาย -->
-          <div class="caption-font main-font movie-year mb-2">
-            <%= movie.year ? movie.year : 'N/A' %>
-          </div>
-          <!-- ชื่อหนัง -->
-          <div class="body-font-bold movie-title mb-3">
-            <%= movie.title %>
-          </div>
-
-          <!-- โปสเตอร์ -->
-          <a href="/" class="d-flex justify-content-center mb-3">
-            <img class="poster-detail-box"
-              src="<%= Array.isArray(movie.poster_url) && movie.poster_url.length > 0 ? movie.poster_url[0] : '/images/default-poster.jpg' %>"
-              alt="<%= movie.title %>">
-          </a>
-
-          <!-- ปุ่มกดต่าง ๆ -->
-          <style>
-            .active-btn {
-              background-color: #9bee98 !important;
-              color: #191919;
-              border: 2px solid #9bee98;
-            }
-
-            .active-btn .watchlist {
-              filter: drop-shadow(0 0 2px var(--bg--main)) brightness(0) saturate(100%);
-            }
-
-            .sticky-box {
-              position: sticky;
-              top: 100px;
-              /* ปรับตำแหน่งจากด้านบน */
-              z-index: 5;
-            }
-
-            .poster-detail-box {
-              max-width: 100%;
-              height: auto;
-              border-radius: 8px;
-            }
-          </style>
-
-          <div class="d-flex justify-content-center mt-2">
-            <div class="row ml-3 mr-2">
-              <!-- LIKE -->
-              <button id="like-button"
-                class="btn o-button-2 history <% if (user && Array.isArray(user.like) && user.like.map(id => id.toString()).includes(movie._id.toString())) { %>active-btn<% } %>"
-                type="button" onclick="toggleButton(this, '<%= movie._id %>', 'like')">
-                <img class="watchlist" src="/images/icon/like.png">
-                <span id="like-count">
-                  <%= movie.like || 0 %>
-                </span>
-              </button>
-
-              <!-- WISHLIST -->
-              <button id="wishlist-button"
-                class="btn o-button-2 history <% if (user && Array.isArray(user.wishlist) && user.wishlist.map(id => id.toString()).includes(movie._id.toString())) { %>active-btn<% } %>"
-                type="button" onclick="toggleButton(this, '<%= movie._id %>', 'wishlist')">
-                <img class="watchlist" src="/images/icon/bookmark.png">
-                WISHLIST
-              </button>
-            </div>
-
-            <div class="row">
-              <!-- DISLIKE -->
-              <button id="dislike-button"
-                class="btn o-button-2 history <% if (user && Array.isArray(user.dislike) && user.dislike.map(id => id.toString()).includes(movie._id.toString())) { %>active-btn<% } %>"
-                type="button" onclick="toggleButton(this, '<%= movie._id %>', 'dislike')">
-                <img class="watchlist" src="/images/icon/dislike.png">
-                <span id="dislike-count">
-                  <%= movie.dislike || 0 %>
-                </span>
-              </button>
-
-              <!-- SEEN -->
-              <button id="seen-button"
-                class="btn o-button-2 history <% if (user && Array.isArray(user.seen) && user.seen.map(id => id.toString()).includes(movie._id.toString())) { %>active-btn<% } %>"
-                type="button" onclick="toggleButton(this, '<%= movie._id %>', 'seen')">
-                <img class="watchlist" src="/images/icon/seen.png">
-                SEEN
-              </button>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-
     </div>
-  </div>
   </div>
   </div>
 
@@ -506,10 +656,11 @@
   </script>
 
   <script src="/js/userActivity.js"></script>
-
   <script src="/js/actionbutton.js"></script>
-  <script src="/js/search.js"></script>
-
+    <script src="/js/auth.js"></script>
+    <script src="/js/search.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
