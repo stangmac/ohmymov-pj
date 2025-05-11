@@ -1,25 +1,25 @@
 :root {
     /* font-size */
-   /* --body-font:   "Signika Negative", sans-serif; */
-   --h1-size:40px;
-   --h2-size:28px;
-   --h3-size:25px;
-   --title-size:22px;
-   --body-size:16px;
-   --caption-size:14px;
-   --detail-size:12px;
+    /* --body-font:   "Signika Negative", sans-serif; */
+    --h1-size: 40px;
+    --h2-size: 28px;
+    --h3-size: 25px;
+    --title-size: 22px;
+    --body-size: 16px;
+    --caption-size: 14px;
+    --detail-size: 12px;
 
-   /* colour */
+    /* colour */
 
-   --main-color:#9bee98;
-   --bg--main:#191919;
-   --bg--sub:#3b3b3b;
-   --bg--detail:#b7b7b7;
-   --colour-white:rgba(255,255,255);
+    --main-color: #9bee98;
+    --bg--main: #191919;
+    --bg--sub: #3b3b3b;
+    --bg--detail: #b7b7b7;
+    --colour-white: rgba(255, 255, 255);
 
 }
 
-body{
+body {
     background-color: var(--bg--main);
     padding: 0;
     margin: 0;
@@ -27,10 +27,10 @@ body{
 }
 
 a:hover {
-   all: none;
+    all: none;
 }
 
-.white-font{
+.white-font {
     color: var(--colour-white);
 }
 
@@ -81,7 +81,8 @@ a:hover {
     font-size: var(--body-size);
 }
 
-.s-button, .sg-button {
+.s-button,
+.sg-button {
     border-radius: 0px;
     border-color: var(--main-color);
     background-color: var(--bg-main-color);
@@ -89,18 +90,23 @@ a:hover {
     padding: 5px 25px;
 }
 
-.s-button:hover, .sg-button:hover, .o-button-1:hover, .o-button-2:hover {
+.s-button:hover,
+.sg-button:hover,
+.o-button-1:hover,
+.o-button-2:hover {
     color: var(--bg--main);
     background-color: var(--main-color);
 }
 
 /* Square Button for Genre */
-.sg-button, .sg-button-1 {  
+.sg-button,
+.sg-button-1 {
     min-width: 80%;
     padding: 5px 25px;
 }
 
-.sg-button-1, .sg-button-2 {
+.sg-button-1,
+.sg-button-2 {
     border-color: var(--bg-main-color);
     background-color: var(--main-color);
     border-radius: 0px;
@@ -123,7 +129,7 @@ a:hover {
 .sg-button-2 {
     font-size: var(--detail-size);
     right: 10px;
-    min-width: 150px ;
+    min-width: 150px;
 }
 
 .o-button-2 {
@@ -138,7 +144,8 @@ a:hover {
 }
 
 /* Regular Button */
-.o-button-1, .o-button-2 {
+.o-button-1,
+.o-button-2 {
     border-radius: 50px;
     border-color: var(--main-color);
     background-color: var(--bg--main);
@@ -163,10 +170,10 @@ a:hover {
 .button-group {
 
     margin-top: 1rem;
-  }
-  
-  /* ปุ่ม */
-  .o-button-3 {
+}
+
+/* ปุ่ม */
+.o-button-3 {
     border-radius: 50px;
     border: 2px solid var(--main-color);
     background-color: var(--bg--main);
@@ -177,97 +184,127 @@ a:hover {
     transition: all 0.3s ease;
     white-space: nowrap;
     margin: 10px;
-  }
-  
-  /* Hover effect */
-  .o-button-3:hover {
+}
+
+/* Hover effect */
+.o-button-3:hover {
     background-color: var(--main-color);
     color: var(--bg--main);
-  }
-  
-  /* Active Style */
-  .active-style-o-button-3 {
+}
+
+/* Active Style */
+.active-style-o-button-3 {
     background-color: var(--main-color) !important;
     color: var(--bg--main) !important;
-  }
-  
+}
+
 
 /* Responsive Styling for Buttons */
 @media (max-width: 1200px) {
-    .o-button, .s-button, .sg-button {
+
+    .o-button,
+    .s-button,
+    .sg-button {
         font-size: calc(var(--body-size) - 2px);
         padding: 6px 20px;
     }
 
-    .sg-button-1, .sg-button-2 {
+    .sg-button-1,
+    .sg-button-2 {
         min-width: 60%;
     }
 
-    .o-button-1, .o-button-2, .o-button-3 {
+    .o-button-1,
+    .o-button-2,
+    .o-button-3 {
         min-width: 150px;
         font-size: calc(var(--caption-size) - 2px);
     }
 }
 
 @media (max-width: 992px) {
-    .o-button, .s-button, .sg-button {
+
+    .o-button,
+    .s-button,
+    .sg-button {
         font-size: calc(var(--body-size) - 3px);
         padding: 6px 15px;
     }
 
-    .sg-button-1, .sg-button-2 {
+    .sg-button-1,
+    .sg-button-2 {
         min-width: 70%;
     }
 
-    .o-button-1, .o-button-2, .o-button-3 {
+    .o-button-1,
+    .o-button-2,
+    .o-button-3 {
         min-width: 130px;
         font-size: calc(var(--caption-size) - 3px);
     }
 }
 
 @media (max-width: 768px) {
-    .o-button, .s-button, .sg-button {
+
+    .o-button,
+    .s-button,
+    .sg-button {
         font-size: calc(var(--body-size) - 4px);
         padding: 6px 12px;
     }
 
-    .sg-button-1, .sg-button-2 {
+    .sg-button-1,
+    .sg-button-2 {
         min-width: 80%;
     }
 
-    .o-button-1, .o-button-2, .o-button-3 {
+    .o-button-1,
+    .o-button-2,
+    .o-button-3 {
         min-width: 120px;
         font-size: calc(var(--caption-size) - 4px);
     }
 }
 
 @media (max-width: 576px) {
-    .o-button, .s-button, .sg-button {
+
+    .o-button,
+    .s-button,
+    .sg-button {
         font-size: calc(var(--body-size) - 5px);
         padding: 5px 10px;
     }
 
-    .sg-button-1, .sg-button-2 {
+    .sg-button-1,
+    .sg-button-2 {
         min-width: 100%;
     }
 
-    .o-button-1, .o-button-2, .o-button-3 {
+    .o-button-1,
+    .o-button-2,
+    .o-button-3 {
         min-width: 100px;
         font-size: calc(var(--caption-size) - 5px);
     }
 }
 
 @media (max-width: 480px) {
-    .o-button, .s-button, .sg-button {
+
+    .o-button,
+    .s-button,
+    .sg-button {
         font-size: calc(var(--body-size) - 6px);
         padding: 5px 8px;
     }
 
-    .sg-button-1, .sg-button-2 {
+    .sg-button-1,
+    .sg-button-2 {
         min-width: 100%;
     }
 
-    .o-button-1, .o-button-2, .o-button-3 {
+    .o-button-1,
+    .o-button-2,
+    .o-button-3 {
         min-width: 90px;
         font-size: calc(var(--caption-size) - 6px);
     }
@@ -278,18 +315,21 @@ a:hover {
 
 /* Default Styles for Images */
 img.poster-new {
-    height: 170px;
-    margin-top: 5px;
+    height: 195px;
+    margin-top: 18px;
+    padding-left: 10px;
 }
 
 img.app {
     height: 22px;
     object-fit: contain;
 }
+
 .app-logo.img.app {
     height: 40px;
     object-fit: contain;
 }
+
 img.app2 {
     height: 24px;
     object-fit: contain;
@@ -366,14 +406,16 @@ img.platform-logo:hover {
 /* Responsive Styling for Images */
 @media (max-width: 1200px) {
     img.poster-new {
-        height: 150px;
+        height: 170px;
+
     }
 
     img.poster-top {
         height: 200px;
     }
 
-    img.poster-genre, img.poster-search {
+    img.poster-genre,
+    img.poster-search {
         height: 220px;
     }
 
@@ -416,7 +458,8 @@ img.platform-logo:hover {
         height: 180px;
     }
 
-    img.poster-genre, img.poster-search {
+    img.poster-genre,
+    img.poster-search {
         height: 200px;
     }
 
@@ -459,7 +502,8 @@ img.platform-logo:hover {
         height: 160px;
     }
 
-    img.poster-genre, img.poster-search {
+    img.poster-genre,
+    img.poster-search {
         height: 180px;
     }
 
@@ -501,7 +545,8 @@ img.platform-logo:hover {
         height: 140px;
     }
 
-    img.poster-genre, img.poster-search {
+    img.poster-genre,
+    img.poster-search {
         height: 160px;
     }
 
@@ -543,7 +588,8 @@ img.platform-logo:hover {
         height: 120px;
     }
 
-    img.poster-genre, img.poster-search {
+    img.poster-genre,
+    img.poster-search {
         height: 140px;
     }
 
@@ -575,7 +621,10 @@ img.platform-logo:hover {
         max-width: 70px;
     }
 }
+
 /* === NAVBAR STYLES === */
+
+/* General Navbar Styles */
 .navbar {
     position: sticky;
     top: 0;
@@ -591,21 +640,26 @@ img.platform-logo:hover {
     transition: background-color 0.3s ease, padding 0.3s ease;
 }
 
+/* Navbar Brand (Logo) Styles */
 .navbar-brand img {
     max-width: 200px;
     height: auto;
     transition: transform 0.3s ease;
 }
+
+/* Navbar Brand Hover Effect */
 .navbar-brand img:hover {
     transform: scale(1.05);
 }
 
+/* Navbar Navigation Styles */
 .navbar-nav {
     display: flex;
     align-items: center;
     gap: 20px;
 }
 
+/* Navbar Link Styles */
 .nav-link {
     color: var(--colour-white);
     font-size: 1rem;
@@ -616,30 +670,14 @@ img.platform-logo:hover {
     transition: all 0.3s ease;
 }
 
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 10%;
-    width: 80%;
-    height: 2px;
-    background-color: var(--main-color);
-    transform: scaleX(0);
-    transform-origin: center;
-    transition: transform 0.3s ease;
-}
-
-.nav-link {
-    position: relative;
-    transition: color 0.3s ease;
-}
-
+/* Navbar Link Hover & Active Effect */
 .nav-link:hover,
 .nav-link:active,
 .nav-link.active {
     color: var(--main-color);
 }
 
+/* Navbar Link Underline Effect */
 .nav-link::after {
     content: '';
     position: absolute;
@@ -653,47 +691,55 @@ img.platform-logo:hover {
     transition: transform 0.3s ease;
 }
 
+/* Navbar Link Hover & Active Underline Effect */
 .nav-link:hover::after,
 .nav-link.active::after {
     transform: scaleX(1);
 }
 
+/* Search Container Styles */
 .search-container {
     position: relative;
     flex: 1;
     max-width: 380px;
     margin: 0 20px;
 }
+
+/* Search Box Styling */
 .search-box {
     display: flex;
     align-items: center;
     background-color: var(--bg--sub);
-    padding: 2px 10px; /* ลดความสูง */
-    border-radius: 20px; /* ลดความโค้งลงนิดหน่อย */
+    padding: 2px 10px;
+    border-radius: 20px;
     width: 100%;
     border: 1.5px solid var(--main-color);
     transition: box-shadow 0.3s ease;
 }
 
+/* Search Box Focus Effect */
 .search-box:focus-within {
     box-shadow: 0 0 10px var(--main-color);
 }
 
+/* Search Icon Styles */
 .search-icon {
     width: 20px;
     margin-right: 12px;
     opacity: 0.7;
 }
 
+/* Search Input Styles */
 .search-input {
     border: none;
     outline: none;
     background: transparent;
     color: var(--colour-white);
     width: 100%;
-    font-size: 0.95rem; /* ลดขนาด font นิดหน่อยให้ดูพอดี */
+    font-size: 0.95rem;
 }
 
+/* Search Results Styles (hidden by default) */
 .search-results {
     position: absolute;
     top: 100%;
@@ -706,12 +752,14 @@ img.platform-logo:hover {
     z-index: 10;
 }
 
+/* User Menu Styles */
 .user-menu {
     display: flex;
     align-items: center;
     gap: 12px;
 }
 
+/* Dropdown Button Styles */
 .dropbtn {
     background: none;
     border: none;
@@ -722,139 +770,65 @@ img.platform-logo:hover {
     font-size: 1rem;
     font-weight: 600;
 }
-
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23ffffff' stroke-width='2' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    width: 30px;
+    height: 30px;
+}
 /* === RESPONSIVE NAVBAR === */
+
+/* Navbar Adjustments for Large Screens (max-width: 1200px) */
 @media (max-width: 1200px) {
     .navbar {
         padding: 12px 4%;
     }
+
     .search-container {
         max-width: 300px;
     }
 }
 
-
-/* === Responsive สำหรับ iPad แนวตั้งและมือถือ === */
-/* Base Styling */
-.navbar {
-    padding: 12px 5%;
-    background-color: var(--bg--main);
-  }
-  
-  .left-group a.navbar-brand {
-    margin-right: 20px;
-  }
-  
-  .search-container {
-    flex: 1;
-    max-width: 400px;
-    margin: 0 20px;
-  }
-  
-  .search-box {
-    display: flex;
-    align-items: center;
-    background-color: var(--bg--sub);
-    padding: 5px 12px;
-    border-radius: 20px;
-    border: 1.5px solid var(--main-color);
-  }
-  
-  .search-input {
-    border: none;
-    outline: none;
-    background: transparent;
-    color: var(--colour-white);
-    width: 100%;
-    font-size: 0.95rem;
-    height: 35px;
-  }
-  
-  .search-icon {
-    width: 20px;
-    margin-right: 12px;
-    opacity: 0.7;
-  }
-  
-  .menu-right .dropbtn {
-    background: none;
-    border: none;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: var(--bg--sub);
-    min-width: 160px;
-    border-radius: 8px;
-    z-index: 1;
-    padding: 10px;
-  }
-  
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-  
-  .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-    width: 30px;
-    height: 30px;
-  }
-  
-  /* === Responsive === */
-  @media (max-width: 992px) {
- 
+/* Navbar Adjustments for iPad and Mobile (Base Styling) */
+@media (max-width: 992px) {
+    /* Container Adjustments */
     .container-fluid {
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
     }
-  
+
+    /* Left Group Styling */
     .left-group {
-      flex: 1;
+        flex: 1;
     }
-    .search-input {
-        border: none;
-        outline: none;
-        background: transparent;
-        color: var(--colour-white);
-        width: 100%;
-        font-size: 0.95rem;
-        height: 30px;
-      }
-      
+
+    /* Search Container Adjustments */
     .search-container {
         order: 2;
         flex-grow: 1;
         max-width: 60%;
         height: 30%;
         margin: 0 10px;
-      }
-    
-      .right-group {
-        order: 3;
-      }
-    
-      .left-group {
-        order: 1;
-      }
+    }
+
+    /* Right Group Styling */
     .right-group {
-      flex-shrink: 0;
+        order: 3;
     }
-  
+
+    /* Navbar Collapse Styling */
     .collapse.navbar-collapse {
-      background-color: var(--bg--main);
-      padding: 15px 0;
+        background-color: var(--bg--main);
+        padding: 15px 0;
     }
-  
+
+    /* Navbar Links in Column for Smaller Screens */
     .navbar-nav {
-      flex-direction: column;
-      gap: 12px;
+        flex-direction: column;
+        gap: 12px;
     }
-  
+
+    /* Dropdown Menu for Smaller Screens */
     .dropdown-menu {
         display: none;
         position: absolute;
@@ -863,14 +837,18 @@ img.platform-logo:hover {
         border-radius: 8px;
         z-index: 1;
         padding: 10px;
-      }
-
-  .dropdown-menu.show {
-    display: block;
-  }
-    .menu-right {
-      display: none !important;
     }
+
+    .dropdown-menu.show {
+        display: block;
+    }
+
+    /* Menu Right Hidden for Smaller Screens */
+    .menu-right {
+        display: none !important;
+    }
+
+    /* Dropdown Item Styling */
     .dropdown-item {
         color: var(--colour-white);
         font-size: 1rem;
@@ -879,71 +857,74 @@ img.platform-logo:hover {
         text-decoration: none;
         padding: 8px 10px;
     }
-  }
-  
-  
-  
-  @media (max-width: 576px) {
-     
+}
+
+/* Navbar Adjustments for Small Screens (max-width: 576px) */
+@media (max-width: 576px) {
     .container-fluid {
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-      }
-    
-      .left-group {
+    }
+
+    .left-group {
         flex: 1;
-      }
-    
-        .right-group {
-          order: 3;
-        }
-      
-        .left-group {
-          order: 1;
-        }
-      .right-group {
+    }
+
+    .right-group {
+        order: 3;
+    }
+
+    .left-group {
+        order: 1;
+    }
+
+    .right-group {
         flex-shrink: 0;
-      }
-    
-      .collapse.navbar-collapse {
+    }
+
+    /* Navbar Collapse Styling */
+    .collapse.navbar-collapse {
         background-color: var(--bg--main);
         padding: 15px 0;
-      }
-    
-      .navbar-nav {
+    }
+
+    .navbar-nav {
         flex-direction: column;
         gap: 12px;
-      }
-    
-      .dropdown-menu {
-          display: none;
-          position: absolute;
-          background-color: var(--bg--sub);
-          min-width: 160px;
-          border-radius: 8px;
-          z-index: 1;
-          padding: 10px;
-        }
-  
-    .dropdown-menu.show {
-      display: block;
     }
-      .menu-right {
-        display: none !important;
-      }
-      .dropdown-item {
-          color: var(--colour-white);
-          font-size: 1rem;
-          font-weight: 600;
-          position: relative;
-          text-decoration: none;
-          padding: 8px 10px;
-      }
 
-  
+    /* Dropdown Menu for Small Screens */
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        background-color: var(--bg--sub);
+        min-width: 160px;
+        border-radius: 8px;
+        z-index: 1;
+        padding: 10px;
     }
-/* Overlay ที่เปิดเมื่อค้นหา */
+
+    .dropdown-menu.show {
+        display: block;
+    }
+
+    .menu-right {
+        display: none !important;
+    }
+
+    /* Dropdown Item Styling */
+    .dropdown-item {
+        color: var(--colour-white);
+        font-size: 1rem;
+        font-weight: 600;
+        position: relative;
+        text-decoration: none;
+        padding: 8px 10px;
+    }
+}
+
+/* === Overlay for Search === */
 #overlay {
     position: fixed;
     top: 0;
@@ -953,25 +934,27 @@ img.platform-logo:hover {
     background-color: rgba(0, 0, 0, 0.6);
     display: none;
     z-index: 5;
-  }
-  
-  /* Default (Desktop หรือ > 576px) */
-  .search-container {
+}
+
+/* Search Container Default for Desktop */
+.search-container {
     position: relative;
     display: flex;
     align-items: center;
-  }
-  
-  .search-box {
+}
+
+/* Search Box Default for Desktop */
+.search-box {
     display: flex;
     align-items: center;
     padding: 0 12px;
     height: 50px;
     border-radius: 20px;
     transition: all 0.3s ease;
-  }
-  
-  .search-input {
+}
+
+/* Search Input Default for Desktop */
+.search-input {
     width: 100%;
     font-size: 1rem;
     margin-left: 10px;
@@ -979,10 +962,9 @@ img.platform-logo:hover {
     color: var(--colour-white);
     border: none;
     outline: none;
-  }
-  
-  /* Search results default */
-/* Default hidden */
+}
+
+/* Search Results Default (Hidden) */
 .search-results {
     display: none;
     position: absolute;
@@ -998,62 +980,68 @@ img.platform-logo:hover {
     padding: 10px;
     flex-direction: column;
     gap: 10px;
-  }
-  
-  /* When expanded */
-  .search-results.expanded {
+}
+
+/* When Search Results are Expanded */
+.search-results.expanded {
     display: flex;
-  }
-  @media (max-width: 576px) {
+}
+
+/* === Mobile Search Box Adjustments === */
+@media (max-width: 576px) {
     .search-container {
-      flex: 1;
-      z-index: 6;
-      display: flex;
-      align-items: center;
+        flex: 1;
+        z-index: 6;
+        display: flex;
+        align-items: center;
     }
-  
+
+    /* Search Box Adjustments for Mobile */
     .search-box {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      overflow: hidden;
-      padding: 0;
-      cursor: pointer;
-      margin-left: auto;
-      justify-content: center;
-      align-items: center;
-      display: flex;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        overflow: hidden;
+        padding: 0;
+        cursor: pointer;
+        margin-left: auto;
+        justify-content: center;
+        align-items: center;
+        display: flex;
     }
-  
+
     .search-box.expanded {
-      position: fixed;
-      top: 30px;
-      left: 10px;
-      right: 10px;
-      width: calc(100% - 20px);
-      height: 50px;
-      border-radius: 25px;
-      padding: 0 15px;
-      z-index: 7;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-      display: flex;
-      align-items: center;
+        position: fixed;
+        top: 30px;
+        left: 10px;
+        right: 10px;
+        width: calc(100% - 20px);
+        height: 50px;
+        border-radius: 25px;
+        padding: 0 15px;
+        z-index: 7;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        display: flex;
+        align-items: center;
     }
-  
+
+    /* Search Input for Mobile */
     .search-input {
-      display: none;
-      width: 100%;
-      font-size: 1rem;
-      margin-left: 10px;
-      background: transparent;
-      color: var(--colour-white);
-      border: none;
-      outline: none;
+        display: none;
+        width: 100%;
+        font-size: 1rem;
+        margin-left: 10px;
+        background: transparent;
+        color: var(--colour-white);
+        border: none;
+        outline: none;
     }
-  
+
     .search-box.expanded .search-input {
-      display: block;
+        display: block;
     }
+
+    /* Search Results for Mobile */
     .search-results {
         position: fixed;
         top: 70px;
@@ -1070,23 +1058,23 @@ img.platform-logo:hover {
         display: none;
         flex-direction: column;
         gap: 10px;
-      }
-    
-      .search-results.expanded {
+    }
+
+    .search-results.expanded {
         display: flex;
         left: 0;
         right: 0;
         width: 100%;
-      }
-  }
-  
-  
-  
+    }
+}
+
+
 
 /*= section 1== banner */
 
 .sec-1 {
-    padding-top: 100px; /* เท่ากับความสูงของ navbar หรือ slightly มากกว่า */
+    padding-top: 100px;
+    /* เท่ากับความสูงของ navbar หรือ slightly มากกว่า */
     margin-bottom: 45px;
 }
 
@@ -1101,15 +1089,16 @@ img.platform-logo:hover {
     color: var(--main-color);
     font-size: 24px;
 }
+
 .poster-fixed {
     width: 100%;
     height: auto;
     max-height: 500px;
     object-fit: cover;
     border-radius: 8px;
-  }
-  
-  .start-btn {
+}
+
+.start-btn {
     font-size: 18px;
     padding: 10px 24px;
     border-radius: 8px;
@@ -1118,371 +1107,471 @@ img.platform-logo:hover {
     color: white;
     width: 100%;
 
-  }
-  body > section.sec-1.py-4 > div > div > div.col-md-5 > div > div:nth-child(3) > div > button{
+}
+
+body>section.sec-1.py-4>div>div>div.col-md-5>div>div:nth-child(3)>div>button {
     width: 100%;
-  }
-  
+}
+
 /* Responsive Styling for Section 1, Banner and Text */
 /* 🔸 ขนาดหน้าจอเล็กที่สุด (มือถือจอเล็กมาก) */
 @media (max-width: 400px) {
     .sec-1 {
-      padding-top: 25px;         /* ลด padding ด้านบนให้กระชับ */
-      margin-bottom: 10px;       /* ลดระยะห่างด้านล่าง */
+        padding-top: 25px;
+        /* ลด padding ด้านบนให้กระชับ */
+        margin-bottom: 10px;
+        /* ลดระยะห่างด้านล่าง */
     }
-  
+
     .box-banner {
-      padding-left: 8px;         /* เว้นระยะด้านซ้ายเล็กน้อย */
+        padding-left: 8px;
+        /* เว้นระยะด้านซ้ายเล็กน้อย */
     }
-  
+
     .line-text {
-      font-size: 13px;           /* ขนาดตัวอักษรเล็กสุด */
+        font-size: 13px;
+        /* ขนาดตัวอักษรเล็กสุด */
     }
+
     .start-btn {
         font-size: 14px;
         padding: 6px 16px;
-      }
-  }
-  
-  /* 🔸 มือถือทั่วไป */
-  @media (max-width: 576px) {
+    }
+}
+
+/* 🔸 มือถือทั่วไป */
+@media (max-width: 576px) {
     .sec-1 {
-      padding-top: 35px;
-      margin-bottom: 15px;
+        padding-top: 35px;
+        margin-bottom: 15px;
     }
-  
+
     .box-banner {
-      padding-left: 10px;
+        padding-left: 10px;
     }
-  
+
     .line-text {
-      font-size: 16px;
+        font-size: 16px;
     }
+
     .h1-font {
-        font-size: 1.75rem; /* ปรับขนาดตัวหนังสือให้ไม่ล้น */
-      }
-      .start-btn {
+        font-size: 1.75rem;
+        /* ปรับขนาดตัวหนังสือให้ไม่ล้น */
+    }
+
+    .start-btn {
         font-size: 16px;
         padding: 8px 20px;
-      }
-      
-  }
-  
-  /* 🔸 แท็บเล็ตแนวตั้ง หรือมือถือแนวนอน */
-  @media (max-width: 768px) {
+    }
+
+}
+
+/* 🔸 แท็บเล็ตแนวตั้ง หรือมือถือแนวนอน */
+@media (max-width: 768px) {
     .sec-1 {
-      padding-top: 50px;
-      margin-bottom: 25px;
+        padding-top: 50px;
+        margin-bottom: 25px;
     }
-  
+
     .box-banner {
-      padding-left: 20px;
+        padding-left: 20px;
     }
-  
+
     .line-text {
-      font-size: 18px;
+        font-size: 18px;
     }
-  }
-  
-  /* 🔸 แท็บเล็ตแนวนอน */
-  @media (max-width: 992px) {
+}
+
+/* 🔸 แท็บเล็ตแนวนอน */
+@media (max-width: 992px) {
     .sec-1 {
-      padding-top: 60px;
-      margin-bottom: 30px;
+        padding-top: 60px;
+        margin-bottom: 30px;
     }
-  
+
     .box-banner {
-      padding-left: 40px;
+        padding-left: 40px;
     }
-  
+
     .line-text {
-      font-size: 20px;
+        font-size: 20px;
     }
-        .h1-font {
-        font-size: 30px; /* ปรับขนาดตัวหนังสือให้ไม่ล้น */
-      }
-  }
-  
-  /* 🔸 แล็ปท็อปหน้าจอขนาดกลาง */
-  @media (max-width: 1020px) {
+
+    .h1-font {
+        font-size: 30px;
+        /* ปรับขนาดตัวหนังสือให้ไม่ล้น */
+    }
+}
+
+/* 🔸 แล็ปท็อปหน้าจอขนาดกลาง */
+@media (max-width: 1020px) {
     .sec-1 {
-      padding-top: 65px;
-      margin-bottom: 32px;
+        padding-top: 65px;
+        margin-bottom: 32px;
     }
-  
+
     .box-banner {
-      padding-left: 50px;
+        padding-left: 50px;
     }
-  
+
     .line-text {
-      font-size: 21px;
+        font-size: 21px;
     }
-    .poster-fixed{
+
+    .poster-fixed {
         width: 100%;
     }
-  }
-  
-  /* 🔸 หน้าจอขนาดใหญ่ถึงแล็ปท็อปทั่วไป */
-  @media (max-width: 1200px) {
-    .sec-1 {
-      padding-top: 70px;
-      margin-bottom: 35px;
-    }
-  
-    .box-banner {
-      padding-left: 60px;
-    }
-  
-    .line-text {
-      font-size: 22px;
-    }
-  }
-  
+}
 
-  .sec-2 {
+/* 🔸 หน้าจอขนาดใหญ่ถึงแล็ปท็อปทั่วไป */
+@media (max-width: 1200px) {
+    .sec-1 {
+        padding-top: 70px;
+        margin-bottom: 35px;
+    }
+
+    .box-banner {
+        padding-left: 60px;
+    }
+
+    .line-text {
+        font-size: 22px;
+    }
+}
+
+
+.sec-2 {
     padding-top: 30px;
     background-color: var(--colour-white);
-  }
-  
-  .box-new {
+}
+
+.box-new {
+    height: 100%;
+    min-height: 250px;
+    display: flex;
+    flex-direction: row;
     border-radius: 20px;
     background-color: var(--bg--main);
-  }
-  
-  .inside-box {
-    padding: 10px;
-  }
-  
-  .rating-row img {
+    padding: 10px 12px;
+    /* ✅ เพิ่ม padding ภายในแบบไม่แน่นเกินไป */
+}
+
+.inside-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 8px 12px;
+    /* ✅ เพิ่ม padding สำหรับช่องข้อความ */
+}
+
+.rating-row img {
     height: 20px;
     width: auto;
-  }
-  
+    margin: 0;
+    padding: 0;
+}
 
-  
- /* ปุ่ม scroll สำหรับมือถือ */
+.col-md-4 .box-new-responsive {
+    height: 100%;
+    padding: 0;
+    /* ✅ ไม่ต้อง padding ซ้ำซ้อนใน container นี้ */
+}
 
-  
-  .horizontal-scroll-container {
+.row>.col-md-4 {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 8px;
+    /* ✅ ให้มีช่องว่างระหว่างการ์ด */
+}
+
+.box-new .rating-row {
+    padding-bottom: 30px;
+}
+
+/* ปุ่ม scroll สำหรับมือถือ */
+
+
+.horizontal-scroll-container {
     display: flex;
     overflow-x: auto;
     scroll-behavior: smooth;
-  }
-  
-  .card-horizontal {
-    width: 90vw; /* หรือขนาดที่เหมาะกับการแสดงผลการ์ดเดียวบนมือถือ */
+}
+
+.card-horizontal {
+    width: 90vw;
+    /* หรือขนาดที่เหมาะกับการแสดงผลการ์ดเดียวบนมือถือ */
     margin: 0 5px;
-  }
+}
 
 
-  .scroll-wrapper {
+.scroll-wrapper {
     position: relative;
-  }
+}
 
-  #new-scroll-left,
-  #new-scroll-right {
+#new-scroll-left,
+#new-scroll-right {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     z-index: 10;
     padding: 10px;
-  }
+}
 
-  #new-scroll-left {
+#new-scroll-left {
     left: 0;
-  }
+}
 
-  #new-scroll-right {
+#new-scroll-right {
     right: 0;
-  }
+}
 
 
-  
-    /* Horizontal scroll (มือถือ) */
-    @media (max-width: 567px) {
-        .horizontal-scroll-container {
-          display: flex;
-          overflow-x: auto;
-          scroll-snap-type: x mandatory;
-          gap: 16px;
-          padding-bottom: 10px;
-          scroll-behavior: smooth;
-          -webkit-overflow-scrolling: touch;
-        }
-      
-        .card-horizontal {
-          flex: 0 0 100%;
-          scroll-snap-align: center;
-        }
-      
-        .horizontal-scroll-container::-webkit-scrollbar {
-          display: none;
-        }
-        .poster-new {
-            height: 100px !important;
-            width: auto;
-            display: block;
-            margin: 0 auto;
-          }
-          
-      
-          /* ปรับขนาดคอลัมน์ให้โปสเตอร์กว้างขึ้น */
-          .box-new .col-3 {
-            flex: 0 0 20%;
-            max-width: 20%;
-            margin-left: 10px;
-          }
-      
-          .box-new .col-9 {
-            flex: 0 0 40%;
-            max-width: 40%;
-          }
-      
-          /* ลด padding/margin เพื่อใช้พื้นที่ให้คุ้ม */
-          .inside-box {
-            margin-left: 1rem !important;
-            padding-top: 0.5rem !important;
-          }
-      
-          .box-new {
-            align-items: center;
-          }
-      }
-  
-  /* Horizontal scroll (มือถือ) */
-  @media (max-width: 992px) {
+
+@media (max-width: 1024px) {
     .horizontal-scroll-container {
-      display: flex;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      gap: 16px;
-      padding-bottom: 10px;
-      scroll-behavior: smooth;
-      -webkit-overflow-scrolling: touch;
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 10px;
+        padding-bottom: 10px;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
     }
-  
+
     .card-horizontal {
-      flex: 0 0 100%;
-      scroll-snap-align: center;
+        flex: 0 0 100%;
+        scroll-snap-align: center;
     }
-  
+
     .horizontal-scroll-container::-webkit-scrollbar {
-      display: none;
+        display: none;
     }
+
     .poster-new {
-        height: 260px !important; /* เพิ่มความสูงของโปสเตอร์ */
+        height: 300px !important;
         width: auto;
-      }
-  
-      /* ปรับขนาดคอลัมน์ให้โปสเตอร์กว้างขึ้น */
-      .box-new .col-3 {
+        display: block;
+        margin: 0 auto;
+        padding-left: 20px;
+    }
+
+
+    /* ปรับขนาดคอลัมน์ให้โปสเตอร์กว้างขึ้น */
+    .box-new .col-3 {
+        flex: 0 0 20%;
+        max-width: 20%;
+        margin-left: 10px;
+    }
+
+    .box-new .col-9 {
         flex: 0 0 40%;
         max-width: 40%;
-      }
-  
-      .box-new .col-9 {
+    }
+
+    /* ลด padding/margin เพื่อใช้พื้นที่ให้คุ้ม */
+    .inside-box {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        /* ✅ จัดระยะห่างเท่ากันระหว่างบล็อก */
+        height: 100%;
+        padding: 8px 12px;
+        padding: 0;
+        margin: 0;
+        font-size: var(--title-size);
+    }
+
+    .box-new {
+        align-items: center;
+    }
+
+    .box-new .rating-row {
+        padding-bottom: 0;
+        /* ✅ ไม่ต้องบังคับ padding ใต้สุด */
+
+    }
+
+    img.platform-logo {
+        height: 30px;
+        width: auto;
+        margin-right: 15px;
+        margin-bottom: 10px;
+        object-fit: contain;
+        transition: transform 0.2s;
+    }
+
+    .row>.col-md-4 {
+        display: flex;
+        flex-direction: column;
+        padding-left: 40px;
+    }
+}
+
+/* Horizontal scroll (มือถือ) */
+@media (max-width: 768px) {
+    .horizontal-scroll-container {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 16px;
+        padding-bottom: 10px;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .card-horizontal {
+        flex: 0 0 100%;
+        scroll-snap-align: center;
+    }
+
+    .horizontal-scroll-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    .poster-new {
+        height: 100px !important;
+        width: auto;
+        display: block;
+        margin: 0 auto;
+    }
+
+
+    /* ปรับขนาดคอลัมน์ให้โปสเตอร์กว้างขึ้น */
+    .box-new .col-3 {
+        flex: 0 0 20%;
+        max-width: 20%;
+        margin-left: 10px;
+    }
+
+    .box-new .col-9 {
+        flex: 0 0 40%;
+        max-width: 40%;
+    }
+
+    /* ลด padding/margin เพื่อใช้พื้นที่ให้คุ้ม */
+    .inside-box {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        /* ✅ จัดระยะห่างเท่ากันระหว่างบล็อก */
+        height: 100%;
+        padding: 8px 12px;
+        padding: 0;
+        margin: 0;
+        font-size: var(--body-size);
+    }
+
+    .box-new {
+        align-items: center;
+    }
+
+    .box-new .rating-row {
+        padding-bottom: 0;
+        /* ✅ ไม่ต้องบังคับ padding ใต้สุด */
+
+    }
+
+    img.platform-logo {
+        height: 25px;
+        width: auto;
+        margin-right: 15px;
+        margin-bottom: 10px;
+        object-fit: contain;
+        transition: transform 0.2s;
+    }
+
+    .row>.col-md-4 {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+    }
+}
+/* Horizontal scroll (มือถือ) */
+@media (max-width: 992px) {
+    .horizontal-scroll-container {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 16px;
+        padding-bottom: 10px;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .card-horizontal {
+        flex: 0 0 100%;
+        scroll-snap-align: center;
+    }
+
+    .horizontal-scroll-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    .poster-new {
+        height: 260px !important;
+        /* เพิ่มความสูงของโปสเตอร์ */
+        width: auto;
+    }
+
+    /* ปรับขนาดคอลัมน์ให้โปสเตอร์กว้างขึ้น */
+    .box-new .col-3 {
+        flex: 0 0 40%;
+        max-width: 40%;
+    }
+
+    .box-new .col-9 {
         flex: 0 0 60%;
         max-width: 60%;
-      }
-  
-      /* ลด padding/margin เพื่อใช้พื้นที่ให้คุ้ม */
-      .inside-box {
+    }
+
+    /* ลด padding/margin เพื่อใช้พื้นที่ให้คุ้ม */
+    .inside-box {
         margin-left: 1rem !important;
         padding-top: 0.5rem !important;
-      }
-  
-      .box-new {
+    }
+
+    .box-new {
         align-items: center;
-      }
-  }
-  
-  /* มือถือแนวนอน / แท็บเล็ตแนวตั้ง */
-  /* @media (max-width: 992px) {
-    .sec-2 .box-new {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 15px;
     }
-  
-    .sec-2 .box-new .col-3,
-    .sec-2 .box-new .col-9 {
-      flex: 0 0 100%;
-      max-width: 100%;
-    }
-  
-    .sec-2 .detailmovie {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 15px;
-    }
-  
-    .sec-2 .poster-new {
-      height: auto;
-      max-height: 300px;
-      width: 100%;
-      max-width: 220px;
-      border-radius: 12px;
-    }
-  
-    .sec-2 .inside-box {
-      padding: 0 15px;
-      margin-left: 0;
-      text-align: left;
-    }
-  
-    .sec-2 .app-logo {
-      justify-content: flex-start;
-    }
-  
-    .sec-2 .inside-box .row {
-      justify-content: flex-start;
-    }
-  
-    .sec-2 .inside-box .ml-2,
-    .sec-2 .inside-box .ml-4 {
-      margin-left: 8px !important;
-    }
-  }
-   */
-  /* หน้าจอแล็ปท็อป */
-  @media (max-width: 1020px) {
+}
+
+@media (max-width: 1024px) {
     .sec-2 {
-      padding-top: 18px;
+        padding-top: 18px;
     }
-  
+
     .box-new {
-      border-radius: 12px;
+        border-radius: 12px;
     }
-  
+
     .inside-box {
-      padding: 8px;
+        padding: 8px;
     }
-  
+
     .app-logo img {
-      padding-right: 8px;
+        padding-right: 8px;
     }
-  }
-  
-  @media (max-width: 1200px) {
+}
+
+@media (max-width: 1200px) {
     .sec-2 {
-      padding-top: 20px;
+        padding-top: 20px;
     }
-  
+
     .box-new {
-      border-radius: 15px;
+        border-radius: 15px;
     }
-  
+
     .inside-box {
-      padding: 9px;
+        padding: 9px;
     }
-  
+
     .app-logo img {
-      padding-right: 9px;
+        padding-right: 9px;
     }
-  }
-  
+}
+
 
 
 
@@ -1498,11 +1587,13 @@ img.platform-logo:hover {
     justify-content: center;
     align-items: center;
     width: 100%;
-    max-width: 1000px;  /* Max width for better scaling */
+    max-width: 1000px;
+    /* Max width for better scaling */
     padding: 25px 35px;
     background-color: var(--bg--main);
     border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* เพิ่มเงา */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    /* เพิ่มเงา */
     z-index: 999;
 }
 
@@ -1528,7 +1619,8 @@ img.platform-logo:hover {
 }
 
 .social-btn:hover {
-    background-color: var(--main-color);  /* Hover effect */
+    background-color: var(--main-color);
+    /* Hover effect */
 }
 
 .social-btn svg {
@@ -1536,6 +1628,7 @@ img.platform-logo:hover {
     height: 24px;
     fill: var(--main-color);
 }
+
 .social-btn:hover svg {
     width: 24px;
     height: 24px;
@@ -1568,20 +1661,23 @@ img.platform-logo:hover {
 .form-element-sign input[type="text"],
 .form-element-sign input[type="date"],
 .form-element-sign select {
-    width: 100%;/* Ensure responsiveness */
+    width: 100%;
+    /* Ensure responsiveness */
     padding: 12px;
     outline: none;
     border: 1px solid var(--bg--sub);
     border-radius: 10px;
     background-color: var(--bg--sub);
     display: flex;
-    font-size: var(--body-size); 
-margin-bottom: 10px; /* Spacing between inputs */
-color: var(--colour-white);
-}
-.form-element-sign input[type="date"]{
+    font-size: var(--body-size);
+    margin-bottom: 10px;
+    /* Spacing between inputs */
     color: var(--colour-white);
-    font-size: var(--body-size); 
+}
+
+.form-element-sign input[type="date"] {
+    color: var(--colour-white);
+    font-size: var(--body-size);
     width: 100%;
 }
 
@@ -1589,16 +1685,17 @@ color: var(--colour-white);
     margin-bottom: 5px;
     color: var(--colour-white);
     font-size: var(--body-size);
-    font-weight:normal; 
+    font-weight: normal;
 }
 
 .form-element-sign input::placeholder {
     color: var(--bg--detail);
 }
 
-.form-element-sign option, option:disabled {
+.form-element-sign option,
+option:disabled {
     color: var(--bg--detail);
-    font-size: var(--body-size); 
+    font-size: var(--body-size);
 }
 
 .form-element-sign[type="checkbox"] {
@@ -1612,7 +1709,7 @@ color: var(--colour-white);
 
 #signup-gender {
     color: var(--bg--detail);
-    font-size: var(--body-size); 
+    font-size: var(--body-size);
 }
 
 .btn-sign {
@@ -1683,13 +1780,15 @@ color: var(--colour-white);
 #signup-dob {
     width: 100%;
 
-    padding: 12px 35px 12px 12px; /* Extra padding for icon */
+    padding: 12px 35px 12px 12px;
+    /* Extra padding for icon */
     outline: none;
     border: 1px solid var(--bg--sub);
     border-radius: 10px;
     background-color: var(--bg--sub);
     font-size: var(--caption-size);
-    color: var(--colour-white);/* ให้ตัวอักษรสีขาว */
+    color: var(--colour-white);
+    /* ให้ตัวอักษรสีขาว */
 }
 
 /* ซ่อนปุ่มเลือกปฏิทินเดิม */
@@ -1705,8 +1804,10 @@ color: var(--colour-white);
     right: 12px;
     top: 50%;
     transform: translateY(-50%);
-    color: var(--bg--detail);/* สีขาว */
-    pointer-events: none; /* ไม่ให้กดโดน */
+    color: var(--bg--detail);
+    /* สีขาว */
+    pointer-events: none;
+    /* ไม่ให้กดโดน */
     font-size: 18px;
 }
 
@@ -1715,9 +1816,11 @@ color: var(--colour-white);
 .input-wrapper input {
     width: 100%;
     padding: 12px 15px;
-    padding-right: 40px; /* เผื่อที่สำหรับไอคอน */
+    padding-right: 40px;
+    /* เผื่อที่สำหรับไอคอน */
     border: 1px solid #ccc;
-    border-radius: 8px; /* ✅ เพิ่มความโค้งมน */
+    border-radius: 8px;
+    /* ✅ เพิ่มความโค้งมน */
     font-size: 16px;
     outline: none;
     transition: 0.3s;
@@ -1733,7 +1836,7 @@ color: var(--colour-white);
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
-    color:var(--bg--detail);
+    color: var(--bg--detail);
     font-size: 18px;
     transition: 0.3s;
 }
@@ -1742,12 +1845,18 @@ color: var(--colour-white);
 .toggle-password:hover {
     color: var(--main-color);
 }
+
 .alert-danger {
-    color: var(--main-color); /* เปลี่ยนสีข้อความเป็นสีแดง */
-    background: none; /* เอาพื้นหลังออก */
-    border: none; /* เอาเส้นขอบออก */
-    padding: 0; /* ลบระยะห่างรอบข้อความ */
-    font-weight:normal; /* ตัวหนา (ถ้าต้องการ) */
+    color: var(--main-color);
+    /* เปลี่ยนสีข้อความเป็นสีแดง */
+    background: none;
+    /* เอาพื้นหลังออก */
+    border: none;
+    /* เอาเส้นขอบออก */
+    padding: 0;
+    /* ลบระยะห่างรอบข้อความ */
+    font-weight: normal;
+    /* ตัวหนา (ถ้าต้องการ) */
     margin-top: 0px;
 }
 
@@ -1755,9 +1864,11 @@ color: var(--colour-white);
 .privacy {
     color: var(--main-color);
 }
+
 .privacy:hover {
     color: var(--main-color);
 }
+
 /*start reset password */
 .resetpassword {
     position: fixed;
@@ -1773,7 +1884,8 @@ color: var(--colour-white);
     padding: 30px;
     background-color: var(--bg--main);
     border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* เพิ่มเงา */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    /* เพิ่มเงา */
 }
 
 .resetpassword h1 {
@@ -1865,7 +1977,8 @@ color: var(--colour-white);
 
 @media (max-width: 480px) {
     .popup-sign-p {
-        max-width: 90%;  /* Adjust to fit smaller screens */
+        max-width: 90%;
+        /* Adjust to fit smaller screens */
         padding: 10px 10px;
     }
 
@@ -1986,18 +2099,21 @@ color: var(--colour-white);
     right: 40px;
     width: 24px;
     height: 24px;
-    color: #8b0000; /* สีเริ่มต้นของไอคอน */
+    color: #8b0000;
+    /* สีเริ่มต้นของไอคอน */
     cursor: pointer;
-    transition: color 0.3s ease; /* ใช้ transition สำหรับการเปลี่ยนสี */
+    transition: color 0.3s ease;
+    /* ใช้ transition สำหรับการเปลี่ยนสี */
 }
 
 .bookmark-icon.active {
-    color: #4CAF50; /* สีเขียวเมื่อ active */
+    color: #4CAF50;
+    /* สีเขียวเมื่อ active */
 }
 
 /*= section 3== genre */
 
-.sec-4 { 
+.sec-4 {
     margin: 0px 50px;
     position: relative;
 }
@@ -2007,6 +2123,8 @@ color: var(--colour-white);
     gap: 10px;
     overflow: hidden;
     transition: transform 0.3s ease-in-out;
+    max-height: fit-content;
+
 }
 
 .movie-container {
@@ -2015,23 +2133,26 @@ color: var(--colour-white);
     overflow: hidden;
     gap: 15px;
     padding: 10px 0;
-    padding-left: 20px;  /* ✅ ปรับระยะห่างซ้าย */
+    padding-left: 20px;
+    /* ✅ ปรับระยะห่างซ้าย */
     justify-content: flex-start;
     max-width: 90%;
     margin: auto;
     position: relative;
+
 }
 
 
 .title-item:hover {
-    transform: scale(1.05); /* ขยายเมื่อชี้ */
+    transform: scale(1.05);
+    /* ขยายเมื่อชี้ */
 }
-  
+
 .title-item {
     display: flex;
-    align-items: flex-end; 
-    gap: 15px; 
-    width: auto; 
+    align-items: flex-end;
+    gap: 15px;
+    width: auto;
     margin-top: 25px;
     margin-right: 25px;
 }
@@ -2039,11 +2160,11 @@ color: var(--colour-white);
 .title-item-number {
     font-size: 80px;
     font-weight: 630;
-    color: var(--bg--detail); 
+    color: var(--bg--detail);
     letter-spacing: -5px;
     line-height: 100%;
-    flex-shrink: 0; 
-    margin: 0; 
+    flex-shrink: 0;
+    margin: 0;
     padding: 0;
 }
 
@@ -2051,7 +2172,7 @@ color: var(--colour-white);
     display: block;
     text-decoration: none;
     position: relative;
-    width: auto; 
+    width: auto;
 }
 
 figure {
@@ -2063,7 +2184,8 @@ figure {
 .poster-top {
     height: auto;
     display: block;
-    border-radius: 10px; /* Rounded corners */
+    border-radius: 10px;
+    /* Rounded corners */
 }
 
 .imdb-rate {
@@ -2087,12 +2209,10 @@ figure {
     position: absolute;
     bottom: 0;
     width: 100%;
-    background: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0) 0%,
-        rgba(0, 0, 0, 0.8) 60%,
-        rgba(0, 0, 0, 0.92) 100%
-    );
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 0.8) 60%,
+            rgba(0, 0, 0, 0.92) 100%);
     padding: 50px 10px 10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -2113,98 +2233,140 @@ figure {
     line-height: 1.4;
 }
 
-  
-.sec-4 #top-scroll-left {
-    position: absolute;
-    left: -50px; /* ปรับตามความต้องการ */
-    top: 60%;
-    transform: translateY(-50%);
-    z-index: 10;
-  }
-  
-  .sec-4 #top-scroll-right {
-    position: absolute;
-    right: -100px; /* ปรับตามความต้องการ */
-    top: 60%;
-    transform: translateY(-50%);
-    z-index: 10;
-  }
-  
-  
-  @media (max-width: 768px) {
 
-      
 .sec-4 #top-scroll-left {
     position: absolute;
-    left: -50px; /* ปรับตามความต้องการ */
+    left: -50px;
+    /* ปรับตามความต้องการ */
     top: 60%;
     transform: translateY(-50%);
     z-index: 10;
-  }
-  
-  .sec-4 #top-scroll-right {
+}
+
+.sec-4 #top-scroll-right {
     position: absolute;
-    right: -50px; /* ปรับตามความต้องการ */
+    right: -100px;
+    /* ปรับตามความต้องการ */
     top: 60%;
     transform: translateY(-50%);
     z-index: 10;
-  }
+}
+
+.sec-4 .horizontal-scroll-container {
+    display: flex;
+    gap: 15px;
+    align-items: stretch;
+}
+
+.card-horizontal {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 200px;
+    height: 500px;
+    /* ✅ ความสูงคงที่เท่ากันทุกใบ */
+    border-radius: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+.genre-movie-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    /* ✅ ยืดเต็มการ์ด */
+}
+
+
+
+@media (max-width: 768px) {
+
+
+    .sec-4 #top-scroll-left {
+        position: absolute;
+        left: -50px;
+        /* ปรับตามความต้องการ */
+        top: 60%;
+        transform: translateY(-50%);
+        z-index: 10;
+    }
+
+    .sec-4 #top-scroll-right {
+        position: absolute;
+        right: -50px;
+        /* ปรับตามความต้องการ */
+        top: 60%;
+        transform: translateY(-50%);
+        z-index: 10;
+    }
+
     .sec-4 .title-item-number {
-      font-size: 50px; /* ลดขนาดตัวเลขอันดับ */
+        font-size: 50px;
+        /* ลดขนาดตัวเลขอันดับ */
     }
-  
+
     .sec-4 .movie-container {
-      gap: 10px;
-      padding-left: 10px;
+        gap: 10px;
+        padding-left: 10px;
     }
-  
+
     .sec-4 .poster-top {
-      width: 100px;
-      height: auto;
+        width: 100px;
+        height: auto;
     }
-  
+
     .sec-4 .entry-title {
-      font-size: 12px;
+        font-size: 12px;
     }
-  }
-  /* Custom col-sm-2-4 to simulate 5 columns */
+}
+
+/* Custom col-sm-2-4 to simulate 5 columns */
 @media (min-width: 576px) {
     .col-sm-2-4 {
         flex: 0 0 auto;
-        width: 20%; /* 100 / 5 = 20% */
+        width: 20%;
+        /* 100 / 5 = 20% */
     }
 }
+
 /* ปรับปุ่ม scroll ไม่ให้ทับ content */
 .sec-5 .scroll-wrapper {
     overflow: hidden;
     position: relative;
-    padding: 0 32px; /* เพิ่ม padding เพื่อไม่ให้ปุ่มทับคอนเทนต์ */
-  }
-  .sec-5 {
+    padding: 0 32px;
+    /* เพิ่ม padding เพื่อไม่ให้ปุ่มทับคอนเทนต์ */
+}
+
+.sec-5 {
     max-width: 100%;
     overflow-x: hidden;
-    padding: 0 50px; /* เพิ่ม padding เพื่อกันเนื้อหาชิดขอบ */
+    padding: 0 50px;
+    /* เพิ่ม padding เพื่อกันเนื้อหาชิดขอบ */
     box-sizing: border-box;
-  }
-  .genre-scroll-left,
-  .genre-scroll-right {
+}
+
+.genre-scroll-left,
+.genre-scroll-right {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     z-index: 5;
-  }
-  
-  .genre-scroll-left {
-    left: 0; /* เดิม -30px ทำให้ล้น container */
-  }
-  
-  .genre-scroll-right {
+}
+
+.genre-scroll-left {
+    left: 0;
+    /* เดิม -30px ทำให้ล้น container */
+}
+
+.genre-scroll-right {
     right: 0;
-  }
-  
-  
-  /* ปรับ card และ scroll ให้ไม่ทับกัน */
-  .sec-5 .horizontal-scroll-container {
+}
+
+
+/* ปรับ card และ scroll ให้ไม่ทับกัน */
+.sec-5 .horizontal-scroll-container {
     display: flex;
     overflow-x: hidden;
     scroll-behavior: smooth;
@@ -2212,55 +2374,97 @@ figure {
     padding: 5px 0;
     justify-content: flex-start;
     color: var(--colour-white);
-  }
-  .sec-5 img.app.platform-logo {
+}
+
+.sec-5 img.app.platform-logo {
     height: 22px;
     object-fit: contain;
-  }
+}
 
-  @media (min-width: 769px) {
+@media (min-width: 1025px) {
+
     .genre-scroll-left,
     .genre-scroll-right {
-      display: none;
+        display: none;
     }
+
     .sec-5 {
         max-width: 100%;
         overflow-x: hidden;
-        padding: 0 50px; /* เพิ่ม padding เพื่อกันเนื้อหาชิดขอบ */
+        padding: 0 50px;
+        /* เพิ่ม padding เพื่อกันเนื้อหาชิดขอบ */
         box-sizing: border-box;
-      }
-  }
-  /* Responsive */
-  @media (max-width: 768px) {
-    .sec-5 .horizontal-scroll-container {
-      scroll-snap-type: x mandatory;
-      padding-left: 40px;
-      padding-right: 40px;
     }
-  
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .sec-5 .horizontal-scroll-container {
+        scroll-snap-type: x mandatory;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
     .sec-5 .card-horizontal {
-      flex: 0 0 calc(100% / 3 - 16px); /* แสดง 3 เรื่อง */
-      scroll-snap-align: start;
+        flex: 0 0 calc(100% / 3 - 16px);
+        /* แสดง 3 เรื่อง */
+        scroll-snap-align: start;
+        padding: 20px;
 
     }
+
     .genre-scroll-left {
         left: -40px;
         justify-items: center
-      }
-      
-      .genre-scroll-right {
-        right: -40px;
+    }
+
+    .genre-scroll-right {
+        right: -50px;
         justify-items: center
-      }
-  }
-  
-  @media (max-width: 576px) {
+    }
+}
+@media (max-width: 768px) {
+    .sec-5 .horizontal-scroll-container {
+        scroll-snap-type: x mandatory;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
     .sec-5 .card-horizontal {
-      flex: 0 0 100%; /* แสดง 1 เรื่อง */
-      font-size: var(--detail-size);
+        flex: 0 0 calc(100% / 3 - 16px);
+        /* แสดง 3 เรื่อง */
+        scroll-snap-align: start;
 
     }
-    .o-button-1, .o-button-2 {
+
+    .genre-scroll-left {
+        left: -40px;
+        justify-items: center
+    }
+
+    .genre-scroll-right {
+        right: -40px;
+        justify-items: center
+    }
+    .genre-movie-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    /* ✅ ยืดเต็มการ์ด */
+
+}
+}
+@media (max-width: 576px) {
+    .sec-5 .card-horizontal {
+        flex: 0 0 100%;
+        /* แสดง 1 เรื่อง */
+        font-size: var(--detail-size);
+
+    }
+
+    .o-button-1,
+    .o-button-2 {
         border-radius: 50px;
         border-color: var(--main-color);
         background-color: var(--bg--main);
@@ -2270,26 +2474,29 @@ figure {
         text-align: center;
         padding: 4px 0px;
     }
+
     .sec-5 img.app.platform-logo {
         height: 22px;
         object-fit: contain;
-      }
-    .sec-5  img.poster-genre {
+    }
+
+    .sec-5 img.poster-genre {
         min-width: 140px;
         height: 200px;
         border-radius: 15px;
     }
+
     .genre-scroll-left {
         left: -10px;
         justify-items: center
-      }
-      
-      .genre-scroll-right {
+    }
+
+    .genre-scroll-right {
         right: -10px;
         justify-items: center
-      }
-  }
-  
+    }
+}
+
 /* Profile Box */
 .user-box {
     margin-top: 50px;
@@ -2304,7 +2511,8 @@ figure {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* จัดให้อยู่ตรงกลาง */
+    align-items: center;
+    /* จัดให้อยู่ตรงกลาง */
     text-align: center;
 }
 
@@ -2332,23 +2540,30 @@ figure {
 .profile-info {
     display: flex;
     flex-direction: column;
-    align-items: center; /* จัดให้อยู่ตรงกลางของ .user-box */
+    align-items: center;
+    /* จัดให้อยู่ตรงกลางของ .user-box */
 }
+
 .profile-info p {
     font-size: var(--title-size);
     color: var(--colour-white);
     margin: 10px 0;
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* ชิดซ้าย */
-    width: 100%; /* ให้เต็ม container */
+    justify-content: flex-start;
+    /* ชิดซ้าย */
+    width: 100%;
+    /* ให้เต็ม container */
 }
+
 .profile-info .label {
     display: inline-block;
-    min-width: 120px; /* ปรับให้ label เท่ากัน */
+    min-width: 120px;
+    /* ปรับให้ label เท่ากัน */
     font-weight: bold;
     text-align: left;
 }
+
 /* Form Styling */
 #editProfileForm,
 #changePasswordForm {
@@ -2383,22 +2598,26 @@ figure {
 }
 
 #changePasswordForm h3,
-#editProfileForm h3{
+#editProfileForm h3 {
     font-size: var(--h3-size);
     margin-bottom: 15px;
     color: var(--colour-white);
 }
+
 #changePasswordForm label,
-#editProfileForm label{
+#editProfileForm label {
 
     font-size: 16px;
     margin-top: 15px;
     color: var(--colour-white);
     text-align: left;
-    display: block; /* บังคับให้ label เป็น block element */
-    width: 100%; /* ให้กินพื้นที่เต็ม row */
+    display: block;
+    /* บังคับให้ label เป็น block element */
+    width: 100%;
+    /* ให้กินพื้นที่เต็ม row */
 
 }
+
 /* เพิ่ม @media queries เพื่อรองรับการ responsive */
 @media (max-width: 480px) {
     .user-box {
@@ -2634,6 +2853,7 @@ figure {
         font-size: 18px;
     }
 }
+
 /* Buttons */
 .s-button {
     display: block;
@@ -2659,33 +2879,40 @@ figure {
 /* Responsive adjustments */
 @media (max-width: 1200px) {
     .s-button {
-        width: 25%; /* ปรับความกว้างให้เหมาะกับหน้าจอขนาดกลางถึงใหญ่ */
+        width: 25%;
+        /* ปรับความกว้างให้เหมาะกับหน้าจอขนาดกลางถึงใหญ่ */
     }
 }
 
 @media (max-width: 992px) {
     .s-button {
-        width: 30%; /* ปรับให้ปุ่มกว้างขึ้นเล็กน้อยบนหน้าจอขนาดกลาง */
+        width: 30%;
+        /* ปรับให้ปุ่มกว้างขึ้นเล็กน้อยบนหน้าจอขนาดกลาง */
     }
 }
 
 @media (max-width: 768px) {
     .s-button {
-        width: 50%; /* ปรับให้ปุ่มกว้างขึ้นบนหน้าจอขนาดกลาง */
+        width: 50%;
+        /* ปรับให้ปุ่มกว้างขึ้นบนหน้าจอขนาดกลาง */
     }
 }
 
 @media (max-width: 576px) {
     .s-button {
-        width: 70%; /* ปรับให้ปุ่มกว้างขึ้นบนหน้าจอขนาดเล็ก */
+        width: 70%;
+        /* ปรับให้ปุ่มกว้างขึ้นบนหน้าจอขนาดเล็ก */
     }
 }
 
 @media (max-width: 480px) {
     .s-button {
-        width: 80%;  /* ปรับให้ปุ่มเต็มความกว้างบนหน้าจอมือถือ */
-        height: 45px; /* ลดความสูงลงเล็กน้อย */
-        font-size: 14px; /* ปรับขนาดตัวอักษรให้เล็กลง */
+        width: 80%;
+        /* ปรับให้ปุ่มเต็มความกว้างบนหน้าจอมือถือ */
+        height: 45px;
+        /* ลดความสูงลงเล็กน้อย */
+        font-size: 14px;
+        /* ปรับขนาดตัวอักษรให้เล็กลง */
     }
 }
 
@@ -2714,33 +2941,40 @@ figure {
 /* Responsive adjustments */
 @media (max-width: 1200px) {
     #submitPasswordBtn {
-        width: 40%; /* ปรับให้ปุ่มเล็กลงเล็กน้อยบนหน้าจอขนาดใหญ่ */
+        width: 40%;
+        /* ปรับให้ปุ่มเล็กลงเล็กน้อยบนหน้าจอขนาดใหญ่ */
     }
 }
 
 @media (max-width: 992px) {
     #submitPasswordBtn {
-        width: 45%; /* ปรับขนาดปุ่มให้พอดีกับหน้าจอขนาดกลาง */
+        width: 45%;
+        /* ปรับขนาดปุ่มให้พอดีกับหน้าจอขนาดกลาง */
     }
 }
 
 @media (max-width: 768px) {
     #submitPasswordBtn {
-        width: 60%; /* ปรับให้ปุ่มกว้างขึ้นบนหน้าจอแท็บเล็ต */
+        width: 60%;
+        /* ปรับให้ปุ่มกว้างขึ้นบนหน้าจอแท็บเล็ต */
     }
 }
 
 @media (max-width: 576px) {
     #submitPasswordBtn {
-        width: 70%; /* ปรับให้ปุ่มกว้างขึ้นบนมือถือขนาดเล็ก */
+        width: 70%;
+        /* ปรับให้ปุ่มกว้างขึ้นบนมือถือขนาดเล็ก */
     }
 }
 
 @media (max-width: 480px) {
     #submitPasswordBtn {
-        width: 80%; /* ปรับให้ปุ่มเต็มความกว้างบนมือถือ */
-        height: 45px; /* ปรับความสูงให้พอดี */
-        font-size: 14px; /* ปรับขนาดตัวอักษรให้เล็กลง */
+        width: 80%;
+        /* ปรับให้ปุ่มเต็มความกว้างบนมือถือ */
+        height: 45px;
+        /* ปรับความสูงให้พอดี */
+        font-size: 14px;
+        /* ปรับขนาดตัวอักษรให้เล็กลง */
     }
 }
 
@@ -2750,32 +2984,37 @@ figure {
 .user-info {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* แก้ไขจาก 'left' เป็น 'flex-start' */
+    align-items: flex-start;
+    /* แก้ไขจาก 'left' เป็น 'flex-start' */
     margin-top: 50px;
     margin-left: 200px;
 }
 
 @media (max-width: 1200px) {
     .user-info {
-        margin-left: 150px; /* ปรับ margin-left สำหรับหน้าจอขนาดกลาง */
+        margin-left: 150px;
+        /* ปรับ margin-left สำหรับหน้าจอขนาดกลาง */
     }
 }
 
 @media (max-width: 992px) {
     .user-info {
-        margin-left: 100px; /* ปรับ margin-left สำหรับแท็บเล็ต */
+        margin-left: 100px;
+        /* ปรับ margin-left สำหรับแท็บเล็ต */
     }
 }
 
 @media (max-width: 768px) {
     .user-info {
-        margin-left: 50px; /* ปรับ margin-left สำหรับแท็บเล็ตขนาดเล็ก */
+        margin-left: 50px;
+        /* ปรับ margin-left สำหรับแท็บเล็ตขนาดเล็ก */
     }
 }
 
 @media (max-width: 576px) {
     .user-info {
-        margin-left: 20px; /* ลด margin-left สำหรับมือถือ */
+        margin-left: 20px;
+        /* ลด margin-left สำหรับมือถือ */
     }
 }
 
@@ -2791,7 +3030,8 @@ figure {
 
 @media (max-width: 768px) {
     .history-box {
-        margin: 20px 20px 0px; /* ปรับ margin ให้เหมาะสมบนหน้าจอเล็ก */
+        margin: 20px 20px 0px;
+        /* ปรับ margin ให้เหมาะสมบนหน้าจอเล็ก */
     }
 }
 
@@ -2825,7 +3065,8 @@ figure {
 @media (max-width: 768px) {
     .circle-button {
         width: 15px;
-        height: 15px; /* ปรับขนาด circle-button สำหรับหน้าจอเล็ก */
+        height: 15px;
+        /* ปรับขนาด circle-button สำหรับหน้าจอเล็ก */
     }
 }
 
@@ -2837,7 +3078,8 @@ figure {
 
 @media (max-width: 768px) {
     .star {
-        font-size: 12px; /* ปรับขนาดของ star ให้เล็กลงในหน้าจอขนาดเล็ก */
+        font-size: 12px;
+        /* ปรับขนาดของ star ให้เล็กลงในหน้าจอขนาดเล็ก */
     }
 }
 
@@ -2850,11 +3092,13 @@ figure {
 /*= footer== */
 
 .a-footer {
-    color: var(--main-color);;
+    color: var(--main-color);
+    ;
 }
 
 .a-footer:hover {
-    color: var(--main-color);;
+    color: var(--main-color);
+    ;
 }
 
 
@@ -2876,7 +3120,8 @@ figure {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* ป้องกันขอบดำ */
+    object-fit: cover;
+    /* ป้องกันขอบดำ */
 }
 
 /* 🔹 อันดับ */
@@ -2895,7 +3140,8 @@ figure {
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 2; /* ✅ ทำให้ตัวเลขอยู่ด้านหน้า */
+    z-index: 2;
+    /* ✅ ทำให้ตัวเลขอยู่ด้านหน้า */
 }
 
 
@@ -2910,7 +3156,8 @@ figure {
     cursor: pointer;
     transform: translateY(-50%);
     padding: 10px;
-    border-radius: 50%; /* ทำให้ปุ่มเป็นวงกลม */
+    border-radius: 50%;
+    /* ทำให้ปุ่มเป็นวงกลม */
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
     transition: background 0.3s;
     width: 40px;
@@ -3007,16 +3254,18 @@ figure {
 }
 
 /* Suggestion Start*/
-.suggestion{
+.suggestion {
     margin-left: 50px;
 
 }
+
 .suggestion h1 {
     font-size: var(--h1-size);
     color: var(--colour-white);
     margin-top: 100px;
     text-decoration: underline;
-    text-underline-offset: 5px; /* ปรับระยะห่างของเส้นใต้ */
+    text-underline-offset: 5px;
+    /* ปรับระยะห่างของเส้นใต้ */
 }
 
 .suggestion h2 {
@@ -3030,30 +3279,37 @@ figure {
 .poster-fixed {
     width: 100%;
     height: 270px;
-    object-fit: cover; /* ✅ รักษาสัดส่วนแบบเต็มกล่อง */
+    object-fit: cover;
+    /* ✅ รักษาสัดส่วนแบบเต็มกล่อง */
     border-radius: 12px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
+
 /* 🔹 Responsive for different screen sizes */
 
 /* For screens less than 480px (mobile) */
 @media (max-width: 480px) {
     .suggestion {
-        margin-left: 10px; /* ลด margin สำหรับหน้าจอเล็ก */
+        margin-left: 10px;
+        /* ลด margin สำหรับหน้าจอเล็ก */
     }
 
     .suggestion h1 {
-        font-size: 18px; /* ปรับขนาดตัวอักษร */
-        margin-top: 50px; /* ลดระยะห่างด้านบน */
+        font-size: 18px;
+        /* ปรับขนาดตัวอักษร */
+        margin-top: 50px;
+        /* ลดระยะห่างด้านบน */
     }
 
     .suggestion h2 {
-        font-size: 14px; /* ปรับขนาดตัวอักษร */
+        font-size: 14px;
+        /* ปรับขนาดตัวอักษร */
         margin-left: 10px;
     }
 
     .poster-fixed {
-        height: 200px; /* ลดขนาดรูปภาพ */
+        height: 200px;
+        /* ลดขนาดรูปภาพ */
     }
 }
 
@@ -3142,183 +3398,215 @@ figure {
 }
 
 /* sec Start */
- .genre-section {
-      min-height: 100vh;
-      background-color: var(--bg--main);
-      color: var(--colour-white);
-      padding-bottom: 60px;
-    }
-  
-    .genre-btn {
-      background-color: var(--bg--sub);
-      color: var(--colour-white);
-      border: 2px solid var(--main-color);
-      padding: 10px;
-
-      cursor: pointer;
-      font-size: var(--body-size);
-      transition: all 0.2s ease;
-    }
-  
-    .genre-btn:hover {
-      background-color: var(--main-color);
-      color: var(--bg--main);
-    }
-  
-    .genre-btn.active {
-      background-color: var(--main-color);
-      color: var(--bg--main);
-      font-weight: bold;
-    }
-  
-    .submit-btn {
-      margin-top: 30px;
-      padding: 12px 40px;
-      background-color: var(--bg--main);
-      color: var(--colour-white);
-      border: 2px solid var(--main-color);
-      font-size: var(--body-size);
-
-      transition: background-color 0.2s;
-    }
-  
-    .submit-btn:hover {
-      background-color: var(--main-color);
-      color: var(--bg--main);
-    }
-
-
-
-/* Detail Movie Section */
-
-/* สีหลัก */
-.text-main {
-    color: var(--main-color);
-  }
-  
-  /* จุด separator */
-  .dot-separator {
-    position: relative;
-    display: inline-block;
-    width: 12px; /* ระยะห่างระหว่างจุด */
-    height: 1em;
-    margin: 0 4px;
-  }
-  
-  .dot-separator::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 5px;
-    height: 5px;
-    background-color: var(--main-color);
-    border-radius: 50%;
-  }
-  
-  /* เพิ่มช่องไฟ genre */
-  .genre-item {
-    margin-right: 4px;
-  }
-  .rating-box {
-    gap: 2rem; /* ระยะห่างระหว่าง IMDb และ Rotten */
-  }
-  
-  .rating-logo {
-    height: 24px; /* ปรับขนาดโลโก้ให้เท่ากัน */
-    object-fit: contain;
-    margin-right: 10px;
-  }
-
-
-  .movie-detail {
-    margin: 90px 0px 50px 50px;
+.genre-section {
+    min-height: 100vh;
+    background-color: var(--bg--main);
+    color: var(--colour-white);
+    padding-bottom: 60px;
 }
 
-.custom-line {
-    border: none;            
-    border-top: 1px solid var(--colour-white); 
-    margin-left: 0; 
-}   
+.genre-btn {
+    background-color: var(--bg--sub);
+    color: var(--colour-white);
+    border: 2px solid var(--main-color);
+    padding: 10px;
 
-.vdo {
-    margin-right: 30px;
-}
-
-/* Container */
-.cast-container {
-    position: relative;
-    padding: 20px;
-    overflow: hidden;
-}
-
-/* Cast Box */
-.cast-box {
+    cursor: pointer;
     font-size: var(--body-size);
+    transition: all 0.2s ease;
+}
+
+.genre-btn:hover {
     background-color: var(--main-color);
     color: var(--bg--main);
-    border-radius: 16px;
-    width: 200px;
-    padding: 16px 12px;
-    height: auto;
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-    margin: 10px;
-    position: relative;
-    z-index: 10; /* เพิ่ม z-index ให้แน่ใจว่า .cast-box อยู่ด้านล่างของปุ่ม */
+}
+
+.genre-btn.active {
+    background-color: var(--main-color);
+    color: var(--bg--main);
+    font-weight: bold;
+}
+
+.submit-btn {
+    margin-top: 30px;
+    padding: 12px 40px;
+    background-color: var(--bg--main);
+    color: var(--colour-white);
+    border: 2px solid var(--main-color);
+    font-size: var(--body-size);
+
+    transition: background-color 0.2s;
+}
+
+.submit-btn:hover {
+    background-color: var(--main-color);
+    color: var(--bg--main);
+}
+
+
+
+/*Start Detail Movie Section Global Styles & Variables  Datail movie*/
+
+.text-main {
+  color: var(--main-color);
+}
+
+.dot-separator {
+  position: relative;
+  display: inline-block;
+  width: 12px;
+  height: 1em;
+  margin: 0 4px;
+}
+
+.dot-separator::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 5px;
+  height: 5px;
+  background-color: var(--main-color);
+  border-radius: 50%;
+}
+
+/* Layout  Datail movie*/
+.movie-detail {
+  margin: 90px 0px 50px 50px;
+}
+
+.vdo {
+  margin-right: 30px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/*Components  Datail movie*/
+.genre-item {
+  margin-right: 4px;
+}
+
+.rating-box {
+  gap: 2rem;
+}
+
+.rating-logo {
+  height: 24px;
+  object-fit: contain;
+  margin-right: 10px;
+}
+
+/*Video Box  Datail movie*/
+.ratio-4by3 {
+  position: relative;
+  width: 90%;
+  padding-top: 50%;
+}
+
+.ratio-4by3 iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+/* Movie Detail Box  Datail movie*/
+.detail-box {
+  border: 2px solid var(--main-color);
+  background-color: #1e1e1e;
+  border-radius: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  max-width: 90%;
+  color: white;
+}
+
+.movie-year {
+  font-size: var(--body-size);
+  color: var(--main-color);
+  text-align: left;
+  letter-spacing: 1px;
+  padding-left: 20px;
+}
+
+.body-font-bold.movie-title {
+  font-size: var(--title-size);
+  text-align: left;
+  font-weight: bold;
+  color: #ffffff;
+  padding-left: 20px;
+}
+/* Poster */
+.poster-detail-box {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 2px solid #444;
+}
+
+.poster-scroll-wrapper {
+  position: relative;
+  padding: 0 32px;
+  overflow: hidden;
+}
+
+.poster-horizontal-scroll {
+  display: flex;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.poster-box {
+  flex: 0 0 auto;
+}
+
+/* Cast  Datail movie*/
+.cast-container {
+  position: relative;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.cast-box {
+  font-size: var(--body-size);
+  background-color: var(--main-color);
+  color: var(--bg--main);
+  border-radius: 16px;
+  width: 200px;
+  padding: 16px 12px;
+  height: auto;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  margin: 10px;
+  position: relative;
+  z-index: 10;
 }
 
 .cast-box .body-font-bold {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 4px;
-    line-height: 1.3;
-        white-space: nowrap;         /* ไม่ให้ขึ้นบรรทัดใหม่ */
-    overflow: hidden;            /* ซ่อนข้อความที่เกินขอบ */
-    text-overflow: ellipsis;     /* แสดง ... เมื่อข้อความล้น */
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .cast-box div:last-child {
-    font-size: 0.85rem;
-    opacity: 0.9;
-}
-/* ปุ่ม Next/Prev Swiper */
-.swiper-button-next,
-.swiper-button-prev {
-    background: none;
-    border: none;
-    font-size: 20px;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 20; /* เพิ่ม z-index ให้สูงขึ้นเพื่อให้แน่ใจว่าปุ่มไม่ทับเนื้อหา */
-    color: var(--main-color);
-    position: absolute;
+  font-size: 0.85rem;
+  opacity: 0.9;
 }
 
-/* ไอคอนปุ่ม */
-.swiper-button-next::after,
-.swiper-button-prev::after {
-    font-size: 20px !important;
-    font-weight: bold;
-    color: var(--colour-white);
-}
-
-/* ปรับตำแหน่งปุ่ม Next/Prev ให้ไม่ทับกับ .cast-box */
-.swiper-button-next {
-    right: 10px; /* ห่างจากขอบขวา */
-}
-
-.swiper-button-prev {
-    left: 10px; /* ห่างจากขอบซ้าย */
-}
-
-  .cast-scroll-wrapper {
+/* Cast Scroll  Datail movie */
+.cast-scroll-wrapper {
   position: relative;
   padding: 0 32px;
   overflow: hidden;
@@ -3349,120 +3637,249 @@ figure {
   right: 0;
 }
 
-/* Swiper Navigation Buttons */
-.ratio-4by3 {
-    position: relative;
-    width: 90%;
-    padding-top: 50%; /* 4:3 = 3 ÷ 4 = 0.75 */
+/* Sticky Box  Datail movie*/
+.sticky-box {
+  position: sticky;
+  top: 100px;
+  z-index: 5;
+  height: 30%;
+}
+
+/* Swiper Navigation  Datail movie*/
+.swiper-button-next,
+.swiper-button-prev {
+  background: none;
+  border: none;
+  font-size: 20px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  color: var(--main-color);
+  position: absolute;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 20px !important;
+  font-weight: bold;
+  color: var(--colour-white);
+}
+
+.swiper-button-next {
+  right: 10px;
+}
+
+.swiper-button-prev {
+  left: 10px;
+}
+
+/* Similar Genre Section  Datail movie */
+.similar-scroll {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  gap: 16px;
+  padding: 0 24px 8px;
+  margin-left: 20px;
+  color: var(--colour-white);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.similar-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.similar-card {
+  flex: 0 0 auto;
+  width: 250px;
+  scroll-snap-align: start;
+  color: var(--colour-white);
+}
+
+.similar-genre-movie-item {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.similar-scroll-left,
+.similar-scroll-right {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.similar-scroll-left {
+  left: 8px;
+}
+
+.similar-scroll-right {
+  right: 8px;
+}
+
+/* Responsive Media Queries Datail movie*/
+@media (max-width: 1024px) {
+  .movie-detail {
+    margin: 70px 25px 40px;
   }
-  
+
+  .vdo {
+    margin-right: 25px;
+  }
+
   .ratio-4by3 iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
+    width: calc(100% + 20px);
+    height: calc(100% + 20px);
   }
+
   .detail-box {
-    border: 2px solid var(--main-color);
-    background-color: #1e1e1e;
-    border-radius: 30px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    padding: 20px;
-    max-width: 90%;
-    color: white;
-  }
-
-  .movie-year {
-    font-size:var(--body-size);
-    color: var(--main-color);
-    text-align: center;
-    letter-spacing: 1px;
-  }
-
-  .body-font-bold.movie-title {
-    font-size: var(--h3-size);
-    text-align: center;
-    font-weight: bold;
-    color: #ffffff;
-  }
-
-  .poster-detail-box {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    border: 2px solid #444;
+    margin: 20px 25px;
+    padding: 18px;
+    border-radius: 24px;
   }
 
   .sticky-box {
     position: sticky;
-    top: 100px;
+    top: 70px;
     z-index: 5;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
   }
 
-@media (max-width: 768px) {
-    .movie-detail {
-        margin: 80px 20px 45px 20px;
-    }
+  .poster-detail-box {
+    width: 100%;
+    max-width: 240px;
+    height: 100%;
+    border-radius: 12px;
+  }
 
-    .vdo {
-        margin-right: 25px;
-    }
-
-    .cast-box {
-        width: 170px;
-        padding: 14px 17px;
-        margin-right: 20px;
-        font-size: 16px;
-    }
-
-    .detail-box {
-        margin: 20px 25px;
-        padding: 20px;
-    }
+  .similar-card {
+    width: calc((100% - 48px) / 3);
+  }
 }
 
 @media (max-width: 992px) {
-    .movie-detail {
-        margin: 85px 30px 45px 30px;
-    }
+  .movie-detail {
+    margin: 85px 30px 45px 30px;
+  }
 
-    .vdo {
-        margin-right: 25px;
-    }
+  .vdo {
+    margin-right: 25px;
+  }
 
-    .cast-box {
-        width: 175px;
-        padding: 14px 18px;
-        margin-right: 20px;
-        font-size: 16px;
-    }
+  .cast-box {
+    width: 175px;
+    padding: 14px 18px;
+    margin-right: 20px;
+    font-size: 16px;
+  }
 
-    .detail-box {
-        margin: 20px 30px;
-        padding: 22px;
-    }
+  .detail-box {
+    margin: 20px 30px;
+    padding: 22px;
+  }
 }
 
-@media (max-width: 1200px) {
-    .movie-detail {
-        margin: 90px 40px 50px 40px;
-    }
+@media (max-width: 768px) {
+  .movie-detail {
+    margin: 60px 20px;
+  }
 
-    .vdo {
-        margin-right: 30px;
-    }
+  .vdo {
+    margin-right: 0px;
+    padding-left: 20px;
+  }
 
-    .cast-box {
-        width: 180px;
-        padding: 15px 18px;
-        margin-right: 23px;
-        font-size: 17px;
-    }
+  .cast-box {
+    width: 170px;
+    padding: 14px 17px;
+    margin-right: 20px;
+    font-size: 16px;
+  }
 
-    .detail-box {
-        margin: 20px 35px;
-        padding: 20px;
-    }
+  .detail-box {
+    margin: 20px 25px;
+    padding: 20px;
+  }
+
+  .ratio-4by3 {
+    padding-left: 40px;
+    margin-left: 20px;
+  }
+
+  .similar-genre-movie-item a img.poster-genre {
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
 }
+
+@media (max-width: 576px) {
+  .movie-detail {
+    margin: 60px 20px;
+  }
+
+  .vdo {
+    margin-right: 0px;
+  }
+
+  .cast-box {
+    width: 170px;
+    padding: 14px 17px;
+    margin-right: 20px;
+    font-size: 16px;
+  }
+
+  .detail-box {
+    margin: 20px 25px;
+    padding: 20px;
+  }
+
+  .button-group {
+    flex-direction: column;
+    display: none;
+    flex-wrap: nowrap;
+  }
+
+  .ratio-4by3 {
+    margin-left: 0px;
+  }
+
+  .similar-card {
+    width: 100%;
+    padding: 0;
+  }
+
+  .similar-genre-movie-item {
+    padding: 0 10px;
+  }
+
+  .similar-genre-movie-item > * {
+    margin-bottom: 6px;
+  }
+
+  .similar-genre-movie-item a img.poster-genre {
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+}
+
+/*End Detail Movie Section Global Styles & Variables  Datail movie*/
