@@ -2497,26 +2497,26 @@ figure {
     }
 }
 
-/* Profile Box */
+/* ==================== Profile Box ==================== */
 .user-box {
-    margin-top: 50px;
+    margin-top: 100px;
     padding: 25px 35px;
-    border-radius: 15px;
+    border-radius: 15px; 
     background: var(--bg--main);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Profile Card */
+/* ==================== Profile Card ==================== */
 .profile-card {
+    margin-top: 50px;
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* จัดให้อยู่ตรงกลาง */
     text-align: center;
 }
 
-/* Profile Header */
+/* ==================== Profile Header ==================== */
 .profile-header {
     display: flex;
     flex-direction: column;
@@ -2536,12 +2536,11 @@ figure {
     color: var(--colour-white);
 }
 
-/* Profile Info */
+/* ==================== Profile Info ==================== */
 .profile-info {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* จัดให้อยู่ตรงกลางของ .user-box */
 }
 
 .profile-info p {
@@ -2551,20 +2550,23 @@ figure {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    /* ชิดซ้าย */
     width: 100%;
-    /* ให้เต็ม container */
 }
 
 .profile-info .label {
     display: inline-block;
     min-width: 120px;
-    /* ปรับให้ label เท่ากัน */
     font-weight: bold;
     text-align: left;
 }
-
-/* Form Styling */
+/* Default - Stack vertically */
+.profile-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+/* ==================== Forms ==================== */
 #editProfileForm,
 #changePasswordForm {
     margin-top: 50px;
@@ -2606,322 +2608,19 @@ figure {
 
 #changePasswordForm label,
 #editProfileForm label {
-
     font-size: 16px;
     margin-top: 15px;
     color: var(--colour-white);
     text-align: left;
     display: block;
-    /* บังคับให้ label เป็น block element */
     width: 100%;
-    /* ให้กินพื้นที่เต็ม row */
-
 }
 
-/* เพิ่ม @media queries เพื่อรองรับการ responsive */
-@media (max-width: 480px) {
-    .user-box {
-        margin-top: 30px;
-        padding: 15px 25px;
-    }
-
-    .profile-header img {
-        width: 100px;
-        height: 100px;
-    }
-
-    .profile-header .user-name {
-        font-size: 18px;
-        margin-top: 8px;
-    }
-
-    .profile-info p {
-        font-size: 14px;
-    }
-
-    .profile-info .label {
-        min-width: 100px;
-    }
-
-    #editProfileForm,
-    #changePasswordForm {
-        padding: 20px 25px;
-    }
-
-    #editProfileForm input,
-    #editProfileForm select,
-    #changePasswordForm input {
-        padding: 10px;
-        font-size: 14px;
-    }
-
-    #changePasswordForm h3,
-    #editProfileForm h3 {
-        font-size: 20px;
-    }
-
-    #changePasswordForm label,
-    #editProfileForm label {
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 576px) {
-    .user-box {
-        margin-top: 40px;
-        padding: 20px 30px;
-    }
-
-    .profile-header img {
-        width: 110px;
-        height: 110px;
-    }
-
-    .profile-header .user-name {
-        font-size: 20px;
-        margin-top: 8px;
-    }
-
-    .profile-info p {
-        font-size: 15px;
-    }
-
-    .profile-info .label {
-        min-width: 110px;
-    }
-
-    #editProfileForm,
-    #changePasswordForm {
-        padding: 22px 30px;
-    }
-
-    #editProfileForm input,
-    #editProfileForm select,
-    #changePasswordForm input {
-        padding: 11px;
-        font-size: 15px;
-    }
-
-    #changePasswordForm h3,
-    #editProfileForm h3 {
-        font-size: 22px;
-    }
-
-    #changePasswordForm label,
-    #editProfileForm label {
-        font-size: 15px;
-    }
-}
-
-@media (max-width: 768px) {
-    .user-box {
-        margin-top: 45px;
-        padding: 20px 30px;
-    }
-
-    .profile-header img {
-        width: 110px;
-        height: 110px;
-    }
-
-    .profile-header .user-name {
-        font-size: 22px;
-        margin-top: 8px;
-    }
-
-    .profile-info p {
-        font-size: 16px;
-    }
-
-    .profile-info .label {
-        min-width: 120px;
-    }
-
-    #editProfileForm,
-    #changePasswordForm {
-        padding: 22px 35px;
-    }
-
-    #editProfileForm input,
-    #editProfileForm select,
-    #changePasswordForm input {
-        padding: 12px;
-        font-size: 16px;
-    }
-
-    #changePasswordForm h3,
-    #editProfileForm h3 {
-        font-size: 24px;
-    }
-
-    #changePasswordForm label,
-    #editProfileForm label {
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 992px) {
-    .user-box {
-        margin-top: 50px;
-        padding: 25px 35px;
-    }
-
-    .profile-header img {
-        width: 120px;
-        height: 120px;
-    }
-
-    .profile-header .user-name {
-        font-size: 24px;
-        margin-top: 10px;
-    }
-
-    .profile-info p {
-        font-size: 17px;
-    }
-
-    .profile-info .label {
-        min-width: 120px;
-    }
-
-    #editProfileForm,
-    #changePasswordForm {
-        padding: 25px 40px;
-    }
-
-    #editProfileForm input,
-    #editProfileForm select,
-    #changePasswordForm input {
-        padding: 12px;
-        font-size: 17px;
-    }
-
-    #changePasswordForm h3,
-    #editProfileForm h3 {
-        font-size: 26px;
-    }
-
-    #changePasswordForm label,
-    #editProfileForm label {
-        font-size: 17px;
-    }
-}
-
-@media (max-width: 1200px) {
-    .user-box {
-        margin-top: 50px;
-        padding: 25px 35px;
-    }
-
-    .profile-header img {
-        width: 120px;
-        height: 120px;
-    }
-
-    .profile-header .user-name {
-        font-size: 26px;
-        margin-top: 10px;
-    }
-
-    .profile-info p {
-        font-size: 18px;
-    }
-
-    .profile-info .label {
-        min-width: 120px;
-    }
-
-    #editProfileForm,
-    #changePasswordForm {
-        padding: 25px 40px;
-    }
-
-    #editProfileForm input,
-    #editProfileForm select,
-    #changePasswordForm input {
-        padding: 12px;
-        font-size: 18px;
-    }
-
-    #changePasswordForm h3,
-    #editProfileForm h3 {
-        font-size: 28px;
-    }
-
-    #changePasswordForm label,
-    #editProfileForm label {
-        font-size: 18px;
-    }
-}
-
-/* Buttons */
-.s-button {
-    display: block;
-    margin: 20px 0 5px 0;
-    width: 20%;
-    height: 50px;
-    border: 1px solid var(--main-color);
-    font-size: var(--body-size);
-    background-color: var(--bg--main);
-    color: var(--colour-white);
-    cursor: pointer;
-    border-radius: 5px;
-    text-align: center;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-/* Hover effect */
-.s-button:hover {
-    background-color: var(--main-color);
-    color: var(--bg--main);
-}
-
-/* Responsive adjustments */
-@media (max-width: 1200px) {
-    .s-button {
-        width: 25%;
-        /* ปรับความกว้างให้เหมาะกับหน้าจอขนาดกลางถึงใหญ่ */
-    }
-}
-
-@media (max-width: 992px) {
-    .s-button {
-        width: 30%;
-        /* ปรับให้ปุ่มกว้างขึ้นเล็กน้อยบนหน้าจอขนาดกลาง */
-    }
-}
-
-@media (max-width: 768px) {
-    .s-button {
-        width: 50%;
-        /* ปรับให้ปุ่มกว้างขึ้นบนหน้าจอขนาดกลาง */
-    }
-}
-
-@media (max-width: 576px) {
-    .s-button {
-        width: 70%;
-        /* ปรับให้ปุ่มกว้างขึ้นบนหน้าจอขนาดเล็ก */
-    }
-}
-
-@media (max-width: 480px) {
-    .s-button {
-        width: 80%;
-        /* ปรับให้ปุ่มเต็มความกว้างบนหน้าจอมือถือ */
-        height: 45px;
-        /* ลดความสูงลงเล็กน้อย */
-        font-size: 14px;
-        /* ปรับขนาดตัวอักษรให้เล็กลง */
-    }
-}
-
-
-
+/* ==================== Buttons ==================== */
+.s-button,
 #submitPasswordBtn {
     display: block;
-    margin: 20px auto;
-    width: 50%;
+    margin: 20px auto 5px auto;
     height: 50px;
     border: 1px solid var(--main-color);
     font-size: var(--body-size);
@@ -2933,95 +2632,133 @@ figure {
     transition: background-color 0.3s, color 0.3s;
 }
 
+.s-button:hover,
 #submitPasswordBtn:hover {
     background-color: var(--main-color);
     color: var(--bg--main);
 }
 
-/* Responsive adjustments */
-@media (max-width: 1200px) {
-    #submitPasswordBtn {
-        width: 40%;
-        /* ปรับให้ปุ่มเล็กลงเล็กน้อยบนหน้าจอขนาดใหญ่ */
-    }
+.s-button {
+    width: 20%;
 }
 
-@media (max-width: 992px) {
-    #submitPasswordBtn {
-        width: 45%;
-        /* ปรับขนาดปุ่มให้พอดีกับหน้าจอขนาดกลาง */
-    }
+#submitPasswordBtn {
+    width: 50%;
 }
 
-@media (max-width: 768px) {
-    #submitPasswordBtn {
-        width: 60%;
-        /* ปรับให้ปุ่มกว้างขึ้นบนหน้าจอแท็บเล็ต */
-    }
-}
-
-@media (max-width: 576px) {
-    #submitPasswordBtn {
-        width: 70%;
-        /* ปรับให้ปุ่มกว้างขึ้นบนมือถือขนาดเล็ก */
-    }
-}
-
-@media (max-width: 480px) {
-    #submitPasswordBtn {
-        width: 80%;
-        /* ปรับให้ปุ่มเต็มความกว้างบนมือถือ */
-        height: 45px;
-        /* ปรับความสูงให้พอดี */
-        font-size: 14px;
-        /* ปรับขนาดตัวอักษรให้เล็กลง */
-    }
-}
-
-
-/* Hidden Elements */
-/* .user-info */
+/* ==================== User Info ==================== */
 .user-info {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    /* แก้ไขจาก 'left' เป็น 'flex-start' */
     margin-top: 50px;
     margin-left: 200px;
 }
 
+/* ==================== Utility ==================== */
+.hidden {
+    display: none;
+}
+
+/* ==================== Responsive ==================== */
 @media (max-width: 1200px) {
-    .user-info {
-        margin-left: 150px;
-        /* ปรับ margin-left สำหรับหน้าจอขนาดกลาง */
-    }
+    .user-info { margin-left: 150px; }
+
+    .profile-header .user-name { font-size: 26px; }
+    .profile-info p { font-size: 18px; }
+    #editProfileForm input,
+    #editProfileForm select,
+    #changePasswordForm input { font-size: 18px; }
+    #changePasswordForm h3,
+    #editProfileForm h3,
+    #changePasswordForm label,
+    #editProfileForm label { font-size: 18px; }
+
+    .s-button { width: 25%; }
+    #submitPasswordBtn { width: 40%; }
 }
 
 @media (max-width: 992px) {
-    .user-info {
-        margin-left: 100px;
-        /* ปรับ margin-left สำหรับแท็บเล็ต */
-    }
+    .user-info { margin-left: 100px; }
+
+    .profile-header .user-name { font-size: 24px; }
+    .profile-info p { font-size: 17px; }
+    #editProfileForm input,
+    #editProfileForm select,
+    #changePasswordForm input { font-size: 17px; }
+    #changePasswordForm h3,
+    #editProfileForm h3,
+    #changePasswordForm label,
+    #editProfileForm label { font-size: 17px; }
+
+    .s-button { width: 30%; }
+    #submitPasswordBtn { width: 45%; }
 }
 
 @media (max-width: 768px) {
-    .user-info {
-        margin-left: 50px;
-        /* ปรับ margin-left สำหรับแท็บเล็ตขนาดเล็ก */
+       .user-info { margin-left: 30px; }
+
+    .profile-header img.user-pic{
+        width: 90px;
+        height: 90px;
+    }
+
+    .profile-header .user-name {
+        font-size: 20px;
+    }
+
+    .profile-info p {
+        font-size: 15px;
+    }
+
+    #editProfileForm input,
+    #editProfileForm select,
+    #changePasswordForm input {
+        font-size: 15px;
+        padding: 10px;
+    }
+
+    #changePasswordForm h3,
+    #editProfileForm h3,
+    #changePasswordForm label,
+    #editProfileForm label {
+        font-size: 15px;
+    }
+
+    .s-button {
+        width: 60%;
+        height: 45px;
+        font-size: 15px;
+    }
+
+    #submitPasswordBtn {
+        width: 65%;
+        height: 45px;
+        font-size: 15px;
     }
 }
 
 @media (max-width: 576px) {
-    .user-info {
-        margin-left: 20px;
-        /* ลด margin-left สำหรับมือถือ */
-    }
+    .user-info { margin-left: 20px; }
+
+    .profile-header img { width: 110px; height: 110px; }
+    .profile-header .user-name { font-size: 20px; }
+    .profile-info p { font-size: 15px; }
+    .profile-info .label { min-width: 110px; }
+
+    #editProfileForm input,
+    #editProfileForm select,
+    #changePasswordForm input { font-size: 15px; }
+    #changePasswordForm h3,
+    #editProfileForm h3,
+    #changePasswordForm label,
+    #editProfileForm label { font-size: 15px; }
+
+    .s-button { width: 70%; }
+    #submitPasswordBtn { width: 70%; }
 }
 
-/* .hidden */
-.hidden {
-    display: none;
-}
+
 
 /* .history-box */
 .history-box {
@@ -3554,18 +3291,41 @@ figure {
   padding: 0 32px;
   overflow: hidden;
 }
-
 .poster-horizontal-scroll {
   display: flex;
   overflow-x: hidden;
   scroll-behavior: smooth;
   gap: 10px;
-  padding: 10px 0;
+  padding: 0px 0;
 }
 
 .poster-box {
   flex: 0 0 auto;
 }
+.poster-scroll-left,
+.poster-scroll-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  width: 40px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+
+.poster-scroll-left {
+  left: 0;
+}
+
+.poster-scroll-right {
+  right: 0;
+}
+
 
 /* Cast  Datail movie*/
 .cast-container {
