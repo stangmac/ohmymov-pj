@@ -212,7 +212,7 @@
             </div>
           </div>
           <div class="line mt-4">
-            <hr class="custom-line">
+                      <hr class="custom-line" style="border: none; border-top: 1px solid white; opacity: 1;">
           </div>
         </div>
         <div class="row mt-4">
@@ -232,7 +232,7 @@
                   <% } %>
         </div>
         <div class="line mt-4">
-          <hr class="custom-line">
+              <hr class="custom-line" style="border: none; border-top: 1px solid white; opacity: 1;">
         </div>
 
         <div class="row mt-4">
@@ -260,7 +260,7 @@
             <% } %>
         </div>
         <div class="line mt-4">
-          <hr class="custom-line">
+           <hr class="custom-line" style="border: none; border-top: 1px solid white; opacity: 1;">
         </div>
 
         <script>
@@ -382,7 +382,7 @@
                   <div class="d-flex justify-content-center mt-2">
                     <div class="row  mr-2">
                       <!-- LIKE -->
-                      <button id="like-button"
+                      <button id="like-button-<%= movie._id %>"
                         class="btn o-button-2 history <% if (user && Array.isArray(user.like) && user.like.map(id => id.toString()).includes(movie._id.toString())) { %>active-btn<% } %>"
                         type="button" onclick="toggleButton(this, '<%= movie._id %>', 'like')">
                         <img class="watchlist" src="/images/icon/like.png">
@@ -392,7 +392,7 @@
                       </button>
 
                       <!-- WISHLIST -->
-                      <button id="wishlist-button"
+                      <button id="wishlist-button-<%= movie._id %>"
                         class="btn o-button-2 history <% if (user && Array.isArray(user.wishlist) && user.wishlist.map(id => id.toString()).includes(movie._id.toString())) { %>active-btn<% } %>"
                         type="button" onclick="toggleButton(this, '<%= movie._id %>', 'wishlist')">
                         <img class="watchlist" src="/images/icon/bookmark.png">
@@ -402,7 +402,7 @@
 
                     <div class="row">
                       <!-- DISLIKE -->
-                      <button id="dislike-button"
+                      <button id="dislike-button-<%= movie._id %>"
                         class="btn o-button-2 history <% if (user && Array.isArray(user.dislike) && user.dislike.map(id => id.toString()).includes(movie._id.toString())) { %>active-btn<% } %>"
                         type="button" onclick="toggleButton(this, '<%= movie._id %>', 'dislike')">
                         <img class="watchlist" src="/images/icon/dislike.png">
@@ -412,7 +412,7 @@
                       </button>
 
                       <!-- SEEN -->
-                      <button id="seen-button"
+                      <button id="seen-button-<%= movie._id %>"
                         class="btn o-button-2 history <% if (user && Array.isArray(user.seen) && user.seen.map(id => id.toString()).includes(movie._id.toString())) { %>active-btn<% } %>"
                         type="button" onclick="toggleButton(this, '<%= movie._id %>', 'seen')">
                         <img class="watchlist" src="/images/icon/seen.png">
@@ -424,7 +424,7 @@
                 </div>
               </div>
               <div class="line mt-4">
-                <hr class="custom-line">
+               <hr class="custom-line" style="border: none; border-top: 1px solid white; opacity: 1;">
               </div>
 
 
@@ -569,17 +569,15 @@
                         <div class="d-flex justify-content-center mt-2">
                           <div class="row ml-3 mr-2">
                             <!-- LIKE -->
-                            <button id="like-button"
-                              class="btn o-button-2 history <% if (user && Array.isArray(user.like) && user.like.map(id => id.toString()).includes(movie._id.toString())) { %>active-btn<% } %>"
-                              type="button" onclick="toggleButton(this, '<%= movie._id %>', 'like')">
-                              <img class="watchlist" src="/images/icon/like.png">
-                              <span id="like-count">
-                                <%= movie.like || 0 %>
-                              </span>
-                            </button>
+                  <!-- LIKE -->
+<button id="like-button-<%= movie._id %>" class="btn o-button-2 history <%= user?.like?.map(id => id.toString()).includes(movie._id.toString()) ? 'active-btn' : '' %>" type="button" onclick="toggleButton(this, '<%= movie._id %>', 'like')">
+  <img class="watchlist" src="/images/icon/like.png">
+  <span id="like-count-<%= movie._id %>"><%= movie.like || 0 %></span>
+</button>
+
 
                             <!-- WISHLIST -->
-                            <button id="wishlist-button"
+                            <button id="wishlist-button-<%= movie._id %>"
                               class="btn o-button-2 history <% if (user && Array.isArray(user.wishlist) && user.wishlist.map(id => id.toString()).includes(movie._id.toString())) { %>active-btn<% } %>"
                               type="button" onclick="toggleButton(this, '<%= movie._id %>', 'wishlist')">
                               <img class="watchlist" src="/images/icon/bookmark.png">
@@ -588,18 +586,14 @@
                           </div>
 
                           <div class="row">
-                            <!-- DISLIKE -->
-                            <button id="dislike-button"
-                              class="btn o-button-2 history <% if (user && Array.isArray(user.dislike) && user.dislike.map(id => id.toString()).includes(movie._id.toString())) { %>active-btn<% } %>"
-                              type="button" onclick="toggleButton(this, '<%= movie._id %>', 'dislike')">
-                              <img class="watchlist" src="/images/icon/dislike.png">
-                              <span id="dislike-count">
-                                <%= movie.dislike || 0 %>
-                              </span>
-                            </button>
+                  <!-- DISLIKE -->
+<button id="dislike-button-<%= movie._id %>" class="btn o-button-2 history <%= user?.dislike?.map(id => id.toString()).includes(movie._id.toString()) ? 'active-btn' : '' %>" type="button" onclick="toggleButton(this, '<%= movie._id %>', 'dislike')">
+  <img class="watchlist" src="/images/icon/dislike.png">
+  <span id="dislike-count-<%= movie._id %>"><%= movie.dislike || 0 %></span>
+</button>
 
                             <!-- SEEN -->
-                            <button id="seen-button"
+                            <button id="seen-button-<%= movie._id %>"
                               class="btn o-button-2 history <% if (user && Array.isArray(user.seen) && user.seen.map(id => id.toString()).includes(movie._id.toString())) { %>active-btn<% } %>"
                               type="button" onclick="toggleButton(this, '<%= movie._id %>', 'seen')">
                               <img class="watchlist" src="/images/icon/seen.png">
@@ -614,46 +608,64 @@
   </div>
   </div>
 
-  <script>
-    function toggleButton(button, movieId, action) {
-      fetch('/log-activity', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ movieId, action })
-      })
-        .then(res => res.json())
-        .then(data => {
-          if (data.success) {
-            // ✅ toggle ปุ่ม active สีเขียว
-            if (action === 'like' || action === 'dislike') {
-              document.getElementById('like-button').classList.remove('active-btn');
-              document.getElementById('dislike-button').classList.remove('active-btn');
-              if (!data.removed) {
-                document.getElementById(`${action}-button`).classList.add('active-btn');
-              }
-            } else {
-              button.classList.toggle('active-btn', !data.removed);
-            }
+<script>
+function toggleButton(button, movieId, action) {
+  const btns = document.querySelectorAll(`#${action}-button-${movieId}`);
+  btns.forEach(btn => btn.disabled = true);
 
-            // ✅ อัปเดตจำนวน like/dislike
-            if (data.counts) {
-              if ('like' in data.counts) {
-                document.getElementById('like-count').innerText = data.counts.like;
-              }
-              if ('dislike' in data.counts) {
-                document.getElementById('dislike-count').innerText = data.counts.dislike;
-              }
-            }
-          } else {
-            alert('⚠️ Failed to log activity.');
-          }
-        })
-        .catch(err => {
-          console.error('❌ Error calling log-activity:', err);
-          alert('❌ Error communicating with server');
-        });
+  const spinner = document.createElement("span");
+  spinner.className = "spinner-border spinner-border-sm";
+  spinner.style.marginLeft = "6px";
+  spinner.setAttribute("role", "status");
+  spinner.setAttribute("aria-hidden", "true");
+  button.appendChild(spinner);
+
+  fetch('/log-activity', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ movieId, action })
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data.success) {
+      // ล้าง active-btn ทั้งหมด (like/dislike)
+      if (action === 'like' || action === 'dislike') {
+        const allLikeBtns = document.querySelectorAll(`#like-button-${movieId}`);
+        const allDislikeBtns = document.querySelectorAll(`#dislike-button-${movieId}`);
+        allLikeBtns.forEach(btn => btn.classList.remove('active-btn'));
+        allDislikeBtns.forEach(btn => btn.classList.remove('active-btn'));
+      }
+
+      // ตั้ง active-btn ใหม่
+      btns.forEach(btn => {
+        if (!data.removed) {
+          btn.classList.add('active-btn');
+        } else {
+          btn.classList.remove('active-btn');
+        }
+      });
+
+      // อัปเดต count ทุกจุด
+      if (data.counts) {
+        const likeCounts = document.querySelectorAll(`#like-count-${movieId}`);
+        const dislikeCounts = document.querySelectorAll(`#dislike-count-${movieId}`);
+        likeCounts.forEach(span => span.textContent = data.counts.like);
+        dislikeCounts.forEach(span => span.textContent = data.counts.dislike);
+      }
+    } else {
+      alert('⚠️ บันทึกพฤติกรรมไม่สำเร็จ');
     }
-  </script>
+  })
+  .catch(err => {
+    console.error('❌ log-activity error:', err);
+    alert('❌ ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์');
+  })
+  .finally(() => {
+    spinner.remove();
+    btns.forEach(btn => btn.disabled = false);
+  });
+}
+</script>
 
   <script src="/js/userActivity.js"></script>
   <script src="/js/actionbutton.js"></script>
