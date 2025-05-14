@@ -33,7 +33,7 @@ router.post('/save-genres', requireLogin, async (req, res) => {
       favoriteGenres: selectedGenres
     });
 
-    return res.redirect('/suggestion');
+    return res.redirect('/movie-preference');
   } catch (err) {
     console.error("❌ Error saving genres:", err);
     return res.status(500).send("Internal Server Error");

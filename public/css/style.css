@@ -3340,6 +3340,7 @@ figure {
   color: var(--bg--main);
   border-radius: 16px;
   width: 200px;
+  min-width: 150px;
   padding: 16px 12px;
   height: auto;
   text-align: center;
@@ -3475,7 +3476,6 @@ figure {
   position: absolute;
   top: 40%;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.5);
   padding: 8px;
   border-radius: 50%;
   cursor: pointer;
@@ -3483,11 +3483,11 @@ figure {
 }
 
 .similar-scroll-left {
-  left: 8px;
+  left:8px;
 }
 
 .similar-scroll-right {
-  right: 8px;
+  right: -10px;
 }
 
 /* Responsive Media Queries Datail movie*/
@@ -3643,3 +3643,179 @@ figure {
 }
 
 /*End Detail Movie Section Global Styles & Variables  Datail movie*/
+
+
+/* start fav-genre */
+.scroll-wrapper-fav {
+  position: relative;
+  overflow: hidden;
+}
+
+.genre-scroll-container-fav {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 1rem;
+  padding-bottom: 0;
+}
+
+.card-horizontal.fav-card {
+  background-color: var(--bg--sub);
+  border-radius: 12px;
+  min-width: 200px;
+  flex: 0 0 auto;
+  padding: 1rem;
+  color: var(--colour-white);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    padding-bottom: 0;
+
+}
+
+.fav-movie-item {
+  display: flex;
+  flex-direction: column;
+  max-width: 250px;
+  min-width: 200px;
+margin: 40px;
+justify-content: space-between;
+  padding-bottom: 0;
+
+}
+
+.poster-fav {
+  width: 100%;
+  max-width: 200px;
+  height: 300px;
+  border-radius: 8px;
+  object-fit: cover;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; /* จัดภาพให้อยู่กึ่งกลาง */
+}
+
+
+.fav-title {
+  font-size: var(--title-size);
+  font-weight: bold;
+  margin-top: 0.5rem;
+  text-align: left;
+  color: var(--colour-white);
+}
+
+.fav-year,
+.fav-rating span {
+  font-size: var(--caption-size);
+  color: var(--colour-white);
+  margin-top: 0.25rem;
+}
+
+.rating-row-fav {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  gap: 0.5rem;
+    color: var(--colour-white);
+}
+
+.fav-platforms {
+  text-align: start;
+  margin-top: 0.5rem;
+}
+
+.caption-font.grey-font {
+  color: #ffffff;
+  font-size: var(--detail-size);
+}
+
+.fav-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.fav-actions .btn {
+  flex: 1;
+  font-size: var(--caption-size);
+  color: white;
+  padding: 0.4rem 0.6rem;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  background-color: var(--bg--main);
+  border: 1px solid var(--main-color);
+  transition: background-color 0.2s ease;
+}
+
+.fav-actions .btn:hover {
+  background-color: var(--main-color);
+  color: var(--bg--main);
+}
+
+/* ACTIVE STATE for any action button */
+.fav-actions .btn.active {
+   background-color: var(--main-color);
+  color: var(--bg--main);
+}
+
+/* Optional: Different color per action (customize as needed) */
+.fav-actions .fav-like-btn.active {
+  background-color: var(--main-color);
+  color: var(--bg--main);
+}
+
+.fav-actions .fav-dislike-btn.active {
+  background-color: var(--main-color);
+  color: var(--bg--main);
+}
+
+.fav-actions .fav-wishlist-btn.active {
+  background-color: var(--main-color);
+  color: var(--bg--main);
+}
+
+.fav-actions .fav-seen-btn.active {
+  background-color: var(--main-color);
+  color: var(--bg--main);
+}
+img.wiwatchlist.active {
+  background-color: var(--main-color);
+  color: var(--bg--main);
+}
+
+.watchlist {
+  width: 16px;
+  height: 16px;
+}
+
+.carousel-control-prev-fav,
+.carousel-control-next-fav {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  padding: 0.5rem;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.carousel-control-prev-fav {
+  left: 0;
+}
+
+.carousel-control-next-fav {
+  right: 0;
+}
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 0;
+}
+#nextButton.inactive {
+  opacity: 0.5;
+  pointer-events: none;
+}
