@@ -386,7 +386,7 @@
                         class="btn o-button-2 history <% if (user && Array.isArray(user.like) && user.like.map(id => id.toString()).includes(movie._id.toString())) { %>active-btn<% } %>"
                         type="button" onclick="toggleButton(this, '<%= movie._id %>', 'like')">
                         <img class="watchlist" src="/images/icon/like.png">
-                        <span id="like-count">
+                        <span id="like-count-<%= movie._id %>">
                           <%= movie.like || 0 %>
                         </span>
                       </button>
@@ -406,7 +406,7 @@
                         class="btn o-button-2 history <% if (user && Array.isArray(user.dislike) && user.dislike.map(id => id.toString()).includes(movie._id.toString())) { %>active-btn<% } %>"
                         type="button" onclick="toggleButton(this, '<%= movie._id %>', 'dislike')">
                         <img class="watchlist" src="/images/icon/dislike.png">
-                        <span id="dislike-count">
+                        <span id="dislike-count-<%= movie._id %>">
                           <%= movie.dislike || 0 %>
                         </span>
                       </button>
