@@ -1,70 +1,67 @@
+function toggleButton(button, movieId, action) {
+  const btns = document.querySelectorAll(`#${action}-button-${movieId}`);
+  
+  // 💡 Optimistically toggle active class
+  if (action === 'like' || action === 'dislike') {
+    const allLikeBtns = document.querySelectorAll(`#like-button-${movieId}`);
+    const allDislikeBtns = document.querySelectorAll(`#dislike-button-${movieId}`);
 
-  // ✅ ใช้เฉพาะในปุ่มที่ต้องการ toggle active สีเขียว + อัปเดตกับ server
-  function toggleButton(button, movieId, action) {
-    fetch('/log-activity', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ movieId, action })
-    })
-      .then(res => res.json())
-      .then(data => {
-        if (data.success) {
-          // ✅ จัดการ class ปุ่ม
-          if (action === 'like' || action === 'dislike') {
-            document.getElementById('like-button')?.classList.remove('active-btn');
-            document.getElementById('dislike-button')?.classList.remove('active-btn');
-            if (!data.removed) {
-              document.getElementById(`${action}-button`)?.classList.add('active-btn');
-            }
-          } else {
-            button.classList.toggle('active-btn', !data.removed);
-          }
+    // เอาออกหมดก่อน
+    allLikeBtns.forEach(btn => btn.classList.remove('active-btn'));
+    allDislikeBtns.forEach(btn => btn.classList.remove('active-btn'));
 
-          // ✅ อัปเดตจำนวน like/dislike
-          if (data.counts) {
-            if ('like' in data.counts) {
-              document.getElementById('like-count').innerText = data.counts.like;
-            }
-            if ('dislike' in data.counts) {
-              document.getElementById('dislike-count').innerText = data.counts.dislike;
-            }
-          }
-        } else {
-          alert('⚠️ บันทึกพฤติกรรมไม่สำเร็จ');
-        }
-      })
-      .catch(err => {
-        console.error('❌ log-activity error:', err);
-        alert('❌ ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์');
-      });
+    // ใส่ active เฉพาะปุ่มที่กด (toggle ทันที)
+    if (!button.classList.contains('active-btn')) {
+      button.classList.add('active-btn');
+    }
+  } else {
+    // WISHLIST / SEEN: toggle ทันที
+    btns.forEach(btn => btn.classList.toggle('active-btn'));
   }
 
-  // ✅ ส่วนนี้ใช้สำหรับปุ่ม filter (ไม่เกี่ยวกับ like/dislike)
-  document.addEventListener("DOMContentLoaded", function () {
-    // ปุ่มหมวดหมู่ sg-button
-    const sgButtons = document.querySelectorAll(".sg-button");
-    sgButtons.forEach((button) => {
-      button.addEventListener("click", function () {
-        sgButtons.forEach((btn) => btn.classList.remove("active-sg-button"));
-        this.classList.add("active-sg-button");
-      });
+  // ปิดปุ่มชั่วคราว
+  btns.forEach(btn => btn.disabled = true);
+
+  const spinner = document.createElement("span");
+  spinner.className = "spinner-border spinner-border-sm";
+  spinner.style.marginLeft = "6px";
+  spinner.setAttribute("role", "status");
+  spinner.setAttribute("aria-hidden", "true");
+  button.appendChild(spinner);
+
+  // 🔄 Fetch server
+  fetch('/log-activity', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ movieId, action })
+  })
+    .then(res => res.json())
+    .then(data => {
+      if (data.success) {
+        // 🎯 sync count ทันที
+        if (data.counts) {
+          const likeCounts = document.querySelectorAll(`#like-count-${movieId}`);
+          const dislikeCounts = document.querySelectorAll(`#dislike-count-${movieId}`);
+          likeCounts.forEach(span => span.textContent = data.counts.like);
+          dislikeCounts.forEach(span => span.textContent = data.counts.dislike);
+        }
+      } else {
+        alert('⚠️ บันทึกพฤติกรรมไม่สำเร็จ');
+      }
+    })
+    .catch(err => {
+      console.error('❌ log-activity error:', err);
+      alert('❌ ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์');
+
+      // ❌ ย้อน class กลับถ้า error
+      if (action === 'like' || action === 'dislike') {
+        button.classList.remove('active-btn');
+      } else {
+        button.classList.toggle('active-btn');
+      }
+    })
+    .finally(() => {
+      spinner.remove();
+      btns.forEach(btn => btn.disabled = false);
     });
-
-    // ปุ่ม o-button-3 (ใช้สำหรับ filter หรือแบบเดียวกัน)
-    const o3Buttons = document.querySelectorAll(".o-button-3");
-    o3Buttons.forEach((button) => {
-      button.addEventListener("click", function () {
-        o3Buttons.forEach((btn) => btn.classList.remove("active-style-o-button-3"));
-        this.classList.add("active-style-o-button-3");
-      });
-    });
-  });
-
-
-
-  const links = document.querySelectorAll('.nav-link');
-  links.forEach(link => {
-    if (link.href === window.location.href) {
-      link.classList.add('active');
-    }
-  });
+}
