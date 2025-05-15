@@ -8,23 +8,28 @@ const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
 const { exec } = require('child_process');
 
+// 🔁 เรียกใช้งาน cron job แบบ export function
+const { scheduleMovieSync } = require('./jobs/movieCronJob');
+
 // 🔐 Middleware
 const { requireLogin } = require('./middleware/auth');
 
 // 🌐 MongoDB Atlas
 const dbUrl = process.env.MONGO_URL;
 
+// เชื่อมต่อฐานข้อมูล และเรียก cron หลังเชื่อมสำเร็จ
 mongoose.connect(dbUrl)
-  .then(() => console.log('✅ Connected to MongoDB!'))
+  .then(() => {
+    console.log('✅ Connected to MongoDB!');
+    scheduleMovieSync(); // ✅ เรียก cron job ที่ตั้งเวลาไว้
+  })
   .catch((err) => console.error('❌ Error connecting to MongoDB:', err));
 
 // 📦 Middleware
 app.use(express.static('public'));
 app.use(express.static('asset'));
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
 app.use(flash());
 
 app.use(expressSession({
@@ -35,9 +40,8 @@ app.use(expressSession({
   cookie: { secure: false, httpOnly: true, maxAge: 1000 * 60 * 60 }
 }));
 
-// 📌 ตั้งค่าผู้ใช้เข้าสู่ระบบ (ใช้ global.loggedIN)
+// 📌 ตั้งค่า session global
 global.loggedIN = null;
-
 app.use((req, res, next) => {
   global.loggedIN = req.session.user ? req.session.user.username : null;
   console.log("Session User:", req.session.user);
@@ -70,6 +74,7 @@ const startController = require("./controllers/startController");
 const saveStartController = require('./controllers/saveStartController');
 const startGenreController = require('./controllers/startGenreController');
 app.use(startGenreController);
+
 // 🛣️ Routes
 app.get('/', indexController);
 app.get('/login', loginController);
@@ -82,7 +87,7 @@ app.get('/home-new', homenewController);
 app.get('/all-content', allcontentController);
 app.get('/suggestion', suggestionController);
 
-// ✅ 🔍 Search Routes
+// 🔍 Search
 app.get('/search', searchController.searchMovies);
 app.get('/result-search', searchController.renderSearchPage);
 
@@ -125,6 +130,18 @@ app.use('/protected', requireLogin, (req, res) => {
   res.send('This is a protected page');
 });
 
+// 🔧 Manual movie sync route
+const { syncMovies } = require('./services/movieSyncService');
+app.get('/manual-sync', async (req, res) => {
+  try {
+    await syncMovies(10); // ดึงแค่ 10 เรื่องมาทดสอบ
+    res.send('✅ Manual sync done');
+  } catch (err) {
+    console.error('❌ Manual sync failed:', err.message);
+    res.status(500).send('❌ Manual sync failed');
+  }
+});
+
 // ❌ 404 Handler
 app.use((req, res, next) => {
   res.status(404).render('404', { message: "Page not found" });
@@ -136,7 +153,7 @@ app.use((err, req, res, next) => {
   res.status(500).render('500', { message: "Internal server error" });
 });
 
-// 🎬 Start Server
+// 🚀 Start Server
 app.listen(3000, () => {
   console.log('🎥 Server is running on http://localhost:3000');
 });
