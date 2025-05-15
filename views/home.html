@@ -393,16 +393,29 @@
                   src="<%= (movie.poster_url && movie.poster_url.length) ? movie.poster_url[0] : '/images/poster-default.png' %>"
                   alt="<%= movie.title || 'Movie Poster' %>">
               </figure>
-              <div class="imdb-rate">
-                <%= movie.rating_imdb || 'N/A' %>
-              </div>
-              <div class="poster-title-box">
-                <div class="top-title">
-                  <span class="entry-title">
-                    <%= movie.title %> (<%= movie.year %>)
-                  </span>
+              <%
+  let rating = Number(movie.rating_imdb);
+  let imdbClass = 'gray'; // ค่าเริ่มต้นคือเทา (กรณี N/A)
+
+  if (!isNaN(rating)) {
+    if (rating >= 7.5) imdbClass = 'green';
+    else if (rating >= 5.0) imdbClass = 'yellow';
+    else imdbClass = 'red';
+  }
+%>
+<div class="imdb-rate <%= imdbClass %>">
+  <%= movie.rating_imdb || 'N/A' %>
+</div>
+
+
+
+                <div class="poster-title-box">
+                  <div class="top-title">
+                    <span class="entry-title">
+                      <%= movie.title %> (<%= movie.year %>)
+                    </span>
+                  </div>
                 </div>
-              </div>
             </a>
           </div>
           <% }) %>

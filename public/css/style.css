@@ -2205,6 +2205,28 @@ figure {
     text-align: center;
 }
 
+.imdb-rate.green {
+  border-color: #28a745; /* เขียว */
+  color: #28a745;
+}
+
+.imdb-rate.yellow {
+  border-color: #ffc107; /* เหลือง */
+  color: #ffc107;
+}
+
+.imdb-rate.red {
+  border-color: #dc3545; /* แดง */
+  color: #dc3545;
+}
+
+.imdb-rate.gray {
+  border-color: #6c757d; /* เทา */
+  color: #6c757d;
+}
+
+
+
 .poster-title-box {
     position: absolute;
     bottom: 0;
