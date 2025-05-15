@@ -10,23 +10,43 @@ module.exports = async (req, res) => {
     const moviesByGenre = {};
 
     for (const genre of selectedGenres) {
-      const movies = await Movie.find({ genres: genre }).limit(5);
+      const movies = await Movie.aggregate([
+        { 
+          $match: { 
+            genres: genre, 
+            rating_imdb: { $ne: "N/A" } // ไม่เอาคะแนนที่ไม่มี
+          } 
+        },
+        { 
+          $addFields: { 
+            numericRating: { $toDouble: "$rating_imdb" } // แปลงคะแนนเป็นตัวเลข
+          } 
+        },
+        { 
+          $sort: { numericRating: -1 } // เรียงจากมากไปน้อย
+        },
+        { 
+          $limit: 5 // เอาแค่ 5 เรื่อง
+        }
+      ]);
+
       moviesByGenre[genre] = movies;
     }
 
- // ตรวจสอบก่อน render
-  const userBehavior = {
-    like: user.like.map(id => id.toString()),
-    dislike: user.dislike.map(id => id.toString()),
-    wishlist: user.wishlist.map(id => id.toString()),
-    seen: user.seen.map(id => id.toString())
-  };
+    // สร้างข้อมูลพฤติกรรมผู้ใช้
+    const userBehavior = {
+      like: user.like.map(id => id.toString()),
+      dislike: user.dislike.map(id => id.toString()),
+      wishlist: user.wishlist.map(id => id.toString()),
+      seen: user.seen.map(id => id.toString())
+    };
 
-  res.render('movie-preference', {
-    selectedGenres,
-    moviesByGenre,
-    userBehavior // ✅ ส่งไป
-  });
+    res.render('movie-preference', {
+      selectedGenres,
+      moviesByGenre,
+      userBehavior
+    });
+
   } catch (error) {
     console.error("❌ Error rendering movie-preference:", error);
     res.status(500).send("Server Error");

@@ -3646,9 +3646,10 @@ figure {
 
 
 /* start fav-genre */
+/* start fav-genre */
 .scroll-wrapper-fav {
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .genre-scroll-container-fav {
@@ -3657,98 +3658,139 @@ figure {
   overflow-x: auto;
   scroll-behavior: smooth;
   padding: 1rem;
-  padding-bottom: 0;
 }
 
-.card-horizontal.fav-card {
-  background-color: var(--bg--sub);
-  border-radius: 12px;
-  min-width: 200px;
-  flex: 0 0 auto;
-  padding: 1rem;
-  color: var(--colour-white);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    padding-bottom: 0;
-
+.genre-scroll-container-fav::-webkit-scrollbar {
+  display: none;
 }
 
 .fav-movie-item {
+  flex: 0 0 calc((100% - 4 * 1.5rem) / 5);
+  max-width: calc((100% - 4 * 1.5rem) / 5);
+  min-width: 200px;
+  display: flex;
+  justify-content: space-between;
+}
+@media (max-width: 1200px) {
+  .fav-movie-item {
+    flex: 0 0 calc((100% - 2 * 1.5rem) / 3);
+    max-width: calc((100% - 2 * 1.5rem) / 3);
+  }
+  .fav-actions .btn {
+    width: 90px !important;
+    height: 26px !important;
+    min-width: unset !important;
+  }
+
+  .fav-actions .btn img.watchlist {
+    width: 16px !important;
+    height: 16px !important;
+  }
+}
+@media (max-width: 1024px) {
+  .fav-movie-item {
+    flex: 0 0 calc((100% - 2 * 1.5rem) / 3);
+    max-width: calc((100% - 2 * 1.5rem) / 3);
+  }
+.fav-actions .btn {
+  width: 50px !important;
+  height: 26px !important;
+  min-width: unset !important;
+  padding: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0 !important; /* ซ่อนตัวหนังสือ ถ้ามี */
+}
+
+}
+
+@media (max-width: 768px) {
+  .fav-movie-item {
+    flex: 0 0 calc((100% - 1 * 1.5rem) / 2);
+    max-width: calc((100% - 1 * 1.5rem) / 2);
+  }
+}
+
+@media (max-width: 576px) {
+  .fav-movie-item {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+.fav-actions .btn {
+    width: 90px !important;
+    height: 26px !important;
+    min-width: unset !important;
+  }
+
+  .fav-actions .btn img.watchlist {
+    width: 16px !important;
+    height: 16px !important;
+  }
+}
+.card-horizontal-fav.fav-card {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  min-height: 200px; /* ปรับตามความเหมาะสม */
+  align-items: stretch;
+}
+.fav-card-content {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  max-width: 250px;
-  min-width: 200px;
-margin: 40px;
-justify-content: space-between;
-  padding-bottom: 0;
+  justify-content: space-between;
+}
 
+.card-horizontal-fav {
+  border-radius: 12px;
+  padding: 1rem;
+  color: var(--colour-white);
+  height: 100%;
+  
 }
 
 .poster-fav {
-  width: 100%;
-  max-width: 200px;
-  height: 300px;
-  border-radius: 8px;
+ max-width: 200px;
+ max-height: 250px;
   object-fit: cover;
-  display: block;
-  margin-left: auto;
-  margin-right: auto; /* จัดภาพให้อยู่กึ่งกลาง */
+  border-radius: 8px;
 }
-
 
 .fav-title {
-  font-size: var(--title-size);
-  font-weight: bold;
-  margin-top: 0.5rem;
   text-align: left;
+  font-size: var(--caption-size);
   color: var(--colour-white);
 }
 
-.fav-year,
-.fav-rating span {
+.fav-year, .rating-row-fav span {
   font-size: var(--caption-size);
   color: var(--colour-white);
-  margin-top: 0.25rem;
 }
 
 .rating-row-fav {
   display: flex;
-  justify-content: start;
-  align-items: start;
   gap: 0.5rem;
-    color: var(--colour-white);
-}
-
-.fav-platforms {
-  text-align: start;
-  margin-top: 0.5rem;
-}
-
-.caption-font.grey-font {
-  color: #ffffff;
-  font-size: var(--detail-size);
+  align-items: center;
 }
 
 .fav-actions {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: nowrap;
+  justify-content: center;
   gap: 0.5rem;
   margin-top: 1rem;
-  width: 100%;
 }
 
 .fav-actions .btn {
-  flex: 1;
-  font-size: var(--caption-size);
-  color: white;
-  padding: 0.4rem 0.6rem;
-  border-radius: 50px;
+  width: 90px !important;            /* ขนาดเล็กลงตามคำขอ */
+  height: 30px !important;
+  padding: 0 !important;
+  background-color: var(--bg--main);
+  border: 1px solid var(--main-color);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.3rem;
-  background-color: var(--bg--main);
-  border: 1px solid var(--main-color);
-  transition: background-color 0.2s ease;
 }
 
 .fav-actions .btn:hover {
@@ -3756,66 +3798,72 @@ justify-content: space-between;
   color: var(--bg--main);
 }
 
-/* ACTIVE STATE for any action button */
 .fav-actions .btn.active {
-   background-color: var(--main-color);
-  color: var(--bg--main);
-}
-
-/* Optional: Different color per action (customize as needed) */
-.fav-actions .fav-like-btn.active {
   background-color: var(--main-color);
   color: var(--bg--main);
 }
 
-.fav-actions .fav-dislike-btn.active {
-  background-color: var(--main-color);
-  color: var(--bg--main);
+.fav-actions .btn img.watchlist {
+  width: 16px !important;
+  height: 16px !important;
+  object-fit: contain;
 }
 
-.fav-actions .fav-wishlist-btn.active {
-  background-color: var(--main-color);
-  color: var(--bg--main);
-}
-
-.fav-actions .fav-seen-btn.active {
-  background-color: var(--main-color);
-  color: var(--bg--main);
-}
-img.wiwatchlist.active {
-  background-color: var(--main-color);
-  color: var(--bg--main);
-}
-
-.watchlist {
-  width: 16px;
-  height: 16px;
-}
-
-.carousel-control-prev-fav,
-.carousel-control-next-fav {
+.fav-scroll-left,
+.fav-scroll-right {
   position: absolute;
-  top: 45%;
+  top: 50%;
   transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  padding: 0.5rem;
-  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
   cursor: pointer;
 }
 
-.carousel-control-prev-fav {
-  left: 0;
+.fav-scroll-left {
+  left: 10px;
 }
 
-.carousel-control-next-fav {
-  right: 0;
+.fav-scroll-right {
+  right: 10px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 24px;
+  height: 24px;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 .button-container {
   display: flex;
   justify-content: center;
-  margin-top: 0;
+  align-items: center;
+  margin-top: 1rem; /* ปรับได้ตามต้องการ */
 }
-#nextButton.inactive {
-  opacity: 0.5;
-  pointer-events: none;
+.fav-h1{
+    font-size: var(--h1-size);
+    color: var(--colour-white);
+    text-decoration: underline var(--main-color);
 }
+.caption-font{
+    font-size: var(--detail-size);
+}
+.alert-warning-custom {
+  display: inline-block;
+  width: fit-content; /* ✅ กำหนดให้ขนาดเท่ากับข้อความ */
+  color: var(--colour-white);
+  font-size: var(--title-size);
+  background-color: rgba(155, 238, 152, 0.5);
+  border: 1px solid var(--main-color);
+  padding: 0.5rem 1rem;
+  text-align: center;
+  border-radius: 8px;
+  margin: 1rem auto;
+}
+
