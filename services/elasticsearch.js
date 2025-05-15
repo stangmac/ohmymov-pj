@@ -1,10 +1,12 @@
+// services/elasticsearch.js
 const { Client } = require('@elastic/elasticsearch');
+require('dotenv').config();
 
 const client = new Client({
-  node: 'http://localhost:9200', // เปลี่ยนเป็น URL ของ Elasticsearch Server ของคุณ
+  node: process.env.ELASTIC_NODE || 'http://localhost:9200',
   auth: {
-    username: 'elastic', // เปลี่ยนเป็นของคุณ
-    password: 'yourpassword'
+    username: process.env.ELASTIC_USERNAME || 'elastic',
+    password: process.env.ELASTIC_PASSWORD || 'changeme'
   }
 });
 

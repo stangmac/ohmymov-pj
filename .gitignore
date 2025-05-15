@@ -1,0 +1,30 @@
+# ไฟล์และโฟลเดอร์ของ Node.js
+node_modules/
+.env
+*.log
+
+# Visual Studio Code settings
+.vscode/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# ไฟล์ Python virtual environment
+venv/
+env/
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+
+# ไฟล์ output ชั่วคราว
+*.bak
+*.tmp
+*.swp
+
+# Elastic / Data
+failedMovies.json
+failedErrors.json
