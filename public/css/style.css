@@ -1292,13 +1292,13 @@ body>section.sec-1.py-4>div>div>div.col-md-5>div>div:nth-child(3)>div>button {
 /* ปุ่ม scroll สำหรับมือถือ */
 
 
-.horizontal-scroll-container {
+.box-new.horizontal-scroll-container {
     display: flex;
     overflow-x: auto;
     scroll-behavior: smooth;
 }
 
-.card-horizontal {
+.box-new.card-horizontal {
     width: 90vw;
     /* หรือขนาดที่เหมาะกับการแสดงผลการ์ดเดียวบนมือถือ */
     margin: 0 5px;
@@ -1329,7 +1329,7 @@ body>section.sec-1.py-4>div>div>div.col-md-5>div>div:nth-child(3)>div>button {
 
 
 @media (max-width: 1024px) {
-    .horizontal-scroll-container {
+    .box-new.horizontal-scroll-container {
         display: flex;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
@@ -1344,7 +1344,7 @@ body>section.sec-1.py-4>div>div>div.col-md-5>div>div:nth-child(3)>div>button {
         scroll-snap-align: center;
     }
 
-    .horizontal-scroll-container::-webkit-scrollbar {
+    .box-new.horizontal-scroll-container::-webkit-scrollbar {
         display: none;
     }
 
@@ -1410,7 +1410,7 @@ body>section.sec-1.py-4>div>div>div.col-md-5>div>div:nth-child(3)>div>button {
 
 /* Horizontal scroll (มือถือ) */
 @media (max-width: 768px) {
-    .horizontal-scroll-container {
+    .box-new.horizontal-scroll-container {
         display: flex;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
@@ -1425,7 +1425,7 @@ body>section.sec-1.py-4>div>div>div.col-md-5>div>div:nth-child(3)>div>button {
         scroll-snap-align: center;
     }
 
-    .horizontal-scroll-container::-webkit-scrollbar {
+    .box-new.horizontal-scroll-container::-webkit-scrollbar {
         display: none;
     }
 
@@ -2392,10 +2392,18 @@ figure {
     display: flex;
     overflow-x: hidden;
     scroll-behavior: smooth;
-    gap: 10px;
-    padding: 5px 0;
+    gap: 20px;
+    padding: 20px 0;
     justify-content: flex-start;
+    scroll-snap-type: x mandatory;
     color: var(--colour-white);
+}
+
+.sec-5 .card-horizontal {
+    flex: 0 0 calc((100% - 80px) / 6); /* แสดง 5 ใบ + gap รวม 80px (4 ช่อง * 20px) */
+    scroll-snap-align: start;
+    padding: 10px 0;
+    box-sizing: border-box;
 }
 
 .sec-5 img.app.platform-logo {
@@ -3278,11 +3286,48 @@ figure {
 .detail-box {
   border: 2px solid var(--main-color);
   background-color: #1e1e1e;
-  border-radius: 30px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  padding: 20px;
-  max-width: 90%;
+  border-radius: 20px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+  padding: 25px;
   color: white;
+  width: 90%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  overflow-x: hidden;/* ✅ จัดเนื้อหาตรงกลางแนวนอน */
+}
+
+.sticky-box {
+  position: sticky;
+  top: 100px;
+  z-index: 5;
+  align-self: start;
+  max-height: 85vh;
+  overflow-y: hidden;
+}
+
+.poster-detail-box {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* ปุ่มทั้งหมด */
+.detail-box .btn {
+  min-width: 150px;
+  margin: 8px;
+  margin-right: 10px;
+}
+
+/* กลุ่มปุ่ม */
+.detail-box .button-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* ✅ ตรงกลาง */
+  gap: 10px;
+  margin-top: 15px;
+  
 }
 
 .movie-year {
@@ -3425,8 +3470,11 @@ figure {
   position: sticky;
   top: 100px;
   z-index: 5;
-  height: 30%;
+  align-self: start;
+  max-height: 80vh;
+  overflow-y: hidden;
 }
+
 
 /* Swiper Navigation  Datail movie*/
 .swiper-button-next,
@@ -3480,7 +3528,7 @@ figure {
 
 .similar-card {
   flex: 0 0 auto;
-  width: 250px;
+  width: 200px;
   scroll-snap-align: start;
   color: var(--colour-white);
 }
@@ -3533,17 +3581,52 @@ figure {
     border-radius: 24px;
   }
 
-  .sticky-box {
-    position: sticky;
-    top: 70px;
-    z-index: 5;
-    max-width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 12px;
-  }
+  .detail-box {
+  border: 2px solid var(--main-color);
+  background-color: #1e1e1e;
+  border-radius: 20px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+  padding: 25px;
+  color: white;
+  width: 90%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  overflow-x: hidden;/* ✅ จัดเนื้อหาตรงกลางแนวนอน */
+}
+
+.sticky-box {
+  position: sticky;
+  top: 100px;
+  z-index: 5;
+  align-self: start;
+  max-height: 85vh;
+  overflow-y: hidden;
+}
+
+.poster-detail-box {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* ปุ่มทั้งหมด */
+.detail-box .btn {
+  min-width: 150px;
+  margin: 8px;
+  margin-right: 10px;
+}
+
+/* กลุ่มปุ่ม */
+.detail-box .button-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* ✅ ตรงกลาง */
+  gap: 10px;
+  margin-top: 15px;
+  
+}
 
   .poster-detail-box {
     width: 100%;
