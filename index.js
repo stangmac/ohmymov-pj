@@ -72,11 +72,13 @@ const suggestionController = require("./controllers/suggestionController");
 const { logUserActivity } = require('./controllers/userActivityController');
 const startController = require("./controllers/startController");
 const startGenreController = require('./controllers/startGenreController');
+const postRoute = require('./services/postRoute');
 const moviePreferenceController = require('./controllers/moviePreferenceController');
 const { logFavActivity } = require('./controllers/userActivityFavController');
 
 // const userActivityRoute = require('./routes/userActivity');
 // app.use('/', userActivityRoute);
+
 app.use(startGenreController);
 
 // 🛣️ Routes
@@ -147,6 +149,13 @@ app.get('/manual-sync', async (req, res) => {
     res.status(500).send('❌ Manual sync failed');
   }
 });
+
+
+
+app.use('/posts', postRoute);
+
+
+
 
 // ❌ 404 Handler
 app.use((req, res, next) => {
