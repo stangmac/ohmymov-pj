@@ -1,4 +1,3 @@
-
 <!-- ✅ views/post-form.ejs -->
 <!DOCTYPE html>
 <html lang="en">
@@ -19,6 +18,7 @@
 
   <title>Oh! My Mov</title>
 </head>
+
 <body>
   <!-----------------------------------------------------------HEADER--------------------------------------------------------->
   <div id="overlay"></div>
@@ -109,104 +109,175 @@
     </nav>
   </header>
 
-<div class="container mt-5">
-  <h2>โพสต์กระทู้เกี่ยวกับหนัง</h2>
-  <form action="/posts/create" method="POST">
-    <div class="mb-3">
-      <label class="form-label">ความคิดเห็น</label>
-      <textarea name="content" class="form-control" rows="3" required></textarea>
-    </div>
 
-    <div class="mb-3">
-      <label class="form-label">ค้นหาและเลือกหนัง</label>
-      <input type="text" id="movieSearch" class="form-control" placeholder="พิมพ์ชื่อหนังเพื่อค้นหา...">
-      <select id="movieSelect" name="tagged_movies" class="form-select mt-2" multiple required>
-        <% movies.forEach(movie => { %>
-          <option value="<%= movie._id %>"><%= movie.title %></option>
-        <% }) %>
-      </select>
-      <div class="form-text">กด Ctrl (Windows) หรือ Command (Mac) เพื่อเลือกหลายเรื่อง</div>
-    </div>
 
-    <button type="submit" class="btn btn-success">โพสต์เลย</button>
-  </form>
-</div>
 
-<script>
-  document.getElementById('movieSearch').addEventListener('input', function () {
-    const search = this.value.toLowerCase();
-    const options = document.querySelectorAll('#movieSelect option');
-    options.forEach(opt => {
-      const match = opt.textContent.toLowerCase().includes(search);
-      const selected = opt.selected;
-      // ถ้าเลือกไว้แล้วก็แสดงต่อไป แม้จะไม่ match
-      opt.style.display = match || selected ? '' : 'none';
+
+
+
+
+
+
+
+
+
+  <div class="container mt-5">
+    <h2>โพสต์กระทู้เกี่ยวกับหนัง</h2>
+    <form action="/posts/create" method="POST">
+      <!-- ✏️ ความคิดเห็น -->
+      <div class="mb-3">
+        <label class="form-label">ความคิดเห็น</label>
+        <textarea name="content" class="form-control" rows="3" required></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">ค้นหาและเลือกหนัง</label>
+        <input type="text" id="movieSearch" class="form-control" placeholder="พิมพ์ชื่อหนัง..." autocomplete="off">
+        <input type="hidden" id="movieId" name="tagged_movies" required>
+        <ul id="movieList" class="list-group mt-2" style="max-height: 300px; overflow-y: auto;"></ul>
+      </div>
+
+      <button type="submit" class="btn btn-success">โพสต์เลย</button>
+    </form>
+  </div>
+
+  <script>
+    const movieSearch = document.getElementById('movieSearch');
+    const movieList = document.getElementById('movieList');
+    const movieIdInput = document.getElementById('movieId');
+
+    let debounceTimeout = null;
+
+    movieSearch.addEventListener('input', function () {
+      const query = this.value.trim().toLowerCase();
+      clearTimeout(debounceTimeout);
+
+      if (!query) {
+        movieList.innerHTML = '';
+        return;
+      }
+
+      debounceTimeout = setTimeout(async () => {
+        try {
+          const res = await fetch(`/search?query=${encodeURIComponent(query)}`);
+          const data = await res.json();
+          const results = data.results || [];
+
+          movieList.innerHTML = '';
+          results.forEach(movie => {
+            const li = document.createElement('li');
+            li.className = 'list-group-item d-flex align-items-center';
+            li.style.cursor = 'pointer';
+
+            const img = document.createElement('img');
+            const isValidUrl = movie.poster_url && movie.poster_url.startsWith('http');
+            img.src = isValidUrl ? movie.poster_url : '/images/no-poster.png';
+            img.alt = movie.title;
+            img.style.width = '40px';
+            img.style.height = '60px';
+            img.style.objectFit = 'cover';
+            img.classList.add('mr-3');
+
+
+            const info = document.createElement('div');
+            info.innerHTML = `<strong>${movie.title}</strong><br><small>${movie.year || ''}</small>`;
+
+            li.appendChild(img);
+            li.appendChild(info);
+
+            li.addEventListener('click', () => {
+              movieSearch.value = movie.title;
+              movieIdInput.value = movie.id; // ใช้ .id จาก ElasticSearch
+              movieList.innerHTML = '';
+            });
+
+            movieList.appendChild(li);
+          });
+
+        } catch (err) {
+          console.error('❌ Error fetching search:', err);
+        }
+      }, 300);
     });
-  });
-</script>
+
+    document.addEventListener('click', function (e) {
+      if (!movieList.contains(e.target) && e.target !== movieSearch) {
+        movieList.innerHTML = '';
+      }
+    });
+  </script>
 
 
-    <!----- Section 6 - footer ----->
 
-    <section class="sec-footer mt-5 mb-3">
-      <footer>
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-md-12 text-center mt-3">
-              <div class="title-font white-font">Oh! My Mov</div>
-              <div class="body-font grey-font mt-3">
-                <a class="a-footer mr-3" href="/">Home</a>
-                <a class="a-footer mr-3" href="/">Blog</a>
-                <a class="a-footer" href="/">Suggestion</a>
-              </div>
-            </div>
-          </div>
-          <div class="row mt-3">
-            <div class="col-md-12 text-center">
-              <div class="caption-font grey-font">
-                Copyright © This website is made to support who love movies by
-                <a href="/" class="main-font">OhMymov.com</a>
-              </div>
+
+
+
+
+
+
+
+  <!----- Section 6 - footer ----->
+
+  <section class="sec-footer mt-5 mb-3">
+    <footer>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-12 text-center mt-3">
+            <div class="title-font white-font">Oh! My Mov</div>
+            <div class="body-font grey-font mt-3">
+              <a class="a-footer mr-3" href="/">Home</a>
+              <a class="a-footer mr-3" href="/">Blog</a>
+              <a class="a-footer" href="/">Suggestion</a>
             </div>
           </div>
         </div>
-      </footer>
-    </section>
+        <div class="row mt-3">
+          <div class="col-md-12 text-center">
+            <div class="caption-font grey-font">
+              Copyright © This website is made to support who love movies by
+              <a href="/" class="main-font">OhMymov.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </section>
 
 
-    <!-- Optional JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+  <!-- Optional JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
 
-    <script>
-      // ✅ ปุ่มเลื่อนซ้าย/ขวา (เพิ่มการเช็คว่ามีปุ่มก่อนใช้งาน)
-      document.addEventListener("DOMContentLoaded", function () {
-        const container = document.querySelector('.movie-container');
-        const scrollLeft = document.getElementById('scroll-left');
-        const scrollRight = document.getElementById('scroll-right');
+  <script>
+    // ✅ ปุ่มเลื่อนซ้าย/ขวา (เพิ่มการเช็คว่ามีปุ่มก่อนใช้งาน)
+    document.addEventListener("DOMContentLoaded", function () {
+      const container = document.querySelector('.movie-container');
+      const scrollLeft = document.getElementById('scroll-left');
+      const scrollRight = document.getElementById('scroll-right');
 
-        if (scrollLeft && scrollRight && container) {
-          scrollLeft.addEventListener('click', function () {
-            container.scrollBy({ left: -300, behavior: 'smooth' });
-          });
+      if (scrollLeft && scrollRight && container) {
+        scrollLeft.addEventListener('click', function () {
+          container.scrollBy({ left: -300, behavior: 'smooth' });
+        });
 
-          scrollRight.addEventListener('click', function () {
-            container.scrollBy({ left: 300, behavior: 'smooth' });
-          });
-        }
-      });
-    </script>
-    <script src="/js/omm.js"></script>
-    <script src="/js/auth.js"></script>
-    <script src="/js/userActivity.js"></script>
-    <script src="/js/actionbutton.js"></script>
-    <script src="/js/search.js"></script>
+        scrollRight.addEventListener('click', function () {
+          container.scrollBy({ left: 300, behavior: 'smooth' });
+        });
+      }
+    });
+  </script>
+  <script src="/js/omm.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/userActivity.js"></script>
+  <script src="/js/actionbutton.js"></script>
+  <script src="/js/search.js"></script>
 
 
-    <!-- ✅ JavaScript ที่เข้าคู่กัน -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- ✅ JavaScript ที่เข้าคู่กัน -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
