@@ -1,7 +1,9 @@
+// ✅ controllers/postController.js - UPDATED with comment + filter
 const Post = require('../models/Post');
 const Movie = require('../models/Movies');
 const User = require('../models/User');
 
+// 📋 แสดงโพสต์ทั้งหมด พร้อม filter ตามหนังที่เลือกได้ผ่าน query
 exports.listPosts = async (req, res) => {
   try {
     const filter = {};
@@ -22,6 +24,7 @@ exports.listPosts = async (req, res) => {
   }
 };
 
+// 📝 แสดงฟอร์มเขียนโพสต์
 exports.renderPostForm = async (req, res) => {
   try {
     const movies = await Movie.find({}, 'title');
@@ -32,6 +35,7 @@ exports.renderPostForm = async (req, res) => {
   }
 };
 
+// ✅ สร้างโพสต์ใหม่
 exports.createPost = async (req, res) => {
   try {
     const { tagged_movies, content } = req.body;
@@ -48,6 +52,7 @@ exports.createPost = async (req, res) => {
   }
 };
 
+// 👍 กดไลก์โพสต์
 exports.likePost = async (req, res) => {
   try {
     const postId = req.params.id;
@@ -62,6 +67,7 @@ exports.likePost = async (req, res) => {
   }
 };
 
+// 💬 คอมเมนต์โพสต์
 exports.commentOnPost = async (req, res) => {
   try {
     const postId = req.params.id;
