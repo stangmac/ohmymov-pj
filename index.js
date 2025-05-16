@@ -71,10 +71,14 @@ const changePasswordController = require("./controllers/changePasswordController
 const suggestionController = require("./controllers/suggestionController");
 const { logUserActivity } = require('./controllers/userActivityController');
 const startController = require("./controllers/startController");
-const saveStartController = require('./controllers/saveStartController');
 const startGenreController = require('./controllers/startGenreController');
-
 const postRoute = require('./services/postRoute');
+const moviePreferenceController = require('./controllers/moviePreferenceController');
+const { logFavActivity } = require('./controllers/userActivityFavController');
+
+// const userActivityRoute = require('./routes/userActivity');
+// app.use('/', userActivityRoute);
+
 app.use(startGenreController);
 
 // 🛣️ Routes
@@ -88,6 +92,7 @@ app.get('/user-profile', userprofileController);
 app.get('/home-new', homenewController);
 app.get('/all-content', allcontentController);
 app.get('/suggestion', suggestionController);
+app.get('/movie-preference', moviePreferenceController);
 
 // 🔍 Search
 app.get('/search', searchController.searchMovies);
@@ -118,9 +123,10 @@ app.post('/change-password', changePasswordController.changePassword);
 // ✅ User Activity
 app.post('/log-activity', requireLogin, logUserActivity);
 
-// 🎬 Start step
+// // 🎬 Start step
 app.post('/start', startController);
-app.post('/start/save', saveStartController);
+app.post('/user-activity/fav', logFavActivity);
+
 
 // 🔐 Check login (used by frontend JS)
 app.get('/check-login', (req, res) => {
