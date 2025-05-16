@@ -1,3 +1,5 @@
+
+// ✅ controllers/postController.js
 const Post = require('../models/Post');
 const Movie = require('../models/Movies');
 const User = require('../models/User');
@@ -5,10 +7,9 @@ const User = require('../models/User');
 exports.listPosts = async (req, res) => {
   try {
     const posts = await Post.find()
-      .sort({ created_at: -1 })
-      .populate('movie_id', 'title')
-      .populate('user_id', 'username');
-
+      .sort({ timestamp: -1 })
+      .populate('tagged_movies', 'title')
+      .populate('user', 'username');
     res.render('post-list', { posts });
   } catch (err) {
     console.error('❌ Error loading posts:', err);
@@ -28,10 +29,13 @@ exports.renderPostForm = async (req, res) => {
 
 exports.createPost = async (req, res) => {
   try {
-    const { movie_id, text } = req.body;
-    const user_id = req.session?.user?._id || '681862828bd709566feaba5e'; // mock
-
-    await Post.create({ user_id, movie_id, text });
+    const { tagged_movies, content } = req.body;
+    const user = req.session?.user?._id || '681862828bd709566feaba5e';
+    await Post.create({
+      user,
+      content,
+      tagged_movies: Array.isArray(tagged_movies) ? tagged_movies : [tagged_movies]
+    });
     res.redirect('/posts');
   } catch (err) {
     console.error('❌ Error creating post:', err);
@@ -43,11 +47,9 @@ exports.likePost = async (req, res) => {
   try {
     const postId = req.params.id;
     const userId = req.session?.user?._id || '681862828bd709566feaba5e';
-
     await Post.findByIdAndUpdate(postId, {
       $addToSet: { likes: userId }
     });
-
     res.redirect('/posts');
   } catch (err) {
     console.error('❌ Error liking post:', err);
