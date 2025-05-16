@@ -7,7 +7,6 @@ const postSchema = new mongoose.Schema({
   tagged_movies: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Movie' }],
   timestamp: { type: Date, default: Date.now },
   likes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
-  dislikes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
   comments: [{
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     content: { type: String, required: true },

@@ -8,5 +8,6 @@ router.get('/', postController.listPosts);
 router.get('/new', postController.renderPostForm);
 router.post('/create', postController.createPost);
 router.post('/like/:id', postController.likePost);
+router.post('/comment/:id', postController.commentOnPost);
 
 module.exports = router;

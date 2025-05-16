@@ -110,35 +110,61 @@
     </nav>
   </header>
 <div class="bg-light">
-<div class="container mt-5">
-  <h1 class="mb-4">📋 กระทู้ทั้งหมด</h1>
-  <% posts.forEach(post => { %>
-    <div class="card mb-3 shadow-sm">
-      <div class="card-body">
-        <h5 class="card-title">
-          🎬 เรื่องที่เกี่ยวข้อง:
-          <% if (post.tagged_movies.length > 0) { %>
-            <%= post.tagged_movies.map(m => m.title).join(', ') %>
-          <% } else { %>
-            ไม่ระบุหนัง
-          <% } %>
-        </h5>
-        <p class="card-text"><%= post.content %></p>
-        <p class="card-subtitle text-muted mb-2">
-          👤 โดย: <%= post.user?.username || 'ไม่ระบุ' %> |
-          🕒 <%= new Date(post.timestamp).toLocaleString() %>
-        </p>
-        <form action="/posts/like/<%= post._id %>" method="POST" style="display: inline;">
-          <button type="submit" class="btn btn-outline-danger btn-sm">
-            ❤️ ถูกใจ (<%= post.likes.length %>)
-          </button>
-        </form>
+  <div class="container mt-5">
+    <h1 class="mb-4">📋 กระทู้ทั้งหมด</h1>
+
+    <% posts.forEach(post => { %>
+      <div class="card mb-3 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">
+            🎬 เรื่องที่เกี่ยวข้อง:
+            <% if (post.tagged_movies.length > 0) { %>
+              <% post.tagged_movies.forEach(movie => { %>
+                <a href="/posts?movie=<%= movie._id %>" class="badge bg-primary text-decoration-none"><%= movie.title %></a>
+              <% }) %>
+            <% } else { %>
+              ไม่ระบุหนัง
+            <% } %>
+          </h5>
+
+          <p class="card-text"><%= post.content %></p>
+          <p class="card-subtitle text-muted mb-2">
+            👤 โดย: <%= post.user?.username || 'ไม่ระบุ' %> |
+            🕒 <%= new Date(post.timestamp).toLocaleString() %>
+          </p>
+
+          <form action="/posts/like/<%= post._id %>" method="POST" style="display: inline;">
+            <button type="submit" class="btn btn-outline-danger btn-sm">
+              ❤️ ถูกใจ (<%= post.likes.length %>)
+            </button>
+          </form>
+
+          <!-- Comments Section -->
+          <hr>
+          <h6>💬 ความคิดเห็น:</h6>
+          <% post.comments.forEach(comment => { %>
+            <div class="mb-2 ps-2 border-start border-3">
+              <strong><%= comment.user?.username || 'ไม่ระบุ' %></strong>: <%= comment.content %>
+              <div class="text-muted" style="font-size: 0.8em;">
+                🕒 <%= new Date(comment.timestamp).toLocaleString() %>
+              </div>
+            </div>
+          <% }) %>
+
+          <form action="/posts/comment/<%= post._id %>" method="POST" class="mt-3">
+            <div class="input-group">
+              <input type="text" name="content" class="form-control" placeholder="เขียนความคิดเห็น..." required>
+              <button class="btn btn-secondary" type="submit">ตอบกลับ</button>
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
-  <% }) %>
-  <a href="/posts/new" class="btn btn-primary mt-4">➕ เขียนกระทู้ใหม่</a>
+    <% }) %>
+
+    <a href="/posts/new" class="btn btn-primary mt-4">➕ เขียนกระทู้ใหม่</a>
+  </div>
 </div>
-</div>
+
     <!----- Section 6 - footer ----->
 
     <section class="sec-footer mt-5 mb-3">

@@ -116,18 +116,36 @@
       <label class="form-label">ความคิดเห็น</label>
       <textarea name="content" class="form-control" rows="3" required></textarea>
     </div>
+
     <div class="mb-3">
-      <label class="form-label">เลือกหนัง (สามารถเลือกหลายเรื่อง)</label>
-      <select name="tagged_movies" class="form-select" multiple required>
+      <label class="form-label">ค้นหาและเลือกหนัง</label>
+      <input type="text" id="movieSearch" class="form-control" placeholder="พิมพ์ชื่อหนังเพื่อค้นหา...">
+      <select id="movieSelect" name="tagged_movies" class="form-select mt-2" multiple required>
         <% movies.forEach(movie => { %>
           <option value="<%= movie._id %>"><%= movie.title %></option>
         <% }) %>
       </select>
       <div class="form-text">กด Ctrl (Windows) หรือ Command (Mac) เพื่อเลือกหลายเรื่อง</div>
     </div>
+
     <button type="submit" class="btn btn-success">โพสต์เลย</button>
   </form>
 </div>
+
+<script>
+  document.getElementById('movieSearch').addEventListener('input', function () {
+    const search = this.value.toLowerCase();
+    const options = document.querySelectorAll('#movieSelect option');
+    options.forEach(opt => {
+      const match = opt.textContent.toLowerCase().includes(search);
+      const selected = opt.selected;
+      // ถ้าเลือกไว้แล้วก็แสดงต่อไป แม้จะไม่ match
+      opt.style.display = match || selected ? '' : 'none';
+    });
+  });
+</script>
+
+
     <!----- Section 6 - footer ----->
 
     <section class="sec-footer mt-5 mb-3">
