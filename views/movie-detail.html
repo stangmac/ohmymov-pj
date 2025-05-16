@@ -380,10 +380,8 @@
                   </style>
 
                   <div class="d-flex justify-content-center mt-2">
-                    <div class="button-group ml-4">
-                    <div class="row">
-                   
-                     <!-- LIKE -->
+                    <div class="row  mr-2">
+                      <!-- LIKE -->
                       <button id="like-button-<%= movie._id %>"
                         class="btn o-button-2 history <% if (user && Array.isArray(user.like) && user.like.map(id => id.toString()).includes(movie._id.toString())) { %>active-btn<% } %>"
                         type="button" onclick="toggleButton(this, '<%= movie._id %>', 'like')">
@@ -420,7 +418,6 @@
                         <img class="watchlist" src="/images/icon/seen.png">
                         SEEN
                       </button>
-                   </div>
                     </div>
                   </div>
 
@@ -571,33 +568,37 @@
 
                         <div class="d-flex justify-content-center mt-2">
                           <div class="row ml-3 mr-2">
-                            <div class="button-group"></div>
                             <!-- LIKE -->
-<!-- LIKE -->
-  <button id="like-button-<%= movie._id %>" class="btn o-button-2 history <%= user?.like?.includes(movie._id.toString()) ? 'active-btn' : '' %>" type="button" onclick="toggleButton(this, '<%= movie._id %>', 'like')">
-    <img class="watchlist" src="/images/icon/like.png">
-    <span id="like-count-<%= movie._id %>"><%= movie.like || 0 %></span>
-  </button>
+                  <!-- LIKE -->
+<button id="like-button-<%= movie._id %>" class="btn o-button-2 history <%= user?.like?.map(id => id.toString()).includes(movie._id.toString()) ? 'active-btn' : '' %>" type="button" onclick="toggleButton(this, '<%= movie._id %>', 'like')">
+  <img class="watchlist" src="/images/icon/like.png">
+  <span id="like-count-<%= movie._id %>"><%= movie.like || 0 %></span>
+</button>
 
 
-           <!-- WISHLIST -->
-  <button id="wishlist-button-<%= movie._id %>" class="btn o-button-2 history <%= user?.wishlist?.includes(movie._id.toString()) ? 'active-btn' : '' %>" type="button" onclick="toggleButton(this, '<%= movie._id %>', 'wishlist')">
-    <img class="watchlist" src="/images/icon/bookmark.png"> WISHLIST
-  </button>
+                            <!-- WISHLIST -->
+                            <button id="wishlist-button-<%= movie._id %>"
+                              class="btn o-button-2 history <% if (user && Array.isArray(user.wishlist) && user.wishlist.map(id => id.toString()).includes(movie._id.toString())) { %>active-btn<% } %>"
+                              type="button" onclick="toggleButton(this, '<%= movie._id %>', 'wishlist')">
+                              <img class="watchlist" src="/images/icon/bookmark.png">
+                              WISHLIST
+                            </button>
                           </div>
 
                           <div class="row">
-                 <!-- DISLIKE -->
-  <button id="dislike-button-<%= movie._id %>" class="btn o-button-2 history <%= user?.dislike?.includes(movie._id.toString()) ? 'active-btn' : '' %>" type="button" onclick="toggleButton(this, '<%= movie._id %>', 'dislike')">
-    <img class="watchlist" src="/images/icon/dislike.png">
-    <span id="dislike-count-<%= movie._id %>"><%= movie.dislike || 0 %></span>
-  </button>
+                  <!-- DISLIKE -->
+<button id="dislike-button-<%= movie._id %>" class="btn o-button-2 history <%= user?.dislike?.map(id => id.toString()).includes(movie._id.toString()) ? 'active-btn' : '' %>" type="button" onclick="toggleButton(this, '<%= movie._id %>', 'dislike')">
+  <img class="watchlist" src="/images/icon/dislike.png">
+  <span id="dislike-count-<%= movie._id %>"><%= movie.dislike || 0 %></span>
+</button>
 
                             <!-- SEEN -->
-  <button id="seen-button-<%= movie._id %>" class="btn o-button-2 history <%= user?.seen?.includes(movie._id.toString()) ? 'active-btn' : '' %>" type="button" onclick="toggleButton(this, '<%= movie._id %>', 'seen')">
-    <img class="watchlist" src="/images/icon/seen.png"> SEEN
-  </button>
-</div>
+                            <button id="seen-button-<%= movie._id %>"
+                              class="btn o-button-2 history <% if (user && Array.isArray(user.seen) && user.seen.map(id => id.toString()).includes(movie._id.toString())) { %>active-btn<% } %>"
+                              type="button" onclick="toggleButton(this, '<%= movie._id %>', 'seen')">
+                              <img class="watchlist" src="/images/icon/seen.png">
+                              SEEN
+                            </button>
                           </div>
                         </div>
                       </div>
