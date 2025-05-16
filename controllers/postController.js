@@ -1,9 +1,8 @@
-// ✅ controllers/postController.js - UPDATED with comment + filter
 const Post = require('../models/Post');
 const Movie = require('../models/Movies');
 const User = require('../models/User');
 
-// 📋 แสดงโพสต์ทั้งหมด พร้อม filter ตามหนังที่เลือกได้ผ่าน query
+// 📋 แสดงโพสต์ทั้งหมด
 exports.listPosts = async (req, res) => {
   try {
     const filter = {};
@@ -13,11 +12,15 @@ exports.listPosts = async (req, res) => {
 
     const posts = await Post.find(filter)
       .sort({ timestamp: -1 })
-      .populate('tagged_movies', 'title')
+      .populate('tagged_movies')
       .populate('user', 'username')
       .populate('comments.user', 'username');
 
-    res.render('post-list', { posts });
+    // ✅ ส่ง user เพื่อใช้ตรวจสอบ like
+    res.render('post-list', {
+      posts,
+      user: req.session?.user || null
+    });
   } catch (err) {
     console.error('❌ Error loading posts:', err);
     res.status(500).send('Server Error');
@@ -52,14 +55,25 @@ exports.createPost = async (req, res) => {
   }
 };
 
-// 👍 กดไลก์โพสต์
+// 👍 Toggle like
 exports.likePost = async (req, res) => {
   try {
     const postId = req.params.id;
     const userId = req.session?.user?._id || '681862828bd709566feaba5e';
-    await Post.findByIdAndUpdate(postId, {
-      $addToSet: { likes: userId }
-    });
+
+    const post = await Post.findById(postId);
+    const hasLiked = post.likes.includes(userId);
+
+    if (hasLiked) {
+      await Post.findByIdAndUpdate(postId, {
+        $pull: { likes: userId }
+      });
+    } else {
+      await Post.findByIdAndUpdate(postId, {
+        $addToSet: { likes: userId }
+      });
+    }
+
     res.redirect('/posts');
   } catch (err) {
     console.error('❌ Error liking post:', err);
