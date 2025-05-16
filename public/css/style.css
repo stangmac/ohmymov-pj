@@ -3429,7 +3429,7 @@ margin-left: 30px;
 
 /* ปุ่มทั้งหมด */
 .detail-box .btn {
-  min-width: 150px;
+  min-width: 140px;
   margin: 8px;
   margin-right: 10px;
 }
@@ -3727,7 +3727,7 @@ margin-left: 30px;
 
 /* ปุ่มทั้งหมด */
 .detail-box .btn {
-  min-width: 150px;
+  min-width: 120px;
   margin: 8px;
   margin-right: 10px;
 }
@@ -4072,6 +4072,7 @@ margin-left: 30px;
 }
 .caption-font{
     font-size: var(--detail-size);
+    text-align: start;
 }
 .alert-warning-custom {
   display: inline-block;
@@ -4086,10 +4087,9 @@ margin-left: 30px;
   margin: 1rem auto;
 }
 
-
 /* Start Blog */
 .custom-top-space {
-  margin-top: 150px;
+  margin-top: 100px;
 }
 a.btn.btn-primary {
     border-radius: 0px;
@@ -4142,7 +4142,6 @@ a.badge:hover {
     padding: 0.4em 0.6em;
     margin-right: 0.4em;
     margin-bottom: 0.4em;
-    margin-top: 10px;
     display: inline-block;
     border-radius: 0.25rem;
     font-size: 0.85em;
@@ -4193,7 +4192,8 @@ a.badge:hover {
 /* Card Title */
 .card-title {
   font-size: var(--h3-size);
-  margin-bottom: 1rem;
+  margin-bottom: 0;
+
 }
 
 /* Comment Box */
@@ -4231,10 +4231,23 @@ a.badge:hover {
   box-shadow: 0 0 0 1px var(--main-color);
   border-color: var(--main-color);
 }
-
+.custom-top-space-form{
+    padding-top: 50px;
+}
+#postForm{  
+    margin-top: 30px;
+    padding-top: 150px;
+    min-width: 300px;
+    max-width: 700px;
+    margin-left: 200px;
+}
+.custom-top-space-form{
+     display: flex;
+    justify-content: center;
+}
 /* Section Background */
 .custom-top-space {
-  margin-top: 150px;
+  margin-top: 10px;
   background-color: var(--bg--main);
   padding: 30px 0;
 }
@@ -4248,9 +4261,18 @@ h1.blog-text {
 
 .card-text {
     color: var(--colour-white);
+    font-size: var(--title-size);
 }
 p.card-subtitle.text-muted{
     color: var(--bg--detail) !important;
+    display: flex;
+    justify-content: end;
+    font-size: var(--detail-size);
+
+}
+.text-time{
+     color: var(--bg--detail) !important;
+ font-size: 2px;
 }
 hr {
     border: none;
@@ -4258,4 +4280,390 @@ hr {
     background-color: var(--colour-white);
     opacity: 0.5; /* เพิ่มถ้าต้องการให้เส้นดูบาง */
     margin: 1rem 0;
+}
+/* Input & Textarea Style สำหรับธีมเข้ม */
+form .form-control {
+  background-color: var(--bg--sub);
+  color: var(--colour-white);
+  border: 1px solid var(--main-color);
+  border-radius: 12px;
+  padding: 10px 15px;
+}
+
+form .form-control::placeholder {
+  color: #ccc;
+}
+
+form .form-control:focus {
+  background-color: var(--bg--main1);
+  color: var(--colour-white);
+  border-color: var(--main-color);
+  box-shadow: 0 0 0 2px var(--main-color);
+}
+
+/* List Group Styling */
+#movieList.list-group {
+  background-color: var(--bg--main1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+#movieList.list-group li {
+  background-color: var(--bg--sub);
+  color: var(--colour-white);
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#movieList.list-group li:hover {
+  background-color: var(--main-color);
+  color: var(--bg--main);
+}
+.poster-post{
+    width: fit-content;
+    height: 350px;
+}
+.border-start strong.name {
+  color: var(--main-color) !important;
+}
+.border-start.content {
+  border-color: var(--main-color) !important;
+  background-color: var(--bg--sub);
+  padding: 8px 20px;
+  border-radius: 10px;
+  color: var(--colour-white);
+  margin-top: 10px;
+  width: 100%; /* 👈 เต็มแถว */
+  min-height: 240px;
+}
+
+
+/* หน้าจอขนาดใหญ่ - สูงสุด 1024px */
+@media (max-width: 1024px) {
+  .card-body {
+    padding: 30px;
+  }
+
+  .poster-post {
+    height: 350px;
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+  }
+
+  .input-group input[type="text"] {
+    font-size: 0.9rem;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+  }
+
+}
+
+/* หน้าจอขนาดกลาง - สูงสุด 768px */
+@media (max-width: 768px) {
+  .poster-post {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .card-body {
+    padding: 20px;
+  }
+
+  .col-3,
+  .col-9 {
+    width: 100%;
+    padding-left: 0 !important;
+  }
+
+  .pl-5 {
+    padding-left: 0 !important;
+  }
+
+  .card-title,
+  .card-text {
+    text-align: left;
+  }
+
+.input-group {
+  display: flex;          /* ต้องระบุถ้าไม่ได้อยู่ใน Bootstrap *//* ซ้อนแนวตั้ง */
+  flex-wrap: nowrap;      /* ไม่ให้ wrap (ไม่จำเป็นใน column แต่ใส่ได้) */
+  gap: 10px;              /* ระยะห่างระหว่าง input กับปุ่ม */
+}
+
+
+  .input-group .form-control {
+    width: 80%;
+    border-radius: 30px;
+  }
+
+  .btn-secondary {
+    width: 20%;
+    border-radius: 30px;
+  }
+
+  p.card-subtitle.text-muted {
+    justify-content: center;
+  }
+}
+
+/* หน้าจอขนาดเล็ก - สูงสุด 576px */
+@media (max-width: 576px) {
+  .custom-top-space {
+    padding: 15px 0;
+  }
+
+  .card-body {
+    padding: 15px;
+  }
+
+  h1.blog-text {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+.poster-post {
+  max-width: 150px;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto; /* ทำให้ภาพอยู่กลาง */
+}
+
+
+  .card-title,
+  .card-text {
+    font-size: 1rem;
+  }
+
+  .input-group input[type="text"] {
+    font-size: 0.85rem;
+  }
+
+  .btn {
+    font-size: 0.85rem;
+  }
+
+  .btn-secondary {
+    padding: 8px;
+  }
+
+  .caption-font {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  .text-time {
+    font-size: 0.65rem;
+    text-align: right;
+  }
+.border-start.border-3.content{
+    max-height: 240px;
+    height: auto;
+    min-height: 100px;
+}
+.card-subtitle.text-muted{
+    font-size: var(--detail-size);
+}
+p.card-subtitle.text-muted{
+    color: var(--bg--detail) !important;
+    display: flex;
+    justify-content: end;
+    padding-right: 20px;
+    padding-top: 10px;
+
+}
+}
+
+
+
+
+
+
+
+
+
+
+.btn.btn-secondary.post {
+    display: flex;
+    justify-content: center;
+    min-width: 100px;
+    max-width: 100px;
+    padding: 0.25rem 0.5rem;
+}
+
+.custom-bg {
+  background-color: var(--bg--sub) !important;
+}
+.input-wrapper {
+  margin-top: 70px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.input-group-bbt {
+  width: 100%;
+  max-width: 600px;
+}
+
+#bbt1{
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+#bbt{
+    background-color: var(--bg--main);
+    border: 1px solid var(--main-color);
+    color: var(--colour-white);
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.btn.content-btn-bbt{
+    width: 400px;
+    max-width:400px;
+    height: 70px;
+}
+.btn.btn-secondary.showFormBtn{
+     width: 100px;
+    max-width:100px;
+    height: 70px;
+}
+
+@media (max-width: 1024px) {
+  .btn.content-btn-bbt {
+    width: 300px;
+    height: 60px;
+  }
+
+  .btn.btn-secondary.showFormBtn {
+    width: 80px;
+    height: 60px;
+  }
+
+  #postForm {
+    margin-left: 0;
+    max-width: 100%;
+  }
+  .input-group-bbt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+  }
+}
+
+@media (max-width: 768px) {
+  .btn.content-btn-bbt {
+    width: 250px;
+    height: 60px;
+  }
+
+  .btn.btn-secondary.showFormBtn {
+    width: 70px;
+    height: 60px;
+  }
+
+  .input-group-bbt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+  }
+
+  #postForm {
+    padding-top: 80px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .btn.content-btn-bbt {
+    width: 60%;
+    height: 40px;
+    margin-left: 30px;
+
+
+  }
+  .btn.btn-secondary.showFormBtn {
+    width: 20%;
+    height: 40px;
+
+  }
+  .input-group-bbt {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  #postForm {
+    padding-top: 30px;
+    max-width: 100%;
+    margin-left: 0;
+  }
+
+  .form-input {
+    padding: 1rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+  #bbt1{
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+#bbt{
+    background-color: var(--bg--main);
+    border: 1px solid var(--main-color);
+    color: var(--colour-white);
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+#showFormBtn{
+    padding-top: 20px;
+}
+}
+@media (max-width: 576px) {
+  input.form-control,
+  textarea.form-control {
+    width: 100%;
+  }
+}
+.like-button {
+  padding: 8px 16px;
+  font-size: 0.7rem;
+  border-radius: 10px;
+  border: 2px solid var(--main-color);
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: transparent;
+  color: var(--main-color);
+}
+
+/* เมื่อไลก์แล้ว */
+.like-button.liked {
+  background-color: var(--main-color);
+  color: var(--bg--main); /* ตัวหนังสือเปลี่ยนสี */
+}
+
+/* เมื่อยังไม่ไลก์ */
+.like-button.not-liked:hover {
+  background-color: var(--main-color);
+  color: var(--bg--main);
 }

@@ -21,7 +21,7 @@
 </head>
 
 <body>
-  <!-----------------------------------------------------------HEADER--------------------------------------------------------->
+ <!-----------------------------------------------------------HEADER--------------------------------------------------------->
   <div id="overlay"></div>
   <header class="fixed-top">
     <nav class="navbar navbar-expand-lg">
@@ -85,6 +85,7 @@
         <ul class="navbar-nav mx-auto my-3 d-lg-none">
           <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="/suggestion">Suggestion</a></li>
+           <li class="nav-item"><a class="nav-link" href="/posts">Blog</a></li>
 
           <% if (!loggedIN) { %>
             <li class="nav-item mt-2">
@@ -106,65 +107,178 @@
               <% } %>
         </ul>
       </div>
-
     </nav>
   </header>
 
-  <section class="mt-5 mb-5">
-<div class="custom-top-space">
-  <div class="container mt-5">
-      <a href="/posts/new" class="btn btn-primary m-4">New ➕</a>
-    <h1 class="mb-4 blog-text">📋 กระทู้ทั้งหมด</h1>
-    <% posts.forEach(post => { %>
-      <div class="card mb-3 shadow-sm mb-5">
-        <div class="card-body">
-          <h5 class="card-title">
-            🎬 Moive:
-            <% if (post.tagged_movies.length > 0) { %>
-              <% post.tagged_movies.forEach(movie => { %>
-                <a href="/posts?movie=<%= movie._id %>" class="badge  text-decoration-none"><%= movie.title %></a>
-              <% }) %>
-            <% } else { %>
-              ไม่ระบุหนัง
-            <% } %>
-          </h5>
 
-          <p class="card-text text-break"><%= post.content %></p>
-          <p class="card-subtitle text-muted mb-2">
-            👤 By: <%= post.user?.username || 'ไม่ระบุ' %> |
-            🕒 <%= new Date(post.timestamp).toLocaleString() %>
-          </p>
 
-          <form action="/posts/like/<%= post._id %>" method="POST" style="display: inline;">
-            <button type="submit" class="btn btn-outline-danger btn-sm">
-              💚 Like (<%= post.likes.length %>)
-            </button>
-          </form>
-
-          <!-- Comments Section -->
-          <hr>
-          <h6>💬 comments:</h6>
-          <% post.comments.forEach(comment => { %>
-            <div class="mb-2 ps-2 border-start border-3">
-              <strong><%= comment.user?.username || 'ไม่ระบุ' %></strong>: <%= comment.content %>
-              <div class="text-muted" style="font-size: 1em;">
-                🕒 <%= new Date(comment.timestamp).toLocaleString() %>
-              </div>
-            </div>
-          <% }) %>
-
-          <form action="/posts/comment/<%= post._id %>" method="POST" class="mt-3">
-            <div class="input-group">
-              <input type="text" name="content" class="form-control" placeholder="เขียนความคิดเห็น..." required style="border-radius: 50px;">
-              <button class="btn btn-secondary ml-1" type="submit">Reply</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    <% }) %>
+<section class="custom-top-space-form justify-content-center d-flex">
+  <div class="container mt-xl-5 mt-md-3">
+    <!-- ปุ่มแสดงฟอร์ม -->
+<div class="input-wrapper mx-auto">
+  <div class="input-group-bbt"id="showFormBtn">
+    <button class="btn content-btn-bbt" id="bbt">Create New Post</button>
+    <button class="btn btn-secondary showFormBtn" id="bbt1">✏️</button>
   </div>
 </div>
-  </section>
+
+
+    <!-- <a href="#" id="showFormBtn" class="btn btn-primary m-4">✏️</a> -->
+    <!-- ฟอร์ม (ซ่อนตอนแรก) -->
+    <form id="postForm" action="/posts/create" method="POST" class="card p-4 d-none">
+      <div class="form-input p-lg-5 p-md-3">
+<h2 class="text-white mb-4 " style="text-align: center;">What' your comment?</h2>
+
+     <!-- 🔍 ค้นหาหนัง -->
+<div class="mb-3">
+  <label class="form-label text-white">Movie</label>
+  <input type="text" id="movieSearch" class="form-control custom-bg text-white border-0" placeholder="Search Movies" autocomplete="off">
+  <input type="hidden" id="movieId" name="tagged_movies" required>
+  <ul id="movieList" class="list-group mt-2" style="max-height: 300px; overflow-y: auto;"></ul>
+</div>
+
+<!-- ✏️ ความคิดเห็น -->
+<div class="mb-3">
+  <label class="form-label text-white">Post</label>
+  <textarea name="content" class="form-control custom-bg text-white border-0" rows="3" required></textarea>
+</div>
+
+     <div class="d-flex justify-content-end">
+  <button type="submit" class="btn btn-secondary post">Post</button>
+</div>
+      </div>
+        
+    </form>
+  </div>
+</section>
+
+<section class="mb-5">
+  <div class="custom-top-space">
+    <div class="container">
+
+      <% posts.forEach(post => {
+           const hasLiked = user && post.likes.some(like => like.toString() === user._id.toString());
+           const movie = post.tagged_movies.length > 0 ? post.tagged_movies[0] : null;
+      %>
+        <div class="card mb-3 shadow-sm mb-5">
+          <div class="card-body">
+
+            <!-- ข้อมูลผู้เขียน (เฉพาะจอ >=576px) -->
+            <div class="row d-none d-sm-flex">
+              <div class="col-lg-11 col-md-8"></div>
+              <div class="col-lg-1 col-md-4 mt-md-3 pr-md-4">
+                <p class="card-subtitle text-muted mb-2" style="text-align: left;">
+                  <img src="/images/icon/user-fill.png" class="icon-green" />
+                  <%= post.user?.username || 'ไม่ระบุ' %>
+                </p>
+              </div>
+            </div>
+
+            <!-- Row โปสเตอร์ + เนื้อหา -->
+            <div class="row">
+              <div class="col-xl-3 col-md-5 col-lg-4 col-sm-12 col-12 mb-3 pl-lg-4">
+                <% if (movie) { %>
+                  <a href="/movie-detail?id=<%= movie._id %>">
+                    <img class="poster-post"
+                      src="<%= Array.isArray(movie.poster_url) && movie.poster_url.length > 0 ? movie.poster_url[0] : '/images/default-poster.jpg' %>"
+                      onerror="this.onerror=null; this.src='/images/no-poster.png'; this.alt='No Streaming';"
+                      height="205px">
+                  </a>
+                <% } else { %>
+                  <img class="poster-post" src="/images/no-poster.png" alt="No Movie" height="205px">
+                  <div class="caption-font main-font mt-2">No Movie</div>
+                <% } %>
+
+                <!-- ผู้เขียน (เฉพาะจอเล็ก <576px) -->
+                <div class="d-block d-sm-none mt-2">
+                  <p class="card-subtitle text-muted mb-2">
+                    <img src="/images/icon/user-fill.png" class="icon-green" />
+                    <%= post.user?.username || 'ไม่ระบุ' %>
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-xl-9 col-md-7 col-lg-8 col-sm-12 pl-lg-1 pl-md-3 content-box">
+                <!-- ชื่อหนัง -->
+                <h5 class="card-title mt-md-3">
+                  <% if (post.tagged_movies.length > 0) { %>
+                    <% post.tagged_movies.forEach(movie => { %>
+                      <a href="/posts?movie=<%= movie._id %>" class="badge text-decoration-none">
+                        #<%= movie.title %>
+                      </a>
+                    <% }) %>
+                  <% } else { %>
+                    ไม่ระบุหนัง
+                  <% } %>
+                </h5>
+
+                <!-- แนวหนัง -->
+                <% if (movie && movie.genres?.length > 0) { %>
+                  <div class="row ml-1">
+                    <% movie.genres.forEach((genre, i) => { %>
+                      <div class="caption-font main-font mr-2"><%= genre %></div>
+                      <% if (i < movie.genres.length - 1) { %>
+                        <div class="caption-font main-font mr-2">·</div>
+                      <% } %>
+                    <% }) %>
+                  </div>
+                <% } %>
+
+                <!-- เนื้อหาโพสต์ -->
+                <div class="mb-2 border-start border-3 content">
+                  <p class="card-text text-break m-0"><%= post.content %></p>
+                </div>
+
+                <!-- ปุ่ม Like และเวลา -->
+                <div class="row mt-2">
+                  <div class="col-xl-9 col-sm-6 col-lg-8 col-7">
+                    <form action="/posts/like/<%= post._id %>" method="POST" style="display: inline;">
+  <button type="submit" class="like-button <%= hasLiked ? 'liked' : 'not-liked' %>">
+    <%= hasLiked ? '💖 Liked' : '🤍 Like' %> (<%= post.likes.length %>)
+  </button>
+</form>
+
+                  </div>
+                  <div class="col">
+                    <p class="card-subtitle text-muted mb-2">
+                      <%= new Date(post.timestamp).toLocaleString() %>
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Comments -->
+                <hr>
+                <% post.comments.forEach(comment => { %>
+                  <div class="mb-2 ps-2 border-start border-3">
+                    <strong class="name" style="color: var(--main-color) !important;">
+                      <%= comment.user?.username || 'ไม่ระบุ' %>
+                    </strong>: <%= comment.content %>
+                    <div class="text-time" style="font-size: 0.75em;">
+                      <%= new Date(comment.timestamp).toLocaleString() %>
+                    </div>
+                  </div>
+                <% }) %>
+
+                <!-- ฟอร์มแสดงความคิดเห็น -->
+                <form action="/posts/comment/<%= post._id %>" method="POST" class="mt-3">
+                  <div class="input-group">
+                    <input type="text" name="content" class="form-control" placeholder="Comments..." required style="border-radius: 50px;">
+                    <button class="btn btn-secondary ml-1" type="submit">Reply</button>
+                  </div>
+                </form>
+
+              </div> <!-- col-xl-9 -->
+            </div> <!-- row -->
+
+          </div> <!-- card-body -->
+        </div> <!-- card -->
+      <% }) %>
+
+    </div> <!-- container -->
+  </div> <!-- custom-top-space -->
+</section>
+>
+
 
 
     <!----- Section 6 - footer ----->
@@ -219,6 +333,79 @@
         }
       });
     </script>
+    <!-- JavaScript เพื่อแสดงฟอร์มเมื่อคลิก -->
+<script>
+  document.getElementById('showFormBtn').addEventListener('click', function (e) {
+    e.preventDefault();
+    document.getElementById('postForm').classList.remove('d-none');
+    this.classList.add('d-none'); // ซ่อนปุ่มหลังคลิก
+  });
+</script>
+<script>
+    const movieSearch = document.getElementById('movieSearch');
+    const movieList = document.getElementById('movieList');
+    const movieIdInput = document.getElementById('movieId');
+
+    let debounceTimeout = null;
+
+    movieSearch.addEventListener('input', function () {
+      const query = this.value.trim().toLowerCase();
+      clearTimeout(debounceTimeout);
+
+      if (!query) {
+        movieList.innerHTML = '';
+        return;
+      }
+
+      debounceTimeout = setTimeout(async () => {
+        try {
+          const res = await fetch(`/search?query=${encodeURIComponent(query)}`);
+          const data = await res.json();
+          const results = data.results || [];
+
+          movieList.innerHTML = '';
+          results.forEach(movie => {
+            const li = document.createElement('li');
+            li.className = 'list-group-item d-flex align-items-center';
+            li.style.cursor = 'pointer';
+
+            const img = document.createElement('img');
+            const isValidUrl = movie.poster_url && movie.poster_url.startsWith('http');
+            img.src = isValidUrl ? movie.poster_url : '/images/no-poster.png';
+            img.alt = movie.title;
+            img.style.width = '40px';
+            img.style.height = '60px';
+            img.style.objectFit = 'cover';
+            img.classList.add('mr-3');
+
+
+            const info = document.createElement('div');
+            info.innerHTML = `<strong>${movie.title}</strong><br><small>${movie.year || ''}</small>`;
+
+            li.appendChild(img);
+            li.appendChild(info);
+
+            li.addEventListener('click', () => {
+              movieSearch.value = movie.title;
+              movieIdInput.value = movie.id; // ใช้ .id จาก ElasticSearch
+              movieList.innerHTML = '';
+            });
+
+            movieList.appendChild(li);
+          });
+
+        } catch (err) {
+          console.error('❌ Error fetching search:', err);
+        }
+      }, 300);
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!movieList.contains(e.target) && e.target !== movieSearch) {
+        movieList.innerHTML = '';
+      }
+    });
+  </script>
     <script src="/js/omm.js"></script>
     <script src="/js/auth.js"></script>
     <script src="/js/userActivity.js"></script>
