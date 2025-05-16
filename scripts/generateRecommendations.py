@@ -4,33 +4,22 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from pymongo import MongoClient
-from pymongo.errors import NetworkTimeout
 
-# ✅ Connect to MongoDB with longer timeout
-client = MongoClient(
-    "mongodb+srv://stang:Satang13@cluster0.tah8c.mongodb.net/ohmymov",
-    serverSelectionTimeoutMS=60000,
-    connectTimeoutMS=60000,
-    socketTimeoutMS=60000
-)
-
+# Connect to MongoDB
+client = MongoClient("mongodb+srv://stang:Satang13@cluster0.tah8c.mongodb.net/ohmymov")
 db = client['ohmymov']
 movies_collection = db['movie']
 
-try:
-    # ✅ Load data (สามารถใส่ limit ได้เพื่อป้องกัน timeout)
-    movies_df = pd.DataFrame(list(movies_collection.find()))
-except NetworkTimeout:
-    print("❌ Connection to MongoDB timed out")
-    exit()
+# Load data
+movies_df = pd.DataFrame(list(movies_collection.find()))
 
-# ✅ Fill missing values
+# Fill missing values
 movies_df = movies_df.fillna({
     'title': '', 'synopsis': '', 'keywords': '', 
     'genres': '', 'year': '', 'cast': '', 'crew': ''
 })
 
-# ✅ Feature preparation
+# Feature preparation
 movies_df['title'] = movies_df['title'].apply(lambda x: ' '.join(x) if isinstance(x, list) else str(x))
 movies_df['synopsis'] = movies_df['synopsis'].apply(lambda x: ' '.join(x) if isinstance(x, list) else str(x))
 movies_df['keywords'] = movies_df['keywords'].apply(lambda x: ' '.join(x) if isinstance(x, list) else str(x))
@@ -46,7 +35,7 @@ movies_df['crew'] = movies_df['crew'].apply(lambda x: ' '.join(
     [str(member['members']) for member in x if isinstance(member, dict) and member.get('role') == 'Director']
 ) if isinstance(x, list) else '')
 
-# ✅ Combined features
+# Combined features with weighted emphasis
 movies_df['combined_features'] = (
     movies_df['title'] * 3 + ' ' +
     movies_df['keywords'] * 5 + ' ' +
@@ -57,24 +46,23 @@ movies_df['combined_features'] = (
     movies_df['year'].astype(str)
 )
 
-# ✅ Vectorization
+
+# Vectorization
 vectorizer = TfidfVectorizer(
     stop_words='english',
-    min_df=2,
-    max_df=0.7,
-    ngram_range=(1, 2)
+    min_df=2,             
+    max_df=0.7,          
+    ngram_range=(1, 2)    
 )
 feature_vectors = vectorizer.fit_transform(movies_df['combined_features'])
 
-# ✅ Similarity Calculation
+# Similarity Calculation
 similarity = cosine_similarity(feature_vectors, feature_vectors)
 
-# ✅ Recommendations with threshold
-for idx in range(len(movies_df)):
-    base_movie = movies_df.iloc[idx]
-    if not base_movie.get('movie_id'):
-        continue
+# Recommendations with threshold
+THRESHOLD = 0.8  # Ignore low-relevance recommendations
 
+for idx in range(len(movies_df)):
     similarity_score = list(enumerate(similarity[idx]))
     sorted_similar_movies = sorted(similarity_score, key=lambda x: x[1], reverse=True)
 
@@ -85,16 +73,14 @@ for idx in range(len(movies_df)):
             'similarity_score': float(movie[1])
         }
         for movie in sorted_similar_movies
-        if movie[0] != idx and movie[1] >= 0.8
-    ][:5]
+        if movie[0] != idx  
+    ][:5]  # Select exactly 5 highest-scoring movies
 
-    try:
-        movies_collection.update_one(
-            {'_id': base_movie['_id']},
-            {'$set': {'recommendations': recommended_movies}}
-        )
-        print(f"Updated: {base_movie['title']} ({base_movie.get('movie_id')})")
-    except Exception as e:
-        print(f"Failed to update {base_movie['title']}: {e}")
+    movies_collection.update_one(
+        {'_id': movies_df.iloc[idx]['_id']},
+        {'$set': {'recommendations': recommended_movies}}
+    )
 
 print("Recommendations updated successfully!")
+
+
