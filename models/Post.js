@@ -1,16 +1,28 @@
+// ✅ models/Post.js
 const mongoose = require('mongoose');
 
 const postSchema = new mongoose.Schema({
-  user_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-  movie_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Movie', required: true },
-  text: { type: String, required: true },
-  created_at: { type: Date, default: Date.now },
+  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  content: { type: String, required: true },
+  tagged_movies: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Movie' }],
+  timestamp: { type: Date, default: Date.now },
   likes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
-  replies: [{
-    user_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-    text: String,
-    created_at: { type: Date, default: Date.now }
-  }]
+  dislikes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+  comments: [{
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+    content: { type: String, required: true },
+    timestamp: { type: Date, default: Date.now }
+  }],
+  sentiment: {
+    type: String,
+    enum: ['positive', 'neutral', 'negative'],
+    default: 'neutral'
+  },
+  visibility: {
+    type: String,
+    enum: ['public', 'friends', 'private'],
+    default: 'public'
+  }
 });
 
-module.exports = mongoose.model('Post', postSchema);
+module.exports = mongoose.model('Post', postSchema, 'post');

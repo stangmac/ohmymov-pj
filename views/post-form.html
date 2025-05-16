@@ -1,3 +1,5 @@
+
+<!-- ✅ views/post-form.ejs -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,15 +12,16 @@
   <form action="/posts/create" method="POST">
     <div class="mb-3">
       <label class="form-label">ความคิดเห็น</label>
-      <textarea name="text" class="form-control" rows="3" required></textarea>
+      <textarea name="content" class="form-control" rows="3" required></textarea>
     </div>
     <div class="mb-3">
-      <label class="form-label">เลือกหนัง</label>
-      <select name="movie_id" class="form-select">
+      <label class="form-label">เลือกหนัง (สามารถเลือกหลายเรื่อง)</label>
+      <select name="tagged_movies" class="form-select" multiple required>
         <% movies.forEach(movie => { %>
           <option value="<%= movie._id %>"><%= movie.title %></option>
         <% }) %>
       </select>
+      <div class="form-text">กด Ctrl (Windows) หรือ Command (Mac) เพื่อเลือกหลายเรื่อง</div>
     </div>
     <button type="submit" class="btn btn-success">โพสต์เลย</button>
   </form>
