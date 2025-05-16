@@ -39,8 +39,8 @@ module.exports = async (req, res) => {
             loggedIN: user.username
         });
 
-    } catch (err) {
+    }catch (err) {
         console.error('❌ Error in /suggestion:', err);
-        res.status(500).send('Server Error');
+        return res.redirect('/suggestionerror'); // ✅ redirect ไปหน้าที่คุณเตรียมไว้
     }
 };

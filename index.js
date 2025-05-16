@@ -75,6 +75,14 @@ const startGenreController = require('./controllers/startGenreController');
 const postRoute = require('./services/postRoute');
 const moviePreferenceController = require('./controllers/moviePreferenceController');
 const { logFavActivity } = require('./controllers/userActivityFavController');
+const suggestionerrorController = require('./controllers/suggestionerrorController');
+// ✅ ควรใช้ GET เพราะคุณ redirect ไปหา
+app.get('/suggestionerror', suggestionerrorController);
+
+
+
+
+
 
 // const userActivityRoute = require('./routes/userActivity');
 // app.use('/', userActivityRoute);

@@ -112,27 +112,45 @@
 
    <!----- Section - header ----->
   <!-- Profile Display (Uneditable) -->
-  <div class="container user-box">
-   <div class="profile-card">
-       <div class="profile-header">
-           <img class="user-pic" src="/images/user1-id.png" alt="User Image">
-           <h2 class="user-name"><%= loggedIN %></h2>
-       </div>
+<div class="container user-box">
+  <div class="profile-box">
+    <div class="profile-content">
+      <div class="profile-left">
+        <% 
+          let imageFile = 'default.jpg';
+          if (gender === 'male') {
+            imageFile = 'userprofilemen.jpg';
+          } else if (gender === 'female') {
+            imageFile = 'userprofile.jpg';
+          }
+        %>
 
+        <img
+          class="user-pic"
+          src="/images/<%= imageFile %>"
+          alt="User Image"
+        />
 
-               <div class="profile-info">
-                   <p><strong class="label">Email:</strong> <span><%= email %></span></p>
-                   <p><strong class="label">Birthday:</strong> <span><%= new Date(date).toLocaleDateString() %></span></p>
-                   <p><strong class="label">Gender:</strong> <span><%= gender %></span></p>
-               </div>
-               
-
-           <button class="btn s-button" id="editProfileBtn">EDIT PROFILE</button>
-           <button class="btn s-button" id="changePasswordBtn">CHANGE PASSWORD</button>
-
-     
-   </div>
+        <h2 class="user-name mt-2"><%= loggedIN %></h2>
+      </div>
+      <div class="profile-right">
+        <div class="profile-info">
+          <p><strong class="label">Email:</strong> <span><%= email %></span></p>
+          <p><strong class="label">Birthday:</strong> <span><%= new Date(date).toLocaleDateString() %></span></p>
+          <p><strong class="label">Gender:</strong> <span><%= gender %></span></p>
+        </div>
+      </div>
+    </div>
+    <div class="profile-buttons">
+      <button class="btn s-button" id="editProfileBtn">EDIT PROFILE</button>
+      <button class="btn s-button" id="changePasswordBtn">CHANGE PASSWORD</button>
+    </div>
+  </div>
 </div>
+
+
+
+  
 <!-- Edit Profile Form -->
 <div class="container hidden" id="editProfileFormContainer">
    <form id="editProfileForm">
@@ -188,136 +206,109 @@
        </div>
    </form>
 </div>
+<!-- ===== Section: User Info ===== -->
+<div class="user-info">
+  <div class="history-box">
+    <div class="container">
+      <% const sections = [
+        { title: 'Liked', id: 'liked', movies: like },
+        { title: 'Wishlist', id: 'wishlist', movies: wishlist },
+        { title: 'Disliked', id: 'disliked', movies: dislike },
+        { title: 'Seen', id: 'seen', movies: seen }
+      ]; %>
 
-    <!----- Section - Info ----->
+      <% sections.forEach(section => {
+        const { title, id, movies } = section;
+        if (movies && movies.length > 0) { %>
 
-    <div class="user-info">
-       
-        <div class="history-box">
-            <!----- Section - Info ----->
-
-<div class="container">
-    <!-- 🟡 Section: Wishlist -->
-    <div class="history-topic">
-        <div class="topic-header">
-          <div class="circle-button">
-            <span class="star">&#9733;</span>
-          </div>
-          <div class="title-font main-font">Wishlist</div>
-        </div>
-        <div class="row mx-5">
-          <% wishlist.forEach(movie => { %>
-            <div class="title-item">
-              <a href="/movie-detail?id=<%= movie._id %>" class="title-item-link">
-                <figure>
-                  <img class="poster-top" src="<%= movie.poster_url?.[0] || '/images/no-poster.jpg' %>" alt="<%= movie.title %>"  onerror="this.onerror=null; this.src='/images/no-poster.png'; this.alt='No Streaming';">
-                </figure>
-                <div class="poster-title-box">
-                  <div class="top-title">
-                    <span class="entry-title"><%= movie.title %> (<%= movie.year %>)</span>
-                  </div>
-                </div>
-              </a>
+        <div class="history-topic" id="history-<%= id %>">
+          <div class="topic-header">
+            <div class="circle-button">
+              <span class="star">&#9733;</span>
             </div>
-          <% }) %>
-        </div>
-      </div>
-      
+            <div class="title-font main-font"><%= title %></div>
+          </div>
 
-    <!-- 💚 Section: Like -->
-<!-- 💚 Section: Like -->
-<% if (like && like.length > 0) { %>
-    <div class="history-topic">
-      <div class="topic-header">
-        <div class="circle-button">
-          <span class="star">&#9733;</span>
-        </div>
-        <div class="title-font main-font">Liked</div>
-      </div>
-      <div class="row mx-5">
-        <% like.forEach(movie => { %>
-          <div class="title-item">
-            <a href="/movie-detail?id=<%= movie._id %>" class="title-item-link">
-              <figure>
-                <img class="poster-top" src="<%= movie.poster_url?.[0] || '/images/no-poster.jpg' %>" alt="<%= movie.title %>" onerror="this.onerror=null; this.src='/images/no-poster.png'; this.alt='No Streaming';">
-              </figure>
-              <div class="poster-title-box">
-                <div class="top-title">
-                  <span class="entry-title"><%= movie.title %> (<%= movie.year %>)</span>
+          <div class="scroll-wrapper">
+            <div class="scroll-row">
+              <% movies.forEach(movie => { %>
+                <div class="title-item">
+                  <a href="/movie-detail?id=<%= movie._id %>" class="title-item-link">
+                    <figure>
+                      <img class="poster-top"
+                           src="<%= movie.poster_url?.[0] || '/images/no-poster.jpg' %>"
+                           alt="<%= movie.title %>"
+                           onerror="this.onerror=null; this.src='/images/no-poster.png'; this.alt='No Streaming';">
+                    </figure>
+                    <div class="poster-title-box">
+                      <div class="top-title">
+                        <span class="entry-title"><%= movie.title %> (<%= movie.year %>)</span>
+                      </div>
+                    </div>
+                  </a>
                 </div>
-              </div>
+              <% }) %>
+            </div>
+
+            <!-- Scroll Buttons (always rendered, but conditionally shown) -->
+            <a class="carousel-control-prev history-scroll-left" role="button" onclick="scrollHistoryRow('<%= id %>', 'left')">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </a>
+            <a class="carousel-control-next history-scroll-right" role="button" onclick="scrollHistoryRow('<%= id %>', 'right')">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
             </a>
           </div>
-        <% }) %>
-      </div>
-    </div>
-  <% } %>
-  
-
-    <!-- ❤️ Section: Dislike -->
-<!-- ❤️ Section: Dislike -->
-<% if (dislike && dislike.length > 0) { %>
-    <div class="history-topic">
-      <div class="topic-header">
-        <div class="circle-button">
-          <span class="star">&#9733;</span>
         </div>
-        <div class="title-font main-font">Disliked</div>
-      </div>
-      <div class="row mx-5">
-        <% dislike.forEach(movie => { %>
-          <div class="title-item">
-            <a href="/movie-detail?id=<%= movie._id %>" class="title-item-link">
-              <figure>
-                <img class="poster-top" src="<%= movie.poster_url?.[0] || '/images/no-poster.jpg' %>" alt="<%= movie.title %>"  onerror="this.onerror=null; this.src='/images/no-poster.png'; this.alt='No Streaming';">
-              </figure>
-              <div class="poster-title-box">
-                <div class="top-title">
-                  <span class="entry-title"><%= movie.title %> (<%= movie.year %>)</span>
-                </div>
-              </div>
-            </a>
-          </div>
-        <% }) %>
-      </div>
-    </div>
-  <% } %>
-  
 
-<!-- 👁️ Section: Seen -->
-<% if (seen && seen.length > 0) { %>
-    <div class="history-topic">
-      <div class="topic-header">
-        <div class="circle-button">
-          <span class="star">&#9733;</span>
-        </div>
-        <div class="title-font main-font">Seen</div>
-      </div>
-      <div class="row mx-5">
-        <% seen.forEach(movie => { %>
-          <div class="title-item">
-            <a href="/movie-detail?id=<%= movie._id %>" class="title-item-link">
-              <figure>
-                <img class="poster-top" src="<%= movie.poster_url?.[0] || '/images/no-poster.jpg' %>" alt="<%= movie.title %>"  onerror="this.onerror=null; this.src='/images/no-poster.png'; this.alt='No Streaming';">
-              </figure>
-              <div class="poster-title-box">
-                <div class="top-title">
-                  <span class="entry-title"><%= movie.title %> (<%= movie.year %>)</span>
-                </div>
-              </div>
-            </a>
-          </div>
-        <% }) %>
-      </div>
+      <% } }) %>
     </div>
-  <% } %>
-  
+  </div>
 </div>
 
-                       
-        </div>
-    </div>
+<!-- ====== STYLE ====== -->
+<style>
+ 
+</style>
 
+<!-- ====== SCRIPT ====== -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const updateScrollButtons = () => {
+      document.querySelectorAll('.history-topic').forEach(section => {
+        const scrollRow = section.querySelector('.scroll-row');
+        const scrollLeft = section.querySelector('.history-scroll-left');
+        const scrollRight = section.querySelector('.history-scroll-right');
+        const movieCount = scrollRow.children.length;
+        const width = window.innerWidth;
+
+        let visibleCount = 5;
+        if (width < 576) visibleCount = 2;
+        else if (width < 1024) visibleCount = 4;
+
+        if (movieCount > visibleCount) {
+          scrollLeft.style.display = 'block';
+          scrollRight.style.display = 'block';
+        } else {
+          scrollLeft.style.display = 'none';
+          scrollRight.style.display = 'none';
+        }
+      });
+    };
+
+    updateScrollButtons();
+    window.addEventListener('resize', updateScrollButtons);
+  });
+
+  function scrollHistoryRow(id, direction) {
+    const row = document.querySelector(`#history-${id} .scroll-row`);
+    const scrollAmount = row.offsetWidth * 0.8;
+
+    row.scrollBy({
+      left: direction === 'left' ? -scrollAmount : scrollAmount,
+      behavior: 'smooth'
+    });
+  }
+</script>
 
 
     
