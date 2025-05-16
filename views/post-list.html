@@ -1,3 +1,5 @@
+
+<!-- ✅ views/post-list.ejs -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -113,11 +115,18 @@
   <% posts.forEach(post => { %>
     <div class="card mb-3 shadow-sm">
       <div class="card-body">
-        <h5 class="card-title">🎬 <%= post.movie_id?.title || 'ไม่ทราบชื่อหนัง' %></h5>
-        <p class="card-text"><%= post.text %></p>
+        <h5 class="card-title">
+          🎬 เรื่องที่เกี่ยวข้อง:
+          <% if (post.tagged_movies.length > 0) { %>
+            <%= post.tagged_movies.map(m => m.title).join(', ') %>
+          <% } else { %>
+            ไม่ระบุหนัง
+          <% } %>
+        </h5>
+        <p class="card-text"><%= post.content %></p>
         <p class="card-subtitle text-muted mb-2">
-          👤 โดย: <%= post.user_id?.username || 'ไม่ระบุ' %> |
-          🕒 <%= post.created_at.toLocaleString() %>
+          👤 โดย: <%= post.user?.username || 'ไม่ระบุ' %> |
+          🕒 <%= new Date(post.timestamp).toLocaleString() %>
         </p>
         <form action="/posts/like/<%= post._id %>" method="POST" style="display: inline;">
           <button type="submit" class="btn btn-outline-danger btn-sm">
