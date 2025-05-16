@@ -73,6 +73,8 @@ const { logUserActivity } = require('./controllers/userActivityController');
 const startController = require("./controllers/startController");
 const saveStartController = require('./controllers/saveStartController');
 const startGenreController = require('./controllers/startGenreController');
+
+const postRoute = require('./services/postRoute');
 app.use(startGenreController);
 
 // 🛣️ Routes
@@ -141,6 +143,13 @@ app.get('/manual-sync', async (req, res) => {
     res.status(500).send('❌ Manual sync failed');
   }
 });
+
+
+
+app.use('/posts', postRoute);
+
+
+
 
 // ❌ 404 Handler
 app.use((req, res, next) => {
