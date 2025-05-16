@@ -2,39 +2,230 @@
 <!-- ✅ views/post-list.ejs -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>กระทู้ทั้งหมด - โพสต์เกี่ยวกับหนัง</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/result-page.css">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=bookmark" />
+
+  <title>Oh! My Mov</title>
 </head>
-<body class="bg-light">
-<div class="container mt-5">
-  <h1 class="mb-4">📋 กระทู้ทั้งหมด</h1>
-  <% posts.forEach(post => { %>
-    <div class="card mb-3 shadow-sm">
-      <div class="card-body">
-        <h5 class="card-title">
-          🎬 เรื่องที่เกี่ยวข้อง:
-          <% if (post.tagged_movies.length > 0) { %>
-            <%= post.tagged_movies.map(m => m.title).join(', ') %>
-          <% } else { %>
-            ไม่ระบุหนัง
-          <% } %>
-        </h5>
-        <p class="card-text"><%= post.content %></p>
-        <p class="card-subtitle text-muted mb-2">
-          👤 โดย: <%= post.user?.username || 'ไม่ระบุ' %> |
-          🕒 <%= new Date(post.timestamp).toLocaleString() %>
-        </p>
-        <form action="/posts/like/<%= post._id %>" method="POST" style="display: inline;">
-          <button type="submit" class="btn btn-outline-danger btn-sm">
-            ❤️ ถูกใจ (<%= post.likes.length %>)
+
+<body>
+  <!-----------------------------------------------------------HEADER--------------------------------------------------------->
+  <div id="overlay"></div>
+  <header class="fixed-top">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid d-flex align-items-center justify-content-between">
+        <!-- Left Group: Logo + Desktop Menu -->
+        <div class="d-flex align-items-center left-group">
+          <a class="navbar-brand" href="/">
+            <img src="/images/logo2.png" width="200" height="36" />
+          </a>
+          <!-- Desktop Menu Links -->
+          <ul class="navbar-nav d-none d-lg-flex ml-3">
+            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/suggestion">Suggestion</a></li>
+            <li class="nav-item"><a class="nav-link" href="/posts">Blog</a></li>
+          </ul>
+        </div>
+
+        <!-- Search Box -->
+        <div class="search-container order-2 order-md-1 mx-auto">
+          <div class="search-box" onclick="expandSearch()">
+            <img src="/images/icon/search-icon.png" alt="Search" class="search-icon" />
+            <input type="text" class="search-input" placeholder="Search for a movie..."
+              onkeyup="searchMovies(this.value)" onfocus="showResults()" />
+          </div>
+          <div class="search-results" id="searchResults"></div>
+        </div>
+        <!-- Right Group: Hamburger + User Menu (Desktop) -->
+        <div class="d-flex align-items-center right-group order-1 order-md-2">
+          <!-- Hamburger (Mobile only) -->
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu"
+            aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
           </button>
-        </form>
+
+          <!-- Desktop User Menu -->
+          <% if (!loggedIN) { %>
+            <button class="btn o-button ml-3 d-none d-lg-block" id="show-signin">Sign In</button>
+            <% } else { %>
+              <ul class="menu-right d-none d-lg-flex ml-3">
+                <li class="nav-item dropdown">
+                  <button class="nav-link dropbtn">
+                    <img src="/images/icon/user-fill.png" class="icon-green" />
+                    <span class="main-font">
+                      <%= loggedIN %>
+                    </span>
+                    <img src="/images/icon/drop-more.png" class="icon-green" />
+                  </button>
+                  <ul class="dropdown-content">
+                    <li><a class="nav-link" href="/user-profile">Edit Profile</a></li>
+                    <li><a class="nav-link" href="/logout">Sign out</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <% } %>
+        </div>
       </div>
-    </div>
-  <% }) %>
-  <a href="/posts/new" class="btn btn-primary mt-4">➕ เขียนกระทู้ใหม่</a>
+
+      <!-- Mobile Menu -->
+      <!-- Mobile Menu -->
+      <div class="collapse navbar-collapse d-lg-none text-center" id="navbarMenu">
+        <ul class="navbar-nav mx-auto my-3 d-lg-none">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/suggestion">Suggestion</a></li>
+
+          <% if (!loggedIN) { %>
+            <li class="nav-item mt-2">
+              <button class="btn o-button ml-3 d-none d-lg-block" id="show-signin">Sign In</button>
+            </li>
+            <% } else { %>
+              <li class="nav-item dropdown mt-2">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                  <img src="/images/icon/user-fill.png" class="icon-green" />
+                  <span class="main-font">
+                    <%= loggedIN %>
+                  </span>
+                </a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="/user-profile">Edit Profile</a>
+                  <a class="dropdown-item" href="/logout">Sign out</a>
+                </div>
+              </li>
+              <% } %>
+        </ul>
+      </div>
+
+    </nav>
+  </header>
+<div class="bg-light">
+  <div class="container mt-5">
+    <h1 class="mb-4">📋 กระทู้ทั้งหมด</h1>
+
+    <% posts.forEach(post => { %>
+      <div class="card mb-3 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">
+            🎬 เรื่องที่เกี่ยวข้อง:
+            <% if (post.tagged_movies.length > 0) { %>
+              <% post.tagged_movies.forEach(movie => { %>
+                <a href="/posts?movie=<%= movie._id %>" class="badge bg-primary text-decoration-none"><%= movie.title %></a>
+              <% }) %>
+            <% } else { %>
+              ไม่ระบุหนัง
+            <% } %>
+          </h5>
+
+          <p class="card-text"><%= post.content %></p>
+          <p class="card-subtitle text-muted mb-2">
+            👤 โดย: <%= post.user?.username || 'ไม่ระบุ' %> |
+            🕒 <%= new Date(post.timestamp).toLocaleString() %>
+          </p>
+
+          <form action="/posts/like/<%= post._id %>" method="POST" style="display: inline;">
+            <button type="submit" class="btn btn-outline-danger btn-sm">
+              ❤️ ถูกใจ (<%= post.likes.length %>)
+            </button>
+          </form>
+
+          <!-- Comments Section -->
+          <hr>
+          <h6>💬 ความคิดเห็น:</h6>
+          <% post.comments.forEach(comment => { %>
+            <div class="mb-2 ps-2 border-start border-3">
+              <strong><%= comment.user?.username || 'ไม่ระบุ' %></strong>: <%= comment.content %>
+              <div class="text-muted" style="font-size: 0.8em;">
+                🕒 <%= new Date(comment.timestamp).toLocaleString() %>
+              </div>
+            </div>
+          <% }) %>
+
+          <form action="/posts/comment/<%= post._id %>" method="POST" class="mt-3">
+            <div class="input-group">
+              <input type="text" name="content" class="form-control" placeholder="เขียนความคิดเห็น..." required>
+              <button class="btn btn-secondary" type="submit">ตอบกลับ</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    <% }) %>
+
+    <a href="/posts/new" class="btn btn-primary mt-4">➕ เขียนกระทู้ใหม่</a>
+  </div>
 </div>
+
+    <!----- Section 6 - footer ----->
+
+    <section class="sec-footer mt-5 mb-3">
+      <footer>
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-12 text-center mt-3">
+              <div class="title-font white-font">Oh! My Mov</div>
+              <div class="body-font grey-font mt-3">
+                <a class="a-footer mr-3" href="/">Home</a>
+                <a class="a-footer mr-3" href="/">Blog</a>
+                <a class="a-footer" href="/">Suggestion</a>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-12 text-center">
+              <div class="caption-font grey-font">
+                Copyright © This website is made to support who love movies by
+                <a href="/" class="main-font">OhMymov.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </section>
+
+
+    <!-- Optional JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+
+    <script>
+      // ✅ ปุ่มเลื่อนซ้าย/ขวา (เพิ่มการเช็คว่ามีปุ่มก่อนใช้งาน)
+      document.addEventListener("DOMContentLoaded", function () {
+        const container = document.querySelector('.movie-container');
+        const scrollLeft = document.getElementById('scroll-left');
+        const scrollRight = document.getElementById('scroll-right');
+
+        if (scrollLeft && scrollRight && container) {
+          scrollLeft.addEventListener('click', function () {
+            container.scrollBy({ left: -300, behavior: 'smooth' });
+          });
+
+          scrollRight.addEventListener('click', function () {
+            container.scrollBy({ left: 300, behavior: 'smooth' });
+          });
+        }
+      });
+    </script>
+    <script src="/js/omm.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/userActivity.js"></script>
+    <script src="/js/actionbutton.js"></script>
+    <script src="/js/search.js"></script>
+
+
+    <!-- ✅ JavaScript ที่เข้าคู่กัน -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

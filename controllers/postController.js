@@ -1,15 +1,20 @@
-
-// ✅ controllers/postController.js
 const Post = require('../models/Post');
 const Movie = require('../models/Movies');
 const User = require('../models/User');
 
 exports.listPosts = async (req, res) => {
   try {
-    const posts = await Post.find()
+    const filter = {};
+    if (req.query.movie) {
+      filter.tagged_movies = req.query.movie;
+    }
+
+    const posts = await Post.find(filter)
       .sort({ timestamp: -1 })
       .populate('tagged_movies', 'title')
-      .populate('user', 'username');
+      .populate('user', 'username')
+      .populate('comments.user', 'username');
+
     res.render('post-list', { posts });
   } catch (err) {
     console.error('❌ Error loading posts:', err);
@@ -54,5 +59,26 @@ exports.likePost = async (req, res) => {
   } catch (err) {
     console.error('❌ Error liking post:', err);
     res.status(500).send('Like Failed');
+  }
+};
+
+exports.commentOnPost = async (req, res) => {
+  try {
+    const postId = req.params.id;
+    const { content } = req.body;
+    const userId = req.session?.user?._id || '681862828bd709566feaba5e';
+    await Post.findByIdAndUpdate(postId, {
+      $push: {
+        comments: {
+          user: userId,
+          content,
+          timestamp: new Date()
+        }
+      }
+    });
+    res.redirect('/posts');
+  } catch (err) {
+    console.error('❌ Error commenting:', err);
+    res.status(500).send('Comment Failed');
   }
 };
