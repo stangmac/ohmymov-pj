@@ -1,6 +1,6 @@
 document.addEventListener('click', handleUserInteraction);
 let lastCheckTime = 0; // เวลาตรวจสอบล่าสุด
-const checkInterval = 5000; // ตรวจสอบทุก 5 วินาที
+const checkInterval = 15000; // ตรวจสอบทุก 5 วินาที
 let isChecking = false; // ป้องกันการเรียก fetch ซ้ำซ้อน
 function handleUserInteraction() {
     if (!isChecking) {
