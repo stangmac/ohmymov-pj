@@ -8,16 +8,14 @@ module.exports = async (req, res) => {
     }
 
     try {
-        console.log("👤 Session user:", req.session.user); // Debug ดูค่า session
+        console.log("👤 Session user:", req.session.user);
 
-        // ✅ ใช้ _id แทน id
         const user = await User.findById(req.session.user._id).lean();
 
         if (!user) {
             return res.status(404).send("User not found");
         }
 
-        // ✅ ดึงหนังที่ match กับ ObjectId ในแต่ละหมวด
         const [wishlist, like, seen, dislike] = await Promise.all([
             Movie.find({ _id: { $in: user.wishlist } }).lean(),
             Movie.find({ _id: { $in: user.like } }).lean(),
@@ -25,23 +23,49 @@ module.exports = async (req, res) => {
             Movie.find({ _id: { $in: user.dislike } }).lean()
         ]);
 
-        // ✅ ดึงหนังจาก movie_id (เลข) ใน recommendations
-        const recMovieIds = user.recommendations.map(r => r.movie_id);
-        const recommendations = await Movie.find({ movie_id: { $in: recMovieIds } }).lean();
+        const recommendations = [];
 
-        // ✅ render หน้า suggestion พร้อมข้อมูล
+        if (user.Recommend && Array.isArray(user.Recommend)) {
+            for (const group of user.Recommend) {
+                const movieIds = group.movies.map(m => m.movie_id);
+                const movies = await Movie.find({ movie_id: { $in: movieIds } }).lean();
+
+                const enrichedMovies = group.movies.map(rec => {
+                    const fullMovie = movies.find(m => m.movie_id === rec.movie_id);
+                    return {
+                        ...rec,
+                        poster_url: fullMovie?.poster_url || [],
+                        year: fullMovie?.year || '',
+                        rating_imdb: fullMovie?.rating_imdb || '',
+                        rating_rotten: fullMovie?.rating_rotten || '',
+                        platform: fullMovie?.platform || ''
+                    };
+                });
+
+                recommendations.push({
+                    group_name: group.group_name,
+                    movies: enrichedMovies
+                });
+            }
+        }
+
         res.render('suggestion', {
             wishlist,
             like,
             seen,
             dislike,
+<<<<<<< HEAD
             recommendations,
             loggedIN: user.username,
   currentPath: req.path
+=======
+            recommendations, // ✅ เป็นแบบหลาย group_name + movies แล้ว
+            loggedIN: user.username
+>>>>>>> c47e6ad8b037e256215d0f54645cd703e2a92ef8
         });
 
-    }catch (err) {
+    } catch (err) {
         console.error('❌ Error in /suggestion:', err);
-        return res.redirect('/suggestionerror'); // ✅ redirect ไปหน้าที่คุณเตรียมไว้
+        return res.redirect('/suggestionerror');
     }
 };
