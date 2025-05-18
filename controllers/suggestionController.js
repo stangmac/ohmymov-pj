@@ -34,6 +34,7 @@ module.exports = async (req, res) => {
                     const fullMovie = movies.find(m => m.movie_id === rec.movie_id);
                     return {
                         ...rec,
+                        _id: fullMovie?._id || null, // ✅ เพิ่ม _id เพื่อใช้ใน EJS
                         poster_url: fullMovie?.poster_url || [],
                         year: fullMovie?.year || '',
                         rating_imdb: fullMovie?.rating_imdb || '',
@@ -54,14 +55,10 @@ module.exports = async (req, res) => {
             like,
             seen,
             dislike,
-<<<<<<< HEAD
             recommendations,
             loggedIN: user.username,
-  currentPath: req.path
-=======
-            recommendations, // ✅ เป็นแบบหลาย group_name + movies แล้ว
-            loggedIN: user.username
->>>>>>> c47e6ad8b037e256215d0f54645cd703e2a92ef8
+            currentPath: req.path,
+            user // ✅ ส่ง user ไปให้ EJS ตรวจสอบพฤติกรรม
         });
 
     } catch (err) {
