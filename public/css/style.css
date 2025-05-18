@@ -4131,7 +4131,7 @@ min-width: 110px;
   margin-top: 1rem; /* ปรับได้ตามต้องการ */
 }
 .fav-h1{
-    font-size: var(--h1-size);
+    font-size: var(--h2-size);
     color: var(--colour-white);
     text-decoration: underline var(--main-color);
 }
