@@ -209,11 +209,11 @@
     </div>
 
 
-<div class="row mt-4">
+<div class="row mt-4"  id="section-synopsis" style="scroll-margin-top: 200px;">
   <div class="col-12 col-xl-8">
-        <div class="title-movies mt-4">
+        <div class="title-movies mt-2">
           <div class="row">
-            <div class="title-font-bold main-font" id="section-synopsis">Synopsis</div>
+            <div class="title-font-bold main-font" >Synopsis</div>
           </div>
           <div class="row mt-4">
             <div class="body-font white-font">
@@ -224,8 +224,8 @@
                       <hr class="custom-line" style="border: none; border-top: 1px solid white; opacity: 1;">
           </div>
         </div>
-        <div class="row mt-4">
-          <div class="title-font-bold main-font" id="section-watch">Where to watch</div>
+        <div class="row mt-4"  id="section-watch" style="scroll-margin-top: 200px;">
+          <div class="title-font-bold main-font">Where to watch</div>
         </div>
         <div class="row mt-4">
           <% if (movie.watch && movie.watch.length> 0) { %>
@@ -244,8 +244,8 @@
               <hr class="custom-line" style="border: none; border-top: 1px solid white; opacity: 1;">
         </div>
 
-        <div class="row mt-4">
-          <div class="title-font-bold main-font" id="section-posters">Posters</div>
+        <div class="row mt-4" id="section-posters" style="scroll-margin-top: 200px;">
+          <div class="title-font-bold main-font" >Posters</div>
         </div>
         <div class="row mt-4">
           <% if (movie.poster_url && movie.poster_url.length> 0) { %>
@@ -326,8 +326,8 @@
 </script>
 
 
-        <div class="row mt-4">
-          <div class="title-font-bold main-font" id="section-cast">Cast</div>
+        <div class="row mt-4 " id="section-cast"  style="scroll-margin-top: 200px;">
+          <div class="title-font-bold main-font" >Cast</div>
         </div>
 
         <% if (movie.cast && movie.cast.length> 0) { %>
@@ -427,11 +427,14 @@
                   </div>
 
                   <!-- โปสเตอร์ -->
-                  <a href="/" class="d-flex justify-content-center mb-3">
+                  <a href="/movie-detail?id=<%= movie._id %>" class="d-flex justify-content-center mb-3">
                     <img class="poster-detail-box"
-                      src="<%= Array.isArray(movie.poster_url) && movie.poster_url.length > 0 ? movie.poster_url[0] : '/images/default-poster.jpg' %>"
-                      alt="<%= movie.title %>">
+  src="<%= movie.poster_url && movie.poster_url.length > 0 ? movie.poster_url[0] : '/images/no-poster.png' %>"
+  onerror="this.onerror=null; this.src='/images/no-poster.png'; this.alt='No Poster';"
+  alt="<%= movie.title %>">
+
                   </a>
+
 
                   <!-- ปุ่มกดต่าง ๆ -->
                   <style>
@@ -509,8 +512,8 @@
 
 
               <!-- Similar -->
-              <div class="row mt-4">
-                <div class="title-font-bold main-font" id="section-similar">Similar Titles</div>
+              <div class="row mt-4" id="section-similar" style="scroll-margin-top: 200px;" >
+                <div class="title-font-bold main-font" >Similar Titles</div>
               </div>
 
               <% if (similarMovies && similarMovies.length> 0) { %>
@@ -615,9 +618,10 @@
 
                         <!-- โปสเตอร์ -->
                         <a href="/" class="d-flex justify-content-center mb-3">
-                          <img class="poster-detail-box"
-                            src="<%= Array.isArray(movie.poster_url) && movie.poster_url.length > 0 ? movie.poster_url[0] : '/images/default-poster.jpg' %>"
-                            alt="<%= movie.title %>">
+                           <img class="poster-detail-box"
+  src="<%= movie.poster_url && movie.poster_url.length > 0 ? movie.poster_url[0] : '/images/no-poster.png' %>"
+  onerror="this.onerror=null; this.src='/images/no-poster.png'; this.alt='No Poster';"
+  alt="<%= movie.title %>">
                         </a>
 
                         <!-- ปุ่มกดต่าง ๆ -->

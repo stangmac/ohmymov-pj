@@ -39,7 +39,8 @@ module.exports = async (req, res) => {
                         year: fullMovie?.year || '',
                         rating_imdb: fullMovie?.rating_imdb || '',
                         rating_rotten: fullMovie?.rating_rotten || '',
-                        platform: fullMovie?.platform || ''
+                        platform: fullMovie?.platform || '',
+        watch: fullMovie?.watch || [] // ✅ เพิ่มบรรทัดนี้
                     };
                 });
 
