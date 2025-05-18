@@ -12,7 +12,7 @@
 
     /* colour */
 
-    --main-color: rgb(155, 238, 152);
+    --main-color: rgb(57, 218, 52);
     --bg--main: #191919;
         --bg--main1: #292929;
     --bg--sub: #3b3b3b;
@@ -441,6 +441,7 @@ img.platform-logo:hover {
 
     img.app-2 {
         height: 30px;
+        margin-right: 10px;
     }
 
     img.poster-detail-box {
@@ -1760,7 +1761,7 @@ option:disabled {
 }
 
 .create-account {
-    font-size: 12px;
+    font-size: 15px;
     color: var(--colour-white);
     text-decoration: none;
     font-weight: 600;
@@ -1787,7 +1788,6 @@ option:disabled {
 
 #signup-dob {
     width: 100%;
-
     padding: 12px 35px 12px 12px;
     /* Extra padding for icon */
     outline: none;
@@ -1981,6 +1981,11 @@ option:disabled {
         max-width: 500px;
         padding: 10px 15px;
     }
+    #signup-gender {
+    color: var(--bg--detail);
+    font-size: var(--detail-size);
+
+}
 }
 
 @media (max-width: 480px) {
@@ -1991,11 +1996,12 @@ option:disabled {
     }
 
     .title-sign {
-        font-size: 18px;
+        font-size: 24px;
     }
 
     .btn-sign {
         width: 70%;
+        font-size: var(--body-size);
     }
 
     .social-btn {
@@ -2007,6 +2013,36 @@ option:disabled {
         width: 18px;
         height: 18px;
     }
+    .toggle-password {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--bg--detail);
+    font-size: 15px;
+    transition: 0.3s;
+}
+.form-element-sign input[type="email"],
+.form-element-sign input[type="username"],
+.form-element-sign input[type="password"],
+.form-element-sign input[type="text"],
+.form-element-sign input[type="date"],
+.form-element-sign select {
+    width: 100%;
+    /* Ensure responsiveness */
+    padding: 8px;
+    outline: none;
+    border: 1px solid var(--bg--sub);
+    border-radius: 10px;
+    background-color: var(--bg--sub);
+    display: flex;
+    font-size: var(--detail-size);
+    margin-bottom: 10px;
+    /* Spacing between inputs */
+    color: var(--colour-white);
+    height: 40px;
+}
 }
 
 /* Responsive Styles for Form Elements */
@@ -2094,6 +2130,8 @@ option:disabled {
 
     .resetpassword button {
         width: 80%;
+        font-size: var(--body-size);
+        font-weight: 0;
     }
 }
 
@@ -2405,6 +2443,7 @@ figure {
     justify-content: flex-start;
     scroll-snap-type: x mandatory;
     color: var(--colour-white);
+     -webkit-overflow-scrolling: touch;
 }
 
 .sec-5 .card-horizontal {
@@ -2441,6 +2480,7 @@ figure {
         scroll-snap-type: x mandatory;
         padding-left: 40px;
         padding-right: 40px;
+         -webkit-overflow-scrolling: touch;
     }
 
     .sec-5 .card-horizontal {
@@ -3291,10 +3331,10 @@ margin-left: 30px;
     color: var(--colour-white);
     border: 2px solid var(--main-color);
     padding: 10px;
-
     cursor: pointer;
     font-size: var(--body-size);
     transition: all 0.2s ease;
+    min-width: 110px;
 }
 
 .genre-btn:hover {
@@ -3471,6 +3511,7 @@ margin-left: 30px;
   position: relative;
   padding: 0 32px;
   overflow: hidden;
+   -webkit-overflow-scrolling: touch;
 }
 .poster-horizontal-scroll {
   display: flex;
@@ -3478,6 +3519,8 @@ margin-left: 30px;
   scroll-behavior: smooth;
   gap: 10px;
   padding: 0px 0;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
 }
 
 .poster-box {
@@ -3560,6 +3603,9 @@ margin-left: 30px;
   scroll-behavior: smooth;
   gap: 10px;
   padding: 10px 0;
+ -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory; /* Optional for snapping */
 }
 
 .cast-scroll-left,
@@ -3653,6 +3699,7 @@ margin-left: 30px;
   height: 100%;
   justify-content: space-between;
   padding: 0 10px;
+  text-align: start;
 }
 
 .similar-scroll-left,
@@ -3717,6 +3764,7 @@ margin-left: 30px;
   align-self: start;
   max-height: 85vh;
   overflow-y: hidden;
+  
 }
 
 .poster-detail-box {
@@ -3859,6 +3907,23 @@ margin-left: 30px;
     object-fit: cover;
     border-radius: 10px;
   }
+.sec-3 .btn.sg-button.body-font{
+min-width: 110px;
+}
+
+  .poster-detail-box {
+    width: 50%;
+    max-width: 240px;
+    height: 100%;
+    border-radius: 12px;
+  }
+  .caption-font.year{
+    text-align: start;
+  }
+  .app-logo img {
+        width: 30px;
+        height: 30px;
+    }
 }
 
 /*End Detail Movie Section Global Styles & Variables  Datail movie*/
@@ -3937,7 +4002,7 @@ margin-left: 30px;
     max-width: 100%;
   }
 .fav-actions .btn {
-    width: 90px !important;
+    width: 70px !important;
     height: 26px !important;
     min-width: unset !important;
   }
@@ -4002,7 +4067,7 @@ margin-left: 30px;
 }
 
 .fav-actions .btn {
-  width: 90px !important;            /* ขนาดเล็กลงตามคำขอ */
+  width: 70px !important;            /* ขนาดเล็กลงตามคำขอ */
   height: 30px !important;
   padding: 0 !important;
   background-color: var(--bg--main);
@@ -4010,6 +4075,7 @@ margin-left: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 5px;
 }
 
 .fav-actions .btn:hover {
@@ -4086,6 +4152,22 @@ margin-left: 30px;
   border-radius: 8px;
   margin: 1rem auto;
 }
+
+
+.o-button-2.history.fav-like-btn, .o-button-2.history.fav-wishlist-btn,
+.o-button-2.history.fav-seen-btn,.o-button-2.history.fav-dislike-btn
+{
+max-width: 90px !important;  
+min-width: 90px !important;          /* ขนาดเล็กลงตามคำขอ */
+  height: 30px !important;
+  padding: 0 !important;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+}
+
 
 /* Start Blog */
 .custom-top-space {
@@ -4186,8 +4268,8 @@ a.badge:hover {
   border-radius: 30px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
-.card-body{
-    padding: 50px;
+.card-body {
+    padding: 0 50px 50px;
 }
 /* Card Title */
 .card-title {
@@ -4501,7 +4583,7 @@ p.card-subtitle.text-muted{
 .custom-bg {
   background-color: var(--bg--sub) !important;
 }
-.input-wrapper {
+.custom-top-space-form .input-wrapper {
   margin-top: 70px;
   width: 100%;
   display: flex;
@@ -4666,4 +4748,113 @@ p.card-subtitle.text-muted{
 .like-button.not-liked:hover {
   background-color: var(--main-color);
   color: var(--bg--main);
+}
+
+
+/* search */
+/* Container สำหรับ scroll ซ้าย-ขวา */
+.movie-scroll-container {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden; /* ✅ ห้าม scroll แนวตั้ง */
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  gap: 16px;
+  padding: 1rem 0;
+  height: 100%; /* ✅ ห้ามเปลี่ยนความสูง */
+}
+
+
+/* ปิด scrollbar */
+.movie-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.movie-card {
+  flex: 0 0 20%; /* ขึ้นอยู่กับขนาดหน้าจอ */
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* ✅ ป้องกันขยายเกิน */
+  box-sizing: border-box;
+}
+
+.search-scroll-left,
+.search-scroll-right {
+  position: absolute;
+  top: 35%;
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+
+  border-radius: 50%;
+  display: none; /* ซ่อนปุ่มก่อน */
+  align-items: center;
+  justify-content: center;
+}
+
+.search-scroll-left {
+  left: -10px;
+}
+
+.search-scroll-right {
+  right: 10px;
+}
+
+.scroll-wrapper.show-arrows .search-scroll-left,
+.scroll-wrapper.show-arrows .search-scroll-right {
+  display: flex; /* แสดงเมื่อ container scroll ได้ */
+}
+.movie-info{
+    color: var(--main-color);
+}
+.poster-search {
+  width: 200px;
+  height: auto;
+  max-height: 300px;
+  object-fit: cover; /* ✅ ไม่ให้หลุด */
+  display: block;
+  margin-bottom: 20px;
+}
+
+/* 1024px - 4 เรื่อง */
+@media (max-width: 1024px) {
+  .movie-card {
+    flex: 0 0 25%;
+  }
+}
+
+/* 768px - 3 เรื่อง */
+@media (max-width: 768px) {
+  .movie-card {
+    flex: 0 0 33.3333%;
+  }
+}
+
+/* 576px - 1 เรื่อง */
+@media (max-width: 576px) {
+.movie-card {
+  flex: 0 0 100%; /* ขึ้นอยู่กับขนาดหน้าจอ */
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* ✅ ป้องกันขยายเกิน */
+  box-sizing: border-box;
+}
+.poster-search {
+  width: 200px;
+  height: auto;
+  max-height: 300px;
+  min-height: 300px;
+  object-fit: cover; /* ✅ ไม่ให้หลุด */
+  display: block;
+  margin-bottom: 20px;
+}
+.search-titel{
+    font-size: var(--body-size);
+}
+}
+.search-name {
+    color: var(--main-color);
 }

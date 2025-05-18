@@ -101,7 +101,7 @@ document.querySelectorAll('.fav-actions button').forEach(btn => {
         likeDislikeCount--;
       }
 
-      nextButton.disabled = likeDislikeCount < 5;
+      nextButton.disabled = likeDislikeCount < 2;
       updateAlertMessage();
 
     } catch (error) {
@@ -115,12 +115,12 @@ nextButton.addEventListener('click', () => {
   // แสดงข้อความแจ้งเตือนทุกครั้ง
   alertPlaceholder.style.display = 'block';
 
-  if (likeDislikeCount >= 5) {
+  if (likeDislikeCount >= 2) {
     alertPlaceholder.textContent = "กำลังไปยังหน้าคำแนะนำ...";
     setTimeout(() => {
       window.location.href = '/suggestion';
     }, 1000);
   } else {
-    alertPlaceholder.textContent = "กรุณาเลือกภาพยนตร์ที่คุณชอบหรือไม่ชอบอย่างน้อย 5 เรื่องก่อนดำเนินการต่อ";
+    alertPlaceholder.textContent = "กรุณาเลือกภาพยนตร์ที่คุณชอบหรือไม่ชอบอย่างน้อย 2 เรื่องในแต่ละหมวด";
   }
 });

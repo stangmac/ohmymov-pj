@@ -53,7 +53,8 @@ module.exports = async (req, res) => {
         console.log("👤 User Data Sent to EJS:", user?.username || 'Guest');
 
         // ✅ ส่ง user เข้า view ด้วย
-        res.render('movie-detail', { movie, similarMovies, user });
+        res.render('movie-detail', { movie, similarMovies, user,
+  currentPath: req.path });
 
     } catch (error) {
         console.error('❌ Error fetching movie details:', error);

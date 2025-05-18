@@ -11,7 +11,8 @@ module.exports = async (req, res) => {
         .lean();
 
         res.render('suggestionerror', {
-            latestMovies
+            latestMovies,
+  currentPath: req.path
         });
 
     } catch (err) {

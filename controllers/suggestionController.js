@@ -36,7 +36,8 @@ module.exports = async (req, res) => {
             seen,
             dislike,
             recommendations,
-            loggedIN: user.username
+            loggedIN: user.username,
+  currentPath: req.path
         });
 
     }catch (err) {

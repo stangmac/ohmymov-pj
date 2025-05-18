@@ -29,11 +29,18 @@
             <img src="/images/logo2.png" width="200" height="36" />
           </a>
           <!-- Desktop Menu Links -->
-          <ul class="navbar-nav d-none d-lg-flex ml-3">
-            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="/suggestion">Suggestion</a></li>
-            <li class="nav-item"><a class="nav-link" href="/posts">Blog</a></li>
-          </ul>
+           <ul class="navbar-nav d-none d-lg-flex ml-3">
+  <li class="nav-item">
+    <a class="nav-link <%= currentPath === '/' ? 'active' : '' %>" href="/">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link <%= currentPath === '/suggestion' ? 'active' : '' %>" href="/suggestion">Suggestion</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link <%= currentPath === '/posts' ? 'active' : '' %>" href="/posts">Blog</a>
+  </li>
+</ul>
+
         </div>
 
         <!-- Search Box -->
@@ -110,94 +117,146 @@
 
 
       
-
-    <div class="result">
-      <!-- แสดงข้อความค้นหา -->
-      <div class="row mt-5 pt-4">
-          <div class="col-6">
-              <div class="h2-font white-font">
-                  Search results for: <%= query %>
-              </div>
-          </div>
-          <div class="col-6 d-flex justify-content-end mt-2">
-              <div class="body-font main-font">
-                  <%= results.length %> titles
-              </div>
-          </div>
-      </div>
-
-      <% results.forEach(movie => { %>
-          <div class="box-new row py-2 mx-1 mt-4">
-              <div class="col-2 mt-2">
-                  <a href="/movie-detail?id=<%= movie.id %>">
-                      <img class="poster-search" src="<%= movie.poster_url %>" height="210px"  onerror="this.onerror=null; this.src='/images/no-poster.png'; this.alt='No Streaming';">
-                  </a>
-              </div>
-              <div class="col-10 mt-1">
-                  <div class="inside-box ml-5 mb-1">
-                      <div class="row">
-                          <div class="h3-font main-font"><%= movie.matchPercent %> Matching</div>
-                      </div>
-                      <div class="row mt-3">
-                          <div class="body-font grey-font"><%= movie.year || 'N/A' %></div>
-                      </div>
-                      <div class="row mt-2">
-                          <div class="title-font white-font"><%= movie.title %></div>
-                      </div>
-                      <div class="row mt-2">
-                          <% if (movie.genres && movie.genres.length > 0) { %>
-                              <% movie.genres.forEach((genre, index) => { %>
-                                  <div class="body-font grey-font mr-2"><%= genre %></div>
-                                  <% if (index < movie.genres.length - 1) { %>
-                                      <div class="body-font grey-font mr-2">·</div>
-                                  <% } %>
-                              <% }) %>
-                          <% } %>
-                      </div>
-                      <!-- ✅ แสดงโลโก้แพลตฟอร์มตาม movie.watch -->
-<div class="row app-logo mt-4">
-  <% if (movie.watch && Array.isArray(movie.watch)) { %>
-    <% movie.watch.forEach(platform => { %>
-      <% if (platform === 'Netflix') { %>
-        <img class="app2" src="/images/logo-netflix.png" alt="Netflix" />
-      <% } else if (platform === 'Apple TV') { %>
-        <img class="app2" src="/images/logo-apple-tv.png" alt="Apple TV" />
-      <% } else if (platform === 'Amazon Prime Video') { %>
-        <img class="app2" src="/images/logo-amazon-prime-video.png" alt="Amazon Prime" />
-      <% } else if (platform === 'Disney+') { %>
-        <img class="app2" src="/images/logo-disney.png" alt="Disney+" />
-      <% } else if (platform === 'HBO Max') { %>
-        <img class="app2" src="/images/logo-hbo-max.png" alt="HBO Max" />
-      <% } else if (platform === 'Google Play' || platform === 'Playstore') { %>
-        <img class="app2" src="/images/logo-playstore.png" alt="Google Play" />
-      <% } else if (platform === 'TrueID') { %>
-        <img class="app2" src="/images/logo-true-id.png" alt="TrueID" />
-      <% } else if (platform === 'iQIYI') { %>
-        <img class="app2" src="/images/iQIYI.png" alt="iQIYI" />
-      <% } else if (platform === 'Viu') { %>
-        <img class="app2" src="/images/logo-viu.png" alt="Viu" />
-      <% } %>
-    <% }) %>
-  <% } %>
+<!-- ✅ Content -->
+<div class="result">
+  <!-- Search header -->
+  <div class="row mt-lg-5 pt-0 pt-lg-4 mt-3">
+    <div class="col-8">
+      <div class="h2-font  search-titel white-font">
+  Search results for: <span class="search-name"><%= query %></span>
 </div>
 
-<!-- ✅ แสดงคะแนน IMDb และ Rotten Tomatoes จริง -->
-<div class="row mt-4">
-  <% if (movie.rating_imdb && movie.rating_imdb !== "N/A") { %>
-    <img class="app2" src="/images/logo-imdb.png" alt="IMDb">
-    <div class="body-font white-font ml-3"><%= movie.rating_imdb %> / 10</div>
-  <% } %>
-  <% if (movie.rating_rotten && movie.rating_rotten !== "N/A") { %>
-    <img class="app2 ml-4" src="/images/logo-rotten.png" alt="Rotten Tomatoes">
-    <div class="body-font white-font ml-3"><%= movie.rating_rotten %></div>
-  <% } %>
-</div>
-
-                  </div>
-              </div>
-          </div>
-      <% }) %>
+    </div>
+    <div class="col-4 d-flex justify-content-end mt-2">
+      <div class="body-font main-font"><%= results.length %> titles</div>
+    </div>
   </div>
+
+  <!-- ✅ Scrollable wrapper -->
+  <div class="scroll-wrapper mt-4">
+    <!-- Left scroll button -->
+    <a class="carousel-control-prev search-scroll-left genre-scroll-left" role="button">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    </a>
+
+    <!-- ✅ Scrollable container -->
+    <div class="movie-scroll-container genre-scroll-container">
+      <% results.forEach(movie => { %>
+        <div class="movie-card card-horizontal">
+          <a href="/movie-detail?id=<%= movie.id %>">
+            <img class="poster-search" src="<%= movie.poster_url %>" onerror="this.onerror=null; this.src='/images/no-poster.png'; this.alt='No Poster';">
+          </a>
+          <div class="movie-info">
+            <div class="h5 main-font"><%= movie.matchPercent %> Matching</div>
+            <div class="body-font grey-font"><%= movie.year || 'N/A' %></div>
+            <div class="title-font white-font"><%= movie.title %></div>
+            <div class="body-font grey-font" style="color: var(--main-color);">
+              <% if (movie.genres && movie.genres.length > 0) { %>
+                <% movie.genres.forEach((genre, index) => { %>
+                  <%= genre %><% if (index < movie.genres.length - 1) { %> · <% } %>
+                <% }) %>
+              <% } %>
+            </div>
+
+            <!-- Platform logos -->
+            <div class="row app-logo mt-3 ml-1">
+              <% if (movie.watch && Array.isArray(movie.watch)) { %>
+                <% movie.watch.forEach(platform => { %>
+                  <% if (platform === 'Netflix') { %>
+                    <img class="app2" src="/images/logo-netflix.png" alt="Netflix" />
+                  <% } else if (platform === 'Apple TV') { %>
+                    <img class="app2" src="/images/logo-apple-tv.png" alt="Apple TV" />
+                  <% } else if (platform === 'Amazon Prime Video') { %>
+                    <img class="app2" src="/images/logo-amazon-prime-video.png" alt="Amazon Prime" />
+                  <% } else if (platform === 'Disney+') { %>
+                    <img class="app2" src="/images/logo-disney.png" alt="Disney+" />
+                  <% } else if (platform === 'HBO Max') { %>
+                    <img class="app2" src="/images/logo-hbo-max.png" alt="HBO Max" />
+                  <% } else if (platform === 'Google Play' || platform === 'Playstore') { %>
+                    <img class="app2" src="/images/logo-playstore.png" alt="Google Play" />
+                  <% } else if (platform === 'TrueID') { %>
+                    <img class="app2" src="/images/logo-true-id.png" alt="TrueID" />
+                  <% } else if (platform === 'iQIYI') { %>
+                    <img class="app2" src="/images/iQIYI.png" alt="iQIYI" />
+                  <% } else if (platform === 'Viu') { %>
+                    <img class="app2" src="/images/logo-viu.png" alt="Viu" />
+                  <% } %>
+                <% }) %>
+              <% } %>
+            </div>
+
+            <!-- Ratings -->
+            <div class="row mt-3 ml-1">
+              <% if (movie.rating_imdb && movie.rating_imdb !== "N/A") { %>
+                <img class="app2" src="/images/logo-imdb.png" alt="IMDb">
+                <div class="body-font white-font ml-2"><%= movie.rating_imdb %> / 10</div>
+              <% } %>
+              <% if (movie.rating_rotten && movie.rating_rotten !== "N/A") { %>
+                <img class="app2 ml-3" src="/images/logo-rotten.png" alt="Rotten Tomatoes">
+                <div class="body-font white-font ml-2"><%= movie.rating_rotten %></div>
+              <% } %>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+
+    <!-- Right scroll button -->
+    <a class="carousel-control-next search-scroll-right genre-scroll-right" role="button">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    </a>
+  </div>
+</div>
+
+<!-- ✅ JavaScript -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const wrappers = document.querySelectorAll('.scroll-wrapper');
+
+    wrappers.forEach(wrapper => {
+      const container = wrapper.querySelector('.movie-scroll-container');
+      const leftBtn = wrapper.querySelector('.genre-scroll-left');
+      const rightBtn = wrapper.querySelector('.genre-scroll-right');
+
+      if (!container || !leftBtn || !rightBtn) return;
+
+      const card = container.querySelector('.movie-card');
+      const cardWidth = card ? card.offsetWidth + 16 : 300;
+
+      // ✅ Smooth scroll by adding CSS style
+      container.style.scrollBehavior = 'smooth';
+
+      // Scroll buttons
+      leftBtn.addEventListener('click', e => {
+        e.preventDefault();
+        container.scrollLeft -= cardWidth;
+      });
+
+      rightBtn.addEventListener('click', e => {
+        e.preventDefault();
+        container.scrollLeft += cardWidth;
+      });
+
+      
+
+      // ✅ Check if scroll buttons needed
+      const checkScrollable = () => {
+        const scrollable = container.scrollWidth - container.clientWidth;
+        if (scrollable > 100) {
+          wrapper.classList.add('show-arrows');
+        } else {
+          wrapper.classList.remove('show-arrows');
+        }
+      };
+
+      checkScrollable();
+      window.addEventListener('resize', checkScrollable);
+    });
+  });
+</script>
+
+
+
 
   <script src="/js/auth.js"></script>
   <script src="/js/search.js"></script>

@@ -44,7 +44,8 @@ module.exports = async (req, res) => {
     res.render('movie-preference', {
       selectedGenres,
       moviesByGenre,
-      userBehavior
+      userBehavior,
+  currentPath: req.path
     });
 
   } catch (error) {

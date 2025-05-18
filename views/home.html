@@ -30,11 +30,19 @@
             <img src="/images/logo2.png" width="200" height="36" />
           </a>
           <!-- Desktop Menu Links -->
-          <ul class="navbar-nav d-none d-lg-flex ml-3">
-            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="/suggestion">Suggestion</a></li>
-            <li class="nav-item"><a class="nav-link" href="/posts">Blog</a></li>
-          </ul>
+<ul class="navbar-nav d-none d-lg-flex ml-3">
+  <li class="nav-item">
+    <a class="nav-link <%= currentPath === '/' ? 'active' : '' %>" href="/">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link <%= currentPath.startsWith('/suggestion') ? 'active' : '' %>" href="/suggestion">Suggestion</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link <%= currentPath.startsWith('/posts') ? 'active' : '' %>" href="/posts">Blog</a>
+  </li>
+</ul>
+
+
         </div>
 
         <!-- Search Box -->
@@ -476,17 +484,17 @@
   </script>
 
 
-  <<!-- Section 4 genre -->
-    <section class="sec-3 mt-5 px-5">
+  <!-- Section 4 genre -->
+    <section class="sec-3 mt-5 px-lg-5 px-2 ">
       <div class="row">
-        <div class="col-4 col-sm-2-4 mb-3">
-          <button class="btn sg-button-1 body-font w-100" type="button" onclick="window.location.href='/all-content'">
+        <div class="col-4 col-sm-2-4 mb-3 ">
+          <button class="btn sg-button-1 body-font w-120" type="button" onclick="window.location.href='/all-content'">
             ALL
           </button>
         </div>
         <% sortedGenres.forEach((genre)=> { %>
           <div class="col-4 col-sm-2-4 mb-3">
-            <button class="btn sg-button body-font w-100" type="button" onclick="filterGenre('<%= genre %>')">
+            <button class="btn sg-button body-font" type="button" onclick="filterGenre('<%= genre %>')">
               <%= genre %>
             </button>
           </div>
@@ -546,10 +554,10 @@
                         <div class="mt-2 entry-title">
                           <%= movie.title %>
                         </div>
-                        <div class="caption-font">(<%= movie.year || 'Unknown' %>)</div>
+                        <div class="caption-font year">(<%= movie.year || 'Unknown' %>)</div>
                         <div class="rating-row mt-2">
                           <img class="app" src="/images/logo-imdb.png">
-                          <span class="caption-font ml-2">
+                          <span class="caption-font ml-1">
                             <%= movie.rating_imdb || 'N/A' %> / 10
                           </span>
                           <img class="app ml-2" src="/images/logo-rotten.png">
@@ -570,9 +578,28 @@
                                   <% } %>
                         </div>
                         <div class="mt-3">
-                          <button class="btn o-button-1" type="button">
-                            <img class="watchlist" src="/images/icon/bookmark2.png"> WISHLIST
-                          </button>
+                          <!-- WISHLIST -->
+                            <% const isWishlisted = user && Array.isArray(user.wishlist) && user.wishlist.some(id => id.toString() === movie._id.toString()); %>
+<button id="wishlist-button-<%= movie._id %>"
+  class="btn o-button-2 history <%= isWishlisted ? 'active-btn' : '' %>"
+  type="button" onclick="toggleButton(this, '<%= movie._id %>', 'wishlist')">
+  <img class="watchlist" src="/images/icon/bookmark.png">
+  WISHLIST
+</button>
+
+
+ <style>
+                          .active-btn {
+                            background-color:var(--main-color) !important;
+                            color: #191919;
+                            border: 2px solid var(--main-color);
+                          }
+
+                          .active-btn .watchlist {
+                            filter: drop-shadow(0 0 2px var(--bg--main)) brightness(0) saturate(100%);
+                          }
+                        </style>
+
                         </div>
                       </div>
                     </div>
@@ -657,14 +684,14 @@
               <div class="title-font white-font">Oh! My Mov</div>
               <div class="body-font grey-font mt-3">
                 <a class="a-footer mr-3" href="/">Home</a>
-                <a class="a-footer mr-3" href="/">Blog</a>
-                <a class="a-footer" href="/">Suggestion</a>
+                <a class="a-footer mr-3" href="/posts">Blog</a>
+                <a class="a-footer" href="/suggestion">Suggestion</a>
               </div>
             </div>
           </div>
           <div class="row mt-3">
             <div class="col-md-12 text-center">
-              <div class="caption-font grey-font">
+              <div class="caption-font grey-font text-center">
                 Copyright © This website is made to support who love movies by
                 <a href="/" class="main-font">OhMymov.com</a>
               </div>
@@ -699,9 +726,78 @@
         }
       });
     </script>
+
+<script>
+function toggleButton(button, movieId, action) {
+  const btns = document.querySelectorAll(`#${action}-button-${movieId}`);
+
+  // Toggle UI ทันที
+  if (action === 'like' || action === 'dislike') {
+    document.querySelectorAll(`#like-button-${movieId}`).forEach(b => b.classList.remove('active-btn'));
+    document.querySelectorAll(`#dislike-button-${movieId}`).forEach(b => b.classList.remove('active-btn'));
+    if (!button.classList.contains('active-btn')) {
+      button.classList.add('active-btn');
+    }
+  } else {
+    btns.forEach(b => b.classList.toggle('active-btn'));
+  }
+
+  btns.forEach(b => b.disabled = true);
+  const spinner = document.createElement("span");
+  spinner.className = "spinner-border spinner-border-sm";
+  spinner.style.marginLeft = "6px";
+  spinner.setAttribute("role", "status");
+  spinner.setAttribute("aria-hidden", "true");
+  button.appendChild(spinner);
+
+  fetch('/log-activity', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ movieId, action })
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (!data.success) {
+      alert('⚠️ บันทึกพฤติกรรมไม่สำเร็จ');
+    } else {
+      if (data.counts) {
+        document.querySelectorAll(`#like-count-${movieId}`).forEach(span => span.textContent = data.counts.like);
+        document.querySelectorAll(`#dislike-count-${movieId}`).forEach(span => span.textContent = data.counts.dislike);
+      }
+
+      // Sync active-btn หลัง response เฉพาะ wishlist และ seen
+      if (action === 'wishlist' || action === 'seen') {
+        btns.forEach(b => {
+          if (data.removed) {
+            b.classList.remove('active-btn');
+          } else {
+            b.classList.add('active-btn');
+          }
+        });
+      }
+    }
+  })
+  .catch(err => {
+    console.error('❌ log-activity error:', err);
+    alert('❌ ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์');
+    // rollback
+    if (action === 'wishlist' || action === 'seen') {
+      btns.forEach(b => b.classList.toggle('active-btn'));
+    }
+  })
+  .finally(() => {
+    spinner.remove();
+    btns.forEach(b => b.disabled = false);
+  });
+}
+</script>
+
+
+
+
+
     <script src="/js/omm.js"></script>
     <script src="/js/auth.js"></script>
-    <script src="/js/userActivity.js"></script>
     <script src="/js/actionbutton.js"></script>
     <script src="/js/search.js"></script>
 
