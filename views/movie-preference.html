@@ -120,7 +120,7 @@
 
 
 <section class="fav mt-5 p-5">
-  <h2 class="h2-font fav-h1 pt-5">กรุณาเลือกภาพยนตร์ที่คุณชอบหรือไม่ชอบอย่างน้อย 5 เรื่อง</h2>
+  <h2 class="h2-font fav-h1 pt-5">Please select at least 5 movies that you like or dislike.</h2>
 
   <% selectedGenres.forEach(genre => { %>
     <% const movies = moviesByGenre[genre]; %>
@@ -209,11 +209,11 @@
   <% }) %>
 
   <div id="liveAlertPlaceholder" class="alert-warning-custom" style="display: none;">
-    กรุณาเลือกภาพยนตร์ที่คุณชอบหรือไม่ชอบอย่างน้อย 5 เรื่องก่อนดำเนินการต่อ
+    Please select at least 5 movies that you like or dislike before continuing.
   </div>
 
   <div class="button-container">
-    <button type="button" class="submit-btn next-fav" id="nextButton" disabled>ถัดไป</button>
+    <button type="button" class="submit-btn next-fav" id="nextButton" disabled>Next</button>
   </div>
 </section>
 
