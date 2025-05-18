@@ -32,11 +32,22 @@
             <img src="/images/logo2.png" width="200" height="36" />
           </a>
           <!-- Desktop Menu Links -->
-          <ul class="navbar-nav d-none d-lg-flex ml-3">
-            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="/suggestion">Suggestion</a></li>
-            <li class="nav-item"><a class="nav-link" href="/posts">Blog</a></li>
-          </ul>
+<ul class="navbar-nav d-none d-lg-flex ml-3">
+  <li class="nav-item">
+    <a class="nav-link <%= currentPath === '/' ? 'active' : '' %>" href="/">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link <%= currentPath.startsWith('/suggestion') ? 'active' : '' %>" href="/suggestion">Suggestion</a>
+  </li>
+  <li class="nav-item">
+<a class="nav-link <%= currentPath.startsWith('/posts') ? 'active' : '' %>" href="/posts">Blog</a>
+
+    
+  </li>
+</ul>
+
+
+
         </div>
 
         <!-- Search Box -->
@@ -200,7 +211,7 @@
 
               <div class="col-xl-9 col-md-7 col-lg-8 col-sm-12 pl-lg-1 pl-md-3 content-box">
                 <!-- ชื่อหนัง -->
-                <h5 class="card-title mt-md-3">
+                <h5 class="card-title mt-xl-0 mt-md-2">
                   <% if (post.tagged_movies.length > 0) { %>
                     <% post.tagged_movies.forEach(movie => { %>
                       <a href="/posts?movie=<%= movie._id %>" class="badge text-decoration-none">
@@ -291,14 +302,14 @@
               <div class="title-font white-font">Oh! My Mov</div>
               <div class="body-font grey-font mt-3">
                 <a class="a-footer mr-3" href="/">Home</a>
-                <a class="a-footer mr-3" href="/">Blog</a>
-                <a class="a-footer" href="/">Suggestion</a>
+                <a class="a-footer mr-3" href="/posts">Blog</a>
+                <a class="a-footer" href="/suggestion">Suggestion</a>
               </div>
             </div>
           </div>
           <div class="row mt-3">
-            <div class="col-md-12 text-center">
-              <div class="caption-font grey-font">
+            <div class="col-md-12 ">
+              <div class="caption-font grey-font text-center">
                 Copyright © This website is made to support who love movies by
                 <a href="/" class="main-font">OhMymov.com</a>
               </div>
@@ -408,7 +419,6 @@
   </script>
     <script src="/js/omm.js"></script>
     <script src="/js/auth.js"></script>
-    <script src="/js/userActivity.js"></script>
     <script src="/js/actionbutton.js"></script>
     <script src="/js/search.js"></script>
 

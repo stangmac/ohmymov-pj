@@ -32,7 +32,8 @@ module.exports = async (req, res) => {
             wishlist,
             like,
             seen,
-            dislike
+            dislike,
+  currentPath: req.path
         });
     } catch (error) {
         console.error("❌ Error fetching user profile:", error);

@@ -25,11 +25,19 @@
             <img src="/images/logo2.png" width="200" height="36" />
           </a>
           <!-- Desktop Menu Links -->
-          <ul class="navbar-nav d-none d-lg-flex ml-3">
-            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="/suggestion">Suggestion</a></li>
-            <li class="nav-item"><a class="nav-link" href="/posts">Blog</a></li>
-          </ul>
+ <ul class="navbar-nav d-none d-lg-flex ml-3">
+  <li class="nav-item">
+    <a class="nav-link <%= currentPath === '/' ? 'active' : '' %>" href="/">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link <%= currentPath.startsWith('/suggestion') ? 'active' : '' %>" href="/suggestion">Suggestion</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link <%= currentPath.startsWith('/posts') ? 'active' : '' %>" href="/posts">Blog</a>
+  </li>
+</ul>
+
+
         </div>
 
         <!-- Search Box -->
@@ -104,73 +112,326 @@
     </nav>
   </header>
 
-
-  
-  
-
-    <section class="suggestion mt-5">
-        <div class="container-fluid">
-            <h1 class="h2-font white-font">Suggestion For You</h1>
-
-            <!-- 🟢 Section: ดึงหนังจาก recommendation ของ users -->
-            <% if (recommendations && recommendations.length > 0) { %>
-  <% recommendations.forEach(group => { %>
-    <div class="genre-big mt-5">
-      <div class="row">
-        <h2><%= group.group_name %></h2> <!-- 🔸หัวเรื่องกลุ่ม -->
-      </div>
-      <div class="row">
-        <% group.movies.forEach(movie => { %>
-          <div class="col-2">
-            <div class="genre-movie-item">
-              <div class="row">
-                <a href="/movie-detail?id=<%= movie.recommend_id %>">
-                  <img class="poster-genre"
-                    src="<%= movie.poster_url && movie.poster_url.length > 0 ? movie.poster_url[0] : '/images/no-poster.jpg' %>"
-                    onerror="this.onerror=null; this.src='/images/no-poster.png'; this.alt='No Streaming';"
-                    alt="<%= movie.title %>">
-                </a>
-              </div>
-              <div class="row mt-3">
-                <span class="entry-title"><%= movie.title %></span>
-              </div>
-              <div class="row">
-                <span class="entry-title"><%= movie.year || '' %></span>
-              </div>
-              <div class="row mt-3">
-                <img class="app" src="/images/logo-imdb.png">
-                <div class="caption-font white-font ml-2">
-                  <%= movie.rating_imdb || 'N/A' %>
-                </div>
-                <img class="app ml-4" src="/images/logo-rotten.png">
-                <div class="caption-font white-font ml-2">
-                  <%= movie.rating_rotten || 'N/A' %>
-                </div>
-              </div>
-              <div class="row app-logo mt-3">
-                <img src="/images/logo-disney.png" alt="platform">
-                <div class="caption-font grey-font">
-                  <%= movie.platform || 'platform' %>
-                </div>
-              </div>
-              <div class="row mt-4">
-                <button class="btn o-button-1" type="button">
-                  <img class="watchlist" src="/images/icon/bookmark2.png">
-                  WATCHLIST
-                </button>
-              </div>
-            </div>
+<section class="suggestion mt-5">
+  <div class="container-fluid mt-5">
+    <h1 class="h2-font white-font"></h1>
+    <% if (recommendations && recommendations.length > 0) { %>
+      <% recommendations.forEach(group => { %>
+        <div class="genre-big position-relative">
+          <div class="row ">
+            <h2 class="h2-font group-name white-font "><%= group.group_name %></h2>
           </div>
-        <% }) %>
-      </div>
-    </div>
-  <% }) %>
-<% } %>
+
+          <!-- Scrollable container -->
+          <div class="scroll-wrapper">
+            <!-- Scroll left button -->
+            <a class="carousel-control-prev genre-scroll-left" role="button">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </a>
+
+            <div class="horizontal-scroll-container genre-scroll-container">
+              <% group.movies.forEach(movie => { %>
+                <div class="card-horizontal">
+                  <div class="genre-movie-item">
+                    <a href="/movie-detail?id=<%= movie.recommend_id %>">
+                      <img class="poster-sug"
+                        src="<%= movie.poster_url && movie.poster_url.length > 0 ? movie.poster_url[0] : '/images/no-poster.jpg' %>"
+                        onerror="this.onerror=null; this.src='/images/no-poster.png'; this.alt='No Streaming';"
+                        alt="<%= movie.title %>">
+                    </a>
+                    <div class="mt-2 entry-title">
+                      <%= movie.title %>
+                    </div>
+                    <div class="caption-font year">(<%= movie.year || 'Unknown' %>)</div>
+                    <div class="rating-row mt-2">
+                      <img class="app" src="/images/logo-imdb.png">
+                      <span class="caption-font ml-1">
+                        <%= movie.rating_imdb || 'N/A' %> / 10
+                      </span>
+                      <img class="app ml-2" src="/images/logo-rotten.png">
+                      <span class="caption-font ml-2">
+                        <%= movie.rating_rotten || 'N/A' %>
+                      </span>
+                    </div>
+                    <div class="app-logo mt-3">
+                      <img src="/images/logo-disney.png" alt="platform">
+                      <div class="caption-font grey-font">
+                        <%= movie.platform || '' %>
+                      </div>
+                    </div>
+                    <div class="mt-0">
+                          <!-- WISHLIST -->
+                           <% const isWishlisted = user && Array.isArray(user.wishlist) && user.wishlist.some(id => id && id.toString() === movie._id.toString()); %>
+
+<button id="wishlist-button-<%= movie._id %>"
+  class="btn o-button-2 history <%= isWishlisted ? 'active-btn' : '' %>"
+  type="button" onclick="toggleButton(this, '<%= movie._id %>', 'wishlist')">
+  <img class="watchlist" src="/images/icon/bookmark.png">
+  WISHLIST
+</button>
 
 
+ <style>
+                          .active-btn {
+                            background-color:var(--main-color) !important;
+                            color: #191919;
+                            border: 2px solid var(--main-color);
+                          }
 
+                          .active-btn .watchlist {
+                            filter: drop-shadow(0 0 2px var(--bg--main)) brightness(0) saturate(100%);
+                          }
+                        </style>
+
+                        </div>
+                  </div>
+                </div>
+              <% }) %>
+            </div>
+
+            <!-- Scroll right button -->
+            <a class="carousel-control-next genre-scroll-right" role="button">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </a>
+          </div>
         </div>
-    </section>
+      <% }) %>
+    <% } %>
+  </div>
+</section>
+
+<!-- 🔧 SCROLL & TOUCH SCRIPT -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const sections = document.querySelectorAll('.scroll-wrapper');
+
+    sections.forEach(wrapper => {
+      const container = wrapper.querySelector('.genre-scroll-container');
+      const leftBtn = wrapper.querySelector('.genre-scroll-left');
+      const rightBtn = wrapper.querySelector('.genre-scroll-right');
+
+      if (!container || !leftBtn || !rightBtn) return;
+
+      const card = container.querySelector('.card-horizontal');
+      const cardWidth = card ? card.offsetWidth + 20 : 300;
+
+      // Scroll left
+      leftBtn.addEventListener('click', e => {
+        e.preventDefault();
+        container.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+      });
+
+      // Scroll right
+      rightBtn.addEventListener('click', e => {
+        e.preventDefault();
+        container.scrollBy({ left: cardWidth, behavior: 'smooth' });
+      });
+
+      // Touch support
+      let isDown = false, startX, scrollLeft;
+      container.addEventListener('touchstart', e => {
+        isDown = true;
+        startX = e.touches[0].pageX - container.offsetLeft;
+        scrollLeft = container.scrollLeft;
+      });
+
+      container.addEventListener('touchmove', e => {
+        if (!isDown) return;
+        const x = e.touches[0].pageX - container.offsetLeft;
+        const walk = (x - startX) * 3.3;
+        container.scrollLeft = scrollLeft - walk;
+      });
+
+      container.addEventListener('touchend', () => isDown = false);
+    });
+  });
+</script>
+<script>
+function toggleButton(button, movieId, action) {
+  const btns = document.querySelectorAll(`#${action}-button-${movieId}`);
+
+  // Toggle UI ทันที
+  if (action === 'like' || action === 'dislike') {
+    document.querySelectorAll(`#like-button-${movieId}`).forEach(b => b.classList.remove('active-btn'));
+    document.querySelectorAll(`#dislike-button-${movieId}`).forEach(b => b.classList.remove('active-btn'));
+    if (!button.classList.contains('active-btn')) {
+      button.classList.add('active-btn');
+    }
+  } else {
+    btns.forEach(b => b.classList.toggle('active-btn'));
+  }
+
+  btns.forEach(b => b.disabled = true);
+  const spinner = document.createElement("span");
+  spinner.className = "spinner-border spinner-border-sm";
+  spinner.style.marginLeft = "6px";
+  spinner.setAttribute("role", "status");
+  spinner.setAttribute("aria-hidden", "true");
+  button.appendChild(spinner);
+
+  fetch('/log-activity', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ movieId, action })
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (!data.success) {
+      alert('⚠️ บันทึกพฤติกรรมไม่สำเร็จ');
+    } else {
+      if (data.counts) {
+        document.querySelectorAll(`#like-count-${movieId}`).forEach(span => span.textContent = data.counts.like);
+        document.querySelectorAll(`#dislike-count-${movieId}`).forEach(span => span.textContent = data.counts.dislike);
+      }
+
+      // Sync active-btn หลัง response เฉพาะ wishlist และ seen
+      if (action === 'wishlist' || action === 'seen') {
+        btns.forEach(b => {
+          if (data.removed) {
+            b.classList.remove('active-btn');
+          } else {
+            b.classList.add('active-btn');
+          }
+        });
+      }
+    }
+  })
+  .catch(err => {
+    console.error('❌ log-activity error:', err);
+    alert('❌ ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์');
+    // rollback
+    if (action === 'wishlist' || action === 'seen') {
+      btns.forEach(b => b.classList.toggle('active-btn'));
+    }
+  })
+  .finally(() => {
+    spinner.remove();
+    btns.forEach(b => b.disabled = false);
+  });
+}
+</script>
+<!-- 💅 Responsive Styles -->
+<style>
+  .scroll-wrapper {
+       position: relative;
+    overflow-x: hidden;
+    padding: 30px;
+  }
+
+  .genre-scroll-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 10px 0;
+  }
+
+  .card-horizontal {
+    flex: 0 0 auto;
+    width: 16.66%; /* 6 per row default */
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+
+  @media (max-width: 1200px) {
+    .card-horizontal {
+      width: 20%; /* 5 per row */
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .card-horizontal {
+      width: 25%; /* 4 per row */
+    }
+  }
+
+  @media (max-width: 768px) {
+    .card-horizontal {
+      width: 33.33%; /* 3 per row */
+    }
+  }
+
+  @media (max-width: 567px) {
+    .card-horizontal {
+      width: 100%; /* 1 per row */
+    }
+      .poster-sug {
+    width: 150px;
+    height: 250;
+    border-radius: 10px;
+  }
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 50%;
+  }
+
+  .carousel-control-prev {
+    left: 0;
+  }
+
+  .carousel-control-next {
+    right: 0;
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-size: 100% 100%;
+  }
+
+  .poster-sug {
+    width: 150px;
+    height: 250;
+    border-radius: 10px;
+  }
+
+  .genre-movie-item {
+    text-align: left;
+    color: white;
+  }
+
+  .entry-title {
+    font-weight: bold;
+  }
+
+  .rating-row {
+    display: flex;
+    align-items: left;
+    justify-content: left;
+  }
+
+  .app-logo {
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    min-width: 24px;
+    min-height: 24px;
+    max-width: 24px;
+  }
+      .app-logo img {
+        width: 30px;
+        height: 24px;
+    }
+
+  @media (max-width: 576px) {
+    .app-logo img {
+        width: 24px;
+        height: 20px;
+    }
+}
+    .suggestion h2{
+  color: var(--main-color);
+}
+</style>
+
 
     <script src="/js/userActivity.js"></script>
     <script src="/js/actionbutton.js"></script>

@@ -80,6 +80,10 @@ const suggestionerrorController = require('./controllers/suggestionerrorControll
 app.get('/suggestionerror', suggestionerrorController);
 
 
+app.use((req, res, next) => {
+  res.locals.currentPath = req.path;
+  next();
+});
 
 
 
@@ -162,6 +166,10 @@ app.get('/manual-sync', async (req, res) => {
 
 app.use('/posts', postRoute);
 
+app.use((req, res, next) => {
+  res.locals.currentPath = req.path;
+  next();
+});
 
 
 

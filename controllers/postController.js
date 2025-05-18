@@ -20,6 +20,7 @@ exports.listPosts = async (req, res) => {
     res.render('post-list', {
       posts,
       user: req.session?.user || null
+        
     });
   } catch (err) {
     console.error('❌ Error loading posts:', err);
@@ -48,6 +49,8 @@ exports.createPost = async (req, res) => {
       content,
       tagged_movies: Array.isArray(tagged_movies) ? tagged_movies : [tagged_movies]
     });
+    console.log('currentPath in listPosts:', req.path);
+
     res.redirect('/posts');
   } catch (err) {
     console.error('❌ Error creating post:', err);

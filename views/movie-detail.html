@@ -26,11 +26,18 @@
             <img src="/images/logo2.png" width="200" height="36" />
           </a>
           <!-- Desktop Menu Links -->
-          <ul class="navbar-nav d-none d-lg-flex ml-3">
-            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="/suggestion">Suggestion</a></li>
-            <li class="nav-item"><a class="nav-link" href="/posts">Blog</a></li>
-          </ul>
+           <ul class="navbar-nav d-none d-lg-flex ml-3">
+  <li class="nav-item">
+    <a class="nav-link <%= currentPath === '/' ? 'active' : '' %>" href="/">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link <%= currentPath === '/suggestion' ? 'active' : '' %>" href="/suggestion">Suggestion</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link <%= currentPath === '/posts' ? 'active' : '' %>" href="/posts">Blog</a>
+  </li>
+</ul>
+
         </div>
 
         <!-- Search Box -->
@@ -265,24 +272,59 @@
            <hr class="custom-line" style="border: none; border-top: 1px solid white; opacity: 1;">
         </div>
 
-        <script>
-          document.addEventListener("DOMContentLoaded", function () {
-            const posterScrollContainer = document.querySelector('.poster-horizontal-scroll');
-            const posterScrollLeftBtn = document.querySelector('.poster-scroll-left');
-            const posterScrollRightBtn = document.querySelector('.poster-scroll-right');
-            const posterScrollAmount = 250;
+ <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const posterScrollContainer = document.querySelector('.poster-horizontal-scroll');
+    const posterScrollLeftBtn = document.querySelector('.poster-scroll-left');
+    const posterScrollRightBtn = document.querySelector('.poster-scroll-right');
+    const posterScrollAmount = 250;
 
-            if (posterScrollLeftBtn && posterScrollRightBtn && posterScrollContainer) {
-              posterScrollLeftBtn.addEventListener('click', function () {
-                posterScrollContainer.scrollBy({ left: -posterScrollAmount, behavior: 'smooth' });
-              });
+    if (posterScrollLeftBtn && posterScrollRightBtn && posterScrollContainer) {
+      posterScrollLeftBtn.addEventListener('click', () => {
+        posterScrollContainer.scrollBy({ left: -posterScrollAmount, behavior: 'smooth' });
+      });
 
-              posterScrollRightBtn.addEventListener('click', function () {
-                posterScrollContainer.scrollBy({ left: posterScrollAmount, behavior: 'smooth' });
-              });
-            }
-          });
-        </script>
+      posterScrollRightBtn.addEventListener('click', () => {
+        posterScrollContainer.scrollBy({ left: posterScrollAmount, behavior: 'smooth' });
+      });
+    }
+
+    // รองรับการสไลด์ด้วยนิ้วแบบลื่น
+    let isTouching = false;
+    let startX = 0;
+    let scrollStart = 0;
+    let rafPending = false;
+
+    posterScrollContainer.addEventListener('touchstart', (e) => {
+      isTouching = true;
+      startX = e.touches[0].pageX;
+      scrollStart = posterScrollContainer.scrollLeft;
+    }, { passive: true });
+
+    posterScrollContainer.addEventListener('touchmove', (e) => {
+      if (!isTouching) return;
+      const currentX = e.touches[0].pageX;
+      const delta = startX - currentX;
+
+      if (!rafPending) {
+        window.requestAnimationFrame(() => {
+          posterScrollContainer.scrollLeft = scrollStart + delta;
+          rafPending = false;
+        });
+        rafPending = true;
+      }
+    }, { passive: true });
+
+    posterScrollContainer.addEventListener('touchend', () => {
+      isTouching = false;
+    });
+
+    posterScrollContainer.addEventListener('touchcancel', () => {
+      isTouching = false;
+    });
+  });
+</script>
+
 
         <div class="row mt-4">
           <div class="title-font-bold main-font" id="section-cast">Cast</div>
@@ -318,24 +360,60 @@
             <% } %>
 
 
-              <script>
-                document.addEventListener("DOMContentLoaded", function () {
-                  const scrollContainer = document.querySelector('.cast-horizontal-scroll');
-                  const scrollLeftBtn = document.querySelector('.cast-scroll-left');
-                  const scrollRightBtn = document.querySelector('.cast-scroll-right');
-                  const scrollAmount = 250; // pixel to scroll per click
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const scrollContainer = document.querySelector('.cast-horizontal-scroll');
+    const scrollLeftBtn = document.querySelector('.cast-scroll-left');
+    const scrollRightBtn = document.querySelector('.cast-scroll-right');
+    const scrollAmount = 250;
 
-                  if (scrollLeftBtn && scrollRightBtn && scrollContainer) {
-                    scrollLeftBtn.addEventListener('click', function () {
-                      scrollContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-                    });
+    if (scrollLeftBtn && scrollRightBtn && scrollContainer) {
+      scrollLeftBtn.addEventListener('click', () => {
+        scrollContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      });
 
-                    scrollRightBtn.addEventListener('click', function () {
-                      scrollContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-                    });
-                  }
-                });
-              </script>
+      scrollRightBtn.addEventListener('click', () => {
+        scrollContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      });
+    }
+
+    // รองรับการเลื่อนด้วยนิ้วแบบลื่นไหล
+    let isTouching = false;
+    let startX = 0;
+    let scrollStart = 0;
+    let rafPending = false;
+
+    scrollContainer.addEventListener('touchstart', (e) => {
+      isTouching = true;
+      startX = e.touches[0].pageX;
+      scrollStart = scrollContainer.scrollLeft;
+    }, { passive: true });
+
+    scrollContainer.addEventListener('touchmove', (e) => {
+      if (!isTouching) return;
+      const currentX = e.touches[0].pageX;
+      const delta = startX - currentX;
+
+      if (!rafPending) {
+        window.requestAnimationFrame(() => {
+          scrollContainer.scrollLeft = scrollStart + delta;
+          rafPending = false;
+        });
+        rafPending = true;
+      }
+    }, { passive: true });
+
+    scrollContainer.addEventListener('touchend', () => {
+      isTouching = false;
+    });
+
+    scrollContainer.addEventListener('touchcancel', () => {
+      isTouching = false;
+    });
+  });
+</script>
+
+
 
               <div class="col-12 col-md-12 col-lg-12 mt-4 d-flex d-xl-none justify-content-center res">
                 <div class="detail-box sticky-box p-3 p-4">
@@ -358,9 +436,9 @@
                   <!-- ปุ่มกดต่าง ๆ -->
                   <style>
                     .active-btn {
-                      background-color: #9bee98 !important;
+                      background-color: var(--main-color) !important;
                       color: #191919;
-                      border: 2px solid #9bee98;
+                      border: 2px solid var(--main-color);
                     }
 
                     .active-btn .watchlist {
@@ -457,7 +535,7 @@
                           <div class="mt-2 entry-title">
                             <%= similar.title %>
                           </div>
-                          <div class="caption-font">(<%= similar.year %>)</div>
+                          <div class="caption-font text-alige-start year">(<%= similar.year %>)</div>
                           <div class="rating-row mt-2">
                             <img class="app" src="/images/logo-imdb.png">
                             <span class="caption-font ml-2">
@@ -468,7 +546,7 @@
                               <%= similar.rating_rotten || 'N/A' %>
                             </span>
                           </div>
-                          <div class="app-logo mt-3">
+                          <div class="app-logo  mt-3">
                             <% if (similar.watch?.length) { similar.watch.forEach(platform=> {
                               let file = platform.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
                               %>
@@ -545,9 +623,9 @@
                         <!-- ปุ่มกดต่าง ๆ -->
                         <style>
                           .active-btn {
-                            background-color: #9bee98 !important;
+                            background-color: var(--main-color) !important;
                             color: #191919;
-                            border: 2px solid #9bee98;
+                            border: 2px solid var(--main-color);
                           }
 
                           .active-btn .watchlist {
