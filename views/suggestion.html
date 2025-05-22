@@ -154,7 +154,18 @@
                       </span>
                     </div>
                     <div class="app-logo mt-3">
-                      <img src="/images/logo-disney.png" alt="platform">
+                   <% if (Array.isArray(movie.watch) && movie.watch.length > 0 && typeof movie.watch[0] === 'string') { %>
+  <% movie.watch.forEach(platform => {
+      let file = platform.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+  %>
+    <img class="app platform-logo" src="/images/logo-<%= file %>.png"
+         alt="<%= platform %>"
+         onerror="this.onerror=null; this.src='/images/No-streaming.png'; this.alt='No Streaming';">
+  <% }) %>
+<% } else { %>
+  <div class="caption-font grey-font">No streaming platform available</div>
+<% } %>
+
                       <div class="caption-font grey-font">
                         <%= movie.platform || '' %>
                       </div>

@@ -34,20 +34,29 @@ module.exports = async (req, res) => {
                     const fullMovie = movies.find(m => m.movie_id === rec.movie_id);
                     return {
                         ...rec,
-                        _id: fullMovie?._id || null, // ✅ เพิ่ม _id เพื่อใช้ใน EJS
+                        _id: fullMovie?._id || null,
                         poster_url: fullMovie?.poster_url || [],
                         year: fullMovie?.year || '',
                         rating_imdb: fullMovie?.rating_imdb || '',
                         rating_rotten: fullMovie?.rating_rotten || '',
-                        platform: fullMovie?.platform || ''
+                        platform: fullMovie?.platform || '',
+                        watch: fullMovie?.watch || []
                     };
                 });
 
-                recommendations.push({
-                    group_name: group.group_name,
-                    movies: enrichedMovies
-                });
+                // ตรวจสอบว่ามีหนังในกลุ่มนั้นไหมก่อนจะ push เข้า recommendations
+                if (enrichedMovies.length > 0) {
+                    recommendations.push({
+                        group_name: group.group_name,
+                        movies: enrichedMovies
+                    });
+                }
             }
+        }
+
+        // ✅ ถ้าไม่มี recommendation เลยให้ redirect ไป /suggestionerror
+        if (recommendations.length === 0) {
+            return res.redirect('/suggestionerror');
         }
 
         res.render('suggestion', {
@@ -58,7 +67,7 @@ module.exports = async (req, res) => {
             recommendations,
             loggedIN: user.username,
             currentPath: req.path,
-            user // ✅ ส่ง user ไปให้ EJS ตรวจสอบพฤติกรรม
+            user
         });
 
     } catch (err) {
