@@ -119,14 +119,14 @@
   <div class="profile-box">
     <div class="profile-content">
       <div class="profile-left">
-        <% 
-          let imageFile = 'default.jpg';
-          if (gender === 'male') {
-            imageFile = 'userprofilemen.jpg';
-          } else if (gender === 'female') {
-            imageFile = 'userprofile.jpg';
-          }
-        %>
+<% 
+  let imageFile = 'default.jpg';
+  if (gender && gender.toLowerCase() === 'male') {
+    imageFile = 'userprofilemen.jpg';
+  } else if (gender && gender.toLowerCase() === 'female') {
+    imageFile = 'userprofile.jpg';
+  }
+%>
 
         <img
           class="user-pic"
