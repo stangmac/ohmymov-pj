@@ -188,3 +188,12 @@ app.use((err, req, res, next) => {
 app.listen(3000, () => {
   console.log('🎥 Server is running on http://localhost:3000');
 });
+
+
+// กำหนด PORT
+const PORT = process.env.PORT || 3000;
+
+// รันแอป
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server running on port ${PORT}`);
+});
