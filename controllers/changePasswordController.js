@@ -1,5 +1,5 @@
 const User = require("../models/User");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const sendEmail = require("../services/mailService");
 
 // ✅ ฟังก์ชันขอ OTP
