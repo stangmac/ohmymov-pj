@@ -4520,7 +4520,7 @@ form .form-control:focus {
 
   .card-title,
   .card-text {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   .input-group input[type="text"] {
@@ -4555,7 +4555,7 @@ form .form-control:focus {
 p.card-subtitle.text-muted{
     color: var(--bg--detail) !important;
     display: flex;
-    justify-content: end;
+    justify-content: start;
     padding-right: 20px;
     padding-top: 10px;
 
@@ -4670,21 +4670,18 @@ p.card-subtitle.text-muted{
 
 @media (max-width: 576px) {
   .btn.content-btn-bbt {
-    width: 60%;
+    width: 40%;
     height: 40px;
-    margin-left: 30px;
 
 
   }
   .btn.btn-secondary.showFormBtn {
-    width: 20%;
+    width: 10%;
     height: 40px;
 
   }
   .input-group-bbt {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+    gap: 2px;
   }
 
   #postForm {
