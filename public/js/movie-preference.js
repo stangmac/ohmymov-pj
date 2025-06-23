@@ -1,15 +1,10 @@
-let likeDislikeCount = 0; // นับเฉพาะ like + dislike
+let likeDislikeCount = 0; // ใช้สำหรับอัปเดตปุ่มเท่านั้น ไม่บังคับจำนวน
 const nextButton = document.getElementById('nextButton');
 const alertPlaceholder = document.getElementById('liveAlertPlaceholder');
 
-// ฟังก์ชันแสดง/ซ่อนข้อความแจ้งเตือนตามจำนวน
+// ไม่ต้องแสดงข้อความเตือนอีกต่อไป
 function updateAlertMessage() {
-  if (likeDislikeCount < 5) {
-    alertPlaceholder.style.display = 'block';
-    alertPlaceholder.textContent = "Please select at least 5 movies that you like or dislike before continuing.";
-  } else {
-    alertPlaceholder.style.display = 'none';
-  }
+  alertPlaceholder.style.display = 'none';
 }
 
 // ✅ ตรวจสอบจำนวนจาก server ตอนโหลดหน้า
@@ -17,8 +12,8 @@ if (window.userMovieStatus) {
   const { like = [], dislike = [] } = window.userMovieStatus;
   likeDislikeCount = like.length + dislike.length;
 
-  nextButton.disabled = likeDislikeCount < 5;
-  updateAlertMessage(); // แสดง/ซ่อนข้อความแจ้งเตือน
+  nextButton.disabled = false; // ❌ ไม่ต้องตรวจจำนวนแล้ว
+  updateAlertMessage();
 }
 
 // ✅ ตั้งค่าปุ่ม active ตามสถานะจาก server
@@ -28,18 +23,10 @@ document.querySelectorAll('.fav-movie-content').forEach(content => {
 
   const { like, dislike, wishlist, seen } = window.userMovieStatus;
 
-  if (like.includes(movieId)) {
-    content.querySelector('.fav-like-btn')?.classList.add('active');
-  }
-  if (dislike.includes(movieId)) {
-    content.querySelector('.fav-dislike-btn')?.classList.add('active');
-  }
-  if (wishlist.includes(movieId)) {
-    content.querySelector('.fav-wishlist-btn')?.classList.add('active');
-  }
-  if (seen.includes(movieId)) {
-    content.querySelector('.fav-seen-btn')?.classList.add('active');
-  }
+  if (like.includes(movieId)) content.querySelector('.fav-like-btn')?.classList.add('active');
+  if (dislike.includes(movieId)) content.querySelector('.fav-dislike-btn')?.classList.add('active');
+  if (wishlist.includes(movieId)) content.querySelector('.fav-wishlist-btn')?.classList.add('active');
+  if (seen.includes(movieId)) content.querySelector('.fav-seen-btn')?.classList.add('active');
 });
 
 // ✅ จัดการการคลิกปุ่มต่าง ๆ
@@ -47,11 +34,7 @@ document.querySelectorAll('.fav-actions button').forEach(btn => {
   btn.addEventListener('click', async () => {
     const movieContent = btn.closest('.fav-movie-content');
     const movieId = movieContent?.dataset.movieId;
-
-    if (!movieId) {
-      console.error("❌ ไม่พบ movieId");
-      return;
-    }
+    if (!movieId) return console.error("❌ ไม่พบ movieId");
 
     const isLike = btn.classList.contains('fav-like-btn');
     const isDislike = btn.classList.contains('fav-dislike-btn');
@@ -72,38 +55,25 @@ document.querySelectorAll('.fav-actions button').forEach(btn => {
       });
 
       const result = await response.json();
+      if (!result.success) return console.error("❌ กิจกรรมล้มเหลว:", result.message);
 
-      if (!result.success) {
-        console.error("❌ กิจกรรมล้มเหลว:", result.message);
-        return;
-      }
-
-      // ✅ Wishlist/Seen: toggle เฉย ๆ ไม่เกี่ยวกับ count
       if (isWishlist || isSeen) {
         btn.classList.toggle('active');
         return;
       }
 
-      // ✅ Like/Dislike: toggle + อัปเดต count
       const wasActive = btn.classList.contains('active');
       btn.classList.remove('active');
 
       const siblingBtn = movieContent.querySelector(isLike ? '.fav-dislike-btn' : '.fav-like-btn');
-      const siblingWasActive = siblingBtn?.classList.contains('active');
-
       siblingBtn?.classList.remove('active');
 
       if (!wasActive) {
         btn.classList.add('active');
-        likeDislikeCount++;
-        if (siblingWasActive) likeDislikeCount--; // สลับฝั่ง
-      } else {
-        likeDislikeCount--;
       }
 
-      nextButton.disabled = likeDislikeCount < 2;
+      nextButton.disabled = false;
       updateAlertMessage();
-
     } catch (error) {
       console.error("❌ Error ใน fetch:", error);
     }
@@ -112,15 +82,9 @@ document.querySelectorAll('.fav-actions button').forEach(btn => {
 
 // ✅ เมื่อคลิกปุ่มถัดไป
 nextButton.addEventListener('click', () => {
-  // แสดงข้อความแจ้งเตือนทุกครั้ง
   alertPlaceholder.style.display = 'block';
-
-  if (likeDislikeCount >= 2) {
-    alertPlaceholder.textContent = "Going to the suggestion page...";
-    setTimeout(() => {
-      window.location.href = '/suggestion';
-    }, 1000);
-  } else {
-    alertPlaceholder.textContent = "Please select at least 5 movies that you like or dislike before continuing.";
-  }
+  alertPlaceholder.textContent = "Going to the suggestion page...";
+  setTimeout(() => {
+    window.location.href = '/suggestion';
+  }, 1000);
 });

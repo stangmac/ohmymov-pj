@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const User = require('../models/User');
-const Movie = require('../models/Movies'); // ✅ เพิ่ม import
+const Movie = require('../models/Movies');
+const UserAction = require('../models/UserAction'); // ✅ import schema ใหม่
 
 let actionCountMap = new Map(); // ใช้เก็บจำนวน action ต่อ session
 
@@ -18,7 +19,7 @@ exports.logFavActivity = async (req, res) => {
     const user = await User.findById(userId);
     if (!user) return res.status(404).json({ success: false });
 
-    const movie = await Movie.findById(objectId); // ✅ โหลด movie ก่อนใช้งาน
+    const movie = await Movie.findById(objectId);
     if (!movie) return res.status(404).json({ success: false, message: 'Movie not found' });
 
     let removed = false;
@@ -26,7 +27,6 @@ exports.logFavActivity = async (req, res) => {
     // 🎯 LIKE
     if (action === 'like') {
       const alreadyLiked = user.like.some(id => id.equals(objectId));
-
       if (alreadyLiked) {
         user.like = user.like.filter(id => !id.equals(objectId));
         movie.like = Math.max(0, movie.like - 1);
@@ -36,14 +36,12 @@ exports.logFavActivity = async (req, res) => {
         user.dislike = user.dislike.filter(id => !id.equals(objectId));
         movie.like += 1;
         movie.dislike = Math.max(0, movie.dislike - 1);
-        removed = false;
       }
     }
 
     // 🎯 DISLIKE
     else if (action === 'dislike') {
       const alreadyDisliked = user.dislike.some(id => id.equals(objectId));
-
       if (alreadyDisliked) {
         user.dislike = user.dislike.filter(id => !id.equals(objectId));
         movie.dislike = Math.max(0, movie.dislike - 1);
@@ -53,7 +51,6 @@ exports.logFavActivity = async (req, res) => {
         user.like = user.like.filter(id => !id.equals(objectId));
         movie.dislike += 1;
         movie.like = Math.max(0, movie.like - 1);
-        removed = false;
       }
     }
 
@@ -64,7 +61,6 @@ exports.logFavActivity = async (req, res) => {
         removed = true;
       } else {
         user.wishlist.push(objectId);
-        removed = false;
       }
     }
 
@@ -75,7 +71,6 @@ exports.logFavActivity = async (req, res) => {
         removed = true;
       } else {
         user.seen.push(objectId);
-        removed = false;
       }
     }
 
@@ -83,8 +78,17 @@ exports.logFavActivity = async (req, res) => {
     await user.save();
     await movie.save();
 
+    // ✅ Save activity to UserAction only if action is not removed
+    if (!removed) {
+      await UserAction.create({
+        userId,
+        movieId: objectId,
+        action
+      });
+    }
+
     // ✅ Update session-based action count
-    let sessionId = req.sessionID;
+    const sessionId = req.sessionID;
     if (!actionCountMap.has(sessionId)) actionCountMap.set(sessionId, new Set());
     actionCountMap.get(sessionId).add(movieId);
 
@@ -92,7 +96,7 @@ exports.logFavActivity = async (req, res) => {
 
     return res.json({
       success: true,
-      redirect: totalActions >= 15 // ✅ เปลี่ยนหน้าเมื่อครบ 15 actions
+      redirect: totalActions >= 15
     });
 
   } catch (error) {
